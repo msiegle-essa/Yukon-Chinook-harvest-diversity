@@ -16,7 +16,8 @@ library(ggplot2)
 
 
 # set working directory ####
-setwd("~/Dropbox (ESSA Technologies)/EN2438 - Yukon Chinook/Data and analyses/GIT_R.file_organization/input files")
+setwd("~/Dropbox (ESSA Technologies)/EN2438 - Yukon Chinook/Yukon Chinook harvest-diversity/input files")
+
 
 
 #read in border counts (fish wheel and sonar)
