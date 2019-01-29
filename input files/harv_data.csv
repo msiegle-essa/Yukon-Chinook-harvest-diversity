@@ -1,0 +1,289 @@
+year,region,Harvest,reg_code,truecount
+1982,Carmacks,3.953862,1,1
+1982,Lower Mainstem,17.68833,2,1
+1982,Middle Mainstem,2.601225,3,1
+1982,Pelly,12.277782,4,1
+1982,Stewart,21.538143,5,1
+1982,Teslin River,28.717524,6,1
+1982,Upper Lakes and Mainstem,1.872882,7,1
+1982,White-Donjek,15.399252,8,1
+1983,Carmacks,20.255375,1,1
+1983,Lower Mainstem,9.143855,2,1
+1983,Middle Mainstem,9.2596,3,1
+1983,Pelly,8.912365,4,1
+1983,Stewart,10.069815,5,1
+1983,Teslin River,50.46482,6,1
+1983,Upper Lakes and Mainstem,3.588095,7,1
+1983,White-Donjek,4.051075,8,1
+1984,Carmacks,9.94789,1,0
+1984,Lower Mainstem,4.424675,2,0
+1984,Middle Mainstem,3.96695,3,0
+1984,Pelly,8.42214,4,0
+1984,Stewart,5.523215,5,0
+1984,Teslin River,24.96127,6,0
+1984,Upper Lakes and Mainstem,1.617295,7,0
+1984,White-Donjek,2.166565,8,0
+1985,Carmacks,15.843675,1,1
+1985,Lower Mainstem,6.820125,2,1
+1985,Middle Mainstem,5.24625,3,1
+1985,Pelly,21.089925,4,1
+1985,Stewart,9.86295,5,1
+1985,Teslin River,39.976425,6,1
+1985,Upper Lakes and Mainstem,2.30835,7,1
+1985,White-Donjek,3.7773,8,1
+1986,Carmacks,16.707294,1,1
+1986,Lower Mainstem,8.941932,2,1
+1986,Middle Mainstem,1.294227,3,1
+1986,Pelly,24.354999,4,1
+1986,Stewart,15.29541,5,1
+1986,Teslin River,39.415095,6,1
+1986,Upper Lakes and Mainstem,2.588454,7,1
+1986,White-Donjek,9.059589,8,1
+1987,Carmacks,12.883734,1,1
+1987,Lower Mainstem,5.180058,2,1
+1987,Middle Mainstem,6.6411,3,1
+1987,Pelly,42.237396,4,1
+1987,Stewart,14.079132,5,1
+1987,Teslin River,36.658872,6,1
+1987,Upper Lakes and Mainstem,3.453372,7,1
+1987,White-Donjek,11.688336,8,1
+1988,Carmacks,12.293332,1,0
+1988,Lower Mainstem,8.160229,2,0
+1988,Middle Mainstem,6.888505,3,0
+1988,Pelly,26.176319,4,0
+1988,Stewart,10.915631,5,0
+1988,Teslin River,29.991491,6,0
+1988,Upper Lakes and Mainstem,5.510804,7,0
+1988,White-Donjek,6.040689,8,0
+1989,Carmacks,12.089172,1,0
+1989,Lower Mainstem,8.024709,2,0
+1989,Middle Mainstem,6.774105,3,0
+1989,Pelly,25.741599,4,0
+1989,Stewart,10.734351,5,0
+1989,Teslin River,29.493411,6,0
+1989,Upper Lakes and Mainstem,5.419284,7,0
+1989,White-Donjek,5.940369,8,0
+1990,Carmacks,10.669216,1,0
+1990,Lower Mainstem,7.082152,2,0
+1990,Middle Mainstem,5.97844,3,0
+1990,Pelly,22.718072,4,0
+1990,Stewart,9.473528,5,0
+1990,Teslin River,26.029208,6,0
+1990,Upper Lakes and Mainstem,4.782752,7,0
+1990,White-Donjek,5.242632,8,0
+1991,Carmacks,11.02329,1,1
+1991,Lower Mainstem,9.471864,2,1
+1991,Middle Mainstem,6.53232,3,1
+1991,Pelly,14.28945,4,1
+1991,Stewart,8.1654,5,1
+1991,Teslin River,23.67966,6,1
+1991,Upper Lakes and Mainstem,6.369012,7,1
+1991,White-Donjek,2.123004,8,1
+1992,Carmacks,9.435248,1,1
+1992,Lower Mainstem,14.383,2,1
+1992,Middle Mainstem,14.843256,3,1
+1992,Pelly,26.234592,4,1
+1992,Stewart,13.23236,5,1
+1992,Teslin River,21.632032,6,1
+1992,Upper Lakes and Mainstem,2.761536,7,1
+1992,White-Donjek,12.541976,8,1
+1993,Carmacks,7.62264,1,1
+1993,Lower Mainstem,19.914147,2,1
+1993,Middle Mainstem,10.671696,3,1
+1993,Pelly,12.577356,4,1
+1993,Stewart,7.62264,5,1
+1993,Teslin River,18.389619,6,1
+1993,Upper Lakes and Mainstem,2.667924,7,1
+1993,White-Donjek,15.816978,8,1
+1994,Carmacks,15.838016,1,1
+1994,Lower Mainstem,21.194992,2,1
+1994,Middle Mainstem,6.521536,3,1
+1994,Pelly,19.79752,4,1
+1994,Stewart,12.111424,5,1
+1994,Teslin River,22.12664,6,1
+1994,Upper Lakes and Mainstem,4.541784,7,1
+1994,White-Donjek,14.324088,8,1
+1995,Carmacks,15.961946,1,1
+1995,Lower Mainstem,8.695687,2,1
+1995,Middle Mainstem,14.770756,3,1
+1995,Pelly,11.792781,4,1
+1995,Stewart,19.05904,5,1
+1995,Teslin River,34.54451,6,1
+1995,Upper Lakes and Mainstem,9.172163,7,1
+1995,White-Donjek,5.122117,8,1
+1996,Carmacks,25.592784,1,1
+1996,Lower Mainstem,6.398196,2,1
+1996,Middle Mainstem,6.072864,3,1
+1996,Pelly,13.230168,4,1
+1996,Stewart,9.000852,5,1
+1996,Teslin River,22.77324,6,1
+1996,Upper Lakes and Mainstem,5.205312,7,1
+1996,White-Donjek,20.170584,8,1
+1997,Carmacks,24.704291,1,1
+1997,Lower Mainstem,9.169715,2,1
+1997,Middle Mainstem,0.970911,3,1
+1997,Pelly,11.974569,4,1
+1997,Stewart,9.924868,5,1
+1997,Teslin River,35.923707,6,1
+1997,Upper Lakes and Mainstem,8.090925,7,1
+1997,White-Donjek,7.120014,8,1
+1998,Carmacks,11.079054,1,0
+1998,Lower Mainstem,4.576131,2,0
+1998,Middle Mainstem,4.28176,3,0
+1998,Pelly,6.556445,4,0
+1998,Stewart,4.950785,5,0
+1998,Teslin River,14.156569,6,0
+1998,Upper Lakes and Mainstem,3.157798,7,0
+1998,White-Donjek,4.763458,8,0
+1999,Carmacks,13.55347,1,1
+1999,Lower Mainstem,6.300532,2,1
+1999,Middle Mainstem,11.062562,3,1
+1999,Pelly,9.817108,4,1
+1999,Stewart,6.886628,5,1
+1999,Teslin River,14.359352,6,1
+1999,Upper Lakes and Mainstem,3.150266,7,1
+1999,White-Donjek,8.132082,8,1
+2000,Carmacks,5.3944,1,1
+2000,Lower Mainstem,1.48346,2,1
+2000,Middle Mainstem,3.155724,3,1
+2000,Pelly,5.758522,4,1
+2000,Stewart,0.377608,5,1
+2000,Teslin River,4.935876,6,1
+2000,Upper Lakes and Mainstem,1.726208,7,1
+2000,White-Donjek,4.140202,8,1
+2001,Carmacks,2.945811,1,1
+2001,Lower Mainstem,8.539542,2,1
+2001,Middle Mainstem,0.959871,3,1
+2001,Pelly,8.440245,4,1
+2001,Stewart,3.144405,5,1
+2001,Teslin River,4.236672,6,1
+2001,Upper Lakes and Mainstem,1.84397525,7,1
+2001,White-Donjek,4.832454,8,1
+2002,Carmacks,2.973652,1,1
+2002,Lower Mainstem,5.360399,2,1
+2002,Middle Mainstem,11.542465,3,1
+2002,Pelly,2.856271,4,1
+2002,Stewart,6.808098,5,1
+2002,Teslin River,8.803575,6,1
+2002,Upper Lakes and Mainstem,0.626032,7,1
+2002,White-Donjek,0.156508,8,1
+2003,Carmacks,11.309755,1,1
+2003,Lower Mainstem,14.8136975,2,1
+2003,Middle Mainstem,3.88556,3,1
+2003,Pelly,18.6298725,4,1
+2003,Stewart,3.88556,5,1
+2003,Teslin River,8.256815,6,1
+2003,Upper Lakes and Mainstem,1.873395,7,1
+2003,White-Donjek,6.730345,8,1
+2004,Carmacks,10.3167,1,1
+2004,Lower Mainstem,12.792708,2,1
+2004,Middle Mainstem,5.84613,3,1
+2004,Pelly,14.924826,4,1
+2004,Stewart,4.401792,5,1
+2004,Teslin River,12.792708,6,1
+2004,Upper Lakes and Mainstem,2.40723,7,1
+2004,White-Donjek,5.295906,8,1
+2005,Carmacks,8.955947,1,1
+2005,Lower Mainstem,8.455304,2,1
+2005,Middle Mainstem,0.445016,3,1
+2005,Pelly,12.293567,4,1
+2005,Stewart,1.446302,5,1
+2005,Teslin River,18.190029,6,1
+2005,Upper Lakes and Mainstem,1.724437,7,1
+2005,White-Donjek,4.116398,8,1
+2006,Carmacks,7.2490125,1,0
+2006,Lower Mainstem,6.4530425,2,0
+2006,Middle Mainstem,8.0449825,3,0
+2006,Pelly,11.2857175,4,0
+2006,Stewart,3.18388,5,0
+2006,Teslin River,15.46456,6,0
+2006,Upper Lakes and Mainstem,1.36452,7,0
+2006,White-Donjek,3.809285,8,0
+2007,Carmacks,6.7568625,1,0
+2007,Lower Mainstem,6.0149325,2,0
+2007,Middle Mainstem,7.4987925,3,0
+2007,Pelly,10.5195075,4,0
+2007,Stewart,2.96772,5,0
+2007,Teslin River,14.41464,6,0
+2007,Upper Lakes and Mainstem,1.27188,7,0
+2007,White-Donjek,3.550665,8,0
+2008,Carmacks,2.702876,1,1
+2008,Lower Mainstem,2.15655,2,1
+2008,Middle Mainstem,7.90735,3,1
+2008,Pelly,5.060704,4,1
+2008,Stewart,2.472844,5,1
+2008,Teslin River,6.239618,6,1
+2008,Upper Lakes and Mainstem,0.488818,7,1
+2008,White-Donjek,1.72524,8,1
+2009,Carmacks,4.03272,1,1
+2009,Lower Mainstem,2.061168,2,1
+2009,Middle Mainstem,0.582504,3,1
+2009,Pelly,5.601,4,1
+2009,Stewart,2.35242,5,1
+2009,Teslin River,5.556192,6,1
+2009,Upper Lakes and Mainstem,0.694524,7,1
+2009,White-Donjek,1.523472,8,1
+2010,Carmacks,4.380866,1,1
+2010,Lower Mainstem,0.9288545,2,1
+2010,Middle Mainstem,3.188605,3,1
+2010,Pelly,3.5906465,4,1
+2010,Stewart,2.994516,5,1
+2010,Teslin River,9.454907,6,1
+2010,Upper Lakes and Mainstem,2.134979,7,1
+2010,White-Donjek,1.053626,8,1
+2011,Carmacks,3.3046,1,1
+2011,Lower Mainstem,1.70314,2,1
+2011,Middle Mainstem,3.50796,3,1
+2011,Pelly,5.98641,4,1
+2011,Stewart,1.55062,5,1
+2011,Teslin River,6.96508,6,1
+2011,Upper Lakes and Mainstem,1.19474,7,1
+2011,White-Donjek,1.20745,8,1
+2012,Carmacks,2.31264,1,1
+2012,Lower Mainstem,0.44352,2,1
+2012,Middle Mainstem,2.86704,3,1
+2012,Pelly,1.44144,4,1
+2012,Stewart,1.39392,5,1
+2012,Teslin River,5.71824,6,1
+2012,Upper Lakes and Mainstem,1.04544,7,1
+2012,White-Donjek,0.61776,8,1
+2013,Carmacks,1.335756,1,1
+2013,Lower Mainstem,0.06381,2,1
+2013,Middle Mainstem,1.812204,3,1
+2013,Pelly,1.301724,4,1
+2013,Stewart,0.331812,5,1
+2013,Teslin River,2.875704,6,1
+2013,Upper Lakes and Mainstem,0.578544,7,1
+2013,White-Donjek,0.208446,8,1
+2014,Carmacks,0.182756,1,1
+2014,Lower Mainstem,0.038199,2,1
+2014,Middle Mainstem,0.316078,3,1
+2014,Pelly,0.250915,4,1
+2014,Stewart,0.108605,5,1
+2014,Teslin River,0.467376,6,1
+2014,Upper Lakes and Mainstem,0.061418,7,1
+2014,White-Donjek,0.072653,8,1
+2015,Carmacks,0.83187,1,1
+2015,Lower Mainstem,0.20856,2,1
+2015,Middle Mainstem,0.7584,3,1
+2015,Pelly,0.86268,4,1
+2015,Stewart,0.39105,5,1
+2015,Teslin River,1.20396,6,1
+2015,Upper Lakes and Mainstem,0.21804,7,1
+2015,White-Donjek,0.26544,8,1
+2016,Carmacks,NA,1,1
+2016,Lower Mainstem,NA,2,1
+2016,Middle Mainstem,NA,3,1
+2016,Pelly,NA,4,1
+2016,Stewart,NA,5,1
+2016,Teslin River,NA,6,1
+2016,Upper Lakes and Mainstem,NA,7,1
+2016,White-Donjek,NA,8,1
+2017,Carmacks,NA,1,1
+2017,Lower Mainstem,NA,2,1
+2017,Middle Mainstem,NA,3,1
+2017,Pelly,NA,4,1
+2017,Stewart,NA,5,1
+2017,Teslin River,NA,6,1
+2017,Upper Lakes and Mainstem,NA,7,1
+2017,White-Donjek,NA,8,1

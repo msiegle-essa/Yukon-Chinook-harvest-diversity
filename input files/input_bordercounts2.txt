@@ -1,0 +1,3401 @@
+count_type	month	day	count	year	julian
+fish_wheel	6	23	0	1985	174
+fish_wheel	6	24	0	1985	175
+fish_wheel	6	25	0	1985	176
+fish_wheel	6	26	0	1985	177
+fish_wheel	6	27	0	1985	178
+fish_wheel	6	28	0	1985	179
+fish_wheel	6	29	0	1985	180
+fish_wheel	6	30	0	1985	181
+fish_wheel	7	1	0	1985	182
+fish_wheel	7	2	0	1985	183
+fish_wheel	7	3	0	1985	184
+fish_wheel	7	4	0	1985	185
+fish_wheel	7	5	0	1985	186
+fish_wheel	7	6	0	1985	187
+fish_wheel	7	7	0	1985	188
+fish_wheel	7	8	0	1985	189
+fish_wheel	7	9	0	1985	190
+fish_wheel	7	10	0	1985	191
+fish_wheel	7	11	0	1985	192
+fish_wheel	7	12	0	1985	193
+fish_wheel	7	13	0	1985	194
+fish_wheel	7	14	0	1985	195
+fish_wheel	7	15	0	1985	196
+fish_wheel	7	16	0	1985	197
+fish_wheel	7	17	0	1985	198
+fish_wheel	7	18	1	1985	199
+fish_wheel	7	19	9	1985	200
+fish_wheel	7	20	11	1985	201
+fish_wheel	7	21	16	1985	202
+fish_wheel	7	22	15	1985	203
+fish_wheel	7	23	33	1985	204
+fish_wheel	7	24	26	1985	205
+fish_wheel	7	25	32	1985	206
+fish_wheel	7	26	37	1985	207
+fish_wheel	7	27	52	1985	208
+fish_wheel	7	28	81	1985	209
+fish_wheel	7	29	69	1985	210
+fish_wheel	7	30	66	1985	211
+fish_wheel	7	31	88	1985	212
+fish_wheel	8	1	82	1985	213
+fish_wheel	8	2	163	1985	214
+fish_wheel	8	3	138	1985	215
+fish_wheel	8	4	50	1985	216
+fish_wheel	8	5	35	1985	217
+fish_wheel	8	6	36	1985	218
+fish_wheel	8	7	41	1985	219
+fish_wheel	8	8	35	1985	220
+fish_wheel	8	9	28	1985	221
+fish_wheel	8	10	20	1985	222
+fish_wheel	8	11	23	1985	223
+fish_wheel	8	12	13	1985	224
+fish_wheel	8	13	13	1985	225
+fish_wheel	8	14	14	1985	226
+fish_wheel	8	15	11	1985	227
+fish_wheel	8	16	17	1985	228
+fish_wheel	8	17	7	1985	229
+fish_wheel	8	18	3	1985	230
+fish_wheel	8	19	1	1985	231
+fish_wheel	8	20	5	1985	232
+fish_wheel	8	21	4	1985	233
+fish_wheel	8	22	0	1985	234
+fish_wheel	8	23	9	1985	235
+fish_wheel	8	24	9	1985	236
+fish_wheel	8	25	2	1985	237
+fish_wheel	8	26	5	1985	238
+fish_wheel	8	27	5	1985	239
+fish_wheel	8	28	2	1985	240
+fish_wheel	8	29	1	1985	241
+fish_wheel	8	30	3	1985	242
+fish_wheel	8	31	4	1985	243
+fish_wheel	9	1	0	1985	244
+fish_wheel	9	2	0	1985	245
+fish_wheel	9	3	3	1985	246
+fish_wheel	9	4	0	1985	247
+fish_wheel	9	5	0	1985	248
+fish_wheel	9	6	0	1985	249
+fish_wheel	9	7	1	1985	250
+fish_wheel	9	8	0	1985	251
+fish_wheel	9	9	0	1985	252
+fish_wheel	9	10	0	1985	253
+fish_wheel	9	11	0	1985	254
+fish_wheel	9	12	0	1985	255
+fish_wheel	9	13	1	1985	256
+fish_wheel	9	14	0	1985	257
+fish_wheel	9	15	0	1985	258
+fish_wheel	9	16	0	1985	259
+fish_wheel	9	17	0	1985	260
+fish_wheel	9	18	1	1985	261
+fish_wheel	9	19	0	1985	262
+fish_wheel	9	20	0	1985	263
+fish_wheel	9	21	0	1985	264
+fish_wheel	9	22	0	1985	265
+fish_wheel	9	23	0	1985	266
+fish_wheel	9	24	0	1985	267
+fish_wheel	9	25	0	1985	268
+fish_wheel	9	26	0	1985	269
+fish_wheel	9	27	0	1985	270
+fish_wheel	9	28	0	1985	271
+fish_wheel	9	29	0	1985	272
+fish_wheel	9	30	0	1985	273
+fish_wheel	10	1	0	1985	274
+fish_wheel	10	2	0	1985	275
+fish_wheel	10	3	0	1985	276
+fish_wheel	10	4	0	1985	277
+fish_wheel	10	5	0	1985	278
+fish_wheel	10	6	0	1985	279
+fish_wheel	10	7	0	1985	280
+fish_wheel	10	8	0	1985	281
+fish_wheel	10	9	0	1985	282
+fish_wheel	10	10	0	1985	283
+fish_wheel	6	23	0	1986	174
+fish_wheel	6	24	0	1986	175
+fish_wheel	6	25	0	1986	176
+fish_wheel	6	26	0	1986	177
+fish_wheel	6	27	0	1986	178
+fish_wheel	6	28	0	1986	179
+fish_wheel	6	29	0	1986	180
+fish_wheel	6	30	0	1986	181
+fish_wheel	7	1	0	1986	182
+fish_wheel	7	2	0	1986	183
+fish_wheel	7	3	0	1986	184
+fish_wheel	7	4	0	1986	185
+fish_wheel	7	5	1	1986	186
+fish_wheel	7	6	0	1986	187
+fish_wheel	7	7	1	1986	188
+fish_wheel	7	8	0	1986	189
+fish_wheel	7	9	4	1986	190
+fish_wheel	7	10	4	1986	191
+fish_wheel	7	11	4	1986	192
+fish_wheel	7	12	14	1986	193
+fish_wheel	7	13	31	1986	194
+fish_wheel	7	14	45	1986	195
+fish_wheel	7	15	53	1986	196
+fish_wheel	7	16	121	1986	197
+fish_wheel	7	17	48	1986	198
+fish_wheel	7	18	51	1986	199
+fish_wheel	7	19	96	1986	200
+fish_wheel	7	20	95	1986	201
+fish_wheel	7	21	234	1986	202
+fish_wheel	7	22	200	1986	203
+fish_wheel	7	23	186	1986	204
+fish_wheel	7	24	115	1986	205
+fish_wheel	7	25	55	1986	206
+fish_wheel	7	26	65	1986	207
+fish_wheel	7	27	92	1986	208
+fish_wheel	7	28	76	1986	209
+fish_wheel	7	29	95	1986	210
+fish_wheel	7	30	98	1986	211
+fish_wheel	7	31	42	1986	212
+fish_wheel	8	1	40	1986	213
+fish_wheel	8	2	24	1986	214
+fish_wheel	8	3	15	1986	215
+fish_wheel	8	4	17	1986	216
+fish_wheel	8	5	10	1986	217
+fish_wheel	8	6	8	1986	218
+fish_wheel	8	7	8	1986	219
+fish_wheel	8	8	5	1986	220
+fish_wheel	8	9	7	1986	221
+fish_wheel	8	10	4	1986	222
+fish_wheel	8	11	2	1986	223
+fish_wheel	8	12	4	1986	224
+fish_wheel	8	13	4	1986	225
+fish_wheel	8	14	2	1986	226
+fish_wheel	8	15	3	1986	227
+fish_wheel	8	16	1	1986	228
+fish_wheel	8	17	1	1986	229
+fish_wheel	8	18	4	1986	230
+fish_wheel	8	19	3	1986	231
+fish_wheel	8	20	1	1986	232
+fish_wheel	8	21	1	1986	233
+fish_wheel	8	22	1	1986	234
+fish_wheel	8	23	1	1986	235
+fish_wheel	8	24	0	1986	236
+fish_wheel	8	25	1	1986	237
+fish_wheel	8	26	0	1986	238
+fish_wheel	8	27	2	1986	239
+fish_wheel	8	28	0	1986	240
+fish_wheel	8	29	0	1986	241
+fish_wheel	8	30	0	1986	242
+fish_wheel	8	31	0	1986	243
+fish_wheel	9	1	1	1986	244
+fish_wheel	9	2	0	1986	245
+fish_wheel	9	3	0	1986	246
+fish_wheel	9	4	1	1986	247
+fish_wheel	9	5	0	1986	248
+fish_wheel	9	6	0	1986	249
+fish_wheel	9	7	0	1986	250
+fish_wheel	9	8	0	1986	251
+fish_wheel	9	9	0	1986	252
+fish_wheel	9	10	0	1986	253
+fish_wheel	9	11	0	1986	254
+fish_wheel	9	12	0	1986	255
+fish_wheel	9	13	0	1986	256
+fish_wheel	9	14	1	1986	257
+fish_wheel	9	15	0	1986	258
+fish_wheel	9	16	0	1986	259
+fish_wheel	9	17	0	1986	260
+fish_wheel	9	18	0	1986	261
+fish_wheel	9	19	0	1986	262
+fish_wheel	9	20	0	1986	263
+fish_wheel	9	21	0	1986	264
+fish_wheel	9	22	0	1986	265
+fish_wheel	9	23	0	1986	266
+fish_wheel	9	24	0	1986	267
+fish_wheel	9	25	0	1986	268
+fish_wheel	9	26	0	1986	269
+fish_wheel	9	27	NA	1986	270
+fish_wheel	9	28	NA	1986	271
+fish_wheel	9	29	NA	1986	272
+fish_wheel	9	30	NA	1986	273
+fish_wheel	10	1	NA	1986	274
+fish_wheel	10	2	NA	1986	275
+fish_wheel	10	3	NA	1986	276
+fish_wheel	10	4	NA	1986	277
+fish_wheel	10	5	NA	1986	278
+fish_wheel	10	6	NA	1986	279
+fish_wheel	10	7	NA	1986	280
+fish_wheel	10	8	NA	1986	281
+fish_wheel	10	9	NA	1986	282
+fish_wheel	10	10	NA	1986	283
+fish_wheel	6	23	0	1987	174
+fish_wheel	6	24	0	1987	175
+fish_wheel	6	25	0	1987	176
+fish_wheel	6	26	0	1987	177
+fish_wheel	6	27	0	1987	178
+fish_wheel	6	28	0	1987	179
+fish_wheel	6	29	2	1987	180
+fish_wheel	6	30	0	1987	181
+fish_wheel	7	1	0	1987	182
+fish_wheel	7	2	1	1987	183
+fish_wheel	7	3	0	1987	184
+fish_wheel	7	4	0	1987	185
+fish_wheel	7	5	0	1987	186
+fish_wheel	7	6	2	1987	187
+fish_wheel	7	7	1	1987	188
+fish_wheel	7	8	1	1987	189
+fish_wheel	7	9	1	1987	190
+fish_wheel	7	10	1	1987	191
+fish_wheel	7	11	15	1987	192
+fish_wheel	7	12	45	1987	193
+fish_wheel	7	13	57	1987	194
+fish_wheel	7	14	42	1987	195
+fish_wheel	7	15	56	1987	196
+fish_wheel	7	16	58	1987	197
+fish_wheel	7	17	36	1987	198
+fish_wheel	7	18	50	1987	199
+fish_wheel	7	19	36	1987	200
+fish_wheel	7	20	16	1987	201
+fish_wheel	7	21	11	1987	202
+fish_wheel	7	22	22	1987	203
+fish_wheel	7	23	36	1987	204
+fish_wheel	7	24	26	1987	205
+fish_wheel	7	25	30	1987	206
+fish_wheel	7	26	36	1987	207
+fish_wheel	7	27	25	1987	208
+fish_wheel	7	28	23	1987	209
+fish_wheel	7	29	24	1987	210
+fish_wheel	7	30	26	1987	211
+fish_wheel	7	31	30	1987	212
+fish_wheel	8	1	74	1987	213
+fish_wheel	8	2	35	1987	214
+fish_wheel	8	3	32	1987	215
+fish_wheel	8	4	18	1987	216
+fish_wheel	8	5	4	1987	217
+fish_wheel	8	6	8	1987	218
+fish_wheel	8	7	8	1987	219
+fish_wheel	8	8	7	1987	220
+fish_wheel	8	9	9	1987	221
+fish_wheel	8	10	4	1987	222
+fish_wheel	8	11	4	1987	223
+fish_wheel	8	12	3	1987	224
+fish_wheel	8	13	3	1987	225
+fish_wheel	8	14	1	1987	226
+fish_wheel	8	15	1	1987	227
+fish_wheel	8	16	1	1987	228
+fish_wheel	8	17	2	1987	229
+fish_wheel	8	18	0	1987	230
+fish_wheel	8	19	2	1987	231
+fish_wheel	8	20	1	1987	232
+fish_wheel	8	21	0	1987	233
+fish_wheel	8	22	0	1987	234
+fish_wheel	8	23	1	1987	235
+fish_wheel	8	24	0	1987	236
+fish_wheel	8	25	0	1987	237
+fish_wheel	8	26	0	1987	238
+fish_wheel	8	27	1	1987	239
+fish_wheel	8	28	1	1987	240
+fish_wheel	8	29	1	1987	241
+fish_wheel	8	30	0	1987	242
+fish_wheel	8	31	1	1987	243
+fish_wheel	9	1	0	1987	244
+fish_wheel	9	2	0	1987	245
+fish_wheel	9	3	1	1987	246
+fish_wheel	9	4	0	1987	247
+fish_wheel	9	5	0	1987	248
+fish_wheel	9	6	0	1987	249
+fish_wheel	9	7	0	1987	250
+fish_wheel	9	8	1	1987	251
+fish_wheel	9	9	1	1987	252
+fish_wheel	9	10	1	1987	253
+fish_wheel	9	11	1	1987	254
+fish_wheel	9	12	0	1987	255
+fish_wheel	9	13	0	1987	256
+fish_wheel	9	14	0	1987	257
+fish_wheel	9	15	0	1987	258
+fish_wheel	9	16	0	1987	259
+fish_wheel	9	17	0	1987	260
+fish_wheel	9	18	0	1987	261
+fish_wheel	9	19	0	1987	262
+fish_wheel	9	20	0	1987	263
+fish_wheel	9	21	0	1987	264
+fish_wheel	9	22	1	1987	265
+fish_wheel	9	23	0	1987	266
+fish_wheel	9	24	0	1987	267
+fish_wheel	9	25	0	1987	268
+fish_wheel	9	26	1	1987	269
+fish_wheel	9	27	0	1987	270
+fish_wheel	9	28	0	1987	271
+fish_wheel	9	29	0	1987	272
+fish_wheel	9	30	0	1987	273
+fish_wheel	10	1	0	1987	274
+fish_wheel	10	2	0	1987	275
+fish_wheel	10	3	0	1987	276
+fish_wheel	10	4	0	1987	277
+fish_wheel	10	5	0	1987	278
+fish_wheel	10	6	0	1987	279
+fish_wheel	10	7	0	1987	280
+fish_wheel	10	8	0	1987	281
+fish_wheel	10	9	0	1987	282
+fish_wheel	10	10	0	1987	283
+fish_wheel	6	23	1	1988	175
+fish_wheel	6	24	0	1988	176
+fish_wheel	6	25	2	1988	177
+fish_wheel	6	26	1	1988	178
+fish_wheel	6	27	2	1988	179
+fish_wheel	6	28	2	1988	180
+fish_wheel	6	29	3	1988	181
+fish_wheel	6	30	1	1988	182
+fish_wheel	7	1	7	1988	183
+fish_wheel	7	2	7	1988	184
+fish_wheel	7	3	13	1988	185
+fish_wheel	7	4	2	1988	186
+fish_wheel	7	5	10	1988	187
+fish_wheel	7	6	4	1988	188
+fish_wheel	7	7	7	1988	189
+fish_wheel	7	8	11	1988	190
+fish_wheel	7	9	7	1988	191
+fish_wheel	7	10	15	1988	192
+fish_wheel	7	11	14	1988	193
+fish_wheel	7	12	16	1988	194
+fish_wheel	7	13	18	1988	195
+fish_wheel	7	14	12	1988	196
+fish_wheel	7	15	17	1988	197
+fish_wheel	7	16	18	1988	198
+fish_wheel	7	17	49	1988	199
+fish_wheel	7	18	45	1988	200
+fish_wheel	7	19	42	1988	201
+fish_wheel	7	20	52	1988	202
+fish_wheel	7	21	37	1988	203
+fish_wheel	7	22	33	1988	204
+fish_wheel	7	23	11	1988	205
+fish_wheel	7	24	19	1988	206
+fish_wheel	7	25	33	1988	207
+fish_wheel	7	26	19	1988	208
+fish_wheel	7	27	30	1988	209
+fish_wheel	7	28	33	1988	210
+fish_wheel	7	29	27	1988	211
+fish_wheel	7	30	11	1988	212
+fish_wheel	7	31	30	1988	213
+fish_wheel	8	1	35	1988	214
+fish_wheel	8	2	20	1988	215
+fish_wheel	8	3	25	1988	216
+fish_wheel	8	4	17	1988	217
+fish_wheel	8	5	22	1988	218
+fish_wheel	8	6	23	1988	219
+fish_wheel	8	7	10	1988	220
+fish_wheel	8	8	12	1988	221
+fish_wheel	8	9	12	1988	222
+fish_wheel	8	10	35	1988	223
+fish_wheel	8	11	16	1988	224
+fish_wheel	8	12	20	1988	225
+fish_wheel	8	13	13	1988	226
+fish_wheel	8	14	11	1988	227
+fish_wheel	8	15	8	1988	228
+fish_wheel	8	16	9	1988	229
+fish_wheel	8	17	4	1988	230
+fish_wheel	8	18	4	1988	231
+fish_wheel	8	19	2	1988	232
+fish_wheel	8	20	5	1988	233
+fish_wheel	8	21	3	1988	234
+fish_wheel	8	22	1	1988	235
+fish_wheel	8	23	2	1988	236
+fish_wheel	8	24	1	1988	237
+fish_wheel	8	25	1	1988	238
+fish_wheel	8	26	1	1988	239
+fish_wheel	8	27	1	1988	240
+fish_wheel	8	28	0	1988	241
+fish_wheel	8	29	1	1988	242
+fish_wheel	8	30	0	1988	243
+fish_wheel	8	31	0	1988	244
+fish_wheel	9	1	0	1988	245
+fish_wheel	9	2	0	1988	246
+fish_wheel	9	3	0	1988	247
+fish_wheel	9	4	0	1988	248
+fish_wheel	9	5	0	1988	249
+fish_wheel	9	6	0	1988	250
+fish_wheel	9	7	0	1988	251
+fish_wheel	9	8	0	1988	252
+fish_wheel	9	9	0	1988	253
+fish_wheel	9	10	0	1988	254
+fish_wheel	9	11	0	1988	255
+fish_wheel	9	12	0	1988	256
+fish_wheel	9	13	0	1988	257
+fish_wheel	9	14	0	1988	258
+fish_wheel	9	15	0	1988	259
+fish_wheel	9	16	0	1988	260
+fish_wheel	9	17	0	1988	261
+fish_wheel	9	18	0	1988	262
+fish_wheel	9	19	0	1988	263
+fish_wheel	9	20	0	1988	264
+fish_wheel	9	21	0	1988	265
+fish_wheel	9	22	0	1988	266
+fish_wheel	9	23	0	1988	267
+fish_wheel	9	24	0	1988	268
+fish_wheel	9	25	0	1988	269
+fish_wheel	9	26	1	1988	270
+fish_wheel	9	27	0	1988	271
+fish_wheel	9	28	0	1988	272
+fish_wheel	9	29	0	1988	273
+fish_wheel	9	30	0	1988	274
+fish_wheel	10	1	0	1988	275
+fish_wheel	10	2	0	1988	276
+fish_wheel	10	3	0	1988	277
+fish_wheel	10	4	0	1988	278
+fish_wheel	10	5	0	1988	279
+fish_wheel	10	6	0	1988	280
+fish_wheel	10	7	0	1988	281
+fish_wheel	10	8	0	1988	282
+fish_wheel	10	9	0	1988	283
+fish_wheel	10	10	0	1988	284
+fish_wheel	6	23	0	1989	174
+fish_wheel	6	24	0	1989	175
+fish_wheel	6	25	0	1989	176
+fish_wheel	6	26	0	1989	177
+fish_wheel	6	27	0	1989	178
+fish_wheel	6	28	0	1989	179
+fish_wheel	6	29	0	1989	180
+fish_wheel	6	30	0	1989	181
+fish_wheel	7	1	0	1989	182
+fish_wheel	7	2	0	1989	183
+fish_wheel	7	3	1	1989	184
+fish_wheel	7	4	0	1989	185
+fish_wheel	7	5	1	1989	186
+fish_wheel	7	6	1	1989	187
+fish_wheel	7	7	0	1989	188
+fish_wheel	7	8	6	1989	189
+fish_wheel	7	9	11	1989	190
+fish_wheel	7	10	5	1989	191
+fish_wheel	7	11	7	1989	192
+fish_wheel	7	12	15	1989	193
+fish_wheel	7	13	28	1989	194
+fish_wheel	7	14	23	1989	195
+fish_wheel	7	15	33	1989	196
+fish_wheel	7	16	40	1989	197
+fish_wheel	7	17	49	1989	198
+fish_wheel	7	18	35	1989	199
+fish_wheel	7	19	42	1989	200
+fish_wheel	7	20	37	1989	201
+fish_wheel	7	21	49	1989	202
+fish_wheel	7	22	38	1989	203
+fish_wheel	7	23	47	1989	204
+fish_wheel	7	24	41	1989	205
+fish_wheel	7	25	53	1989	206
+fish_wheel	7	26	33	1989	207
+fish_wheel	7	27	43	1989	208
+fish_wheel	7	28	52	1989	209
+fish_wheel	7	29	52	1989	210
+fish_wheel	7	30	46	1989	211
+fish_wheel	7	31	48	1989	212
+fish_wheel	8	1	45	1989	213
+fish_wheel	8	2	31	1989	214
+fish_wheel	8	3	23	1989	215
+fish_wheel	8	4	22	1989	216
+fish_wheel	8	5	12	1989	217
+fish_wheel	8	6	17	1989	218
+fish_wheel	8	7	14	1989	219
+fish_wheel	8	8	18	1989	220
+fish_wheel	8	9	8	1989	221
+fish_wheel	8	10	9	1989	222
+fish_wheel	8	11	5	1989	223
+fish_wheel	8	12	3	1989	224
+fish_wheel	8	13	3	1989	225
+fish_wheel	8	14	5	1989	226
+fish_wheel	8	15	1	1989	227
+fish_wheel	8	16	2	1989	228
+fish_wheel	8	17	0	1989	229
+fish_wheel	8	18	0	1989	230
+fish_wheel	8	19	4	1989	231
+fish_wheel	8	20	0	1989	232
+fish_wheel	8	21	1	1989	233
+fish_wheel	8	22	1	1989	234
+fish_wheel	8	23	0	1989	235
+fish_wheel	8	24	2	1989	236
+fish_wheel	8	25	1	1989	237
+fish_wheel	8	26	1	1989	238
+fish_wheel	8	27	1	1989	239
+fish_wheel	8	28	0	1989	240
+fish_wheel	8	29	0	1989	241
+fish_wheel	8	30	0	1989	242
+fish_wheel	8	31	0	1989	243
+fish_wheel	9	1	0	1989	244
+fish_wheel	9	2	0	1989	245
+fish_wheel	9	3	0	1989	246
+fish_wheel	9	4	0	1989	247
+fish_wheel	9	5	0	1989	248
+fish_wheel	9	6	0	1989	249
+fish_wheel	9	7	0	1989	250
+fish_wheel	9	8	0	1989	251
+fish_wheel	9	9	0	1989	252
+fish_wheel	9	10	0	1989	253
+fish_wheel	9	11	0	1989	254
+fish_wheel	9	12	0	1989	255
+fish_wheel	9	13	0	1989	256
+fish_wheel	9	14	0	1989	257
+fish_wheel	9	15	0	1989	258
+fish_wheel	9	16	0	1989	259
+fish_wheel	9	17	0	1989	260
+fish_wheel	9	18	0	1989	261
+fish_wheel	9	19	0	1989	262
+fish_wheel	9	20	0	1989	263
+fish_wheel	9	21	0	1989	264
+fish_wheel	9	22	0	1989	265
+fish_wheel	9	23	0	1989	266
+fish_wheel	9	24	0	1989	267
+fish_wheel	9	25	0	1989	268
+fish_wheel	9	26	0	1989	269
+fish_wheel	9	27	0	1989	270
+fish_wheel	9	28	0	1989	271
+fish_wheel	9	29	0	1989	272
+fish_wheel	9	30	0	1989	273
+fish_wheel	10	1	0	1989	274
+fish_wheel	10	2	0	1989	275
+fish_wheel	10	3	0	1989	276
+fish_wheel	10	4	0	1989	277
+fish_wheel	10	5	0	1989	278
+fish_wheel	10	6	0	1989	279
+fish_wheel	10	7	0	1989	280
+fish_wheel	10	8	0	1989	281
+fish_wheel	10	9	0	1989	282
+fish_wheel	10	10	0	1989	283
+fish_wheel	6	23	0	1990	174
+fish_wheel	6	24	0	1990	175
+fish_wheel	6	25	0	1990	176
+fish_wheel	6	26	0	1990	177
+fish_wheel	6	27	0	1990	178
+fish_wheel	6	28	0	1990	179
+fish_wheel	6	29	1	1990	180
+fish_wheel	6	30	2	1990	181
+fish_wheel	7	1	3	1990	182
+fish_wheel	7	2	0	1990	183
+fish_wheel	7	3	7	1990	184
+fish_wheel	7	4	9	1990	185
+fish_wheel	7	5	6	1990	186
+fish_wheel	7	6	5	1990	187
+fish_wheel	7	7	15	1990	188
+fish_wheel	7	8	8	1990	189
+fish_wheel	7	9	20	1990	190
+fish_wheel	7	10	24	1990	191
+fish_wheel	7	11	25	1990	192
+fish_wheel	7	12	30	1990	193
+fish_wheel	7	13	30	1990	194
+fish_wheel	7	14	33	1990	195
+fish_wheel	7	15	44	1990	196
+fish_wheel	7	16	63	1990	197
+fish_wheel	7	17	71	1990	198
+fish_wheel	7	18	72	1990	199
+fish_wheel	7	19	78	1990	200
+fish_wheel	7	20	71	1990	201
+fish_wheel	7	21	78	1990	202
+fish_wheel	7	22	63	1990	203
+fish_wheel	7	23	67	1990	204
+fish_wheel	7	24	67	1990	205
+fish_wheel	7	25	49	1990	206
+fish_wheel	7	26	67	1990	207
+fish_wheel	7	27	42	1990	208
+fish_wheel	7	28	42	1990	209
+fish_wheel	7	29	42	1990	210
+fish_wheel	7	30	36	1990	211
+fish_wheel	7	31	32	1990	212
+fish_wheel	8	1	24	1990	213
+fish_wheel	8	2	14	1990	214
+fish_wheel	8	3	11	1990	215
+fish_wheel	8	4	13	1990	216
+fish_wheel	8	5	13	1990	217
+fish_wheel	8	6	11	1990	218
+fish_wheel	8	7	12	1990	219
+fish_wheel	8	8	12	1990	220
+fish_wheel	8	9	15	1990	221
+fish_wheel	8	10	9	1990	222
+fish_wheel	8	11	6	1990	223
+fish_wheel	8	12	6	1990	224
+fish_wheel	8	13	1	1990	225
+fish_wheel	8	14	2	1990	226
+fish_wheel	8	15	0	1990	227
+fish_wheel	8	16	2	1990	228
+fish_wheel	8	17	0	1990	229
+fish_wheel	8	18	0	1990	230
+fish_wheel	8	19	0	1990	231
+fish_wheel	8	20	1	1990	232
+fish_wheel	8	21	0	1990	233
+fish_wheel	8	22	0	1990	234
+fish_wheel	8	23	2	1990	235
+fish_wheel	8	24	0	1990	236
+fish_wheel	8	25	3	1990	237
+fish_wheel	8	26	0	1990	238
+fish_wheel	8	27	0	1990	239
+fish_wheel	8	28	2	1990	240
+fish_wheel	8	29	0	1990	241
+fish_wheel	8	30	0	1990	242
+fish_wheel	8	31	0	1990	243
+fish_wheel	9	1	0	1990	244
+fish_wheel	9	2	0	1990	245
+fish_wheel	9	3	0	1990	246
+fish_wheel	9	4	0	1990	247
+fish_wheel	9	5	0	1990	248
+fish_wheel	9	6	0	1990	249
+fish_wheel	9	7	0	1990	250
+fish_wheel	9	8	0	1990	251
+fish_wheel	9	9	0	1990	252
+fish_wheel	9	10	0	1990	253
+fish_wheel	9	11	0	1990	254
+fish_wheel	9	12	0	1990	255
+fish_wheel	9	13	0	1990	256
+fish_wheel	9	14	0	1990	257
+fish_wheel	9	15	0	1990	258
+fish_wheel	9	16	0	1990	259
+fish_wheel	9	17	0	1990	260
+fish_wheel	9	18	0	1990	261
+fish_wheel	9	19	0	1990	262
+fish_wheel	9	20	0	1990	263
+fish_wheel	9	21	0	1990	264
+fish_wheel	9	22	0	1990	265
+fish_wheel	9	23	0	1990	266
+fish_wheel	9	24	0	1990	267
+fish_wheel	9	25	0	1990	268
+fish_wheel	9	26	0	1990	269
+fish_wheel	9	27	0	1990	270
+fish_wheel	9	28	0	1990	271
+fish_wheel	9	29	0	1990	272
+fish_wheel	9	30	0	1990	273
+fish_wheel	10	1	0	1990	274
+fish_wheel	10	2	0	1990	275
+fish_wheel	10	3	0	1990	276
+fish_wheel	10	4	0	1990	277
+fish_wheel	10	5	0	1990	278
+fish_wheel	10	6	0	1990	279
+fish_wheel	10	7	0	1990	280
+fish_wheel	10	8	0	1990	281
+fish_wheel	10	9	0	1990	282
+fish_wheel	10	10	0	1990	283
+fish_wheel	6	23	0	1991	174
+fish_wheel	6	24	0	1991	175
+fish_wheel	6	25	0	1991	176
+fish_wheel	6	26	0	1991	177
+fish_wheel	6	27	0	1991	178
+fish_wheel	6	28	2	1991	179
+fish_wheel	6	29	1	1991	180
+fish_wheel	6	30	2	1991	181
+fish_wheel	7	1	4	1991	182
+fish_wheel	7	2	5	1991	183
+fish_wheel	7	3	7	1991	184
+fish_wheel	7	4	16	1991	185
+fish_wheel	7	5	8	1991	186
+fish_wheel	7	6	23	1991	187
+fish_wheel	7	7	23	1991	188
+fish_wheel	7	8	29	1991	189
+fish_wheel	7	9	51	1991	190
+fish_wheel	7	10	25	1991	191
+fish_wheel	7	11	61	1991	192
+fish_wheel	7	12	71	1991	193
+fish_wheel	7	13	53	1991	194
+fish_wheel	7	14	31	1991	195
+fish_wheel	7	15	27	1991	196
+fish_wheel	7	16	26	1991	197
+fish_wheel	7	17	60	1991	198
+fish_wheel	7	18	49	1991	199
+fish_wheel	7	19	41	1991	200
+fish_wheel	7	20	43	1991	201
+fish_wheel	7	21	45	1991	202
+fish_wheel	7	22	44	1991	203
+fish_wheel	7	23	54	1991	204
+fish_wheel	7	24	48	1991	205
+fish_wheel	7	25	21	1991	206
+fish_wheel	7	26	20	1991	207
+fish_wheel	7	27	38	1991	208
+fish_wheel	7	28	42	1991	209
+fish_wheel	7	29	34	1991	210
+fish_wheel	7	30	31	1991	211
+fish_wheel	7	31	40	1991	212
+fish_wheel	8	1	51	1991	213
+fish_wheel	8	2	50	1991	214
+fish_wheel	8	3	35	1991	215
+fish_wheel	8	4	55	1991	216
+fish_wheel	8	5	86	1991	217
+fish_wheel	8	6	156	1991	218
+fish_wheel	8	7	62	1991	219
+fish_wheel	8	8	26	1991	220
+fish_wheel	8	9	33	1991	221
+fish_wheel	8	10	28	1991	222
+fish_wheel	8	11	18	1991	223
+fish_wheel	8	12	10	1991	224
+fish_wheel	8	13	8	1991	225
+fish_wheel	8	14	9	1991	226
+fish_wheel	8	15	5	1991	227
+fish_wheel	8	16	2	1991	228
+fish_wheel	8	17	5	1991	229
+fish_wheel	8	18	2	1991	230
+fish_wheel	8	19	4	1991	231
+fish_wheel	8	20	5	1991	232
+fish_wheel	8	21	0	1991	233
+fish_wheel	8	22	0	1991	234
+fish_wheel	8	23	0	1991	235
+fish_wheel	8	24	0	1991	236
+fish_wheel	8	25	0	1991	237
+fish_wheel	8	26	0	1991	238
+fish_wheel	8	27	1	1991	239
+fish_wheel	8	28	0	1991	240
+fish_wheel	8	29	0	1991	241
+fish_wheel	8	30	0	1991	242
+fish_wheel	8	31	0	1991	243
+fish_wheel	9	1	0	1991	244
+fish_wheel	9	2	0	1991	245
+fish_wheel	9	3	0	1991	246
+fish_wheel	9	4	0	1991	247
+fish_wheel	9	5	0	1991	248
+fish_wheel	9	6	0	1991	249
+fish_wheel	9	7	0	1991	250
+fish_wheel	9	8	0	1991	251
+fish_wheel	9	9	0	1991	252
+fish_wheel	9	10	0	1991	253
+fish_wheel	9	11	0	1991	254
+fish_wheel	9	12	0	1991	255
+fish_wheel	9	13	0	1991	256
+fish_wheel	9	14	0	1991	257
+fish_wheel	9	15	0	1991	258
+fish_wheel	9	16	0	1991	259
+fish_wheel	9	17	0	1991	260
+fish_wheel	9	18	0	1991	261
+fish_wheel	9	19	0	1991	262
+fish_wheel	9	20	0	1991	263
+fish_wheel	9	21	0	1991	264
+fish_wheel	9	22	0	1991	265
+fish_wheel	9	23	0	1991	266
+fish_wheel	9	24	0	1991	267
+fish_wheel	9	25	0	1991	268
+fish_wheel	9	26	0	1991	269
+fish_wheel	9	27	0	1991	270
+fish_wheel	9	28	0	1991	271
+fish_wheel	9	29	0	1991	272
+fish_wheel	9	30	0	1991	273
+fish_wheel	10	1	0	1991	274
+fish_wheel	10	2	0	1991	275
+fish_wheel	10	3	0	1991	276
+fish_wheel	10	4	0	1991	277
+fish_wheel	10	5	0	1991	278
+fish_wheel	10	6	0	1991	279
+fish_wheel	10	7	0	1991	280
+fish_wheel	10	8	0	1991	281
+fish_wheel	10	9	0	1991	282
+fish_wheel	10	10	0	1991	283
+fish_wheel	6	23	0	1992	175
+fish_wheel	6	24	0	1992	176
+fish_wheel	6	25	0	1992	177
+fish_wheel	6	26	0	1992	178
+fish_wheel	6	27	0	1992	179
+fish_wheel	6	28	0	1992	180
+fish_wheel	6	29	0	1992	181
+fish_wheel	6	30	0	1992	182
+fish_wheel	7	1	0	1992	183
+fish_wheel	7	2	0	1992	184
+fish_wheel	7	3	0	1992	185
+fish_wheel	7	4	0	1992	186
+fish_wheel	7	5	0	1992	187
+fish_wheel	7	6	0	1992	188
+fish_wheel	7	7	0	1992	189
+fish_wheel	7	8	0	1992	190
+fish_wheel	7	9	0	1992	191
+fish_wheel	7	10	0	1992	192
+fish_wheel	7	11	0	1992	193
+fish_wheel	7	12	0	1992	194
+fish_wheel	7	13	0	1992	195
+fish_wheel	7	14	2	1992	196
+fish_wheel	7	15	4	1992	197
+fish_wheel	7	16	18	1992	198
+fish_wheel	7	17	30	1992	199
+fish_wheel	7	18	40	1992	200
+fish_wheel	7	19	47	1992	201
+fish_wheel	7	20	93	1992	202
+fish_wheel	7	21	108	1992	203
+fish_wheel	7	22	166	1992	204
+fish_wheel	7	23	127	1992	205
+fish_wheel	7	24	126	1992	206
+fish_wheel	7	25	83	1992	207
+fish_wheel	7	26	91	1992	208
+fish_wheel	7	27	112	1992	209
+fish_wheel	7	28	101	1992	210
+fish_wheel	7	29	86	1992	211
+fish_wheel	7	30	70	1992	212
+fish_wheel	7	31	63	1992	213
+fish_wheel	8	1	66	1992	214
+fish_wheel	8	2	58	1992	215
+fish_wheel	8	3	39	1992	216
+fish_wheel	8	4	11	1992	217
+fish_wheel	8	5	15	1992	218
+fish_wheel	8	6	28	1992	219
+fish_wheel	8	7	12	1992	220
+fish_wheel	8	8	44	1992	221
+fish_wheel	8	9	33	1992	222
+fish_wheel	8	10	41	1992	223
+fish_wheel	8	11	26	1992	224
+fish_wheel	8	12	18	1992	225
+fish_wheel	8	13	21	1992	226
+fish_wheel	8	14	15	1992	227
+fish_wheel	8	15	19	1992	228
+fish_wheel	8	16	9	1992	229
+fish_wheel	8	17	19	1992	230
+fish_wheel	8	18	2	1992	231
+fish_wheel	8	19	10	1992	232
+fish_wheel	8	20	10	1992	233
+fish_wheel	8	21	3	1992	234
+fish_wheel	8	22	6	1992	235
+fish_wheel	8	23	1	1992	236
+fish_wheel	8	24	3	1992	237
+fish_wheel	8	25	3	1992	238
+fish_wheel	8	26	3	1992	239
+fish_wheel	8	27	0	1992	240
+fish_wheel	8	28	0	1992	241
+fish_wheel	8	29	0	1992	242
+fish_wheel	8	30	2	1992	243
+fish_wheel	8	31	0	1992	244
+fish_wheel	9	1	2	1992	245
+fish_wheel	9	2	0	1992	246
+fish_wheel	9	3	1	1992	247
+fish_wheel	9	4	0	1992	248
+fish_wheel	9	5	0	1992	249
+fish_wheel	9	6	1	1992	250
+fish_wheel	9	7	0	1992	251
+fish_wheel	9	8	0	1992	252
+fish_wheel	9	9	1	1992	253
+fish_wheel	9	10	0	1992	254
+fish_wheel	9	11	0	1992	255
+fish_wheel	9	12	0	1992	256
+fish_wheel	9	13	0	1992	257
+fish_wheel	9	14	0	1992	258
+fish_wheel	9	15	0	1992	259
+fish_wheel	9	16	0	1992	260
+fish_wheel	9	17	0	1992	261
+fish_wheel	9	18	0	1992	262
+fish_wheel	9	19	0	1992	263
+fish_wheel	9	20	0	1992	264
+fish_wheel	9	21	0	1992	265
+fish_wheel	9	22	0	1992	266
+fish_wheel	9	23	0	1992	267
+fish_wheel	9	24	0	1992	268
+fish_wheel	9	25	0	1992	269
+fish_wheel	9	26	0	1992	270
+fish_wheel	9	27	0	1992	271
+fish_wheel	9	28	0	1992	272
+fish_wheel	9	29	0	1992	273
+fish_wheel	9	30	0	1992	274
+fish_wheel	10	1	0	1992	275
+fish_wheel	10	2	0	1992	276
+fish_wheel	10	3	0	1992	277
+fish_wheel	10	4	0	1992	278
+fish_wheel	10	5	0	1992	279
+fish_wheel	10	6	0	1992	280
+fish_wheel	10	7	0	1992	281
+fish_wheel	10	8	0	1992	282
+fish_wheel	10	9	0	1992	283
+fish_wheel	10	10	0	1992	284
+fish_wheel	6	23	1	1993	174
+fish_wheel	6	24	3	1993	175
+fish_wheel	6	25	1	1993	176
+fish_wheel	6	26	2	1993	177
+fish_wheel	6	27	7	1993	178
+fish_wheel	6	28	5	1993	179
+fish_wheel	6	29	7	1993	180
+fish_wheel	6	30	8	1993	181
+fish_wheel	7	1	18	1993	182
+fish_wheel	7	2	19	1993	183
+fish_wheel	7	3	35	1993	184
+fish_wheel	7	4	23	1993	185
+fish_wheel	7	5	27	1993	186
+fish_wheel	7	6	34	1993	187
+fish_wheel	7	7	28	1993	188
+fish_wheel	7	8	63	1993	189
+fish_wheel	7	9	30	1993	190
+fish_wheel	7	10	34	1993	191
+fish_wheel	7	11	32	1993	192
+fish_wheel	7	12	41	1993	193
+fish_wheel	7	13	37	1993	194
+fish_wheel	7	14	39	1993	195
+fish_wheel	7	15	38	1993	196
+fish_wheel	7	16	33	1993	197
+fish_wheel	7	17	26	1993	198
+fish_wheel	7	18	37	1993	199
+fish_wheel	7	19	32	1993	200
+fish_wheel	7	20	36	1993	201
+fish_wheel	7	21	34	1993	202
+fish_wheel	7	22	19	1993	203
+fish_wheel	7	23	50	1993	204
+fish_wheel	7	24	38	1993	205
+fish_wheel	7	25	24	1993	206
+fish_wheel	7	26	33	1993	207
+fish_wheel	7	27	36	1993	208
+fish_wheel	7	28	24	1993	209
+fish_wheel	7	29	30	1993	210
+fish_wheel	7	30	26	1993	211
+fish_wheel	7	31	49	1993	212
+fish_wheel	8	1	26	1993	213
+fish_wheel	8	2	27	1993	214
+fish_wheel	8	3	14	1993	215
+fish_wheel	8	4	8	1993	216
+fish_wheel	8	5	10	1993	217
+fish_wheel	8	6	18	1993	218
+fish_wheel	8	7	9	1993	219
+fish_wheel	8	8	11	1993	220
+fish_wheel	8	9	6	1993	221
+fish_wheel	8	10	6	1993	222
+fish_wheel	8	11	4	1993	223
+fish_wheel	8	12	5	1993	224
+fish_wheel	8	13	5	1993	225
+fish_wheel	8	14	1	1993	226
+fish_wheel	8	15	6	1993	227
+fish_wheel	8	16	4	1993	228
+fish_wheel	8	17	2	1993	229
+fish_wheel	8	18	0	1993	230
+fish_wheel	8	19	2	1993	231
+fish_wheel	8	20	1	1993	232
+fish_wheel	8	21	1	1993	233
+fish_wheel	8	22	1	1993	234
+fish_wheel	8	23	1	1993	235
+fish_wheel	8	24	1	1993	236
+fish_wheel	8	25	1	1993	237
+fish_wheel	8	26	2	1993	238
+fish_wheel	8	27	2	1993	239
+fish_wheel	8	28	1	1993	240
+fish_wheel	8	29	0	1993	241
+fish_wheel	8	30	0	1993	242
+fish_wheel	8	31	0	1993	243
+fish_wheel	9	1	5	1993	244
+fish_wheel	9	2	1	1993	245
+fish_wheel	9	3	0	1993	246
+fish_wheel	9	4	1	1993	247
+fish_wheel	9	5	0	1993	248
+fish_wheel	9	6	0	1993	249
+fish_wheel	9	7	0	1993	250
+fish_wheel	9	8	0	1993	251
+fish_wheel	9	9	0	1993	252
+fish_wheel	9	10	0	1993	253
+fish_wheel	9	11	0	1993	254
+fish_wheel	9	12	0	1993	255
+fish_wheel	9	13	0	1993	256
+fish_wheel	9	14	0	1993	257
+fish_wheel	9	15	0	1993	258
+fish_wheel	9	16	0	1993	259
+fish_wheel	9	17	0	1993	260
+fish_wheel	9	18	0	1993	261
+fish_wheel	9	19	0	1993	262
+fish_wheel	9	20	0	1993	263
+fish_wheel	9	21	0	1993	264
+fish_wheel	9	22	0	1993	265
+fish_wheel	9	23	0	1993	266
+fish_wheel	9	24	0	1993	267
+fish_wheel	9	25	0	1993	268
+fish_wheel	9	26	0	1993	269
+fish_wheel	9	27	0	1993	270
+fish_wheel	9	28	0	1993	271
+fish_wheel	9	29	0	1993	272
+fish_wheel	9	30	0	1993	273
+fish_wheel	10	1	0	1993	274
+fish_wheel	10	2	0	1993	275
+fish_wheel	10	3	0	1993	276
+fish_wheel	10	4	0	1993	277
+fish_wheel	10	5	0	1993	278
+fish_wheel	10	6	0	1993	279
+fish_wheel	10	7	0	1993	280
+fish_wheel	10	8	0	1993	281
+fish_wheel	10	9	0	1993	282
+fish_wheel	10	10	0	1993	283
+fish_wheel	6	23	0	1994	174
+fish_wheel	6	24	1	1994	175
+fish_wheel	6	25	0	1994	176
+fish_wheel	6	26	0	1994	177
+fish_wheel	6	27	0	1994	178
+fish_wheel	6	28	1	1994	179
+fish_wheel	6	29	1	1994	180
+fish_wheel	6	30	1	1994	181
+fish_wheel	7	1	9	1994	182
+fish_wheel	7	2	3	1994	183
+fish_wheel	7	3	11	1994	184
+fish_wheel	7	4	9	1994	185
+fish_wheel	7	5	23	1994	186
+fish_wheel	7	6	15	1994	187
+fish_wheel	7	7	15	1994	188
+fish_wheel	7	8	21	1994	189
+fish_wheel	7	9	26	1994	190
+fish_wheel	7	10	27	1994	191
+fish_wheel	7	11	20	1994	192
+fish_wheel	7	12	41	1994	193
+fish_wheel	7	13	72	1994	194
+fish_wheel	7	14	63	1994	195
+fish_wheel	7	15	45	1994	196
+fish_wheel	7	16	57	1994	197
+fish_wheel	7	17	35	1994	198
+fish_wheel	7	18	58	1994	199
+fish_wheel	7	19	45	1994	200
+fish_wheel	7	20	35	1994	201
+fish_wheel	7	21	37	1994	202
+fish_wheel	7	22	31	1994	203
+fish_wheel	7	23	30	1994	204
+fish_wheel	7	24	22	1994	205
+fish_wheel	7	25	31	1994	206
+fish_wheel	7	26	28	1994	207
+fish_wheel	7	27	42	1994	208
+fish_wheel	7	28	32	1994	209
+fish_wheel	7	29	44	1994	210
+fish_wheel	7	30	30	1994	211
+fish_wheel	7	31	25	1994	212
+fish_wheel	8	1	21	1994	213
+fish_wheel	8	2	29	1994	214
+fish_wheel	8	3	30	1994	215
+fish_wheel	8	4	21	1994	216
+fish_wheel	8	5	22	1994	217
+fish_wheel	8	6	18	1994	218
+fish_wheel	8	7	26	1994	219
+fish_wheel	8	8	20	1994	220
+fish_wheel	8	9	20	1994	221
+fish_wheel	8	10	14	1994	222
+fish_wheel	8	11	15	1994	223
+fish_wheel	8	12	8	1994	224
+fish_wheel	8	13	7	1994	225
+fish_wheel	8	14	6	1994	226
+fish_wheel	8	15	8	1994	227
+fish_wheel	8	16	8	1994	228
+fish_wheel	8	17	4	1994	229
+fish_wheel	8	18	5	1994	230
+fish_wheel	8	19	3	1994	231
+fish_wheel	8	20	2	1994	232
+fish_wheel	8	21	6	1994	233
+fish_wheel	8	22	0	1994	234
+fish_wheel	8	23	1	1994	235
+fish_wheel	8	24	1	1994	236
+fish_wheel	8	25	0	1994	237
+fish_wheel	8	26	0	1994	238
+fish_wheel	8	27	2	1994	239
+fish_wheel	8	28	3	1994	240
+fish_wheel	8	29	1	1994	241
+fish_wheel	8	30	0	1994	242
+fish_wheel	8	31	0	1994	243
+fish_wheel	9	1	0	1994	244
+fish_wheel	9	2	0	1994	245
+fish_wheel	9	3	2	1994	246
+fish_wheel	9	4	0	1994	247
+fish_wheel	9	5	0	1994	248
+fish_wheel	9	6	0	1994	249
+fish_wheel	9	7	0	1994	250
+fish_wheel	9	8	0	1994	251
+fish_wheel	9	9	0	1994	252
+fish_wheel	9	10	0	1994	253
+fish_wheel	9	11	0	1994	254
+fish_wheel	9	12	0	1994	255
+fish_wheel	9	13	0	1994	256
+fish_wheel	9	14	0	1994	257
+fish_wheel	9	15	0	1994	258
+fish_wheel	9	16	0	1994	259
+fish_wheel	9	17	0	1994	260
+fish_wheel	9	18	0	1994	261
+fish_wheel	9	19	0	1994	262
+fish_wheel	9	20	0	1994	263
+fish_wheel	9	21	0	1994	264
+fish_wheel	9	22	0	1994	265
+fish_wheel	9	23	0	1994	266
+fish_wheel	9	24	0	1994	267
+fish_wheel	9	25	1	1994	268
+fish_wheel	9	26	0	1994	269
+fish_wheel	9	27	0	1994	270
+fish_wheel	9	28	0	1994	271
+fish_wheel	9	29	0	1994	272
+fish_wheel	9	30	0	1994	273
+fish_wheel	10	1	0	1994	274
+fish_wheel	10	2	0	1994	275
+fish_wheel	10	3	0	1994	276
+fish_wheel	10	4	0	1994	277
+fish_wheel	10	5	0	1994	278
+fish_wheel	10	6	0	1994	279
+fish_wheel	10	7	0	1994	280
+fish_wheel	10	8	0	1994	281
+fish_wheel	10	9	0	1994	282
+fish_wheel	10	10	0	1994	283
+fish_wheel	6	23	0	1995	174
+fish_wheel	6	24	0	1995	175
+fish_wheel	6	25	1	1995	176
+fish_wheel	6	26	1	1995	177
+fish_wheel	6	27	0	1995	178
+fish_wheel	6	28	2	1995	179
+fish_wheel	6	29	2	1995	180
+fish_wheel	6	30	2	1995	181
+fish_wheel	7	1	1	1995	182
+fish_wheel	7	2	5	1995	183
+fish_wheel	7	3	2	1995	184
+fish_wheel	7	4	12	1995	185
+fish_wheel	7	5	17	1995	186
+fish_wheel	7	6	17	1995	187
+fish_wheel	7	7	17	1995	188
+fish_wheel	7	8	18	1995	189
+fish_wheel	7	9	21	1995	190
+fish_wheel	7	10	38	1995	191
+fish_wheel	7	11	18	1995	192
+fish_wheel	7	12	42	1995	193
+fish_wheel	7	13	48	1995	194
+fish_wheel	7	14	60	1995	195
+fish_wheel	7	15	68	1995	196
+fish_wheel	7	16	73	1995	197
+fish_wheel	7	17	98	1995	198
+fish_wheel	7	18	67	1995	199
+fish_wheel	7	19	47	1995	200
+fish_wheel	7	20	57	1995	201
+fish_wheel	7	21	36	1995	202
+fish_wheel	7	22	56	1995	203
+fish_wheel	7	23	65	1995	204
+fish_wheel	7	24	67	1995	205
+fish_wheel	7	25	109	1995	206
+fish_wheel	7	26	122	1995	207
+fish_wheel	7	27	170	1995	208
+fish_wheel	7	28	113	1995	209
+fish_wheel	7	29	78	1995	210
+fish_wheel	7	30	84	1995	211
+fish_wheel	7	31	72	1995	212
+fish_wheel	8	1	48	1995	213
+fish_wheel	8	2	76	1995	214
+fish_wheel	8	3	76	1995	215
+fish_wheel	8	4	47	1995	216
+fish_wheel	8	5	40	1995	217
+fish_wheel	8	6	28	1995	218
+fish_wheel	8	7	28	1995	219
+fish_wheel	8	8	16	1995	220
+fish_wheel	8	9	21	1995	221
+fish_wheel	8	10	21	1995	222
+fish_wheel	8	11	17	1995	223
+fish_wheel	8	12	14	1995	224
+fish_wheel	8	13	19	1995	225
+fish_wheel	8	14	9	1995	226
+fish_wheel	8	15	9	1995	227
+fish_wheel	8	16	4	1995	228
+fish_wheel	8	17	9	1995	229
+fish_wheel	8	18	2	1995	230
+fish_wheel	8	19	4	1995	231
+fish_wheel	8	20	4	1995	232
+fish_wheel	8	21	1	1995	233
+fish_wheel	8	22	4	1995	234
+fish_wheel	8	23	3	1995	235
+fish_wheel	8	24	1	1995	236
+fish_wheel	8	25	2	1995	237
+fish_wheel	8	26	1	1995	238
+fish_wheel	8	27	0	1995	239
+fish_wheel	8	28	1	1995	240
+fish_wheel	8	29	2	1995	241
+fish_wheel	8	30	0	1995	242
+fish_wheel	8	31	0	1995	243
+fish_wheel	9	1	1	1995	244
+fish_wheel	9	2	0	1995	245
+fish_wheel	9	3	0	1995	246
+fish_wheel	9	4	0	1995	247
+fish_wheel	9	5	1	1995	248
+fish_wheel	9	6	0	1995	249
+fish_wheel	9	7	0	1995	250
+fish_wheel	9	8	0	1995	251
+fish_wheel	9	9	0	1995	252
+fish_wheel	9	10	0	1995	253
+fish_wheel	9	11	0	1995	254
+fish_wheel	9	12	0	1995	255
+fish_wheel	9	13	0	1995	256
+fish_wheel	9	14	0	1995	257
+fish_wheel	9	15	0	1995	258
+fish_wheel	9	16	0	1995	259
+fish_wheel	9	17	0	1995	260
+fish_wheel	9	18	0	1995	261
+fish_wheel	9	19	0	1995	262
+fish_wheel	9	20	0	1995	263
+fish_wheel	9	21	0	1995	264
+fish_wheel	9	22	0	1995	265
+fish_wheel	9	23	0	1995	266
+fish_wheel	9	24	0	1995	267
+fish_wheel	9	25	0	1995	268
+fish_wheel	9	26	0	1995	269
+fish_wheel	9	27	0	1995	270
+fish_wheel	9	28	0	1995	271
+fish_wheel	9	29	0	1995	272
+fish_wheel	9	30	0	1995	273
+fish_wheel	10	1	0	1995	274
+fish_wheel	10	2	0	1995	275
+fish_wheel	10	3	0	1995	276
+fish_wheel	10	4	0	1995	277
+fish_wheel	10	5	0	1995	278
+fish_wheel	10	6	0	1995	279
+fish_wheel	10	7	0	1995	280
+fish_wheel	10	8	0	1995	281
+fish_wheel	10	9	0	1995	282
+fish_wheel	10	10	0	1995	283
+fish_wheel	6	23	0	1996	175
+fish_wheel	6	24	2	1996	176
+fish_wheel	6	25	1	1996	177
+fish_wheel	6	26	1	1996	178
+fish_wheel	6	27	1	1996	179
+fish_wheel	6	28	9	1996	180
+fish_wheel	6	29	4	1996	181
+fish_wheel	6	30	15	1996	182
+fish_wheel	7	1	19	1996	183
+fish_wheel	7	2	34	1996	184
+fish_wheel	7	3	45	1996	185
+fish_wheel	7	4	65	1996	186
+fish_wheel	7	5	94	1996	187
+fish_wheel	7	6	55	1996	188
+fish_wheel	7	7	61	1996	189
+fish_wheel	7	8	69	1996	190
+fish_wheel	7	9	77	1996	191
+fish_wheel	7	10	49	1996	192
+fish_wheel	7	11	76	1996	193
+fish_wheel	7	12	56	1996	194
+fish_wheel	7	13	46	1996	195
+fish_wheel	7	14	55	1996	196
+fish_wheel	7	15	49	1996	197
+fish_wheel	7	16	42	1996	198
+fish_wheel	7	17	56	1996	199
+fish_wheel	7	18	75	1996	200
+fish_wheel	7	19	39	1996	201
+fish_wheel	7	20	59	1996	202
+fish_wheel	7	21	69	1996	203
+fish_wheel	7	22	43	1996	204
+fish_wheel	7	23	40	1996	205
+fish_wheel	7	24	68	1996	206
+fish_wheel	7	25	51	1996	207
+fish_wheel	7	26	37	1996	208
+fish_wheel	7	27	24	1996	209
+fish_wheel	7	28	26	1996	210
+fish_wheel	7	29	20	1996	211
+fish_wheel	7	30	26	1996	212
+fish_wheel	7	31	32	1996	213
+fish_wheel	8	1	12	1996	214
+fish_wheel	8	2	18	1996	215
+fish_wheel	8	3	10	1996	216
+fish_wheel	8	4	14	1996	217
+fish_wheel	8	5	6	1996	218
+fish_wheel	8	6	11	1996	219
+fish_wheel	8	7	3	1996	220
+fish_wheel	8	8	11	1996	221
+fish_wheel	8	9	4	1996	222
+fish_wheel	8	10	6	1996	223
+fish_wheel	8	11	10	1996	224
+fish_wheel	8	12	2	1996	225
+fish_wheel	8	13	4	1996	226
+fish_wheel	8	14	3	1996	227
+fish_wheel	8	15	4	1996	228
+fish_wheel	8	16	3	1996	229
+fish_wheel	8	17	7	1996	230
+fish_wheel	8	18	3	1996	231
+fish_wheel	8	19	5	1996	232
+fish_wheel	8	20	8	1996	233
+fish_wheel	8	21	2	1996	234
+fish_wheel	8	22	1	1996	235
+fish_wheel	8	23	2	1996	236
+fish_wheel	8	24	5	1996	237
+fish_wheel	8	25	1	1996	238
+fish_wheel	8	26	1	1996	239
+fish_wheel	8	27	0	1996	240
+fish_wheel	8	28	0	1996	241
+fish_wheel	8	29	0	1996	242
+fish_wheel	8	30	3	1996	243
+fish_wheel	8	31	0	1996	244
+fish_wheel	9	1	0	1996	245
+fish_wheel	9	2	0	1996	246
+fish_wheel	9	3	0	1996	247
+fish_wheel	9	4	0	1996	248
+fish_wheel	9	5	0	1996	249
+fish_wheel	9	6	0	1996	250
+fish_wheel	9	7	0	1996	251
+fish_wheel	9	8	0	1996	252
+fish_wheel	9	9	0	1996	253
+fish_wheel	9	10	0	1996	254
+fish_wheel	9	11	0	1996	255
+fish_wheel	9	12	0	1996	256
+fish_wheel	9	13	0	1996	257
+fish_wheel	9	14	0	1996	258
+fish_wheel	9	15	0	1996	259
+fish_wheel	9	16	0	1996	260
+fish_wheel	9	17	0	1996	261
+fish_wheel	9	18	0	1996	262
+fish_wheel	9	19	0	1996	263
+fish_wheel	9	20	0	1996	264
+fish_wheel	9	21	0	1996	265
+fish_wheel	9	22	0	1996	266
+fish_wheel	9	23	0	1996	267
+fish_wheel	9	24	0	1996	268
+fish_wheel	9	25	0	1996	269
+fish_wheel	9	26	0	1996	270
+fish_wheel	9	27	0	1996	271
+fish_wheel	9	28	0	1996	272
+fish_wheel	9	29	0	1996	273
+fish_wheel	9	30	0	1996	274
+fish_wheel	10	1	0	1996	275
+fish_wheel	10	2	0	1996	276
+fish_wheel	10	3	0	1996	277
+fish_wheel	10	4	0	1996	278
+fish_wheel	10	5	0	1996	279
+fish_wheel	10	6	0	1996	280
+fish_wheel	10	7	0	1996	281
+fish_wheel	10	8	0	1996	282
+fish_wheel	10	9	0	1996	283
+fish_wheel	10	10	0	1996	284
+fish_wheel	6	23	0	1997	174
+fish_wheel	6	24	0	1997	175
+fish_wheel	6	25	0	1997	176
+fish_wheel	6	26	1	1997	177
+fish_wheel	6	27	0	1997	178
+fish_wheel	6	28	2	1997	179
+fish_wheel	6	29	0	1997	180
+fish_wheel	6	30	0	1997	181
+fish_wheel	7	1	0	1997	182
+fish_wheel	7	2	3	1997	183
+fish_wheel	7	3	1	1997	184
+fish_wheel	7	4	3	1997	185
+fish_wheel	7	5	8	1997	186
+fish_wheel	7	6	5	1997	187
+fish_wheel	7	7	9	1997	188
+fish_wheel	7	8	8	1997	189
+fish_wheel	7	9	31	1997	190
+fish_wheel	7	10	29	1997	191
+fish_wheel	7	11	50	1997	192
+fish_wheel	7	12	112	1997	193
+fish_wheel	7	13	42	1997	194
+fish_wheel	7	14	36	1997	195
+fish_wheel	7	15	10	1997	196
+fish_wheel	7	16	16	1997	197
+fish_wheel	7	17	13	1997	198
+fish_wheel	7	18	18	1997	199
+fish_wheel	7	19	29	1997	200
+fish_wheel	7	20	31	1997	201
+fish_wheel	7	21	38	1997	202
+fish_wheel	7	22	52	1997	203
+fish_wheel	7	23	37	1997	204
+fish_wheel	7	24	68	1997	205
+fish_wheel	7	25	196	1997	206
+fish_wheel	7	26	227	1997	207
+fish_wheel	7	27	144	1997	208
+fish_wheel	7	28	198	1997	209
+fish_wheel	7	29	104	1997	210
+fish_wheel	7	30	82	1997	211
+fish_wheel	7	31	68	1997	212
+fish_wheel	8	1	74	1997	213
+fish_wheel	8	2	51	1997	214
+fish_wheel	8	3	46	1997	215
+fish_wheel	8	4	107	1997	216
+fish_wheel	8	5	53	1997	217
+fish_wheel	8	6	36	1997	218
+fish_wheel	8	7	19	1997	219
+fish_wheel	8	8	21	1997	220
+fish_wheel	8	9	9	1997	221
+fish_wheel	8	10	7	1997	222
+fish_wheel	8	11	8	1997	223
+fish_wheel	8	12	12	1997	224
+fish_wheel	8	13	9	1997	225
+fish_wheel	8	14	10	1997	226
+fish_wheel	8	15	7	1997	227
+fish_wheel	8	16	10	1997	228
+fish_wheel	8	17	16	1997	229
+fish_wheel	8	18	16	1997	230
+fish_wheel	8	19	6	1997	231
+fish_wheel	8	20	4	1997	232
+fish_wheel	8	21	3	1997	233
+fish_wheel	8	22	0	1997	234
+fish_wheel	8	23	2	1997	235
+fish_wheel	8	24	1	1997	236
+fish_wheel	8	25	3	1997	237
+fish_wheel	8	26	1	1997	238
+fish_wheel	8	27	2	1997	239
+fish_wheel	8	28	2	1997	240
+fish_wheel	8	29	1	1997	241
+fish_wheel	8	30	3	1997	242
+fish_wheel	8	31	2	1997	243
+fish_wheel	9	1	1	1997	244
+fish_wheel	9	2	1	1997	245
+fish_wheel	9	3	1	1997	246
+fish_wheel	9	4	1	1997	247
+fish_wheel	9	5	0	1997	248
+fish_wheel	9	6	1	1997	249
+fish_wheel	9	7	1	1997	250
+fish_wheel	9	8	1	1997	251
+fish_wheel	9	9	1	1997	252
+fish_wheel	9	10	1	1997	253
+fish_wheel	9	11	0	1997	254
+fish_wheel	9	12	0	1997	255
+fish_wheel	9	13	0	1997	256
+fish_wheel	9	14	0	1997	257
+fish_wheel	9	15	0	1997	258
+fish_wheel	9	16	0	1997	259
+fish_wheel	9	17	0	1997	260
+fish_wheel	9	18	0	1997	261
+fish_wheel	9	19	0	1997	262
+fish_wheel	9	20	0	1997	263
+fish_wheel	9	21	0	1997	264
+fish_wheel	9	22	0	1997	265
+fish_wheel	9	23	0	1997	266
+fish_wheel	9	24	0	1997	267
+fish_wheel	9	25	0	1997	268
+fish_wheel	9	26	0	1997	269
+fish_wheel	9	27	0	1997	270
+fish_wheel	9	28	0	1997	271
+fish_wheel	9	29	0	1997	272
+fish_wheel	9	30	0	1997	273
+fish_wheel	10	1	0	1997	274
+fish_wheel	10	2	0	1997	275
+fish_wheel	10	3	0	1997	276
+fish_wheel	10	4	0	1997	277
+fish_wheel	10	5	0	1997	278
+fish_wheel	10	6	0	1997	279
+fish_wheel	10	7	0	1997	280
+fish_wheel	10	8	0	1997	281
+fish_wheel	10	9	0	1997	282
+fish_wheel	10	10	0	1997	283
+fish_wheel	6	23	0	1998	174
+fish_wheel	6	24	0	1998	175
+fish_wheel	6	25	0	1998	176
+fish_wheel	6	26	0	1998	177
+fish_wheel	6	27	1	1998	178
+fish_wheel	6	28	0	1998	179
+fish_wheel	6	29	0	1998	180
+fish_wheel	6	30	1	1998	181
+fish_wheel	7	1	3	1998	182
+fish_wheel	7	2	4	1998	183
+fish_wheel	7	3	4	1998	184
+fish_wheel	7	4	2	1998	185
+fish_wheel	7	5	3	1998	186
+fish_wheel	7	6	6	1998	187
+fish_wheel	7	7	2	1998	188
+fish_wheel	7	8	7	1998	189
+fish_wheel	7	9	9	1998	190
+fish_wheel	7	10	12	1998	191
+fish_wheel	7	11	15	1998	192
+fish_wheel	7	12	14	1998	193
+fish_wheel	7	13	17	1998	194
+fish_wheel	7	14	21	1998	195
+fish_wheel	7	15	17	1998	196
+fish_wheel	7	16	27	1998	197
+fish_wheel	7	17	24	1998	198
+fish_wheel	7	18	24	1998	199
+fish_wheel	7	19	19	1998	200
+fish_wheel	7	20	23	1998	201
+fish_wheel	7	21	24	1998	202
+fish_wheel	7	22	26	1998	203
+fish_wheel	7	23	38	1998	204
+fish_wheel	7	24	30	1998	205
+fish_wheel	7	25	28	1998	206
+fish_wheel	7	26	32	1998	207
+fish_wheel	7	27	31	1998	208
+fish_wheel	7	28	59	1998	209
+fish_wheel	7	29	27	1998	210
+fish_wheel	7	30	23	1998	211
+fish_wheel	7	31	39	1998	212
+fish_wheel	8	1	26	1998	213
+fish_wheel	8	2	26	1998	214
+fish_wheel	8	3	22	1998	215
+fish_wheel	8	4	28	1998	216
+fish_wheel	8	5	24	1998	217
+fish_wheel	8	6	31	1998	218
+fish_wheel	8	7	34	1998	219
+fish_wheel	8	8	17	1998	220
+fish_wheel	8	9	22	1998	221
+fish_wheel	8	10	28	1998	222
+fish_wheel	8	11	32	1998	223
+fish_wheel	8	12	29	1998	224
+fish_wheel	8	13	19	1998	225
+fish_wheel	8	14	11	1998	226
+fish_wheel	8	15	15	1998	227
+fish_wheel	8	16	16	1998	228
+fish_wheel	8	17	6	1998	229
+fish_wheel	8	18	10	1998	230
+fish_wheel	8	19	3	1998	231
+fish_wheel	8	20	5	1998	232
+fish_wheel	8	21	1	1998	233
+fish_wheel	8	22	2	1998	234
+fish_wheel	8	23	4	1998	235
+fish_wheel	8	24	0	1998	236
+fish_wheel	8	25	5	1998	237
+fish_wheel	8	26	5	1998	238
+fish_wheel	8	27	2	1998	239
+fish_wheel	8	28	5	1998	240
+fish_wheel	8	29	6	1998	241
+fish_wheel	8	30	1	1998	242
+fish_wheel	8	31	1	1998	243
+fish_wheel	9	1	7	1998	244
+fish_wheel	9	2	1	1998	245
+fish_wheel	9	3	3	1998	246
+fish_wheel	9	4	1	1998	247
+fish_wheel	9	5	0	1998	248
+fish_wheel	9	6	5	1998	249
+fish_wheel	9	7	3	1998	250
+fish_wheel	9	8	0	1998	251
+fish_wheel	9	9	0	1998	252
+fish_wheel	9	10	4	1998	253
+fish_wheel	9	11	0	1998	254
+fish_wheel	9	12	1	1998	255
+fish_wheel	9	13	2	1998	256
+fish_wheel	9	14	0	1998	257
+fish_wheel	9	15	0	1998	258
+fish_wheel	9	16	1	1998	259
+fish_wheel	9	17	0	1998	260
+fish_wheel	9	18	2	1998	261
+fish_wheel	9	19	0	1998	262
+fish_wheel	9	20	1	1998	263
+fish_wheel	9	21	0	1998	264
+fish_wheel	9	22	0	1998	265
+fish_wheel	9	23	0	1998	266
+fish_wheel	9	24	1	1998	267
+fish_wheel	9	25	0	1998	268
+fish_wheel	9	26	0	1998	269
+fish_wheel	9	27	0	1998	270
+fish_wheel	9	28	0	1998	271
+fish_wheel	9	29	0	1998	272
+fish_wheel	9	30	0	1998	273
+fish_wheel	10	1	0	1998	274
+fish_wheel	10	2	0	1998	275
+fish_wheel	10	3	0	1998	276
+fish_wheel	10	4	0	1998	277
+fish_wheel	10	5	0	1998	278
+fish_wheel	10	6	0	1998	279
+fish_wheel	10	7	0	1998	280
+fish_wheel	10	8	0	1998	281
+fish_wheel	10	9	0	1998	282
+fish_wheel	10	10	0	1998	283
+fish_wheel	6	23	0	1999	174
+fish_wheel	6	24	0	1999	175
+fish_wheel	6	25	0	1999	176
+fish_wheel	6	26	0	1999	177
+fish_wheel	6	27	0	1999	178
+fish_wheel	6	28	0	1999	179
+fish_wheel	6	29	0	1999	180
+fish_wheel	6	30	0	1999	181
+fish_wheel	7	1	0	1999	182
+fish_wheel	7	2	0	1999	183
+fish_wheel	7	3	0	1999	184
+fish_wheel	7	4	0	1999	185
+fish_wheel	7	5	0	1999	186
+fish_wheel	7	6	1	1999	187
+fish_wheel	7	7	0	1999	188
+fish_wheel	7	8	0	1999	189
+fish_wheel	7	9	0	1999	190
+fish_wheel	7	10	0	1999	191
+fish_wheel	7	11	1	1999	192
+fish_wheel	7	12	1	1999	193
+fish_wheel	7	13	2	1999	194
+fish_wheel	7	14	6	1999	195
+fish_wheel	7	15	6	1999	196
+fish_wheel	7	16	6	1999	197
+fish_wheel	7	17	7	1999	198
+fish_wheel	7	18	29	1999	199
+fish_wheel	7	19	31	1999	200
+fish_wheel	7	20	38	1999	201
+fish_wheel	7	21	37	1999	202
+fish_wheel	7	22	46	1999	203
+fish_wheel	7	23	27	1999	204
+fish_wheel	7	24	63	1999	205
+fish_wheel	7	25	83	1999	206
+fish_wheel	7	26	51	1999	207
+fish_wheel	7	27	44	1999	208
+fish_wheel	7	28	90	1999	209
+fish_wheel	7	29	41	1999	210
+fish_wheel	7	30	31	1999	211
+fish_wheel	7	31	29	1999	212
+fish_wheel	8	1	42	1999	213
+fish_wheel	8	2	22	1999	214
+fish_wheel	8	3	12	1999	215
+fish_wheel	8	4	22	1999	216
+fish_wheel	8	5	18	1999	217
+fish_wheel	8	6	17	1999	218
+fish_wheel	8	7	20	1999	219
+fish_wheel	8	8	19	1999	220
+fish_wheel	8	9	12	1999	221
+fish_wheel	8	10	4	1999	222
+fish_wheel	8	11	9	1999	223
+fish_wheel	8	12	4	1999	224
+fish_wheel	8	13	5	1999	225
+fish_wheel	8	14	3	1999	226
+fish_wheel	8	15	4	1999	227
+fish_wheel	8	16	3	1999	228
+fish_wheel	8	17	8	1999	229
+fish_wheel	8	18	5	1999	230
+fish_wheel	8	19	2	1999	231
+fish_wheel	8	20	2	1999	232
+fish_wheel	8	21	2	1999	233
+fish_wheel	8	22	0	1999	234
+fish_wheel	8	23	0	1999	235
+fish_wheel	8	24	1	1999	236
+fish_wheel	8	25	5	1999	237
+fish_wheel	8	26	0	1999	238
+fish_wheel	8	27	1	1999	239
+fish_wheel	8	28	1	1999	240
+fish_wheel	8	29	0	1999	241
+fish_wheel	8	30	1	1999	242
+fish_wheel	8	31	0	1999	243
+fish_wheel	9	1	0	1999	244
+fish_wheel	9	2	0	1999	245
+fish_wheel	9	3	0	1999	246
+fish_wheel	9	4	0	1999	247
+fish_wheel	9	5	0	1999	248
+fish_wheel	9	6	0	1999	249
+fish_wheel	9	7	0	1999	250
+fish_wheel	9	8	0	1999	251
+fish_wheel	9	9	0	1999	252
+fish_wheel	9	10	0	1999	253
+fish_wheel	9	11	0	1999	254
+fish_wheel	9	12	0	1999	255
+fish_wheel	9	13	0	1999	256
+fish_wheel	9	14	0	1999	257
+fish_wheel	9	15	0	1999	258
+fish_wheel	9	16	0	1999	259
+fish_wheel	9	17	0	1999	260
+fish_wheel	9	18	0	1999	261
+fish_wheel	9	19	0	1999	262
+fish_wheel	9	20	0	1999	263
+fish_wheel	9	21	0	1999	264
+fish_wheel	9	22	0	1999	265
+fish_wheel	9	23	0	1999	266
+fish_wheel	9	24	0	1999	267
+fish_wheel	9	25	0	1999	268
+fish_wheel	9	26	0	1999	269
+fish_wheel	9	27	0	1999	270
+fish_wheel	9	28	0	1999	271
+fish_wheel	9	29	0	1999	272
+fish_wheel	9	30	0	1999	273
+fish_wheel	10	1	0	1999	274
+fish_wheel	10	2	0	1999	275
+fish_wheel	10	3	0	1999	276
+fish_wheel	10	4	0	1999	277
+fish_wheel	10	5	0	1999	278
+fish_wheel	10	6	0	1999	279
+fish_wheel	10	7	0	1999	280
+fish_wheel	10	8	0	1999	281
+fish_wheel	10	9	0	1999	282
+fish_wheel	10	10	0	1999	283
+fish_wheel	6	23	0	2000	175
+fish_wheel	6	24	0	2000	176
+fish_wheel	6	25	0	2000	177
+fish_wheel	6	26	0	2000	178
+fish_wheel	6	27	0	2000	179
+fish_wheel	6	28	0	2000	180
+fish_wheel	6	29	0	2000	181
+fish_wheel	6	30	0	2000	182
+fish_wheel	7	1	0	2000	183
+fish_wheel	7	2	0	2000	184
+fish_wheel	7	3	0	2000	185
+fish_wheel	7	4	1	2000	186
+fish_wheel	7	5	1	2000	187
+fish_wheel	7	6	2	2000	188
+fish_wheel	7	7	4	2000	189
+fish_wheel	7	8	4	2000	190
+fish_wheel	7	9	5	2000	191
+fish_wheel	7	10	5	2000	192
+fish_wheel	7	11	10	2000	193
+fish_wheel	7	12	22	2000	194
+fish_wheel	7	13	34	2000	195
+fish_wheel	7	14	44	2000	196
+fish_wheel	7	15	47	2000	197
+fish_wheel	7	16	26	2000	198
+fish_wheel	7	17	46	2000	199
+fish_wheel	7	18	53	2000	200
+fish_wheel	7	19	47	2000	201
+fish_wheel	7	20	54	2000	202
+fish_wheel	7	21	61	2000	203
+fish_wheel	7	22	48	2000	204
+fish_wheel	7	23	66	2000	205
+fish_wheel	7	24	67	2000	206
+fish_wheel	7	25	205	2000	207
+fish_wheel	7	26	121	2000	208
+fish_wheel	7	27	74	2000	209
+fish_wheel	7	28	73	2000	210
+fish_wheel	7	29	59	2000	211
+fish_wheel	7	30	45	2000	212
+fish_wheel	7	31	51	2000	213
+fish_wheel	8	1	20	2000	214
+fish_wheel	8	2	32	2000	215
+fish_wheel	8	3	25	2000	216
+fish_wheel	8	4	21	2000	217
+fish_wheel	8	5	16	2000	218
+fish_wheel	8	6	19	2000	219
+fish_wheel	8	7	18	2000	220
+fish_wheel	8	8	9	2000	221
+fish_wheel	8	9	2	2000	222
+fish_wheel	8	10	10	2000	223
+fish_wheel	8	11	6	2000	224
+fish_wheel	8	12	5	2000	225
+fish_wheel	8	13	2	2000	226
+fish_wheel	8	14	4	2000	227
+fish_wheel	8	15	1	2000	228
+fish_wheel	8	16	3	2000	229
+fish_wheel	8	17	1	2000	230
+fish_wheel	8	18	3	2000	231
+fish_wheel	8	19	5	2000	232
+fish_wheel	8	20	4	2000	233
+fish_wheel	8	21	2	2000	234
+fish_wheel	8	22	5	2000	235
+fish_wheel	8	23	0	2000	236
+fish_wheel	8	24	0	2000	237
+fish_wheel	8	25	1	2000	238
+fish_wheel	8	26	0	2000	239
+fish_wheel	8	27	2	2000	240
+fish_wheel	8	28	2	2000	241
+fish_wheel	8	29	0	2000	242
+fish_wheel	8	30	1	2000	243
+fish_wheel	8	31	0	2000	244
+fish_wheel	9	1	0	2000	245
+fish_wheel	9	2	0	2000	246
+fish_wheel	9	3	0	2000	247
+fish_wheel	9	4	0	2000	248
+fish_wheel	9	5	0	2000	249
+fish_wheel	9	6	0	2000	250
+fish_wheel	9	7	0	2000	251
+fish_wheel	9	8	0	2000	252
+fish_wheel	9	9	0	2000	253
+fish_wheel	9	10	0	2000	254
+fish_wheel	9	11	0	2000	255
+fish_wheel	9	12	0	2000	256
+fish_wheel	9	13	0	2000	257
+fish_wheel	9	14	0	2000	258
+fish_wheel	9	15	0	2000	259
+fish_wheel	9	16	0	2000	260
+fish_wheel	9	17	0	2000	261
+fish_wheel	9	18	0	2000	262
+fish_wheel	9	19	0	2000	263
+fish_wheel	9	20	0	2000	264
+fish_wheel	9	21	0	2000	265
+fish_wheel	9	22	0	2000	266
+fish_wheel	9	23	0	2000	267
+fish_wheel	9	24	0	2000	268
+fish_wheel	9	25	0	2000	269
+fish_wheel	9	26	0	2000	270
+fish_wheel	9	27	0	2000	271
+fish_wheel	9	28	0	2000	272
+fish_wheel	9	29	0	2000	273
+fish_wheel	9	30	0	2000	274
+fish_wheel	10	1	0	2000	275
+fish_wheel	10	2	0	2000	276
+fish_wheel	10	3	0	2000	277
+fish_wheel	10	4	0	2000	278
+fish_wheel	10	5	0	2000	279
+fish_wheel	10	6	0	2000	280
+fish_wheel	10	7	0	2000	281
+fish_wheel	10	8	0	2000	282
+fish_wheel	10	9	0	2000	283
+fish_wheel	10	10	0	2000	284
+fish_wheel	6	23	0	2001	174
+fish_wheel	6	24	0	2001	175
+fish_wheel	6	25	0	2001	176
+fish_wheel	6	26	0	2001	177
+fish_wheel	6	27	0	2001	178
+fish_wheel	6	28	0	2001	179
+fish_wheel	6	29	0	2001	180
+fish_wheel	6	30	0	2001	181
+fish_wheel	7	1	0	2001	182
+fish_wheel	7	2	0	2001	183
+fish_wheel	7	3	0	2001	184
+fish_wheel	7	4	0	2001	185
+fish_wheel	7	5	0	2001	186
+fish_wheel	7	6	1	2001	187
+fish_wheel	7	7	0	2001	188
+fish_wheel	7	8	1	2001	189
+fish_wheel	7	9	11	2001	190
+fish_wheel	7	10	15	2001	191
+fish_wheel	7	11	15	2001	192
+fish_wheel	7	12	26	2001	193
+fish_wheel	7	13	34	2001	194
+fish_wheel	7	14	51	2001	195
+fish_wheel	7	15	81	2001	196
+fish_wheel	7	16	115	2001	197
+fish_wheel	7	17	103	2001	198
+fish_wheel	7	18	58	2001	199
+fish_wheel	7	19	58	2001	200
+fish_wheel	7	20	45	2001	201
+fish_wheel	7	21	59	2001	202
+fish_wheel	7	22	63	2001	203
+fish_wheel	7	23	65	2001	204
+fish_wheel	7	24	240	2001	205
+fish_wheel	7	25	545	2001	206
+fish_wheel	7	26	482	2001	207
+fish_wheel	7	27	474	2001	208
+fish_wheel	7	28	354	2001	209
+fish_wheel	7	29	243	2001	210
+fish_wheel	7	30	120	2001	211
+fish_wheel	7	31	74	2001	212
+fish_wheel	8	1	69	2001	213
+fish_wheel	8	2	108	2001	214
+fish_wheel	8	3	68	2001	215
+fish_wheel	8	4	89	2001	216
+fish_wheel	8	5	56	2001	217
+fish_wheel	8	6	47	2001	218
+fish_wheel	8	7	41	2001	219
+fish_wheel	8	8	39	2001	220
+fish_wheel	8	9	21	2001	221
+fish_wheel	8	10	14	2001	222
+fish_wheel	8	11	17	2001	223
+fish_wheel	8	12	13	2001	224
+fish_wheel	8	13	5	2001	225
+fish_wheel	8	14	5	2001	226
+fish_wheel	8	15	11	2001	227
+fish_wheel	8	16	4	2001	228
+fish_wheel	8	17	5	2001	229
+fish_wheel	8	18	4	2001	230
+fish_wheel	8	19	6	2001	231
+fish_wheel	8	20	1	2001	232
+fish_wheel	8	21	0	2001	233
+fish_wheel	8	22	4	2001	234
+fish_wheel	8	23	2	2001	235
+fish_wheel	8	24	0	2001	236
+fish_wheel	8	25	0	2001	237
+fish_wheel	8	26	0	2001	238
+fish_wheel	8	27	5	2001	239
+fish_wheel	8	28	1	2001	240
+fish_wheel	8	29	0	2001	241
+fish_wheel	8	30	2	2001	242
+fish_wheel	8	31	1	2001	243
+fish_wheel	9	1	1	2001	244
+fish_wheel	9	2	3	2001	245
+fish_wheel	9	3	0	2001	246
+fish_wheel	9	4	5	2001	247
+fish_wheel	9	5	0	2001	248
+fish_wheel	9	6	2	2001	249
+fish_wheel	9	7	0	2001	250
+fish_wheel	9	8	2	2001	251
+fish_wheel	9	9	0	2001	252
+fish_wheel	9	10	1	2001	253
+fish_wheel	9	11	1	2001	254
+fish_wheel	9	12	0	2001	255
+fish_wheel	9	13	0	2001	256
+fish_wheel	9	14	0	2001	257
+fish_wheel	9	15	0	2001	258
+fish_wheel	9	16	0	2001	259
+fish_wheel	9	17	0	2001	260
+fish_wheel	9	18	0	2001	261
+fish_wheel	9	19	0	2001	262
+fish_wheel	9	20	0	2001	263
+fish_wheel	9	21	0	2001	264
+fish_wheel	9	22	0	2001	265
+fish_wheel	9	23	0	2001	266
+fish_wheel	9	24	0	2001	267
+fish_wheel	9	25	0	2001	268
+fish_wheel	9	26	0	2001	269
+fish_wheel	9	27	0	2001	270
+fish_wheel	9	28	0	2001	271
+fish_wheel	9	29	0	2001	272
+fish_wheel	9	30	0	2001	273
+fish_wheel	10	1	0	2001	274
+fish_wheel	10	2	0	2001	275
+fish_wheel	10	3	0	2001	276
+fish_wheel	10	4	0	2001	277
+fish_wheel	10	5	0	2001	278
+fish_wheel	10	6	0	2001	279
+fish_wheel	10	7	0	2001	280
+fish_wheel	10	8	0	2001	281
+fish_wheel	10	9	0	2001	282
+fish_wheel	10	10	0	2001	283
+fish_wheel	6	23	0	2002	174
+fish_wheel	6	24	0	2002	175
+fish_wheel	6	25	0	2002	176
+fish_wheel	6	26	0	2002	177
+fish_wheel	6	27	0	2002	178
+fish_wheel	6	28	1	2002	179
+fish_wheel	6	29	4	2002	180
+fish_wheel	6	30	6	2002	181
+fish_wheel	7	1	11	2002	182
+fish_wheel	7	2	10	2002	183
+fish_wheel	7	3	17	2002	184
+fish_wheel	7	4	9	2002	185
+fish_wheel	7	5	3	2002	186
+fish_wheel	7	6	7	2002	187
+fish_wheel	7	7	8	2002	188
+fish_wheel	7	8	7	2002	189
+fish_wheel	7	9	7	2002	190
+fish_wheel	7	10	21	2002	191
+fish_wheel	7	11	32	2002	192
+fish_wheel	7	12	20	2002	193
+fish_wheel	7	13	16	2002	194
+fish_wheel	7	14	20	2002	195
+fish_wheel	7	15	20	2002	196
+fish_wheel	7	16	19	2002	197
+fish_wheel	7	17	18	2002	198
+fish_wheel	7	18	22	2002	199
+fish_wheel	7	19	21	2002	200
+fish_wheel	7	20	26	2002	201
+fish_wheel	7	21	28	2002	202
+fish_wheel	7	22	25	2002	203
+fish_wheel	7	23	20	2002	204
+fish_wheel	7	24	24	2002	205
+fish_wheel	7	25	30	2002	206
+fish_wheel	7	26	26	2002	207
+fish_wheel	7	27	43	2002	208
+fish_wheel	7	28	74	2002	209
+fish_wheel	7	29	40	2002	210
+fish_wheel	7	30	90	2002	211
+fish_wheel	7	31	79	2002	212
+fish_wheel	8	1	70	2002	213
+fish_wheel	8	2	47	2002	214
+fish_wheel	8	3	27	2002	215
+fish_wheel	8	4	13	2002	216
+fish_wheel	8	5	12	2002	217
+fish_wheel	8	6	20	2002	218
+fish_wheel	8	7	16	2002	219
+fish_wheel	8	8	18	2002	220
+fish_wheel	8	9	2	2002	221
+fish_wheel	8	10	5	2002	222
+fish_wheel	8	11	5	2002	223
+fish_wheel	8	12	0	2002	224
+fish_wheel	8	13	1	2002	225
+fish_wheel	8	14	1	2002	226
+fish_wheel	8	15	1	2002	227
+fish_wheel	8	16	1	2002	228
+fish_wheel	8	17	3	2002	229
+fish_wheel	8	18	0	2002	230
+fish_wheel	8	19	1	2002	231
+fish_wheel	8	20	3	2002	232
+fish_wheel	8	21	0	2002	233
+fish_wheel	8	22	3	2002	234
+fish_wheel	8	23	2	2002	235
+fish_wheel	8	24	2	2002	236
+fish_wheel	8	25	1	2002	237
+fish_wheel	8	26	0	2002	238
+fish_wheel	8	27	1	2002	239
+fish_wheel	8	28	3	2002	240
+fish_wheel	8	29	0	2002	241
+fish_wheel	8	30	0	2002	242
+fish_wheel	8	31	0	2002	243
+fish_wheel	9	1	0	2002	244
+fish_wheel	9	2	0	2002	245
+fish_wheel	9	3	1	2002	246
+fish_wheel	9	4	0	2002	247
+fish_wheel	9	5	0	2002	248
+fish_wheel	9	6	0	2002	249
+fish_wheel	9	7	0	2002	250
+fish_wheel	9	8	0	2002	251
+fish_wheel	9	9	0	2002	252
+fish_wheel	9	10	0	2002	253
+fish_wheel	9	11	1	2002	254
+fish_wheel	9	12	1	2002	255
+fish_wheel	9	13	0	2002	256
+fish_wheel	9	14	0	2002	257
+fish_wheel	9	15	0	2002	258
+fish_wheel	9	16	0	2002	259
+fish_wheel	9	17	0	2002	260
+fish_wheel	9	18	0	2002	261
+fish_wheel	9	19	0	2002	262
+fish_wheel	9	20	0	2002	263
+fish_wheel	9	21	0	2002	264
+fish_wheel	9	22	0	2002	265
+fish_wheel	9	23	0	2002	266
+fish_wheel	9	24	0	2002	267
+fish_wheel	9	25	0	2002	268
+fish_wheel	9	26	0	2002	269
+fish_wheel	9	27	0	2002	270
+fish_wheel	9	28	0	2002	271
+fish_wheel	9	29	0	2002	272
+fish_wheel	9	30	0	2002	273
+fish_wheel	10	1	0	2002	274
+fish_wheel	10	2	0	2002	275
+fish_wheel	10	3	0	2002	276
+fish_wheel	10	4	0	2002	277
+fish_wheel	10	5	0	2002	278
+fish_wheel	10	6	0	2002	279
+fish_wheel	10	7	0	2002	280
+fish_wheel	10	8	0	2002	281
+fish_wheel	10	9	0	2002	282
+fish_wheel	10	10	0	2002	283
+fish_wheel	6	23	0	2003	174
+fish_wheel	6	24	0	2003	175
+fish_wheel	6	25	0	2003	176
+fish_wheel	6	26	5	2003	177
+fish_wheel	6	27	6	2003	178
+fish_wheel	6	28	5	2003	179
+fish_wheel	6	29	12	2003	180
+fish_wheel	6	30	17	2003	181
+fish_wheel	7	1	26	2003	182
+fish_wheel	7	2	27	2003	183
+fish_wheel	7	3	29	2003	184
+fish_wheel	7	4	18	2003	185
+fish_wheel	7	5	34	2003	186
+fish_wheel	7	6	32	2003	187
+fish_wheel	7	7	40	2003	188
+fish_wheel	7	8	37	2003	189
+fish_wheel	7	9	40	2003	190
+fish_wheel	7	10	36	2003	191
+fish_wheel	7	11	56	2003	192
+fish_wheel	7	12	58	2003	193
+fish_wheel	7	13	47	2003	194
+fish_wheel	7	14	40	2003	195
+fish_wheel	7	15	63	2003	196
+fish_wheel	7	16	37	2003	197
+fish_wheel	7	17	31	2003	198
+fish_wheel	7	18	25	2003	199
+fish_wheel	7	19	31	2003	200
+fish_wheel	7	20	27	2003	201
+fish_wheel	7	21	25	2003	202
+fish_wheel	7	22	30	2003	203
+fish_wheel	7	23	23	2003	204
+fish_wheel	7	24	42	2003	205
+fish_wheel	7	25	57	2003	206
+fish_wheel	7	26	42	2003	207
+fish_wheel	7	27	23	2003	208
+fish_wheel	7	28	11	2003	209
+fish_wheel	7	29	17	2003	210
+fish_wheel	7	30	11	2003	211
+fish_wheel	7	31	18	2003	212
+fish_wheel	8	1	11	2003	213
+fish_wheel	8	2	6	2003	214
+fish_wheel	8	3	10	2003	215
+fish_wheel	8	4	8	2003	216
+fish_wheel	8	5	6	2003	217
+fish_wheel	8	6	7	2003	218
+fish_wheel	8	7	13	2003	219
+fish_wheel	8	8	7	2003	220
+fish_wheel	8	9	10	2003	221
+fish_wheel	8	10	14	2003	222
+fish_wheel	8	11	6	2003	223
+fish_wheel	8	12	11	2003	224
+fish_wheel	8	13	10	2003	225
+fish_wheel	8	14	11	2003	226
+fish_wheel	8	15	9	2003	227
+fish_wheel	8	16	4	2003	228
+fish_wheel	8	17	1	2003	229
+fish_wheel	8	18	3	2003	230
+fish_wheel	8	19	2	2003	231
+fish_wheel	8	20	5	2003	232
+fish_wheel	8	21	4	2003	233
+fish_wheel	8	22	5	2003	234
+fish_wheel	8	23	2	2003	235
+fish_wheel	8	24	3	2003	236
+fish_wheel	8	25	2	2003	237
+fish_wheel	8	26	4	2003	238
+fish_wheel	8	27	0	2003	239
+fish_wheel	8	28	3	2003	240
+fish_wheel	8	29	1	2003	241
+fish_wheel	8	30	7	2003	242
+fish_wheel	8	31	2	2003	243
+fish_wheel	9	1	0	2003	244
+fish_wheel	9	2	3	2003	245
+fish_wheel	9	3	3	2003	246
+fish_wheel	9	4	0	2003	247
+fish_wheel	9	5	0	2003	248
+fish_wheel	9	6	0	2003	249
+fish_wheel	9	7	0	2003	250
+fish_wheel	9	8	1	2003	251
+fish_wheel	9	9	0	2003	252
+fish_wheel	9	10	0	2003	253
+fish_wheel	9	11	0	2003	254
+fish_wheel	9	12	0	2003	255
+fish_wheel	9	13	0	2003	256
+fish_wheel	9	14	0	2003	257
+fish_wheel	9	15	0	2003	258
+fish_wheel	9	16	0	2003	259
+fish_wheel	9	17	0	2003	260
+fish_wheel	9	18	0	2003	261
+fish_wheel	9	19	0	2003	262
+fish_wheel	9	20	0	2003	263
+fish_wheel	9	21	0	2003	264
+fish_wheel	9	22	0	2003	265
+fish_wheel	9	23	0	2003	266
+fish_wheel	9	24	0	2003	267
+fish_wheel	9	25	0	2003	268
+fish_wheel	9	26	0	2003	269
+fish_wheel	9	27	3	2003	270
+fish_wheel	9	28	0	2003	271
+fish_wheel	9	29	0	2003	272
+fish_wheel	9	30	0	2003	273
+fish_wheel	10	1	0	2003	274
+fish_wheel	10	2	0	2003	275
+fish_wheel	10	3	0	2003	276
+fish_wheel	10	4	0	2003	277
+fish_wheel	10	5	0	2003	278
+fish_wheel	10	6	0	2003	279
+fish_wheel	10	7	0	2003	280
+fish_wheel	10	8	0	2003	281
+fish_wheel	10	9	0	2003	282
+fish_wheel	10	10	1	2003	283
+fish_wheel	6	23	0	2004	175
+fish_wheel	6	24	0	2004	176
+fish_wheel	6	25	0	2004	177
+fish_wheel	6	26	0	2004	178
+fish_wheel	6	27	2	2004	179
+fish_wheel	6	28	2	2004	180
+fish_wheel	6	29	5	2004	181
+fish_wheel	6	30	6	2004	182
+fish_wheel	7	1	10	2004	183
+fish_wheel	7	2	10	2004	184
+fish_wheel	7	3	13	2004	185
+fish_wheel	7	4	20	2004	186
+fish_wheel	7	5	35	2004	187
+fish_wheel	7	6	24	2004	188
+fish_wheel	7	7	24	2004	189
+fish_wheel	7	8	59	2004	190
+fish_wheel	7	9	26	2004	191
+fish_wheel	7	10	44	2004	192
+fish_wheel	7	11	37	2004	193
+fish_wheel	7	12	40	2004	194
+fish_wheel	7	13	42	2004	195
+fish_wheel	7	14	57	2004	196
+fish_wheel	7	15	48	2004	197
+fish_wheel	7	16	46	2004	198
+fish_wheel	7	17	57	2004	199
+fish_wheel	7	18	58	2004	200
+fish_wheel	7	19	52	2004	201
+fish_wheel	7	20	23	2004	202
+fish_wheel	7	21	32	2004	203
+fish_wheel	7	22	34	2004	204
+fish_wheel	7	23	41	2004	205
+fish_wheel	7	24	41	2004	206
+fish_wheel	7	25	43	2004	207
+fish_wheel	7	26	48	2004	208
+fish_wheel	7	27	37	2004	209
+fish_wheel	7	28	31	2004	210
+fish_wheel	7	29	33	2004	211
+fish_wheel	7	30	20	2004	212
+fish_wheel	7	31	24	2004	213
+fish_wheel	8	1	26	2004	214
+fish_wheel	8	2	26	2004	215
+fish_wheel	8	3	8	2004	216
+fish_wheel	8	4	11	2004	217
+fish_wheel	8	5	10	2004	218
+fish_wheel	8	6	8	2004	219
+fish_wheel	8	7	7	2004	220
+fish_wheel	8	8	15	2004	221
+fish_wheel	8	9	7	2004	222
+fish_wheel	8	10	10	2004	223
+fish_wheel	8	11	6	2004	224
+fish_wheel	8	12	8	2004	225
+fish_wheel	8	13	7	2004	226
+fish_wheel	8	14	6	2004	227
+fish_wheel	8	15	5	2004	228
+fish_wheel	8	16	4	2004	229
+fish_wheel	8	17	4	2004	230
+fish_wheel	8	18	6	2004	231
+fish_wheel	8	19	2	2004	232
+fish_wheel	8	20	4	2004	233
+fish_wheel	8	21	2	2004	234
+fish_wheel	8	22	1	2004	235
+fish_wheel	8	23	4	2004	236
+fish_wheel	8	24	3	2004	237
+fish_wheel	8	25	3	2004	238
+fish_wheel	8	26	3	2004	239
+fish_wheel	8	27	4	2004	240
+fish_wheel	8	28	2	2004	241
+fish_wheel	8	29	0	2004	242
+fish_wheel	8	30	1	2004	243
+fish_wheel	8	31	1	2004	244
+fish_wheel	9	1	1	2004	245
+fish_wheel	9	2	5	2004	246
+fish_wheel	9	3	1	2004	247
+fish_wheel	9	4	3	2004	248
+fish_wheel	9	5	4	2004	249
+fish_wheel	9	6	0	2004	250
+fish_wheel	9	7	2	2004	251
+fish_wheel	9	8	1	2004	252
+fish_wheel	9	9	3	2004	253
+fish_wheel	9	10	4	2004	254
+fish_wheel	9	11	0	2004	255
+fish_wheel	9	12	1	2004	256
+fish_wheel	9	13	2	2004	257
+fish_wheel	9	14	0	2004	258
+fish_wheel	9	15	0	2004	259
+fish_wheel	9	16	1	2004	260
+fish_wheel	9	17	1	2004	261
+fish_wheel	9	18	0	2004	262
+fish_wheel	9	19	0	2004	263
+fish_wheel	9	20	1	2004	264
+fish_wheel	9	21	0	2004	265
+fish_wheel	9	22	1	2004	266
+fish_wheel	9	23	0	2004	267
+fish_wheel	9	24	0	2004	268
+fish_wheel	9	25	0	2004	269
+fish_wheel	9	26	2	2004	270
+fish_wheel	9	27	0	2004	271
+fish_wheel	9	28	0	2004	272
+fish_wheel	9	29	0	2004	273
+fish_wheel	9	30	0	2004	274
+fish_wheel	10	1	0	2004	275
+fish_wheel	10	2	0	2004	276
+fish_wheel	10	3	0	2004	277
+fish_wheel	10	4	0	2004	278
+fish_wheel	10	5	0	2004	279
+fish_wheel	10	6	0	2004	280
+fish_wheel	10	7	0	2004	281
+fish_wheel	10	8	0	2004	282
+fish_wheel	10	9	0	2004	283
+fish_wheel	10	10	0	2004	284
+sonar	6	23		2005	174
+sonar	6	24		2005	175
+sonar	6	25		2005	176
+sonar	6	26		2005	177
+sonar	6	27		2005	178
+sonar	6	28		2005	179
+sonar	6	29		2005	180
+sonar	6	30		2005	181
+sonar	7	1		2005	182
+sonar	7	2		2005	183
+sonar	7	3		2005	184
+sonar	7	4		2005	185
+sonar	7	5		2005	186
+sonar	7	6		2005	187
+sonar	7	7		2005	188
+sonar	7	8		2005	189
+sonar	7	9		2005	190
+sonar	7	10		2005	191
+sonar	7	11		2005	192
+sonar	7	12	1531	2005	193
+sonar	7	13	2618	2005	194
+sonar	7	14	3122	2005	195
+sonar	7	15	3242	2005	196
+sonar	7	16	3770	2005	197
+sonar	7	17	4073	2005	198
+sonar	7	18	4480	2005	199
+sonar	7	19	4713	2005	200
+sonar	7	20	4668	2005	201
+sonar	7	21	5254	2005	202
+sonar	7	22	5144	2005	203
+sonar	7	23	5956	2005	204
+sonar	7	24	3763	2005	205
+sonar	7	25	3319	2005	206
+sonar	7	26	2473	2005	207
+sonar	7	27	2460	2005	208
+sonar	7	28	2704	2005	209
+sonar	7	29	2830	2005	210
+sonar	7	30	2547	2005	211
+sonar	7	31	2522	2005	212
+sonar	8	1	1676	2005	213
+sonar	8	2	1363	2005	214
+sonar	8	3	1437	2005	215
+sonar	8	4	1246	2005	216
+sonar	8	5	1058	2005	217
+sonar	8	6	806	2005	218
+sonar	8	7	748	2005	219
+sonar	8	8	729	2005	220
+sonar	8	9	600	2005	221
+sonar	8	10	677	2005	222
+sonar	8	11		2005	223
+sonar	8	12		2005	224
+sonar	8	13		2005	225
+sonar	8	14		2005	226
+sonar	8	15		2005	227
+sonar	8	16		2005	228
+sonar	8	17		2005	229
+sonar	8	18		2005	230
+sonar	8	19		2005	231
+sonar	8	20		2005	232
+sonar	8	21		2005	233
+sonar	8	22		2005	234
+sonar	8	23		2005	235
+sonar	8	24		2005	236
+sonar	8	25		2005	237
+sonar	8	26		2005	238
+sonar	8	27		2005	239
+sonar	8	28		2005	240
+sonar	8	29		2005	241
+sonar	8	30		2005	242
+sonar	8	31		2005	243
+sonar	9	1		2005	244
+sonar	9	2		2005	245
+sonar	9	3		2005	246
+sonar	9	4		2005	247
+sonar	9	5		2005	248
+sonar	9	6		2005	249
+sonar	9	7		2005	250
+sonar	9	8		2005	251
+sonar	9	9		2005	252
+sonar	9	10		2005	253
+sonar	9	11		2005	254
+sonar	9	12		2005	255
+sonar	9	13		2005	256
+sonar	9	14		2005	257
+sonar	9	15		2005	258
+sonar	9	16		2005	259
+sonar	9	17		2005	260
+sonar	9	18		2005	261
+sonar	9	19		2005	262
+sonar	9	20		2005	263
+sonar	9	21		2005	264
+sonar	9	22		2005	265
+sonar	9	23		2005	266
+sonar	9	24		2005	267
+sonar	9	25		2005	268
+sonar	9	26		2005	269
+sonar	9	27		2005	270
+sonar	9	28		2005	271
+sonar	9	29		2005	272
+sonar	9	30		2005	273
+sonar	6	23		2006	174
+sonar	6	24		2006	175
+sonar	6	25		2006	176
+sonar	6	26		2006	177
+sonar	6	27		2006	178
+sonar	6	28		2006	179
+sonar	6	29		2006	180
+sonar	6	30		2006	181
+sonar	7	1		2006	182
+sonar	7	2		2006	183
+sonar	7	3		2006	184
+sonar	7	4		2006	185
+sonar	7	5		2006	186
+sonar	7	6		2006	187
+sonar	7	7		2006	188
+sonar	7	8	84	2006	189
+sonar	7	9	114	2006	190
+sonar	7	10	191	2006	191
+sonar	7	11	180	2006	192
+sonar	7	12	269	2006	193
+sonar	7	13	398	2006	194
+sonar	7	14	791	2006	195
+sonar	7	15	1056	2006	196
+sonar	7	16	1836	2006	197
+sonar	7	17	2072	2006	198
+sonar	7	18	2835	2006	199
+sonar	7	19	3174	2006	200
+sonar	7	20	3272	2006	201
+sonar	7	21	3165	2006	202
+sonar	7	22	3509	2006	203
+sonar	7	23	3355	2006	204
+sonar	7	24	3344	2006	205
+sonar	7	25	3648	2006	206
+sonar	7	26	3833	2006	207
+sonar	7	27	3350	2006	208
+sonar	7	28	3853	2006	209
+sonar	7	29	4269	2006	210
+sonar	7	30	4232	2006	211
+sonar	7	31	3699	2006	212
+sonar	8	1	3236	2006	213
+sonar	8	2	2487	2006	214
+sonar	8	3	1824	2006	215
+sonar	8	4	1527	2006	216
+sonar	8	5	1430	2006	217
+sonar	8	6	1308	2006	218
+sonar	8	7	1020	2006	219
+sonar	8	8	842	2006	220
+sonar	8	9	740	2006	221
+sonar	8	10	581	2006	222
+sonar	8	11	502	2006	223
+sonar	8	12	433	2006	224
+sonar	8	13	327	2006	225
+sonar	8	14	330	2006	226
+sonar	8	15	204	2006	227
+sonar	8	16	185	2006	228
+sonar	8	17	186	2006	229
+sonar	8	18		2006	230
+sonar	8	19		2006	231
+sonar	8	20		2006	232
+sonar	8	21		2006	233
+sonar	8	22		2006	234
+sonar	8	23		2006	235
+sonar	8	24		2006	236
+sonar	8	25		2006	237
+sonar	8	26		2006	238
+sonar	8	27		2006	239
+sonar	8	28		2006	240
+sonar	8	29		2006	241
+sonar	8	30		2006	242
+sonar	8	31		2006	243
+sonar	9	1		2006	244
+sonar	9	2		2006	245
+sonar	9	3		2006	246
+sonar	9	4		2006	247
+sonar	9	5		2006	248
+sonar	9	6		2006	249
+sonar	9	7		2006	250
+sonar	9	8		2006	251
+sonar	9	9		2006	252
+sonar	9	10		2006	253
+sonar	9	11		2006	254
+sonar	9	12		2006	255
+sonar	9	13		2006	256
+sonar	9	14		2006	257
+sonar	9	15		2006	258
+sonar	9	16		2006	259
+sonar	9	17		2006	260
+sonar	9	18		2006	261
+sonar	9	19		2006	262
+sonar	9	20		2006	263
+sonar	9	21		2006	264
+sonar	9	22		2006	265
+sonar	9	23		2006	266
+sonar	9	24		2006	267
+sonar	9	25		2006	268
+sonar	9	26		2006	269
+sonar	9	27		2006	270
+sonar	9	28		2006	271
+sonar	9	29		2006	272
+sonar	9	30		2006	273
+sonar	6	23		2007	174
+sonar	6	24		2007	175
+sonar	6	25		2007	176
+sonar	6	26		2007	177
+sonar	6	27		2007	178
+sonar	6	28		2007	179
+sonar	6	29		2007	180
+sonar	6	30		2007	181
+sonar	7	1		2007	182
+sonar	7	2		2007	183
+sonar	7	3		2007	184
+sonar	7	4		2007	185
+sonar	7	5		2007	186
+sonar	7	6		2007	187
+sonar	7	7	34	2007	188
+sonar	7	8	57	2007	189
+sonar	7	9	109	2007	190
+sonar	7	10	176	2007	191
+sonar	7	11	335	2007	192
+sonar	7	12	582	2007	193
+sonar	7	13	952	2007	194
+sonar	7	14	1387	2007	195
+sonar	7	15	1949	2007	196
+sonar	7	16	2392	2007	197
+sonar	7	17	2752	2007	198
+sonar	7	18	2776	2007	199
+sonar	7	19	2568	2007	200
+sonar	7	20	2204	2007	201
+sonar	7	21	1702	2007	202
+sonar	7	22	1726	2007	203
+sonar	7	23	1478	2007	204
+sonar	7	24	1205	2007	205
+sonar	7	25	1058	2007	206
+sonar	7	26	1087	2007	207
+sonar	7	27	934	2007	208
+sonar	7	28	1203	2007	209
+sonar	7	29	1417	2007	210
+sonar	7	30	1251	2007	211
+sonar	7	31	1296	2007	212
+sonar	8	1	1098	2007	213
+sonar	8	2	952	2007	214
+sonar	8	3	983	2007	215
+sonar	8	4	880	2007	216
+sonar	8	5	798	2007	217
+sonar	8	6	540	2007	218
+sonar	8	7	490	2007	219
+sonar	8	8	451	2007	220
+sonar	8	9	390	2007	221
+sonar	8	10	251	2007	222
+sonar	8	11	264	2007	223
+sonar	8	12	287	2007	224
+sonar	8	13	220	2007	225
+sonar	8	14	210	2007	226
+sonar	8	15	139	2007	227
+sonar	8	16	237	2007	228
+sonar	8	17	207	2007	229
+sonar	8	18	158	2007	230
+sonar	8	19	100	2007	231
+sonar	8	20	121	2007	232
+sonar	8	21	151	2007	233
+sonar	8	22	140	2007	234
+sonar	8	23		2007	235
+sonar	8	24		2007	236
+sonar	8	25		2007	237
+sonar	8	26		2007	238
+sonar	8	27		2007	239
+sonar	8	28		2007	240
+sonar	8	29		2007	241
+sonar	8	30		2007	242
+sonar	8	31		2007	243
+sonar	9	1		2007	244
+sonar	9	2		2007	245
+sonar	9	3		2007	246
+sonar	9	4		2007	247
+sonar	9	5		2007	248
+sonar	9	6		2007	249
+sonar	9	7		2007	250
+sonar	9	8		2007	251
+sonar	9	9		2007	252
+sonar	9	10		2007	253
+sonar	9	11		2007	254
+sonar	9	12		2007	255
+sonar	9	13		2007	256
+sonar	9	14		2007	257
+sonar	9	15		2007	258
+sonar	9	16		2007	259
+sonar	9	17		2007	260
+sonar	9	18		2007	261
+sonar	9	19		2007	262
+sonar	9	20		2007	263
+sonar	9	21		2007	264
+sonar	9	22		2007	265
+sonar	9	23		2007	266
+sonar	9	24		2007	267
+sonar	9	25		2007	268
+sonar	9	26		2007	269
+sonar	9	27		2007	270
+sonar	9	28		2007	271
+sonar	9	29		2007	272
+sonar	9	30		2007	273
+sonar	6	23		2008	174
+sonar	6	24		2008	175
+sonar	6	25		2008	176
+sonar	6	26		2008	177
+sonar	6	27		2008	178
+sonar	6	28		2008	179
+sonar	6	29		2008	180
+sonar	6	30		2008	181
+sonar	7	1		2008	182
+sonar	7	2		2008	183
+sonar	7	3		2008	184
+sonar	7	4		2008	185
+sonar	7	5		2008	186
+sonar	7	6	71	2008	187
+sonar	7	7	208	2008	188
+sonar	7	8	307	2008	189
+sonar	7	9	293	2008	190
+sonar	7	10	326	2008	191
+sonar	7	11	440	2008	192
+sonar	7	12	452	2008	193
+sonar	7	13	357	2008	194
+sonar	7	14	315	2008	195
+sonar	7	15	730	2008	196
+sonar	7	16	991	2008	197
+sonar	7	17	977	2008	198
+sonar	7	18	1341	2008	199
+sonar	7	19	908	2008	200
+sonar	7	20	1286	2008	201
+sonar	7	21	1009	2008	202
+sonar	7	22	1107	2008	203
+sonar	7	23	1068	2008	204
+sonar	7	24	1220	2008	205
+sonar	7	25	1370	2008	206
+sonar	7	26	1200	2008	207
+sonar	7	27	1417	2008	208
+sonar	7	28	1611	2008	209
+sonar	7	29	1619	2008	210
+sonar	7	30	1956	2008	211
+sonar	7	31	1852	2008	212
+sonar	8	1	1643	2008	213
+sonar	8	2	1562	2008	214
+sonar	8	3	1371	2008	215
+sonar	8	4	1228	2008	216
+sonar	8	5	1176	2008	217
+sonar	8	6	955	2008	218
+sonar	8	7	900	2008	219
+sonar	8	8	871	2008	220
+sonar	8	9	731	2008	221
+sonar	8	10	527	2008	222
+sonar	8	11	599	2008	223
+sonar	8	12	525	2008	224
+sonar	8	13	476	2008	225
+sonar	8	14	422	2008	226
+sonar	8	15	382	2008	227
+sonar	8	16	298	2008	228
+sonar	8	17		2008	229
+sonar	8	18		2008	230
+sonar	8	19		2008	231
+sonar	8	20		2008	232
+sonar	8	21		2008	233
+sonar	8	22		2008	234
+sonar	8	23		2008	235
+sonar	8	24		2008	236
+sonar	8	25		2008	237
+sonar	8	26		2008	238
+sonar	8	27		2008	239
+sonar	8	28		2008	240
+sonar	8	29		2008	241
+sonar	8	30		2008	242
+sonar	8	31		2008	243
+sonar	9	1		2008	244
+sonar	9	2		2008	245
+sonar	9	3		2008	246
+sonar	9	4		2008	247
+sonar	9	5		2008	248
+sonar	9	6		2008	249
+sonar	9	7		2008	250
+sonar	9	8		2008	251
+sonar	9	9		2008	252
+sonar	9	10		2008	253
+sonar	9	11		2008	254
+sonar	9	12		2008	255
+sonar	9	13		2008	256
+sonar	9	14		2008	257
+sonar	9	15		2008	258
+sonar	9	16		2008	259
+sonar	9	17		2008	260
+sonar	9	18		2008	261
+sonar	9	19		2008	262
+sonar	9	20		2008	263
+sonar	9	21		2008	264
+sonar	9	22		2008	265
+sonar	9	23		2008	266
+sonar	9	24		2008	267
+sonar	9	25		2008	268
+sonar	9	26		2008	269
+sonar	9	27		2008	270
+sonar	9	28		2008	271
+sonar	9	29		2008	272
+sonar	9	30		2008	273
+sonar	6	23		2009	174
+sonar	6	24		2009	175
+sonar	6	25		2009	176
+sonar	6	26		2009	177
+sonar	6	27		2009	178
+sonar	6	28		2009	179
+sonar	6	29		2009	180
+sonar	6	30		2009	181
+sonar	7	1		2009	182
+sonar	7	2		2009	183
+sonar	7	3		2009	184
+sonar	7	4		2009	185
+sonar	7	5	66	2009	186
+sonar	7	6	127	2009	187
+sonar	7	7	181	2009	188
+sonar	7	8	320	2009	189
+sonar	7	9	462	2009	190
+sonar	7	10	581	2009	191
+sonar	7	11	819	2009	192
+sonar	7	12	1172	2009	193
+sonar	7	13	1210	2009	194
+sonar	7	14	1566	2009	195
+sonar	7	15	2030	2009	196
+sonar	7	16	2882	2009	197
+sonar	7	17	3500	2009	198
+sonar	7	18	4058	2009	199
+sonar	7	19	4519	2009	200
+sonar	7	20	4887	2009	201
+sonar	7	21	4490	2009	202
+sonar	7	22	4347	2009	203
+sonar	7	23	3816	2009	204
+sonar	7	24	3540	2009	205
+sonar	7	25	3353	2009	206
+sonar	7	26	3027	2009	207
+sonar	7	27	2458	2009	208
+sonar	7	28	2188	2009	209
+sonar	7	29	2263	2009	210
+sonar	7	30	2217	2009	211
+sonar	7	31	1816	2009	212
+sonar	8	1	1329	2009	213
+sonar	8	2	1108	2009	214
+sonar	8	3	876	2009	215
+sonar	8	4	786	2009	216
+sonar	8	5	679	2009	217
+sonar	8	6	573	2009	218
+sonar	8	7	478	2009	219
+sonar	8	8	377	2009	220
+sonar	8	9	310	2009	221
+sonar	8	10	201	2009	222
+sonar	8	11	174	2009	223
+sonar	8	12	159	2009	224
+sonar	8	13	148	2009	225
+sonar	8	14	153	2009	226
+sonar	8	15	121	2009	227
+sonar	8	16	134	2009	228
+sonar	8	17	152	2009	229
+sonar	8	18	114	2009	230
+sonar	8	19	101	2009	231
+sonar	8	20	95	2009	232
+sonar	8	21		2009	233
+sonar	8	22		2009	234
+sonar	8	23		2009	235
+sonar	8	24		2009	236
+sonar	8	25		2009	237
+sonar	8	26		2009	238
+sonar	8	27		2009	239
+sonar	8	28		2009	240
+sonar	8	29		2009	241
+sonar	8	30		2009	242
+sonar	8	31		2009	243
+sonar	9	1		2009	244
+sonar	9	2		2009	245
+sonar	9	3		2009	246
+sonar	9	4		2009	247
+sonar	9	5		2009	248
+sonar	9	6		2009	249
+sonar	9	7		2009	250
+sonar	9	8		2009	251
+sonar	9	9		2009	252
+sonar	9	10		2009	253
+sonar	9	11		2009	254
+sonar	9	12		2009	255
+sonar	9	13		2009	256
+sonar	9	14		2009	257
+sonar	9	15		2009	258
+sonar	9	16		2009	259
+sonar	9	17		2009	260
+sonar	9	18		2009	261
+sonar	9	19		2009	262
+sonar	9	20		2009	263
+sonar	9	21		2009	264
+sonar	9	22		2009	265
+sonar	9	23		2009	266
+sonar	9	24		2009	267
+sonar	9	25		2009	268
+sonar	9	26		2009	269
+sonar	9	27		2009	270
+sonar	9	28		2009	271
+sonar	9	29		2009	272
+sonar	9	30		2009	273
+sonar	6	23		2010	174
+sonar	6	24		2010	175
+sonar	6	25		2010	176
+sonar	6	26		2010	177
+sonar	6	27		2010	178
+sonar	6	28		2010	179
+sonar	6	29		2010	180
+sonar	6	30		2010	181
+sonar	7	1		2010	182
+sonar	7	2		2010	183
+sonar	7	3	4	2010	184
+sonar	7	4	15	2010	185
+sonar	7	5	14	2010	186
+sonar	7	6	6	2010	187
+sonar	7	7	11	2010	188
+sonar	7	8	15	2010	189
+sonar	7	9	23	2010	190
+sonar	7	10	57	2010	191
+sonar	7	11	78	2010	192
+sonar	7	12	71	2010	193
+sonar	7	13	127	2010	194
+sonar	7	14	181	2010	195
+sonar	7	15	318	2010	196
+sonar	7	16	483	2010	197
+sonar	7	17	822	2010	198
+sonar	7	18	1057	2010	199
+sonar	7	19	1179	2010	200
+sonar	7	20	1368	2010	201
+sonar	7	21	1708	2010	202
+sonar	7	22	1819	2010	203
+sonar	7	23	1573	2010	204
+sonar	7	24	1378	2010	205
+sonar	7	25	1333	2010	206
+sonar	7	26	1760	2010	207
+sonar	7	27	1760	2010	208
+sonar	7	28	1715	2010	209
+sonar	7	29	1792	2010	210
+sonar	7	30	1811	2010	211
+sonar	7	31	1638	2010	212
+sonar	8	1	1598	2010	213
+sonar	8	2	1815	2010	214
+sonar	8	3	1430	2010	215
+sonar	8	4	1201	2010	216
+sonar	8	5	922	2010	217
+sonar	8	6	634	2010	218
+sonar	8	7	482	2010	219
+sonar	8	8	328	2010	220
+sonar	8	9	219	2010	221
+sonar	8	10	337	2010	222
+sonar	8	11	373	2010	223
+sonar	8	12	271	2010	224
+sonar	8	13	233	2010	225
+sonar	8	14	214	2010	226
+sonar	8	15	191	2010	227
+sonar	8	16	185	2010	228
+sonar	8	17	166	2010	229
+sonar	8	18	195	2010	230
+sonar	8	19	164	2010	231
+sonar	8	20		2010	232
+sonar	8	21		2010	233
+sonar	8	22		2010	234
+sonar	8	23		2010	235
+sonar	8	24		2010	236
+sonar	8	25		2010	237
+sonar	8	26		2010	238
+sonar	8	27		2010	239
+sonar	8	28		2010	240
+sonar	8	29		2010	241
+sonar	8	30		2010	242
+sonar	8	31		2010	243
+sonar	9	1		2010	244
+sonar	9	2		2010	245
+sonar	9	3		2010	246
+sonar	9	4		2010	247
+sonar	9	5		2010	248
+sonar	9	6		2010	249
+sonar	9	7		2010	250
+sonar	9	8		2010	251
+sonar	9	9		2010	252
+sonar	9	10		2010	253
+sonar	9	11		2010	254
+sonar	9	12		2010	255
+sonar	9	13		2010	256
+sonar	9	14		2010	257
+sonar	9	15		2010	258
+sonar	9	16		2010	259
+sonar	9	17		2010	260
+sonar	9	18		2010	261
+sonar	9	19		2010	262
+sonar	9	20		2010	263
+sonar	9	21		2010	264
+sonar	9	22		2010	265
+sonar	9	23		2010	266
+sonar	9	24		2010	267
+sonar	9	25		2010	268
+sonar	9	26		2010	269
+sonar	9	27		2010	270
+sonar	9	28		2010	271
+sonar	9	29		2010	272
+sonar	9	30		2010	273
+sonar	6	23		2011	174
+sonar	6	24		2011	175
+sonar	6	25		2011	176
+sonar	6	26		2011	177
+sonar	6	27		2011	178
+sonar	6	28		2011	179
+sonar	6	29		2011	180
+sonar	6	30		2011	181
+sonar	7	1		2011	182
+sonar	7	2		2011	183
+sonar	7	3		2011	184
+sonar	7	4		2011	185
+sonar	7	5	100	2011	186
+sonar	7	6	219	2011	187
+sonar	7	7	341	2011	188
+sonar	7	8	436	2011	189
+sonar	7	9	404	2011	190
+sonar	7	10	422	2011	191
+sonar	7	11	503	2011	192
+sonar	7	12	426	2011	193
+sonar	7	13	657	2011	194
+sonar	7	14	1141	2011	195
+sonar	7	15	1680	2011	196
+sonar	7	16	1984	2011	197
+sonar	7	17	1844	2011	198
+sonar	7	18	1907	2011	199
+sonar	7	19	1970	2011	200
+sonar	7	20	933	2011	201
+sonar	7	21	1734	2011	202
+sonar	7	22	3109	2011	203
+sonar	7	23	3460	2011	204
+sonar	7	24	3390	2011	205
+sonar	7	25	3160	2011	206
+sonar	7	26	2979	2011	207
+sonar	7	27	2117	2011	208
+sonar	7	28	2034	2011	209
+sonar	7	29	1733	2011	210
+sonar	7	30	1658	2011	211
+sonar	7	31	1505	2011	212
+sonar	8	1	1550	2011	213
+sonar	8	2	1333	2011	214
+sonar	8	3	1017	2011	215
+sonar	8	4	938	2011	216
+sonar	8	5	901	2011	217
+sonar	8	6	784	2011	218
+sonar	8	7	775	2011	219
+sonar	8	8	616	2011	220
+sonar	8	9	479	2011	221
+sonar	8	10	380	2011	222
+sonar	8	11	320	2011	223
+sonar	8	12	332	2011	224
+sonar	8	13		2011	225
+sonar	8	14		2011	226
+sonar	8	15		2011	227
+sonar	8	16		2011	228
+sonar	8	17		2011	229
+sonar	8	18		2011	230
+sonar	8	19		2011	231
+sonar	8	20		2011	232
+sonar	8	21		2011	233
+sonar	8	22		2011	234
+sonar	8	23		2011	235
+sonar	8	24		2011	236
+sonar	8	25		2011	237
+sonar	8	26		2011	238
+sonar	8	27		2011	239
+sonar	8	28		2011	240
+sonar	8	29		2011	241
+sonar	8	30		2011	242
+sonar	8	31		2011	243
+sonar	9	1		2011	244
+sonar	9	2		2011	245
+sonar	9	3		2011	246
+sonar	9	4		2011	247
+sonar	9	5		2011	248
+sonar	9	6		2011	249
+sonar	9	7		2011	250
+sonar	9	8		2011	251
+sonar	9	9		2011	252
+sonar	9	10		2011	253
+sonar	9	11		2011	254
+sonar	9	12		2011	255
+sonar	9	13		2011	256
+sonar	9	14		2011	257
+sonar	9	15		2011	258
+sonar	9	16		2011	259
+sonar	9	17		2011	260
+sonar	9	18		2011	261
+sonar	9	19		2011	262
+sonar	9	20		2011	263
+sonar	9	21		2011	264
+sonar	9	22		2011	265
+sonar	9	23		2011	266
+sonar	9	24		2011	267
+sonar	9	25		2011	268
+sonar	9	26		2011	269
+sonar	9	27		2011	270
+sonar	9	28		2011	271
+sonar	9	29		2011	272
+sonar	9	30		2011	273
+sonar	6	23		2012	174
+sonar	6	24		2012	175
+sonar	6	25		2012	176
+sonar	6	26		2012	177
+sonar	6	27		2012	178
+sonar	6	28		2012	179
+sonar	6	29		2012	180
+sonar	6	30		2012	181
+sonar	7	1		2012	182
+sonar	7	2		2012	183
+sonar	7	3		2012	184
+sonar	7	4	2	2012	185
+sonar	7	5	0	2012	186
+sonar	7	6	0	2012	187
+sonar	7	7	2	2012	188
+sonar	7	8	0	2012	189
+sonar	7	9	9	2012	190
+sonar	7	10	30	2012	191
+sonar	7	11	32	2012	192
+sonar	7	12	28	2012	193
+sonar	7	13	54	2012	194
+sonar	7	14	96	2012	195
+sonar	7	15	175	2012	196
+sonar	7	16	202	2012	197
+sonar	7	17	327	2012	198
+sonar	7	18	422	2012	199
+sonar	7	19	707	2012	200
+sonar	7	20	917	2012	201
+sonar	7	21	980	2012	202
+sonar	7	22	1338	2012	203
+sonar	7	23	1581	2012	204
+sonar	7	24	1710	2012	205
+sonar	7	25	1807	2012	206
+sonar	7	26	1803	2012	207
+sonar	7	27	2019	2012	208
+sonar	7	28	1982	2012	209
+sonar	7	29	1892	2012	210
+sonar	7	30	1882	2012	211
+sonar	7	31	1545	2012	212
+sonar	8	1	1476	2012	213
+sonar	8	2	1391	2012	214
+sonar	8	3	1234	2012	215
+sonar	8	4	1250	2012	216
+sonar	8	5	1211	2012	217
+sonar	8	6	1157	2012	218
+sonar	8	7	993	2012	219
+sonar	8	8	823	2012	220
+sonar	8	9	784	2012	221
+sonar	8	10	623	2012	222
+sonar	8	11	548	2012	223
+sonar	8	12	389	2012	224
+sonar	8	13	331	2012	225
+sonar	8	14	232	2012	226
+sonar	8	15	210	2012	227
+sonar	8	16	138	2012	228
+sonar	8	17	143	2012	229
+sonar	8	18	129	2012	230
+sonar	8	19	143	2012	231
+sonar	8	20		2012	232
+sonar	8	21		2012	233
+sonar	8	22		2012	234
+sonar	8	23		2012	235
+sonar	8	24		2012	236
+sonar	8	25		2012	237
+sonar	8	26		2012	238
+sonar	8	27		2012	239
+sonar	8	28		2012	240
+sonar	8	29		2012	241
+sonar	8	30		2012	242
+sonar	8	31		2012	243
+sonar	9	1		2012	244
+sonar	9	2		2012	245
+sonar	9	3		2012	246
+sonar	9	4		2012	247
+sonar	9	5		2012	248
+sonar	9	6		2012	249
+sonar	9	7		2012	250
+sonar	9	8		2012	251
+sonar	9	9		2012	252
+sonar	9	10		2012	253
+sonar	9	11		2012	254
+sonar	9	12		2012	255
+sonar	9	13		2012	256
+sonar	9	14		2012	257
+sonar	9	15		2012	258
+sonar	9	16		2012	259
+sonar	9	17		2012	260
+sonar	9	18		2012	261
+sonar	9	19		2012	262
+sonar	9	20		2012	263
+sonar	9	21		2012	264
+sonar	9	22		2012	265
+sonar	9	23		2012	266
+sonar	9	24		2012	267
+sonar	9	25		2012	268
+sonar	9	26		2012	269
+sonar	9	27		2012	270
+sonar	9	28		2012	271
+sonar	9	29		2012	272
+sonar	9	30		2012	273
+sonar	6	23		2013	174
+sonar	6	24		2013	175
+sonar	6	25		2013	176
+sonar	6	26		2013	177
+sonar	6	27		2013	178
+sonar	6	28		2013	179
+sonar	6	29		2013	180
+sonar	6	30		2013	181
+sonar	7	1		2013	182
+sonar	7	2		2013	183
+sonar	7	3		2013	184
+sonar	7	4		2013	185
+sonar	7	5	2	2013	186
+sonar	7	6	9	2013	187
+sonar	7	7	10	2013	188
+sonar	7	8	11	2013	189
+sonar	7	9	7	2013	190
+sonar	7	10	23	2013	191
+sonar	7	11	26	2013	192
+sonar	7	12	39	2013	193
+sonar	7	13	85	2013	194
+sonar	7	14	185	2013	195
+sonar	7	15	415	2013	196
+sonar	7	16	745	2013	197
+sonar	7	17	1166	2013	198
+sonar	7	18	1620	2013	199
+sonar	7	19	2083	2013	200
+sonar	7	20	2064	2013	201
+sonar	7	21	1951	2013	202
+sonar	7	22	1922	2013	203
+sonar	7	23	1591	2013	204
+sonar	7	24	1107	2013	205
+sonar	7	25	1055	2013	206
+sonar	7	26	1277	2013	207
+sonar	7	27	1452	2013	208
+sonar	7	28	1196	2013	209
+sonar	7	29	1130	2013	210
+sonar	7	30	1190	2013	211
+sonar	7	31	1096	2013	212
+sonar	8	1	1053	2013	213
+sonar	8	2	1030	2013	214
+sonar	8	3	762	2013	215
+sonar	8	4	691	2013	216
+sonar	8	5	586	2013	217
+sonar	8	6	439	2013	218
+sonar	8	7	351	2013	219
+sonar	8	8	341	2013	220
+sonar	8	9	334	2013	221
+sonar	8	10	244	2013	222
+sonar	8	11	287	2013	223
+sonar	8	12	248	2013	224
+sonar	8	13	218	2013	225
+sonar	8	14	179	2013	226
+sonar	8	15	170	2013	227
+sonar	8	16	188	2013	228
+sonar	8	17	147	2013	229
+sonar	8	18		2013	230
+sonar	8	19		2013	231
+sonar	8	20		2013	232
+sonar	8	21		2013	233
+sonar	8	22		2013	234
+sonar	8	23		2013	235
+sonar	8	24		2013	236
+sonar	8	25		2013	237
+sonar	8	26		2013	238
+sonar	8	27		2013	239
+sonar	8	28		2013	240
+sonar	8	29		2013	241
+sonar	8	30		2013	242
+sonar	8	31		2013	243
+sonar	9	1		2013	244
+sonar	9	2		2013	245
+sonar	9	3		2013	246
+sonar	9	4		2013	247
+sonar	9	5		2013	248
+sonar	9	6		2013	249
+sonar	9	7		2013	250
+sonar	9	8		2013	251
+sonar	9	9		2013	252
+sonar	9	10		2013	253
+sonar	9	11		2013	254
+sonar	9	12		2013	255
+sonar	9	13		2013	256
+sonar	9	14		2013	257
+sonar	9	15		2013	258
+sonar	9	16		2013	259
+sonar	9	17		2013	260
+sonar	9	18		2013	261
+sonar	9	19		2013	262
+sonar	9	20		2013	263
+sonar	9	21		2013	264
+sonar	9	22		2013	265
+sonar	9	23		2013	266
+sonar	9	24		2013	267
+sonar	9	25		2013	268
+sonar	9	26		2013	269
+sonar	9	27		2013	270
+sonar	9	28		2013	271
+sonar	9	29		2013	272
+sonar	9	30		2013	273
+sonar	6	23		2014	174
+sonar	6	24		2014	175
+sonar	6	25		2014	176
+sonar	6	26		2014	177
+sonar	6	27	95	2014	178
+sonar	6	28	224	2014	179
+sonar	6	29	347	2014	180
+sonar	6	30	507	2014	181
+sonar	7	1	620	2014	182
+sonar	7	2	694	2014	183
+sonar	7	3	863	2014	184
+sonar	7	4	932	2014	185
+sonar	7	5	1136	2014	186
+sonar	7	6	1466	2014	187
+sonar	7	7	1653	2014	188
+sonar	7	8	1707	2014	189
+sonar	7	9	1898	2014	190
+sonar	7	10	1716	2014	191
+sonar	7	11	1992	2014	192
+sonar	7	12	2174	2014	193
+sonar	7	13	2060	2014	194
+sonar	7	14	2060	2014	195
+sonar	7	15	2164	2014	196
+sonar	7	16	2445	2014	197
+sonar	7	17	2596	2014	198
+sonar	7	18	2800	2014	199
+sonar	7	19	2727	2014	200
+sonar	7	20	2762	2014	201
+sonar	7	21	2597	2014	202
+sonar	7	22	3273	2014	203
+sonar	7	23	2949	2014	204
+sonar	7	24	2864	2014	205
+sonar	7	25	2506	2014	206
+sonar	7	26	1985	2014	207
+sonar	7	27	1416	2014	208
+sonar	7	28	969	2014	209
+sonar	7	29	1394	2014	210
+sonar	7	30	1304	2014	211
+sonar	7	31	1020	2014	212
+sonar	8	1	824	2014	213
+sonar	8	2	702	2014	214
+sonar	8	3	601	2014	215
+sonar	8	4	486	2014	216
+sonar	8	5	368	2014	217
+sonar	8	6	301	2014	218
+sonar	8	7	265	2014	219
+sonar	8	8		2014	220
+sonar	8	9		2014	221
+sonar	8	10		2014	222
+sonar	8	11		2014	223
+sonar	8	12		2014	224
+sonar	8	13		2014	225
+sonar	8	14		2014	226
+sonar	8	15		2014	227
+sonar	8	16		2014	228
+sonar	8	17		2014	229
+sonar	8	18		2014	230
+sonar	8	19		2014	231
+sonar	8	20		2014	232
+sonar	8	21		2014	233
+sonar	8	22		2014	234
+sonar	8	23		2014	235
+sonar	8	24		2014	236
+sonar	8	25		2014	237
+sonar	8	26		2014	238
+sonar	8	27		2014	239
+sonar	8	28		2014	240
+sonar	8	29		2014	241
+sonar	8	30		2014	242
+sonar	8	31		2014	243
+sonar	9	1		2014	244
+sonar	9	2		2014	245
+sonar	9	3		2014	246
+sonar	9	4		2014	247
+sonar	9	5		2014	248
+sonar	9	6		2014	249
+sonar	9	7		2014	250
+sonar	9	8		2014	251
+sonar	9	9		2014	252
+sonar	9	10		2014	253
+sonar	9	11		2014	254
+sonar	9	12		2014	255
+sonar	9	13		2014	256
+sonar	9	14		2014	257
+sonar	9	15		2014	258
+sonar	9	16		2014	259
+sonar	9	17		2014	260
+sonar	9	18		2014	261
+sonar	9	19		2014	262
+sonar	9	20		2014	263
+sonar	9	21		2014	264
+sonar	9	22		2014	265
+sonar	9	23		2014	266
+sonar	9	24		2014	267
+sonar	9	25		2014	268
+sonar	9	26		2014	269
+sonar	9	27		2014	270
+sonar	9	28		2014	271
+sonar	9	29		2014	272
+sonar	9	30		2014	273
+sonar	6	23		2015	174
+sonar	6	24		2015	175
+sonar	6	25		2015	176
+sonar	6	26		2015	177
+sonar	6	27		2015	178
+sonar	6	28		2015	179
+sonar	6	29		2015	180
+sonar	6	30	130	2015	181
+sonar	7	1	119	2015	182
+sonar	7	2	172	2015	183
+sonar	7	3	188	2015	184
+sonar	7	4	350	2015	185
+sonar	7	5	464	2015	186
+sonar	7	6	503	2015	187
+sonar	7	7	597	2015	188
+sonar	7	8	854	2015	189
+sonar	7	9	1148	2015	190
+sonar	7	10	1470	2015	191
+sonar	7	11	1799	2015	192
+sonar	7	12	2375	2015	193
+sonar	7	13	2736	2015	194
+sonar	7	14	2794	2015	195
+sonar	7	15	3209	2015	196
+sonar	7	16	3634	2015	197
+sonar	7	17	3383	2015	198
+sonar	7	18	3442	2015	199
+sonar	7	19	3244	2015	200
+sonar	7	20	3218	2015	201
+sonar	7	21	2938	2015	202
+sonar	7	22	2626	2015	203
+sonar	7	23	2968	2015	204
+sonar	7	24	2995	2015	205
+sonar	7	25	3370	2015	206
+sonar	7	26	3716	2015	207
+sonar	7	27	3538	2015	208
+sonar	7	28	3280	2015	209
+sonar	7	29	3440	2015	210
+sonar	7	30	3004	2015	211
+sonar	7	31	2993	2015	212
+sonar	8	1	2482	2015	213
+sonar	8	2	2074	2015	214
+sonar	8	3	1791	2015	215
+sonar	8	4	1444	2015	216
+sonar	8	5	1187	2015	217
+sonar	8	6	1028	2015	218
+sonar	8	7	799	2015	219
+sonar	8	8	596	2015	220
+sonar	8	9	432	2015	221
+sonar	8	10	298	2015	222
+sonar	8	11	294	2015	223
+sonar	8	12	254	2015	224
+sonar	8	13	228	2015	225
+sonar	8	14	215	2015	226
+sonar	8	15	196	2015	227
+sonar	8	16		2015	228
+sonar	8	17		2015	229
+sonar	8	18		2015	230
+sonar	8	19		2015	231
+sonar	8	20		2015	232
+sonar	8	21		2015	233
+sonar	8	22		2015	234
+sonar	8	23		2015	235
+sonar	8	24		2015	236
+sonar	8	25		2015	237
+sonar	8	26		2015	238
+sonar	8	27		2015	239
+sonar	8	28		2015	240
+sonar	8	29		2015	241
+sonar	8	30		2015	242
+sonar	8	31		2015	243
+sonar	9	1		2015	244
+sonar	9	2		2015	245
+sonar	9	3		2015	246
+sonar	9	4		2015	247
+sonar	9	5		2015	248
+sonar	9	6		2015	249
+sonar	9	7		2015	250
+sonar	9	8		2015	251
+sonar	9	9		2015	252
+sonar	9	10		2015	253
+sonar	9	11		2015	254
+sonar	9	12		2015	255
+sonar	9	13		2015	256
+sonar	9	14		2015	257
+sonar	9	15		2015	258
+sonar	9	16		2015	259
+sonar	9	17		2015	260
+sonar	9	18		2015	261
+sonar	9	19		2015	262
+sonar	9	20		2015	263
+sonar	9	21		2015	264
+sonar	9	22		2015	265
+sonar	9	23		2015	266
+sonar	9	24		2015	267
+sonar	9	25		2015	268
+sonar	9	26		2015	269
+sonar	9	27		2015	270
+sonar	9	28		2015	271
+sonar	9	29		2015	272
+sonar	9	30		2015	273
+sonar	6	23		2016	174
+sonar	6	24		2016	175
+sonar	6	25		2016	176
+sonar	6	26		2016	177
+sonar	6	27		2016	178
+sonar	6	28		2016	179
+sonar	6	29		2016	180
+sonar	6	30		2016	181
+sonar	7	1	300	2016	182
+sonar	7	2	384	2016	183
+sonar	7	3	474	2016	184
+sonar	7	4	591	2016	185
+sonar	7	5	615	2016	186
+sonar	7	6	653	2016	187
+sonar	7	7	894	2016	188
+sonar	7	8	1194	2016	189
+sonar	7	9	1401	2016	190
+sonar	7	10	1792	2016	191
+sonar	7	11	2223	2016	192
+sonar	7	12	2960	2016	193
+sonar	7	13	3727	2016	194
+sonar	7	14	4388	2016	195
+sonar	7	15	3992	2016	196
+sonar	7	16	3862	2016	197
+sonar	7	17	3488	2016	198
+sonar	7	18	3267	2016	199
+sonar	7	19	3142	2016	200
+sonar	7	20	3054	2016	201
+sonar	7	21	2975	2016	202
+sonar	7	22	3264	2016	203
+sonar	7	23	2775	2016	204
+sonar	7	24	2619	2016	205
+sonar	7	25	2508	2016	206
+sonar	7	26	2132	2016	207
+sonar	7	27	2018	2016	208
+sonar	7	28	1678	2016	209
+sonar	7	29	1356	2016	210
+sonar	7	30	1184	2016	211
+sonar	7	31	851	2016	212
+sonar	8	1	666	2016	213
+sonar	8	2	832	2016	214
+sonar	8	3	751	2016	215
+sonar	8	4	712	2016	216
+sonar	8	5	590	2016	217
+sonar	8	6	431	2016	218
+sonar	8	7	463	2016	219
+sonar	8	8	430	2016	220
+sonar	8	9	368	2016	221
+sonar	8	10	289	2016	222
+sonar	8	11	206	2016	223
+sonar	8	12	102	2016	224
+sonar	8	13	153	2016	225
+sonar	8	14	176	2016	226
+sonar	8	15	140	2016	227
+sonar	8	16	158	2016	228
+sonar	8	17	101	2016	229
+sonar	8	18		2016	230
+sonar	8	19		2016	231
+sonar	8	20		2016	232
+sonar	8	21		2016	233
+sonar	8	22		2016	234
+sonar	8	23		2016	235
+sonar	8	24		2016	236
+sonar	8	25		2016	237
+sonar	8	26		2016	238
+sonar	8	27		2016	239
+sonar	8	28		2016	240
+sonar	8	29		2016	241
+sonar	8	30		2016	242
+sonar	8	31		2016	243
+sonar	9	1		2016	244
+sonar	9	2		2016	245
+sonar	9	3		2016	246
+sonar	9	4		2016	247
+sonar	9	5		2016	248
+sonar	9	6		2016	249
+sonar	9	7		2016	250
+sonar	9	8		2016	251
+sonar	9	9		2016	252
+sonar	9	10		2016	253
+sonar	9	11		2016	254
+sonar	9	12		2016	255
+sonar	9	13		2016	256
+sonar	9	14		2016	257
+sonar	9	15		2016	258
+sonar	9	16		2016	259
+sonar	9	17		2016	260
+sonar	9	18		2016	261
+sonar	9	19		2016	262
+sonar	9	20		2016	263
+sonar	9	21		2016	264
+sonar	9	22		2016	265
+sonar	9	23		2016	266
+sonar	9	24		2016	267
+sonar	9	25		2016	268
+sonar	9	26		2016	269
+sonar	9	27		2016	270
+sonar	9	28		2016	271
+sonar	9	29		2016	272
+sonar	9	30		2016	273
