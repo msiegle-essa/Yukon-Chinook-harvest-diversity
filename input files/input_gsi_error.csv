@@ -1,0 +1,961 @@
+year,region_num,region_code,Region Name,value_level,value
+1982,1,32,Carmacks,estimate,3.8
+1982,1,36,Lower Mainstem,estimate,17
+1982,1,33,Middle Mainstem,estimate,2.5
+1982,1,34,Pelly,estimate,11.8
+1982,1,35,Stewart,estimate,20.7
+1982,1,31,Teslin River,estimate,27.6
+1982,1,30,Upper Lakes and Mainstem,estimate,1.8
+1982,1,38,White-Donjek,estimate,14.8
+1983,1,32,Carmacks,estimate,17.5
+1983,1,36,Lower Mainstem,estimate,7.9
+1983,1,33,Middle Mainstem,estimate,8
+1983,1,34,Pelly,estimate,7.7
+1983,1,35,Stewart,estimate,8.7
+1983,1,31,Teslin River,estimate,43.7
+1983,1,30,Upper Lakes and Mainstem,estimate,3.1
+1983,1,38,White-Donjek,estimate,3.5
+1985,1,32,Carmacks,estimate,15.1
+1985,1,36,Lower Mainstem,estimate,6.6
+1985,1,33,Middle Mainstem,estimate,5
+1985,1,34,Pelly,estimate,20.2
+1985,1,35,Stewart,estimate,9.4
+1985,1,31,Teslin River,estimate,38.1
+1985,1,30,Upper Lakes and Mainstem,estimate,2.2
+1985,1,38,White-Donjek,estimate,3.6
+1986,1,32,Carmacks,estimate,14.2
+1986,1,36,Lower Mainstem,estimate,7.6
+1986,1,33,Middle Mainstem,estimate,1.1
+1986,1,34,Pelly,estimate,20.7
+1986,1,35,Stewart,estimate,13
+1986,1,31,Teslin River,estimate,33.5
+1986,1,30,Upper Lakes and Mainstem,estimate,2.2
+1986,1,38,White-Donjek,estimate,7.8
+1987,1,32,Carmacks,estimate,9.7
+1987,1,36,Lower Mainstem,estimate,3.9
+1987,1,33,Middle Mainstem,estimate,5
+1987,1,34,Pelly,estimate,31.9
+1987,1,35,Stewart,estimate,10.6
+1987,1,31,Teslin River,estimate,27.6
+1987,1,30,Upper Lakes and Mainstem,estimate,2.6
+1987,1,38,White-Donjek,estimate,8.8
+1991,1,32,Carmacks,estimate,13.5
+1991,1,36,Lower Mainstem,estimate,11.5
+1991,1,33,Middle Mainstem,estimate,8
+1991,1,34,Pelly,estimate,17.5
+1991,1,35,Stewart,estimate,10
+1991,1,31,Teslin River,estimate,29
+1991,1,30,Upper Lakes and Mainstem,estimate,7.8
+1991,1,38,White-Donjek,estimate,2.6
+1992,1,32,Carmacks,estimate,8.2
+1992,1,36,Lower Mainstem,estimate,12.5
+1992,1,33,Middle Mainstem,estimate,12.9
+1992,1,34,Pelly,estimate,22.8
+1992,1,35,Stewart,estimate,11.5
+1992,1,31,Teslin River,estimate,18.8
+1992,1,30,Upper Lakes and Mainstem,estimate,2.4
+1992,1,38,White-Donjek,estimate,10.9
+1993,1,32,Carmacks,estimate,8
+1993,1,36,Lower Mainstem,estimate,20.9
+1993,1,33,Middle Mainstem,estimate,11.2
+1993,1,34,Pelly,estimate,13.2
+1993,1,35,Stewart,estimate,8
+1993,1,31,Teslin River,estimate,19.3
+1993,1,30,Upper Lakes and Mainstem,estimate,2.8
+1993,1,38,White-Donjek,estimate,16.6
+1994,1,32,Carmacks,estimate,13.5
+1994,1,36,Lower Mainstem,estimate,18.2
+1994,1,33,Middle Mainstem,estimate,5.6
+1994,1,34,Pelly,estimate,17
+1994,1,35,Stewart,estimate,10.4
+1994,1,31,Teslin River,estimate,19
+1994,1,30,Upper Lakes and Mainstem,estimate,3.9
+1994,1,38,White-Donjek,estimate,12.3
+1995,1,32,Carmacks,estimate,13.4
+1995,1,36,Lower Mainstem,estimate,7.3
+1995,1,33,Middle Mainstem,estimate,12.4
+1995,1,34,Pelly,estimate,9.9
+1995,1,35,Stewart,estimate,16
+1995,1,31,Teslin River,estimate,29
+1995,1,30,Upper Lakes and Mainstem,estimate,7.7
+1995,1,38,White-Donjek,estimate,4.3
+1996,1,32,Carmacks,estimate,23.6
+1996,1,36,Lower Mainstem,estimate,5.9
+1996,1,33,Middle Mainstem,estimate,5.6
+1996,1,34,Pelly,estimate,12.2
+1996,1,35,Stewart,estimate,8.3
+1996,1,31,Teslin River,estimate,21
+1996,1,30,Upper Lakes and Mainstem,estimate,4.8
+1996,1,38,White-Donjek,estimate,18.5
+1997,1,32,Carmacks,estimate,22.9
+1997,1,36,Lower Mainstem,estimate,8.5
+1997,1,33,Middle Mainstem,estimate,0.9
+1997,1,34,Pelly,estimate,11.2
+1997,1,35,Stewart,estimate,9.2
+1997,1,31,Teslin River,estimate,33.3
+1997,1,30,Upper Lakes and Mainstem,estimate,7.5
+1997,1,38,White-Donjek,estimate,6.7
+1999,1,32,Carmacks,estimate,18.5
+1999,1,36,Lower Mainstem,estimate,8.6
+1999,1,33,Middle Mainstem,estimate,15.1
+1999,1,34,Pelly,estimate,13.4
+1999,1,35,Stewart,estimate,9.4
+1999,1,31,Teslin River,estimate,19.6
+1999,1,30,Upper Lakes and Mainstem,estimate,4.3
+1999,1,38,White-Donjek,estimate,11.1
+2000,1,32,Carmacks,estimate,20
+2000,1,36,Lower Mainstem,estimate,5.5
+2000,1,33,Middle Mainstem,estimate,11.7
+2000,1,34,Pelly,estimate,21.3
+2000,1,35,Stewart,estimate,1.4
+2000,1,31,Teslin River,estimate,18.3
+2000,1,30,Upper Lakes and Mainstem,estimate,6.4
+2000,1,38,White-Donjek,estimate,15.3
+2001,1,32,Carmacks,estimate,8.9
+2001,1,36,Lower Mainstem,estimate,25.8
+2001,1,33,Middle Mainstem,estimate,2.8
+2001,1,34,Pelly,estimate,25.5
+2001,1,35,Stewart,estimate,9.5
+2001,1,31,Teslin River,estimate,12.8
+2001,1,30,Upper Lakes and Mainstem,estimate,0
+2001,1,38,White-Donjek,estimate,14.5
+2002,1,32,Carmacks,estimate,7.6
+2002,1,36,Lower Mainstem,estimate,13.7
+2002,1,33,Middle Mainstem,estimate,29.5
+2002,1,34,Pelly,estimate,7.3
+2002,1,35,Stewart,estimate,17.4
+2002,1,31,Teslin River,estimate,22.5
+2002,1,30,Upper Lakes and Mainstem,estimate,1.6
+2002,1,38,White-Donjek,estimate,0.4
+2003,1,32,Carmacks,estimate,16.3
+2003,1,36,Lower Mainstem,estimate,21.4
+2003,1,33,Middle Mainstem,estimate,5.6
+2003,1,34,Pelly,estimate,26.9
+2003,1,35,Stewart,estimate,5.6
+2003,1,31,Teslin River,estimate,11.9
+2003,1,30,Upper Lakes and Mainstem,estimate,2.7
+2003,1,38,White-Donjek,estimate,9.7
+2004,1,32,Carmacks,estimate,15
+2004,1,36,Lower Mainstem,estimate,18.6
+2004,1,33,Middle Mainstem,estimate,8.5
+2004,1,34,Pelly,estimate,21.7
+2004,1,35,Stewart,estimate,6.4
+2004,1,31,Teslin River,estimate,18.6
+2004,1,30,Upper Lakes and Mainstem,estimate,3.5
+2004,1,38,White-Donjek,estimate,7.7
+2005,1,32,Carmacks,estimate,16.1
+2005,1,36,Lower Mainstem,estimate,15.2
+2005,1,33,Middle Mainstem,estimate,0.8
+2005,1,34,Pelly,estimate,22.1
+2005,1,35,Stewart,estimate,2.6
+2005,1,31,Teslin River,estimate,32.7
+2005,1,30,Upper Lakes and Mainstem,estimate,3.1
+2005,1,38,White-Donjek,estimate,7.4
+2006,1,32,Carmacks,estimate,10.1
+2006,1,36,Lower Mainstem,estimate,11.6
+2006,1,33,Middle Mainstem,estimate,19.9
+2006,1,34,Pelly,estimate,13.2
+2006,1,35,Stewart,estimate,7.1
+2006,1,31,Teslin River,estimate,28.9
+2006,1,30,Upper Lakes and Mainstem,estimate,5
+2006,1,38,White-Donjek,estimate,4.2
+2007,1,32,Carmacks,estimate,13.5
+2007,1,36,Lower Mainstem,estimate,12.6
+2007,1,33,Middle Mainstem,estimate,3.9
+2007,1,34,Pelly,estimate,27.8
+2007,1,35,Stewart,estimate,13.8
+2007,1,31,Teslin River,estimate,16.4
+2007,1,30,Upper Lakes and Mainstem,estimate,1.1
+2007,1,38,White-Donjek,estimate,10.9
+2008,1,32,Carmacks,estimate,9.37
+2008,1,36,Lower Mainstem,estimate,7.51
+2008,1,33,Middle Mainstem,estimate,27.49
+2008,1,34,Pelly,estimate,17.59
+2008,1,35,Stewart,estimate,8.63
+2008,1,31,Teslin River,estimate,21.74
+2008,1,30,Upper Lakes and Mainstem,estimate,1.69
+2008,1,38,White-Donjek,estimate,5.97
+2009,1,32,Carmacks,estimate,17.98
+2009,1,36,Lower Mainstem,estimate,9.18
+2009,1,33,Middle Mainstem,estimate,2.63
+2009,1,34,Pelly,estimate,25.01
+2009,1,35,Stewart,estimate,10.51
+2009,1,31,Teslin River,estimate,24.78
+2009,1,30,Upper Lakes and Mainstem,estimate,3.1
+2009,1,38,White-Donjek,estimate,6.82
+2010,1,32,Carmacks,estimate,15.79
+2010,1,36,Lower Mainstem,estimate,3.34
+2010,1,33,Middle Mainstem,estimate,11.53
+2010,1,34,Pelly,estimate,12.87
+2010,1,35,Stewart,estimate,10.78
+2010,1,31,Teslin River,estimate,34.12
+2010,1,30,Upper Lakes and Mainstem,estimate,7.73
+2010,1,38,White-Donjek,estimate,3.84
+2011,1,32,Carmacks,estimate,13.01
+2011,1,36,Lower Mainstem,estimate,6.72
+2011,1,33,Middle Mainstem,estimate,13.79
+2011,1,34,Pelly,estimate,23.58
+2011,1,35,Stewart,estimate,6.09
+2011,1,31,Teslin River,estimate,27.37
+2011,1,30,Upper Lakes and Mainstem,estimate,4.66
+2011,1,38,White-Donjek,estimate,4.79
+2012,1,32,Carmacks,estimate,14.54
+2012,1,36,Lower Mainstem,estimate,2.81
+2012,1,33,Middle Mainstem,estimate,18.13
+2012,1,34,Pelly,estimate,9.02
+2012,1,35,Stewart,estimate,8.82
+2012,1,31,Teslin River,estimate,36.14
+2012,1,30,Upper Lakes and Mainstem,estimate,6.63
+2012,1,38,White-Donjek,estimate,3.9
+2013,1,32,Carmacks,estimate,15.69
+2013,1,36,Lower Mainstem,estimate,0.73
+2013,1,33,Middle Mainstem,estimate,21.3
+2013,1,34,Pelly,estimate,15.35
+2013,1,35,Stewart,estimate,3.92
+2013,1,31,Teslin River,estimate,33.81
+2013,1,30,Upper Lakes and Mainstem,estimate,6.81
+2013,1,38,White-Donjek,estimate,2.39
+2014,1,32,Carmacks,estimate,12.17
+2014,1,36,Lower Mainstem,estimate,2.58
+2014,1,33,Middle Mainstem,estimate,21.06
+2014,1,34,Pelly,estimate,16.78
+2014,1,35,Stewart,estimate,7.29
+2014,1,31,Teslin River,estimate,31.18
+2014,1,30,Upper Lakes and Mainstem,estimate,4.06
+2014,1,38,White-Donjek,estimate,4.89
+2015,1,32,Carmacks,estimate,17.51
+2015,1,36,Lower Mainstem,estimate,4.44
+2015,1,33,Middle Mainstem,estimate,16.02
+2015,1,34,Pelly,estimate,18.17
+2015,1,35,Stewart,estimate,8.16
+2015,1,31,Teslin River,estimate,25.41
+2015,1,30,Upper Lakes and Mainstem,estimate,4.64
+2015,1,38,White-Donjek,estimate,5.64
+2016,1,32,Carmacks,estimate,16.41
+2016,1,36,Lower Mainstem,estimate,4.24
+2016,1,33,Middle Mainstem,estimate,11.84
+2016,1,34,Pelly,estimate,15.27
+2016,1,35,Stewart,estimate,7.97
+2016,1,31,Teslin River,estimate,34.98
+2016,1,30,Upper Lakes and Mainstem,estimate,6.59
+2016,1,38,White-Donjek,estimate,2.7
+1982,1,32,Carmacks,sd,4.2
+1982,1,36,Lower Mainstem,sd,4.4
+1982,1,33,Middle Mainstem,sd,4
+1982,1,34,Pelly,sd,5.2
+1982,1,35,Stewart,sd,6.2
+1982,1,31,Teslin River,sd,6.7
+1982,1,30,Upper Lakes and Mainstem,sd,1.8
+1982,1,38,White-Donjek,sd,4.4
+1983,1,32,Carmacks,sd,4.9
+1983,1,36,Lower Mainstem,sd,2.3
+1983,1,33,Middle Mainstem,sd,6.2
+1983,1,34,Pelly,sd,3.2
+1983,1,35,Stewart,sd,3.8
+1983,1,31,Teslin River,sd,7.5
+1983,1,30,Upper Lakes and Mainstem,sd,1.6
+1983,1,38,White-Donjek,sd,1.7
+1985,1,32,Carmacks,sd,4.5
+1985,1,36,Lower Mainstem,sd,2.1
+1985,1,33,Middle Mainstem,sd,4.7
+1985,1,34,Pelly,sd,4.2
+1985,1,35,Stewart,sd,3.4
+1985,1,31,Teslin River,sd,6.4
+1985,1,30,Upper Lakes and Mainstem,sd,1.3
+1985,1,38,White-Donjek,sd,1.7
+1986,1,32,Carmacks,sd,4
+1986,1,36,Lower Mainstem,sd,2.6
+1986,1,33,Middle Mainstem,sd,2.3
+1986,1,34,Pelly,sd,4.2
+1986,1,35,Stewart,sd,4.1
+1986,1,31,Teslin River,sd,5.3
+1986,1,30,Upper Lakes and Mainstem,sd,1.3
+1986,1,38,White-Donjek,sd,2.5
+1987,1,32,Carmacks,sd,4.3
+1987,1,36,Lower Mainstem,sd,1.9
+1987,1,33,Middle Mainstem,sd,3.5
+1987,1,34,Pelly,sd,4.7
+1987,1,35,Stewart,sd,4
+1987,1,31,Teslin River,sd,5.1
+1987,1,30,Upper Lakes and Mainstem,sd,1.5
+1987,1,38,White-Donjek,sd,2.7
+1991,1,32,Carmacks,sd,4.4
+1991,1,36,Lower Mainstem,sd,2.7
+1991,1,33,Middle Mainstem,sd,5
+1991,1,34,Pelly,sd,3.8
+1991,1,35,Stewart,sd,3.7
+1991,1,31,Teslin River,sd,5.7
+1991,1,30,Upper Lakes and Mainstem,sd,2.4
+1991,1,38,White-Donjek,sd,1.5
+1992,1,32,Carmacks,sd,3.5
+1992,1,36,Lower Mainstem,sd,3
+1992,1,33,Middle Mainstem,sd,3.9
+1992,1,34,Pelly,sd,4.4
+1992,1,35,Stewart,sd,3.9
+1992,1,31,Teslin River,sd,4
+1992,1,30,Upper Lakes and Mainstem,sd,1.4
+1992,1,38,White-Donjek,sd,3
+1993,1,32,Carmacks,sd,4
+1993,1,36,Lower Mainstem,sd,3.5
+1993,1,33,Middle Mainstem,sd,3.9
+1993,1,34,Pelly,sd,3.7
+1993,1,35,Stewart,sd,3.1
+1993,1,31,Teslin River,sd,3.6
+1993,1,30,Upper Lakes and Mainstem,sd,1.4
+1993,1,38,White-Donjek,sd,3.4
+1994,1,32,Carmacks,sd,4.2
+1994,1,36,Lower Mainstem,sd,3.3
+1994,1,33,Middle Mainstem,sd,4.3
+1994,1,34,Pelly,sd,3.9
+1994,1,35,Stewart,sd,3.6
+1994,1,31,Teslin River,sd,5.3
+1994,1,30,Upper Lakes and Mainstem,sd,1.7
+1994,1,38,White-Donjek,sd,3.1
+1995,1,32,Carmacks,sd,4.7
+1995,1,36,Lower Mainstem,sd,2.4
+1995,1,33,Middle Mainstem,sd,5
+1995,1,34,Pelly,sd,3.2
+1995,1,35,Stewart,sd,3.9
+1995,1,31,Teslin River,sd,6
+1995,1,30,Upper Lakes and Mainstem,sd,2.5
+1995,1,38,White-Donjek,sd,1.8
+1996,1,32,Carmacks,sd,5.9
+1996,1,36,Lower Mainstem,sd,2.1
+1996,1,33,Middle Mainstem,sd,4.6
+1996,1,34,Pelly,sd,4.1
+1996,1,35,Stewart,sd,3.6
+1996,1,31,Teslin River,sd,4.8
+1996,1,30,Upper Lakes and Mainstem,sd,1.8
+1996,1,38,White-Donjek,sd,3.6
+1997,1,32,Carmacks,sd,5.1
+1997,1,36,Lower Mainstem,sd,2.4
+1997,1,33,Middle Mainstem,sd,2.6
+1997,1,34,Pelly,sd,3.9
+1997,1,35,Stewart,sd,3.1
+1997,1,31,Teslin River,sd,5.5
+1997,1,30,Upper Lakes and Mainstem,sd,2.3
+1997,1,38,White-Donjek,sd,2.6
+1999,1,32,Carmacks,sd,4.9
+1999,1,36,Lower Mainstem,sd,2.7
+1999,1,33,Middle Mainstem,sd,4.9
+1999,1,34,Pelly,sd,4.5
+1999,1,35,Stewart,sd,3.9
+1999,1,31,Teslin River,sd,5.3
+1999,1,30,Upper Lakes and Mainstem,sd,1.7
+1999,1,38,White-Donjek,sd,3.1
+2000,1,32,Carmacks,sd,4.2
+2000,1,36,Lower Mainstem,sd,2
+2000,1,33,Middle Mainstem,sd,4.2
+2000,1,34,Pelly,sd,4
+2000,1,35,Stewart,sd,2.1
+2000,1,31,Teslin River,sd,5.1
+2000,1,30,Upper Lakes and Mainstem,sd,2.1
+2000,1,38,White-Donjek,sd,3.3
+2001,1,32,Carmacks,sd,3.4
+2001,1,36,Lower Mainstem,sd,3.8
+2001,1,33,Middle Mainstem,sd,2.8
+2001,1,34,Pelly,sd,4.3
+2001,1,35,Stewart,sd,3.5
+2001,1,31,Teslin River,sd,3.2
+2001,1,30,Upper Lakes and Mainstem,sd,0.2
+2001,1,38,White-Donjek,sd,3.2
+2002,1,32,Carmacks,sd,3.2
+2002,1,36,Lower Mainstem,sd,3
+2002,1,33,Middle Mainstem,sd,5.7
+2002,1,34,Pelly,sd,3.6
+2002,1,35,Stewart,sd,4.5
+2002,1,31,Teslin River,sd,5.3
+2002,1,30,Upper Lakes and Mainstem,sd,1.1
+2002,1,38,White-Donjek,sd,1.2
+2003,1,32,Carmacks,sd,4.8
+2003,1,36,Lower Mainstem,sd,3.4
+2003,1,33,Middle Mainstem,sd,4.7
+2003,1,34,Pelly,sd,4.4
+2003,1,35,Stewart,sd,2.5
+2003,1,31,Teslin River,sd,4.9
+2003,1,30,Upper Lakes and Mainstem,sd,1.5
+2003,1,38,White-Donjek,sd,2.9
+2004,1,32,Carmacks,sd,5.2
+2004,1,36,Lower Mainstem,sd,3.7
+2004,1,33,Middle Mainstem,sd,4.7
+2004,1,34,Pelly,sd,5
+2004,1,35,Stewart,sd,3.6
+2004,1,31,Teslin River,sd,5.4
+2004,1,30,Upper Lakes and Mainstem,sd,1.7
+2004,1,38,White-Donjek,sd,2.7
+2005,1,32,Carmacks,sd,5.3
+2005,1,36,Lower Mainstem,sd,3.4
+2005,1,33,Middle Mainstem,sd,2
+2005,1,34,Pelly,sd,4.6
+2005,1,35,Stewart,sd,2.7
+2005,1,31,Teslin River,sd,5.7
+2005,1,30,Upper Lakes and Mainstem,sd,1.7
+2005,1,38,White-Donjek,sd,2.7
+2006,1,32,Carmacks,sd,4.9
+2006,1,36,Lower Mainstem,sd,2.7
+2006,1,33,Middle Mainstem,sd,5
+2006,1,34,Pelly,sd,3.5
+2006,1,35,Stewart,sd,3.2
+2006,1,31,Teslin River,sd,5.7
+2006,1,30,Upper Lakes and Mainstem,sd,1.9
+2006,1,38,White-Donjek,sd,1.8
+2007,1,32,Carmacks,sd,3.9
+2007,1,36,Lower Mainstem,sd,2.9
+2007,1,33,Middle Mainstem,sd,3.8
+2007,1,34,Pelly,sd,5.1
+2007,1,35,Stewart,sd,3.9
+2007,1,31,Teslin River,sd,4.2
+2007,1,30,Upper Lakes and Mainstem,sd,0.9
+2007,1,38,White-Donjek,sd,3.5
+2008,1,32,Carmacks,sd,2.66
+2008,1,36,Lower Mainstem,sd,1.59
+2008,1,33,Middle Mainstem,sd,4.03
+2008,1,34,Pelly,sd,2.49
+2008,1,35,Stewart,sd,2.62
+2008,1,31,Teslin River,sd,4.02
+2008,1,30,Upper Lakes and Mainstem,sd,0.81
+2008,1,38,White-Donjek,sd,1.49
+2009,1,32,Carmacks,sd,2.52
+2009,1,36,Lower Mainstem,sd,1.24
+2009,1,33,Middle Mainstem,sd,1.73
+2009,1,34,Pelly,sd,2.44
+2009,1,35,Stewart,sd,1.86
+2009,1,31,Teslin River,sd,2.77
+2009,1,30,Upper Lakes and Mainstem,sd,0.77
+2009,1,38,White-Donjek,sd,1.53
+2010,1,32,Carmacks,sd,2.74
+2010,1,36,Lower Mainstem,sd,0.94
+2010,1,33,Middle Mainstem,sd,3.56
+2010,1,34,Pelly,sd,2.06
+2010,1,35,Stewart,sd,2.08
+2010,1,31,Teslin River,sd,4.17
+2010,1,30,Upper Lakes and Mainstem,sd,1.35
+2010,1,38,White-Donjek,sd,1.11
+2011,1,32,Carmacks,sd,2.73
+2011,1,36,Lower Mainstem,sd,1.29
+2011,1,33,Middle Mainstem,sd,2.97
+2011,1,34,Pelly,sd,2.76
+2011,1,35,Stewart,sd,2.1
+2011,1,31,Teslin River,sd,3.45
+2011,1,30,Upper Lakes and Mainstem,sd,1.06
+2011,1,38,White-Donjek,sd,1.26
+2012,1,32,Carmacks,sd,3.5
+2012,1,36,Lower Mainstem,sd,1.15
+2012,1,33,Middle Mainstem,sd,4.27
+2012,1,34,Pelly,sd,2.16
+2012,1,35,Stewart,sd,2.57
+2012,1,31,Teslin River,sd,4.6
+2012,1,30,Upper Lakes and Mainstem,sd,1.54
+2012,1,38,White-Donjek,sd,1.22
+2013,1,32,Carmacks,sd,4.23
+2013,1,36,Lower Mainstem,sd,0.62
+2013,1,33,Middle Mainstem,sd,5.06
+2013,1,34,Pelly,sd,2.66
+2013,1,35,Stewart,sd,1.81
+2013,1,31,Teslin River,sd,5.91
+2013,1,30,Upper Lakes and Mainstem,sd,1.6
+2013,1,38,White-Donjek,sd,0.98
+2014,1,32,Carmacks,sd,2.12
+2014,1,36,Lower Mainstem,sd,0.65
+2014,1,33,Middle Mainstem,sd,3.08
+2014,1,34,Pelly,sd,1.89
+2014,1,35,Stewart,sd,1.53
+2014,1,31,Teslin River,sd,3.29
+2014,1,30,Upper Lakes and Mainstem,sd,0.8
+2014,1,38,White-Donjek,sd,0.97
+2015,1,32,Carmacks,sd,2.02
+2015,1,36,Lower Mainstem,sd,0.72
+2015,1,33,Middle Mainstem,sd,2.21
+2015,1,34,Pelly,sd,1.53
+2015,1,35,Stewart,sd,1.29
+2015,1,31,Teslin River,sd,2.43
+2015,1,30,Upper Lakes and Mainstem,sd,0.72
+2015,1,38,White-Donjek,sd,0.82
+2016,1,32,Carmacks,sd,2.37
+2016,1,36,Lower Mainstem,sd,0.8
+2016,1,33,Middle Mainstem,sd,2.24
+2016,1,34,Pelly,sd,1.71
+2016,1,35,Stewart,sd,1.48
+2016,1,31,Teslin River,sd,2.95
+2016,1,30,Upper Lakes and Mainstem,sd,1.02
+2016,1,38,White-Donjek,sd,0.73
+1982,1,32,Carmacks,lower,0
+1982,1,36,Lower Mainstem,lower,12.6
+1982,1,33,Middle Mainstem,lower,0
+1982,1,34,Pelly,lower,6.6
+1982,1,35,Stewart,lower,14.5
+1982,1,31,Teslin River,lower,20.9
+1982,1,30,Upper Lakes and Mainstem,lower,0
+1982,1,38,White-Donjek,lower,10.4
+1983,1,32,Carmacks,lower,12.6
+1983,1,36,Lower Mainstem,lower,5.6
+1983,1,33,Middle Mainstem,lower,1.8
+1983,1,34,Pelly,lower,4.5
+1983,1,35,Stewart,lower,4.9
+1983,1,31,Teslin River,lower,36.2
+1983,1,30,Upper Lakes and Mainstem,lower,1.5
+1983,1,38,White-Donjek,lower,1.8
+1985,1,32,Carmacks,lower,10.6
+1985,1,36,Lower Mainstem,lower,4.5
+1985,1,33,Middle Mainstem,lower,0.3
+1985,1,34,Pelly,lower,16
+1985,1,35,Stewart,lower,6
+1985,1,31,Teslin River,lower,31.7
+1985,1,30,Upper Lakes and Mainstem,lower,0.9
+1985,1,38,White-Donjek,lower,1.9
+1986,1,32,Carmacks,lower,10.2
+1986,1,36,Lower Mainstem,lower,5
+1986,1,33,Middle Mainstem,lower,0
+1986,1,34,Pelly,lower,16.5
+1986,1,35,Stewart,lower,8.9
+1986,1,31,Teslin River,lower,28.2
+1986,1,30,Upper Lakes and Mainstem,lower,0.9
+1986,1,38,White-Donjek,lower,5.3
+1987,1,32,Carmacks,lower,5.4
+1987,1,36,Lower Mainstem,lower,2
+1987,1,33,Middle Mainstem,lower,1.5
+1987,1,34,Pelly,lower,27.2
+1987,1,35,Stewart,lower,6.6
+1987,1,31,Teslin River,lower,22.5
+1987,1,30,Upper Lakes and Mainstem,lower,1.1
+1987,1,38,White-Donjek,lower,6.1
+1991,1,32,Carmacks,lower,9.1
+1991,1,36,Lower Mainstem,lower,8.8
+1991,1,33,Middle Mainstem,lower,3
+1991,1,34,Pelly,lower,13.7
+1991,1,35,Stewart,lower,6.3
+1991,1,31,Teslin River,lower,23.3
+1991,1,30,Upper Lakes and Mainstem,lower,5.4
+1991,1,38,White-Donjek,lower,1.1
+1992,1,32,Carmacks,lower,4.7
+1992,1,36,Lower Mainstem,lower,9.5
+1992,1,33,Middle Mainstem,lower,9
+1992,1,34,Pelly,lower,18.4
+1992,1,35,Stewart,lower,7.6
+1992,1,31,Teslin River,lower,14.8
+1992,1,30,Upper Lakes and Mainstem,lower,1
+1992,1,38,White-Donjek,lower,7.9
+1993,1,32,Carmacks,lower,4
+1993,1,36,Lower Mainstem,lower,17.4
+1993,1,33,Middle Mainstem,lower,7.3
+1993,1,34,Pelly,lower,9.5
+1993,1,35,Stewart,lower,4.9
+1993,1,31,Teslin River,lower,15.7
+1993,1,30,Upper Lakes and Mainstem,lower,1.4
+1993,1,38,White-Donjek,lower,13.2
+1994,1,32,Carmacks,lower,9.3
+1994,1,36,Lower Mainstem,lower,14.9
+1994,1,33,Middle Mainstem,lower,1.3
+1994,1,34,Pelly,lower,13.1
+1994,1,35,Stewart,lower,6.8
+1994,1,31,Teslin River,lower,13.7
+1994,1,30,Upper Lakes and Mainstem,lower,2.2
+1994,1,38,White-Donjek,lower,9.2
+1995,1,32,Carmacks,lower,8.7
+1995,1,36,Lower Mainstem,lower,4.9
+1995,1,33,Middle Mainstem,lower,7.4
+1995,1,34,Pelly,lower,6.7
+1995,1,35,Stewart,lower,12.1
+1995,1,31,Teslin River,lower,23
+1995,1,30,Upper Lakes and Mainstem,lower,5.2
+1995,1,38,White-Donjek,lower,2.5
+1996,1,32,Carmacks,lower,17.7
+1996,1,36,Lower Mainstem,lower,3.8
+1996,1,33,Middle Mainstem,lower,1
+1996,1,34,Pelly,lower,8.1
+1996,1,35,Stewart,lower,4.7
+1996,1,31,Teslin River,lower,16.2
+1996,1,30,Upper Lakes and Mainstem,lower,3
+1996,1,38,White-Donjek,lower,14.9
+1997,1,32,Carmacks,lower,17.8
+1997,1,36,Lower Mainstem,lower,6.1
+1997,1,33,Middle Mainstem,lower,0
+1997,1,34,Pelly,lower,7.3
+1997,1,35,Stewart,lower,6.1
+1997,1,31,Teslin River,lower,27.8
+1997,1,30,Upper Lakes and Mainstem,lower,5.2
+1997,1,38,White-Donjek,lower,4.1
+1999,1,32,Carmacks,lower,13.6
+1999,1,36,Lower Mainstem,lower,5.9
+1999,1,33,Middle Mainstem,lower,10.2
+1999,1,34,Pelly,lower,8.9
+1999,1,35,Stewart,lower,5.5
+1999,1,31,Teslin River,lower,14.3
+1999,1,30,Upper Lakes and Mainstem,lower,2.6
+1999,1,38,White-Donjek,lower,8
+2000,1,32,Carmacks,lower,15.8
+2000,1,36,Lower Mainstem,lower,3.5
+2000,1,33,Middle Mainstem,lower,7.5
+2000,1,34,Pelly,lower,17.3
+2000,1,35,Stewart,lower,0
+2000,1,31,Teslin River,lower,13.2
+2000,1,30,Upper Lakes and Mainstem,lower,4.3
+2000,1,38,White-Donjek,lower,12
+2001,1,32,Carmacks,lower,5.5
+2001,1,36,Lower Mainstem,lower,22
+2001,1,33,Middle Mainstem,lower,0
+2001,1,34,Pelly,lower,21.2
+2001,1,35,Stewart,lower,6
+2001,1,31,Teslin River,lower,9.6
+2001,1,30,Upper Lakes and Mainstem,lower,0
+2001,1,38,White-Donjek,lower,11.3
+2002,1,32,Carmacks,lower,4.4
+2002,1,36,Lower Mainstem,lower,10.7
+2002,1,33,Middle Mainstem,lower,23.8
+2002,1,34,Pelly,lower,3.7
+2002,1,35,Stewart,lower,12.9
+2002,1,31,Teslin River,lower,17.2
+2002,1,30,Upper Lakes and Mainstem,lower,0.5
+2002,1,38,White-Donjek,lower,0
+2003,1,32,Carmacks,lower,11.5
+2003,1,36,Lower Mainstem,lower,18
+2003,1,33,Middle Mainstem,lower,0.9
+2003,1,34,Pelly,lower,22.5
+2003,1,35,Stewart,lower,3.1
+2003,1,31,Teslin River,lower,7
+2003,1,30,Upper Lakes and Mainstem,lower,1.2
+2003,1,38,White-Donjek,lower,6.8
+2004,1,32,Carmacks,lower,9.8
+2004,1,36,Lower Mainstem,lower,14.9
+2004,1,33,Middle Mainstem,lower,3.8
+2004,1,34,Pelly,lower,16.7
+2004,1,35,Stewart,lower,2.8
+2004,1,31,Teslin River,lower,13.2
+2004,1,30,Upper Lakes and Mainstem,lower,1.8
+2004,1,38,White-Donjek,lower,5
+2005,1,32,Carmacks,lower,10.8
+2005,1,36,Lower Mainstem,lower,11.8
+2005,1,33,Middle Mainstem,lower,0
+2005,1,34,Pelly,lower,17.5
+2005,1,35,Stewart,lower,0
+2005,1,31,Teslin River,lower,27
+2005,1,30,Upper Lakes and Mainstem,lower,1.4
+2005,1,38,White-Donjek,lower,4.7
+2008,1,32,Carmacks,lower,6.71
+2008,1,36,Lower Mainstem,lower,5.92
+2008,1,33,Middle Mainstem,lower,23.46
+2008,1,34,Pelly,lower,15.1
+2008,1,35,Stewart,lower,6.01
+2008,1,31,Teslin River,lower,17.72
+2008,1,30,Upper Lakes and Mainstem,lower,0.88
+2008,1,38,White-Donjek,lower,4.48
+2009,1,32,Carmacks,lower,15.46
+2009,1,36,Lower Mainstem,lower,7.94
+2009,1,33,Middle Mainstem,lower,0.9
+2009,1,34,Pelly,lower,22.57
+2009,1,35,Stewart,lower,8.65
+2009,1,31,Teslin River,lower,22.01
+2009,1,30,Upper Lakes and Mainstem,lower,2.33
+2009,1,38,White-Donjek,lower,5.29
+2010,1,32,Carmacks,lower,13.05
+2010,1,36,Lower Mainstem,lower,2.4
+2010,1,33,Middle Mainstem,lower,7.97
+2010,1,34,Pelly,lower,10.81
+2010,1,35,Stewart,lower,8.7
+2010,1,31,Teslin River,lower,29.95
+2010,1,30,Upper Lakes and Mainstem,lower,6.38
+2010,1,38,White-Donjek,lower,2.73
+2011,1,32,Carmacks,lower,10.28
+2011,1,36,Lower Mainstem,lower,5.43
+2011,1,33,Middle Mainstem,lower,10.82
+2011,1,34,Pelly,lower,20.82
+2011,1,35,Stewart,lower,3.99
+2011,1,31,Teslin River,lower,23.92
+2011,1,30,Upper Lakes and Mainstem,lower,3.6
+2011,1,38,White-Donjek,lower,3.53
+2012,1,32,Carmacks,lower,11.04
+2012,1,36,Lower Mainstem,lower,1.66
+2012,1,33,Middle Mainstem,lower,13.86
+2012,1,34,Pelly,lower,6.86
+2012,1,35,Stewart,lower,6.25
+2012,1,31,Teslin River,lower,31.54
+2012,1,30,Upper Lakes and Mainstem,lower,5.09
+2012,1,38,White-Donjek,lower,2.68
+2013,1,32,Carmacks,lower,11.46
+2013,1,36,Lower Mainstem,lower,0.11
+2013,1,33,Middle Mainstem,lower,16.24
+2013,1,34,Pelly,lower,12.69
+2013,1,35,Stewart,lower,2.11
+2013,1,31,Teslin River,lower,27.9
+2013,1,30,Upper Lakes and Mainstem,lower,5.21
+2013,1,38,White-Donjek,lower,1.41
+2014,1,32,Carmacks,lower,10.05
+2014,1,36,Lower Mainstem,lower,1.93
+2014,1,33,Middle Mainstem,lower,17.98
+2014,1,34,Pelly,lower,14.89
+2014,1,35,Stewart,lower,5.76
+2014,1,31,Teslin River,lower,27.89
+2014,1,30,Upper Lakes and Mainstem,lower,3.26
+2014,1,38,White-Donjek,lower,3.92
+2015,1,32,Carmacks,lower,15.49
+2015,1,36,Lower Mainstem,lower,3.72
+2015,1,33,Middle Mainstem,lower,13.81
+2015,1,34,Pelly,lower,16.64
+2015,1,35,Stewart,lower,6.87
+2015,1,31,Teslin River,lower,22.98
+2015,1,30,Upper Lakes and Mainstem,lower,3.92
+2015,1,38,White-Donjek,lower,4.82
+2016,1,32,Carmacks,lower,14.04
+2016,1,36,Lower Mainstem,lower,3.44
+2016,1,33,Middle Mainstem,lower,9.6
+2016,1,34,Pelly,lower,13.56
+2016,1,35,Stewart,lower,6.49
+2016,1,31,Teslin River,lower,32.03
+2016,1,30,Upper Lakes and Mainstem,lower,5.57
+2016,1,38,White-Donjek,lower,1.97
+1982,1,32,Carmacks,upper,8
+1982,1,36,Lower Mainstem,upper,21.4
+1982,1,33,Middle Mainstem,upper,6.5
+1982,1,34,Pelly,upper,17
+1982,1,35,Stewart,upper,26.9
+1982,1,31,Teslin River,upper,34.3
+1982,1,30,Upper Lakes and Mainstem,upper,3.6
+1982,1,38,White-Donjek,upper,19.2
+1983,1,32,Carmacks,upper,22.4
+1983,1,36,Lower Mainstem,upper,10.2
+1983,1,33,Middle Mainstem,upper,14.2
+1983,1,34,Pelly,upper,10.9
+1983,1,35,Stewart,upper,12.5
+1983,1,31,Teslin River,upper,51.2
+1983,1,30,Upper Lakes and Mainstem,upper,4.7
+1983,1,38,White-Donjek,upper,5.2
+1985,1,32,Carmacks,upper,19.6
+1985,1,36,Lower Mainstem,upper,8.7
+1985,1,33,Middle Mainstem,upper,9.7
+1985,1,34,Pelly,upper,24.4
+1985,1,35,Stewart,upper,12.8
+1985,1,31,Teslin River,upper,44.5
+1985,1,30,Upper Lakes and Mainstem,upper,3.5
+1985,1,38,White-Donjek,upper,5.3
+1986,1,32,Carmacks,upper,18.2
+1986,1,36,Lower Mainstem,upper,10.2
+1986,1,33,Middle Mainstem,upper,3.4
+1986,1,34,Pelly,upper,24.9
+1986,1,35,Stewart,upper,17.1
+1986,1,31,Teslin River,upper,38.8
+1986,1,30,Upper Lakes and Mainstem,upper,3.5
+1986,1,38,White-Donjek,upper,10.3
+1987,1,32,Carmacks,upper,14
+1987,1,36,Lower Mainstem,upper,5.8
+1987,1,33,Middle Mainstem,upper,8.5
+1987,1,34,Pelly,upper,36.6
+1987,1,35,Stewart,upper,14.6
+1987,1,31,Teslin River,upper,32.7
+1987,1,30,Upper Lakes and Mainstem,upper,4.1
+1987,1,38,White-Donjek,upper,11.5
+1991,1,32,Carmacks,upper,17.9
+1991,1,36,Lower Mainstem,upper,14.2
+1991,1,33,Middle Mainstem,upper,13
+1991,1,34,Pelly,upper,21.3
+1991,1,35,Stewart,upper,13.7
+1991,1,31,Teslin River,upper,34.7
+1991,1,30,Upper Lakes and Mainstem,upper,10.2
+1991,1,38,White-Donjek,upper,4.1
+1992,1,32,Carmacks,upper,11.7
+1992,1,36,Lower Mainstem,upper,15.5
+1992,1,33,Middle Mainstem,upper,16.8
+1992,1,34,Pelly,upper,27.2
+1992,1,35,Stewart,upper,15.4
+1992,1,31,Teslin River,upper,22.8
+1992,1,30,Upper Lakes and Mainstem,upper,3.8
+1992,1,38,White-Donjek,upper,13.9
+1993,1,32,Carmacks,upper,12
+1993,1,36,Lower Mainstem,upper,24.4
+1993,1,33,Middle Mainstem,upper,15.1
+1993,1,34,Pelly,upper,16.9
+1993,1,35,Stewart,upper,11.1
+1993,1,31,Teslin River,upper,22.9
+1993,1,30,Upper Lakes and Mainstem,upper,4.2
+1993,1,38,White-Donjek,upper,20
+1994,1,32,Carmacks,upper,17.7
+1994,1,36,Lower Mainstem,upper,21.5
+1994,1,33,Middle Mainstem,upper,9.9
+1994,1,34,Pelly,upper,20.9
+1994,1,35,Stewart,upper,14
+1994,1,31,Teslin River,upper,24.3
+1994,1,30,Upper Lakes and Mainstem,upper,5.6
+1994,1,38,White-Donjek,upper,15.4
+1995,1,32,Carmacks,upper,18.1
+1995,1,36,Lower Mainstem,upper,9.7
+1995,1,33,Middle Mainstem,upper,17.4
+1995,1,34,Pelly,upper,13.1
+1995,1,35,Stewart,upper,19.9
+1995,1,31,Teslin River,upper,35
+1995,1,30,Upper Lakes and Mainstem,upper,10.2
+1995,1,38,White-Donjek,upper,6.1
+1996,1,32,Carmacks,upper,29.5
+1996,1,36,Lower Mainstem,upper,8
+1996,1,33,Middle Mainstem,upper,10.2
+1996,1,34,Pelly,upper,16.3
+1996,1,35,Stewart,upper,11.9
+1996,1,31,Teslin River,upper,25.8
+1996,1,30,Upper Lakes and Mainstem,upper,6.6
+1996,1,38,White-Donjek,upper,22.1
+1997,1,32,Carmacks,upper,28
+1997,1,36,Lower Mainstem,upper,10.9
+1997,1,33,Middle Mainstem,upper,3.5
+1997,1,34,Pelly,upper,15.1
+1997,1,35,Stewart,upper,12.3
+1997,1,31,Teslin River,upper,38.8
+1997,1,30,Upper Lakes and Mainstem,upper,9.8
+1997,1,38,White-Donjek,upper,9.3
+1999,1,32,Carmacks,upper,23.4
+1999,1,36,Lower Mainstem,upper,11.3
+1999,1,33,Middle Mainstem,upper,20
+1999,1,34,Pelly,upper,17.9
+1999,1,35,Stewart,upper,13.3
+1999,1,31,Teslin River,upper,24.9
+1999,1,30,Upper Lakes and Mainstem,upper,6
+1999,1,38,White-Donjek,upper,14.2
+2000,1,32,Carmacks,upper,24.2
+2000,1,36,Lower Mainstem,upper,7.5
+2000,1,33,Middle Mainstem,upper,15.9
+2000,1,34,Pelly,upper,25.3
+2000,1,35,Stewart,upper,3.5
+2000,1,31,Teslin River,upper,23.4
+2000,1,30,Upper Lakes and Mainstem,upper,8.5
+2000,1,38,White-Donjek,upper,18.6
+2001,1,32,Carmacks,upper,12.3
+2001,1,36,Lower Mainstem,upper,29.6
+2001,1,33,Middle Mainstem,upper,5.6
+2001,1,34,Pelly,upper,29.8
+2001,1,35,Stewart,upper,13
+2001,1,31,Teslin River,upper,16
+2001,1,30,Upper Lakes and Mainstem,upper,0.2
+2001,1,38,White-Donjek,upper,17.7
+2002,1,32,Carmacks,upper,10.8
+2002,1,36,Lower Mainstem,upper,16.7
+2002,1,33,Middle Mainstem,upper,35.2
+2002,1,34,Pelly,upper,10.9
+2002,1,35,Stewart,upper,21.9
+2002,1,31,Teslin River,upper,27.8
+2002,1,30,Upper Lakes and Mainstem,upper,2.7
+2002,1,38,White-Donjek,upper,1.6
+2003,1,32,Carmacks,upper,21.1
+2003,1,36,Lower Mainstem,upper,24.8
+2003,1,33,Middle Mainstem,upper,10.3
+2003,1,34,Pelly,upper,31.3
+2003,1,35,Stewart,upper,8.1
+2003,1,31,Teslin River,upper,16.8
+2003,1,30,Upper Lakes and Mainstem,upper,4.2
+2003,1,38,White-Donjek,upper,12.6
+2004,1,32,Carmacks,upper,20.2
+2004,1,36,Lower Mainstem,upper,22.3
+2004,1,33,Middle Mainstem,upper,13.2
+2004,1,34,Pelly,upper,26.7
+2004,1,35,Stewart,upper,10
+2004,1,31,Teslin River,upper,24
+2004,1,30,Upper Lakes and Mainstem,upper,5.2
+2004,1,38,White-Donjek,upper,10.4
+2005,1,32,Carmacks,upper,21.4
+2005,1,36,Lower Mainstem,upper,18.6
+2005,1,33,Middle Mainstem,upper,2.8
+2005,1,34,Pelly,upper,26.7
+2005,1,35,Stewart,upper,5.3
+2005,1,31,Teslin River,upper,38.4
+2005,1,30,Upper Lakes and Mainstem,upper,4.8
+2005,1,38,White-Donjek,upper,10.1
+2008,1,32,Carmacks,upper,12.03
+2008,1,36,Lower Mainstem,upper,9.1
+2008,1,33,Middle Mainstem,upper,31.52
+2008,1,34,Pelly,upper,20.08
+2008,1,35,Stewart,upper,11.25
+2008,1,31,Teslin River,upper,25.76
+2008,1,30,Upper Lakes and Mainstem,upper,2.5
+2008,1,38,White-Donjek,upper,7.46
+2009,1,32,Carmacks,upper,20.5
+2009,1,36,Lower Mainstem,upper,10.42
+2009,1,33,Middle Mainstem,upper,4.36
+2009,1,34,Pelly,upper,27.45
+2009,1,35,Stewart,upper,12.37
+2009,1,31,Teslin River,upper,27.55
+2009,1,30,Upper Lakes and Mainstem,upper,3.87
+2009,1,38,White-Donjek,upper,8.35
+2010,1,32,Carmacks,upper,18.53
+2010,1,36,Lower Mainstem,upper,4.28
+2010,1,33,Middle Mainstem,upper,15.09
+2010,1,34,Pelly,upper,14.93
+2010,1,35,Stewart,upper,12.86
+2010,1,31,Teslin River,upper,38.29
+2010,1,30,Upper Lakes and Mainstem,upper,9.08
+2010,1,38,White-Donjek,upper,4.95
+2011,1,32,Carmacks,upper,15.74
+2011,1,36,Lower Mainstem,upper,8.01
+2011,1,33,Middle Mainstem,upper,16.76
+2011,1,34,Pelly,upper,26.34
+2011,1,35,Stewart,upper,8.19
+2011,1,31,Teslin River,upper,30.82
+2011,1,30,Upper Lakes and Mainstem,upper,5.72
+2011,1,38,White-Donjek,upper,6.05
+2012,1,32,Carmacks,upper,18.04
+2012,1,36,Lower Mainstem,upper,3.96
+2012,1,33,Middle Mainstem,upper,22.4
+2012,1,34,Pelly,upper,11.18
+2012,1,35,Stewart,upper,11.39
+2012,1,31,Teslin River,upper,40.74
+2012,1,30,Upper Lakes and Mainstem,upper,8.17
+2012,1,38,White-Donjek,upper,5.12
+2013,1,32,Carmacks,upper,19.92
+2013,1,36,Lower Mainstem,upper,1.35
+2013,1,33,Middle Mainstem,upper,26.36
+2013,1,34,Pelly,upper,18.01
+2013,1,35,Stewart,upper,5.73
+2013,1,31,Teslin River,upper,39.72
+2013,1,30,Upper Lakes and Mainstem,upper,8.41
+2013,1,38,White-Donjek,upper,3.37
+2014,1,32,Carmacks,upper,14.29
+2014,1,36,Lower Mainstem,upper,3.23
+2014,1,33,Middle Mainstem,upper,24.14
+2014,1,34,Pelly,upper,18.67
+2014,1,35,Stewart,upper,8.82
+2014,1,31,Teslin River,upper,34.47
+2014,1,30,Upper Lakes and Mainstem,upper,4.86
+2014,1,38,White-Donjek,upper,5.86
+2015,1,32,Carmacks,upper,19.53
+2015,1,36,Lower Mainstem,upper,5.16
+2015,1,33,Middle Mainstem,upper,18.23
+2015,1,34,Pelly,upper,19.7
+2015,1,35,Stewart,upper,9.45
+2015,1,31,Teslin River,upper,27.84
+2015,1,30,Upper Lakes and Mainstem,upper,5.36
+2015,1,38,White-Donjek,upper,6.46
+2016,1,32,Carmacks,upper,18.78
+2016,1,36,Lower Mainstem,upper,5.04
+2016,1,33,Middle Mainstem,upper,14.08
+2016,1,34,Pelly,upper,16.98
+2016,1,35,Stewart,upper,9.45
+2016,1,31,Teslin River,upper,37.93
+2016,1,30,Upper Lakes and Mainstem,upper,7.61
+2016,1,38,White-Donjek,upper,3.43
+2006,1,32,Carmacks,lower,5.2
+2006,1,36,Lower Mainstem,lower,8.9
+2006,1,33,Middle Mainstem,lower,14.9
+2006,1,34,Pelly,lower,9.7
+2006,1,35,Stewart,lower,3.9
+2006,1,31,Teslin River,lower,23.2
+2006,1,30,Upper Lakes and Mainstem,lower,3.1
+2006,1,38,White-Donjek,lower,2.4
+2007,1,32,Carmacks,lower,9.6
+2007,1,36,Lower Mainstem,lower,9.7
+2007,1,33,Middle Mainstem,lower,0.1
+2007,1,34,Pelly,lower,22.7
+2007,1,35,Stewart,lower,9.9
+2007,1,31,Teslin River,lower,12.2
+2007,1,30,Upper Lakes and Mainstem,lower,0.2
+2007,1,38,White-Donjek,lower,7.4
+2006,1,32,Carmacks,upper,15
+2006,1,36,Lower Mainstem,upper,14.3
+2006,1,33,Middle Mainstem,upper,24.9
+2006,1,34,Pelly,upper,16.7
+2006,1,35,Stewart,upper,10.3
+2006,1,31,Teslin River,upper,34.6
+2006,1,30,Upper Lakes and Mainstem,upper,6.9
+2006,1,38,White-Donjek,upper,6
+2007,1,32,Carmacks,upper,17.4
+2007,1,36,Lower Mainstem,upper,15.5
+2007,1,33,Middle Mainstem,upper,7.7
+2007,1,34,Pelly,upper,32.9
+2007,1,35,Stewart,upper,17.7
+2007,1,31,Teslin River,upper,20.6
+2007,1,30,Upper Lakes and Mainstem,upper,2
+2007,1,38,White-Donjek,upper,14.4
