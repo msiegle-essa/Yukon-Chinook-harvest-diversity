@@ -18,8 +18,6 @@ library(ggplot2)
 # set working directory ####
 setwd("~/Dropbox (ESSA Technologies)/EN2438 - Yukon Chinook/Yukon Chinook harvest-diversity/input files")
 
-
-
 #read in border counts (fish wheel and sonar)
 border_counts <- read.delim(file="input_bordercounts2.txt",header=TRUE)
 head(border_counts)
@@ -82,11 +80,11 @@ head(GSI)
 detach("package:dplyr")
 require(plyr)
 
-GSI.region.2 <- subset(GSI.region, prob > 0.5)
+GSI.region <- subset(GSI, prob > 0.5)
 head(GSI.region.2)
 
 # create data frame of number of samples per day and year 
-GSI.counts <- ddply(GSI.region.2,c("year","julian_date"),function(x){
+GSI.counts <- ddply(GSI.region,c("year","julian_date"),function(x){
   count <- dim(x)[1]
   data.frame(count)
 })
@@ -150,8 +148,6 @@ bc3 <- bc2 %>%
 gsi3 <- gsi2 %>%
   filter(year %in% n)
 
-detach("package:plyr")
-require(dplyr)
 
 # FIGURE: border counts and gsi sample size; memo figure 2 ####
 ggplot(bc3, aes(x=julian, y = prop)) +
@@ -169,6 +165,61 @@ ggplot(bc3, aes(x=julian, y = prop)) +
         axis.ticks.y = element_blank()) +
   geom_text(data = dat_text, mapping = aes(x = -Inf, y = -Inf, label = label),
             hjust = -0.3, vjust = -3, size=2.5)
+
+
+# Figure 2y: 2008/2010/2011/2012 fish wheel test fish run timing compare
+bc4 <- bc3 %>%
+  filter(year == 2008 | year == 2010 | year == 2011 | year == 2012)
+  #filter(!is.na(prop))
+  
+g <- read.csv(file.choose()) %>%    # in compare FW and test folder, input_wheel_test_jul_comp.csv
+  filter(year == 2008 | year == 2011 | year == 2010 | year ==2012) %>%
+  filter(prop > 0.5)
+
+
+detach("package:dplyr")
+require(plyr)
+
+gc <- ddply(g,c("year","julian","gear"),function(x){
+  count <- dim(x)[1]
+  data.frame(count)
+})
+
+detach("package:plyr")
+require(dplyr)
+
+gc_sum <- gc %>%
+  group_by(year,gear) %>%
+  summarise(sum = sum(count))  
+
+
+gjulc <- gc %>%
+  group_by(year, gear, julian) %>%
+  mutate(sum = case_when(year == 2008 & gear == "Fish Wheel" ~ 139,
+                         year == 2008 & gear == "Test Fishery" ~ 324,
+                         year == 2011 & gear == "Fish Wheel" ~ 126,
+                         year == 2011 & gear == "Test Fishery" ~ 309,
+                         year == 2010 & gear == "Fish Wheel" ~ 129,
+                         year == 2010 & gear == "Test Fishery" ~ 376,
+                         year == 2012 & gear == "Fish Wheel" ~ 140,
+                         year == 2012 & gear == "Test Fishery" ~ 273)) %>%
+  mutate(freq = count/sum)
+
+
+# plot figure
+ggplot(bc4, aes(x=julian, y = prop*100)) +
+  geom_bar(stat = "identity") +
+  geom_bar(data = gjulc, aes(x=julian, y=freq*100), 
+           fill="red", alpha=0.5, stat = "identity") +
+  scale_x_continuous(limits=c(180,240), breaks = c(180,200,220,240)) +
+  xlab("Julian day") +
+  ylab("Run size and GSI sample size") +
+  facet_grid(gear~year, scales = "free_y") +
+  theme_bw() +
+  theme(axis.ticks.y = element_blank(),
+        axis.text.y = element_blank())
+ggsave(file = "julian_TFvFW.pdf", width = 7, height = 5)
+
 
 
 # Sub-stock proportion test fishery catch by facets sub stock ####
@@ -322,7 +373,8 @@ ddcv2 <- ddcv %>%
   group_by(year, substock, bin) %>%
   mutate(sd = sd(freq) + 0.00001) %>%
   mutate(mean = mean(freq)) %>%
-  mutate(cv = sd/mean)
+  mutate(cv = sd/mean) %>%
+  arrange(year, substock)
 
 ddcv2$bin <- as.factor(ddcv2$bin)
 
@@ -340,6 +392,49 @@ ggplot(ddcv2, aes(x=names, y=cv, fill=bin)) +
   theme(axis.text = element_text(size = 11)) +
   theme(axis.text.x = element_text(angle=30, hjust=1))
 ggsave(file="CV_reg.comb.pdf", height=5, width=7)
+
+
+
+
+# CV summary info
+ddcv3 <- ddcv2 %>%
+  select(-i, -region, -freq, -sd, -mean) %>%
+  distinct() %>%
+  arrange(year, substock, bin) %>%
+  spread(key = bin, value = cv) %>%
+  group_by(year, substock) %>%
+  mutate(bin_250 = ((`150` - `250`)/`150`)*-100) %>%
+  mutate(bin_350 = ((`250` - `350`)/`250`)*-100) %>%
+  mutate(bin_450 = ((`350` - `450`)/`350`)*-100) %>%
+  ungroup() %>%
+  gather(key = bin, value = CV_reduction, bin_250:bin_450) %>%
+  gather(key = bin2, value = CV, `150`:`450`)
+  
+
+# plot CV reduction
+ggplot(ddcv3, aes(x = bin, y = CV_reduction, color = year, group=year)) +
+  geom_point(size = 3) +
+  geom_line() +
+  xlab("Sample size bin") +
+  ylab("Percent reduction in CV") +
+  scale_y_continuous(limits = c(-100,-20), breaks=c(-20,-40,-60,-80,-100)) +
+  facet_wrap(~substock) +
+  theme_bw()
+ggsave(file="CV_reduction.pdf", width=7, height=5)
+
+
+
+MyColour <- c("#ffc431", "#a9fee0", "#ffc7ae", "#288baf", "#f2dc3b", "#dd8071", "#cadeae", "#d2adea")
+ggplot(ddcv3, aes(x = bin, y = CV_reduction, color = substock, group=substock)) +
+  geom_point(size = 2) +
+  geom_line() +
+  xlab("Sample size bin") +
+  ylab("Percent reduction in Coefficient of Variation") +
+  scale_color_manual(values = MyColour) +
+  facet_wrap(~year) +
+  theme_bw()
+
+
 
 
 
@@ -504,6 +599,33 @@ master2 <- d %>%
                               region == "36" ~ "Lower Mainstem",
                               region == "38" ~ "White-Donjek"))
 
+
+
+# get julian dates for FW samples
+
+jul_dates <- master2 %>%
+  filter(gear == "Fish Wheel") %>%
+  group_by(year) %>%
+  select(julian) %>%
+  distinct()
+
+julian_2008 <- jul_dates %>%
+  filter(year == 2008) %>%
+  pull(julian)
+
+julian_2010 <- jul_dates %>%
+  filter(year == 2010) %>%
+  pull(julian)
+
+julian_2011 <- jul_dates %>%
+  filter(year == 2011) %>%
+  pull(julian)
+
+julian_2012 <- jul_dates %>%
+  filter(year == 2012) %>%
+  pull(julian)
+
+
 # Test Fishery Full sample substock proportions
 TF_full_prop <- master2 %>%
   group_by(year, gear) %>%
@@ -521,31 +643,6 @@ TF_full_prop <- master2 %>%
 
 
 
-TF_red_prop <- wheel.test.df_4 %>%
-  gather(key = region, value = prop, '30':'38') %>%
-  filter(prop != "NA" |  prop > 0.5) %>%
-  filter(year == 2008 | year == 2010 | year == 2011 | year == 2012) %>%
-  mutate(substock = case_when(region == "30" ~ "Upper Lakes and Mainstem",
-                              region == "31" ~ "Teslin River",
-                              region == "32" ~ "Carmacks",
-                              region == "33" ~ "Middle Mainstem",
-                              region == "34" ~ "Pelly",
-                              region == "35" ~ "Stewart",
-                              region == "36" ~ "Lower Mainstem",
-                              region == "38" ~ "White-Donjek")) %>%
-  group_by(year, gear) %>%
-  mutate(count = n()) %>%
-  group_by(year, gear, substock) %>%
-  mutate(count_ind = n()) %>%
-  mutate(tf_red_substock_run_prop = count_ind/count) %>%
-  group_by(year, gear) %>% 
-  distinct(substock, tf_red_substock_run_prop) %>%
-  #replace(., is.na(.), 0) %>% # change NA to zero
-  filter(gear == "Test Fishery") %>%
-  arrange(year, substock) %>%
-  ungroup() %>%
-  select(-gear)
-
 # Fish Wheel Full sample substock proportions
 FW_full_prop <- master2 %>%
   group_by(year, gear) %>%
@@ -560,6 +657,77 @@ FW_full_prop <- master2 %>%
   arrange(year, substock) %>%
   ungroup() %>%
   select(-gear)
+
+# Test Fishery reduced julian day substock proportions TF_red_prop
+TF_red_2008 <- master2 %>%
+  filter(year == 2008) %>%
+  filter(julian %in% julian_2008)
+  
+TF_red_2010 <- master2 %>%
+  filter(year == 2010) %>%
+  filter(julian %in% julian_2010)
+
+TF_red_2011 <- master2 %>%
+  filter(year == 2011) %>%
+  filter(julian %in% julian_2011)
+
+TF_red_2012 <- master2 %>%
+  filter(year == 2012) %>%
+  filter(julian %in% julian_2012)
+  
+TF_red_prop1 <- rbind(TF_red_2008, TF_red_2010)
+TF_red_prop2 <- rbind(TF_red_prop1, TF_red_2011)
+TF_red_prop3 <- rbind(TF_red_prop2, TF_red_2012)
+
+
+TF_red_prop <- TF_red_prop3 %>%
+  group_by(year, gear) %>%
+  mutate(count = n()) %>%
+  group_by(year, gear, substock) %>%
+  mutate(count_ind = n()) %>%
+  mutate(tf_red_substock_run_prop = count_ind/count) %>%
+  group_by(year, gear) %>% 
+  distinct(substock, tf_red_substock_run_prop) %>%
+  #replace(., is.na(.), 0) %>% # change NA to zero
+  filter(gear == "Test Fishery") %>%
+  arrange(year, substock) %>%
+  ungroup() %>%
+  select(-gear)
+
+
+compare_df <- full_join(TF_red_prop, FW_full_prop) %>%
+  replace(is.na(.), 0) # change NA to zero
+
+# FIGURE: fish wheel and test fishery matching julian dates substock prop
+head(compare_df)
+
+# list of colors that matches map colors
+# "#ffc431", orange, lower mainstem
+# "#ffc7ae", pink, pelly
+# "#a9fee0", aquamarine, stewart
+# "#dd8071", red, carmacks
+# "#f2dc3b", yellow, middle mainstem
+# "#cadeae", moss green, upper lakes
+# "#288baf", dark blue, white-donjek
+# "#d2adea", purple, teslin
+
+
+# create color scheme
+MyColour <- c("#ffc431", "#a9fee0", "#ffc7ae", "#288baf", "#f2dc3b", "#dd8071", "#cadeae", "#d2adea")
+
+ggplot(compare_df, aes(x=tf_red_substock_run_prop, y=fw_substock_run_prop, colour=substock)) +
+  geom_point(size=4) +
+  geom_abline(slope = 1, intercept = 0, lty = "dotted") +
+  scale_color_manual(values = MyColour) +
+  xlab("Sub-stock proportion: Test Fishery") +
+  ylab("Sub-stock proportion: Fish Wheel") +
+  facet_wrap(~year, nrow=2) +
+  theme_bw() +
+  theme(axis.text = element_text(size=10)) +
+  theme(axis.title = element_text(size=12))
+ggsave(file="compare_TFred_FW_1_1.pdf", width=7, height=5)
+
+
 
 # create bias data frame
 bias_df <- full_join(TF_full_prop, FW_full_prop) %>%
@@ -596,7 +764,7 @@ bias_summary <- bias_df3 %>%
   mutate(median = median(FW_TFred_diff*100)) %>%
   mutate(min = min(FW_TFred_diff*100)) %>%
   mutate(max = max(FW_TFred_diff*100)) %>%
-  mutate(mean_error = median(abs(FW_TFred_diff*100))) %>%
+  mutate(mean_error = mean(abs(FW_TFred_diff*100))) %>%
   select(substock, mean_error, median, min, max) %>%
   distinct(substock, mean_error, median, min, max)
 
