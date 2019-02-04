@@ -810,10 +810,137 @@ bias_df2 %>%
   distinct(year, label, min, max)
 
 
+# calculate how well run has been sampled early/late bins ####
+
+# read in border counts input file
+border_counts <- read.delim(file="input_bordercounts2.txt",header=TRUE)
+head(border_counts)
+
+# get total number of border passage counts for each year, and early and late border passage counts
+border_summ <- border_counts %>%
+  replace(is.na(.), 0) %>%
+  filter(count > 0) %>%
+  group_by(year) %>%
+  mutate(year_sum = sum(count)) %>%
+  mutate(min_jul = case_when(
+    count > 0 ~ min(julian))) %>%
+  mutate(max_jul = case_when(
+    count > 0 ~ max(julian))) %>%
+  mutate(jul_diff = (max_jul - min_jul)+1) %>%
+  mutate(half_jul = round(jul_diff/2,0)) %>%
+  mutate(mid_jul = max_jul - half_jul) %>%
+  ungroup() %>%
+  group_by(year) %>%
+  mutate(run_time = case_when(
+    julian <= mid_jul ~ "early",
+    julian > mid_jul ~ "late")) %>%
+  ungroup() %>%
+  select(-min_jul, -max_jul, -jul_diff, -half_jul) %>%
+  group_by(year, run_time) %>%
+  mutate(early_count = case_when(
+    run_time == "early" ~ sum(count))) %>%
+  ungroup() %>%
+  group_by(year, run_time) %>%
+  mutate(late_count = case_when(
+    run_time == "late" ~ sum(count))) %>%
+  ungroup() %>%
+  gather(key = run_time_count, value = count_value, early_count:late_count) %>%
+  filter(count_value != "NA") %>%
+  select(-run_time_count) %>%
+  arrange(year, julian) %>%
+  mutate(count_prop = (count_value/year_sum)*100) %>%
+  mutate(day_count_prop = (count/count_value)*100) %>%
+  as.data.frame()
+
+
+# create dataframe of julian date ranges for early and late run timing bins
+jul_range <- border_summ %>%
+  group_by(year) %>%
+  mutate(early_day1 = min(julian)) %>%
+  mutate(early_daylast = mid_jul) %>%
+  mutate(late_day1 = mid_jul + 1) %>%
+  mutate(late_daylast = max(julian)) %>%
+  select(year, early_day1, early_daylast, late_day1, late_daylast) %>%
+  ungroup() %>%
+  distinct(year, early_day1, early_daylast, late_day1, late_daylast) %>%
+  as.data.frame()
+  
+
+
+# plot border passage counts per run timing bin
+ggplot(border_summ, aes(x=run_time, y=count_prop, fill=run_time)) +
+  geom_bar(stat="identity", position= "dodge") +
+  xlab("Run Timing Bin") +
+  ylab("Border Passage Count (%)") +
+  facet_wrap(~year) +
+  theme_bw()
+
+# plot border passage counts as histogram over julian days
+ggplot(border_summ, aes(x=julian, y=count)) +
+  geom_histogram(stat="identity") +
+  facet_wrap(~year, scales= "free_y") +
+  theme_bw()
 
 
 
 
+
+
+# read in GSI data input file
+GSI <- read.csv(file="input_Yukon_GSI_82_05_longform2.csv",header=TRUE)
+head(GSI)
+
+
+GSI.2 <- GSI %>%
+  filter(prob > 0.5) %>%
+  group_by(year) %>%
+  mutate(year_samp_count = n())
+
+early_jul 
+
+
+
+
+
+
+
+
+head(GSI.2)    
+  
+
+border_counts.2 <- border_counts %>%
+  mutate(year_count = case_when(year == 1985 ~ 1321,
+                                year == 1986 ~ 1998,
+                                year == 1987 ~ 938,
+                                year == 1988 ~ 976,
+                                year == 1989 ~ 1065,
+                                year == 1990 ~ 1361,
+                                year == 1991 ~ 1726,
+                                year == 1992 ~ 1889,
+                                year == 1993 ~ 1241,
+                                year == 1994 ~ 1290,
+                                year == 1995 ~ 2215,
+                                year == 1996 ~ 1749,
+                                year == 1997 ~ 2221,
+                                year == 1998 ~ 1080,
+                                year == 1999 ~ 914,
+                                year == 2000 ~ 1494,
+                                year == 2001 ~ 3986,
+                                year == 2002 ~ 1065,
+                                year == 2003 ~ 1276,
+                                year == 2004 ~ 1361,
+                                year == 2005 ~ 81529,
+                                year == 2006 ~ 73691,
+                                year == 2007 ~ 41697,
+                                year == 2008 ~ 38097,
+                                year == 2009 ~ 69963,
+                                year == 2010 ~ 35074,
+                                year == 2011 ~ 51271,
+                                year == 2012 ~ 34725,
+                                year == 2013 ~ 30725,
+                                year == 2014 ~ 63462,
+                                year == 2015 ~ 84015,
+                                year == 2016 ~ 72329))
 
 
 
