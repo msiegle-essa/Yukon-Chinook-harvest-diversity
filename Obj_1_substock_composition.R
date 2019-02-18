@@ -817,132 +817,149 @@ border_counts <- read.delim(file="input_bordercounts2.txt",header=TRUE)
 head(border_counts)
 
 # get total number of border passage counts for each year, and early and late border passage counts
-border_summ <- border_counts %>%
+bord_cnt2 <- border_counts %>%
   replace(is.na(.), 0) %>%
   filter(count > 0) %>%
-  group_by(year) %>%
-  mutate(year_sum = sum(count)) %>%
-  mutate(min_jul = case_when(
-    count > 0 ~ min(julian))) %>%
-  mutate(max_jul = case_when(
-    count > 0 ~ max(julian))) %>%
-  mutate(jul_diff = (max_jul - min_jul)+1) %>%
-  mutate(half_jul = round(jul_diff/2,0)) %>%
-  mutate(mid_jul = max_jul - half_jul) %>%
+  group_by(year, count_type) %>%
+  mutate(count_tot = sum(count)) %>%
+  mutate(count_half = round(count_tot/2, digits = 0)) %>%
   ungroup() %>%
-  group_by(year) %>%
-  mutate(run_time = case_when(
-    julian <= mid_jul ~ "early",
-    julian > mid_jul ~ "late")) %>%
-  ungroup() %>%
-  select(-min_jul, -max_jul, -jul_diff, -half_jul) %>%
-  group_by(year, run_time) %>%
-  mutate(early_count = case_when(
-    run_time == "early" ~ sum(count))) %>%
-  ungroup() %>%
-  group_by(year, run_time) %>%
-  mutate(late_count = case_when(
-    run_time == "late" ~ sum(count))) %>%
-  ungroup() %>%
-  gather(key = run_time_count, value = count_value, early_count:late_count) %>%
-  filter(count_value != "NA") %>%
-  select(-run_time_count) %>%
-  arrange(year, julian) %>%
-  mutate(count_prop = (count_value/year_sum)*100) %>%
-  mutate(day_count_prop = (count/count_value)*100) %>%
-  as.data.frame()
+  group_by(year, count_type) %>%
+  mutate(cuml_early = cumsum(count)) %>%
+  mutate(ce_diff = abs(count_half - cuml_early)) %>%
+  mutate(min_diff = min(ce_diff)) %>%
+  filter(ce_diff == min_diff) %>%
+  mutate(cuml_late = count_tot - cuml_early) %>%
+  mutate(early_prop = (cuml_early/count_tot)*100) %>%
+  mutate(late_prop = abs(100 - early_prop)) %>%
+  select(count_type, year, julian, count_tot, 
+         cuml_early, cuml_late, early_prop, late_prop)
 
 
-# create dataframe of julian date ranges for early and late run timing bins
-jul_range <- border_summ %>%
-  group_by(year) %>%
-  mutate(early_day1 = min(julian)) %>%
-  mutate(early_daylast = mid_jul) %>%
-  mutate(late_day1 = mid_jul + 1) %>%
-  mutate(late_daylast = max(julian)) %>%
-  select(year, early_day1, early_daylast, late_day1, late_daylast) %>%
-  ungroup() %>%
-  distinct(year, early_day1, early_daylast, late_day1, late_daylast) %>%
-  as.data.frame()
-  
 
-
-# plot border passage counts per run timing bin
-ggplot(border_summ, aes(x=run_time, y=count_prop, fill=run_time)) +
+# plot border passage counts (as % of total run) per run timing bin
+ggplot(bord_cnt2 %>% gather(key = run.timing, value = run.prop, early_prop:late_prop), 
+       aes(x=run.timing, y=run.prop, fill=run.timing)) +
   geom_bar(stat="identity", position= "dodge") +
   xlab("Run Timing Bin") +
   ylab("Border Passage Count (%)") +
   facet_wrap(~year) +
   theme_bw()
 
-# plot border passage counts as histogram over julian days
-ggplot(border_summ, aes(x=julian, y=count)) +
-  geom_histogram(stat="identity") +
-  facet_wrap(~year, scales= "free_y") +
-  theme_bw()
-
-
-
-
 
 
 # read in GSI data input file
-GSI <- read.csv(file="input_Yukon_GSI_82_05_longform2.csv",header=TRUE)
-head(GSI)
+data <- read.csv(file.choose()) # input_master_GSI.csv
+
+# filter so only individuals with stock id > 0.5 are included
+# additional columns include the count of samples that correspond to
+# ‘early’ and ‘late’ run timing bins, the Julian date range for the annual
+# ‘early’ and ‘late’ bins were created by taking the julian date from the 
+# border_counts dataframe where ~50% of the fish have been counted, 
 
 
-GSI.2 <- GSI %>%
+
+head(data)
+
+data2 <- dx %>%
   filter(prob > 0.5) %>%
-  group_by(year) %>%
-  mutate(year_samp_count = n())
+  mutate(substock = case_when(region == 30 ~ "Upper Lakes and Mainstem",
+                              region == 31 ~ "Teslin River",
+                              region == 32 ~ "Carmacks",
+                              region == 33 ~ "Middle Mainstem",
+                              region == 34 ~ "Pelly",
+                              region == 35 ~ "Stewart",
+                              region == 36 ~ "Lower Mainstem",
+                              region == 38 ~ "White-Donjek")) %>%
+  group_by(year, gear) %>%
+  mutate(year_samp_count = n()) %>%
+  mutate(samp_early_count = case_when(year == 1985 ~ length(julian_date[julian_date <= 213]),
+                                      year == 1986 ~ length(julian_date[julian_date <= 203]), 
+                                      year == 1987 ~ length(julian_date[julian_date <= 203]), 
+                                      year == 1988 ~ length(julian_date[julian_date <= 206]), 
+                                      year == 1989 ~ length(julian_date[julian_date <= 205]), 
+                                      year == 1990 ~ length(julian_date[julian_date <= 202]), 
+                                      year == 1991 ~ length(julian_date[julian_date <= 206]), 
+                                      year == 1992 ~ length(julian_date[julian_date <= 208]), 
+                                      year == 1993 ~ length(julian_date[julian_date <= 199]), 
+                                      year == 1994 ~ length(julian_date[julian_date <= 201]), 
+                                      year == 1995 ~ length(julian_date[julian_date <= 206]), 
+                                      year == 1996 ~ length(julian_date[julian_date <= 197]), 
+                                      year == 1997 ~ length(julian_date[julian_date <= 207]), 
+                                      year == 1998 ~ length(julian_date[julian_date <= 210]), 
+                                      year == 1999 ~ length(julian_date[julian_date <= 207]),
+                                      year == 2000 ~ length(julian_date[julian_date <= 206]), 
+                                      year == 2001 ~ length(julian_date[julian_date <= 207]), 
+                                      year == 2002 ~ length(julian_date[julian_date <= 208]), 
+                                      year == 2003 ~ length(julian_date[julian_date <= 196]), 
+                                      year == 2004 ~ length(julian_date[julian_date <= 200]), 
+                                      year == 2005 ~ length(julian_date[julian_date <= 203]), 
+                                      year == 2006 ~ length(julian_date[julian_date <= 207]), 
+                                      year == 2007 ~ length(julian_date[julian_date <= 203]), 
+                                      year == 2008 ~ length(julian_date[julian_date <= 209]), 
+                                      year == 2009 ~ length(julian_date[julian_date <= 202]), 
+                                      year == 2010 ~ length(julian_date[julian_date <= 208]), 
+                                      year == 2011 ~ length(julian_date[julian_date <= 205]), 
+                                      year == 2012 ~ length(julian_date[julian_date <= 210]), 
+                                      year == 2013 ~ length(julian_date[julian_date <= 205]), 
+                                      year == 2014 ~ length(julian_date[julian_date <= 199]), 
+                                      year == 2015 ~ length(julian_date[julian_date <= 203]), 
+                                      year == 2016 ~ length(julian_date[julian_date <= 199]))) %>%
+  mutate(samp_late_count = case_when(year == 1985 ~ length(julian_date[julian_date > 213]),
+                                     year == 1986 ~ length(julian_date[julian_date > 203]), 
+                                     year == 1987 ~ length(julian_date[julian_date > 203]), 
+                                     year == 1988 ~ length(julian_date[julian_date > 206]), 
+                                     year == 1989 ~ length(julian_date[julian_date > 205]), 
+                                     year == 1990 ~ length(julian_date[julian_date > 202]), 
+                                     year == 1991 ~ length(julian_date[julian_date > 206]), 
+                                     year == 1992 ~ length(julian_date[julian_date > 208]), 
+                                     year == 1993 ~ length(julian_date[julian_date > 199]), 
+                                     year == 1994 ~ length(julian_date[julian_date > 201]), 
+                                     year == 1995 ~ length(julian_date[julian_date > 206]), 
+                                     year == 1996 ~ length(julian_date[julian_date > 197]), 
+                                     year == 1997 ~ length(julian_date[julian_date > 207]), 
+                                     year == 1998 ~ length(julian_date[julian_date > 210]), 
+                                     year == 1999 ~ length(julian_date[julian_date > 207]),
+                                     year == 2000 ~ length(julian_date[julian_date > 206]), 
+                                     year == 2001 ~ length(julian_date[julian_date > 207]), 
+                                     year == 2002 ~ length(julian_date[julian_date > 208]), 
+                                     year == 2003 ~ length(julian_date[julian_date > 196]), 
+                                     year == 2004 ~ length(julian_date[julian_date > 200]), 
+                                     year == 2005 ~ length(julian_date[julian_date > 203]), 
+                                     year == 2006 ~ length(julian_date[julian_date > 207]), 
+                                     year == 2007 ~ length(julian_date[julian_date > 203]), 
+                                     year == 2008 ~ length(julian_date[julian_date > 209]), 
+                                     year == 2009 ~ length(julian_date[julian_date > 202]), 
+                                     year == 2010 ~ length(julian_date[julian_date > 208]), 
+                                     year == 2011 ~ length(julian_date[julian_date > 205]), 
+                                     year == 2012 ~ length(julian_date[julian_date > 210]), 
+                                     year == 2013 ~ length(julian_date[julian_date > 205]), 
+                                     year == 2014 ~ length(julian_date[julian_date > 199]), 
+                                     year == 2015 ~ length(julian_date[julian_date > 203]), 
+                                     year == 2016 ~ length(julian_date[julian_date > 199]))) %>%
+  mutate(samp_early_prop = (samp_early_count/year_samp_count)*100) %>%
+  mutate(samp_late_prop = 100-samp_early_prop) %>%
+  select(data_label, year, gear, julian_date, sample_num, region, prob, samp_early_count, samp_late_count, samp_early_prop, samp_late_prop) %>%
+  as.data.frame()
 
-early_jul 
 
 
+# create output file: which is the input for the bias multinomial
+write.table(data2, file = "input_bias_multinomial.csv", sep=" ")
 
 
-
-
-
-
-head(GSI.2)    
+# plot sample counts (as % of total run) per run timing bin
+data3 <- data2 %>%
+  filter(year <= 2005 | year > 2005 & gear == "Test Fishery" ) %>%
+  gather(key = run.timing, value = run.prop, samp_early_prop:samp_late_prop)
   
-
-border_counts.2 <- border_counts %>%
-  mutate(year_count = case_when(year == 1985 ~ 1321,
-                                year == 1986 ~ 1998,
-                                year == 1987 ~ 938,
-                                year == 1988 ~ 976,
-                                year == 1989 ~ 1065,
-                                year == 1990 ~ 1361,
-                                year == 1991 ~ 1726,
-                                year == 1992 ~ 1889,
-                                year == 1993 ~ 1241,
-                                year == 1994 ~ 1290,
-                                year == 1995 ~ 2215,
-                                year == 1996 ~ 1749,
-                                year == 1997 ~ 2221,
-                                year == 1998 ~ 1080,
-                                year == 1999 ~ 914,
-                                year == 2000 ~ 1494,
-                                year == 2001 ~ 3986,
-                                year == 2002 ~ 1065,
-                                year == 2003 ~ 1276,
-                                year == 2004 ~ 1361,
-                                year == 2005 ~ 81529,
-                                year == 2006 ~ 73691,
-                                year == 2007 ~ 41697,
-                                year == 2008 ~ 38097,
-                                year == 2009 ~ 69963,
-                                year == 2010 ~ 35074,
-                                year == 2011 ~ 51271,
-                                year == 2012 ~ 34725,
-                                year == 2013 ~ 30725,
-                                year == 2014 ~ 63462,
-                                year == 2015 ~ 84015,
-                                year == 2016 ~ 72329))
-
-
+ggplot(data3, aes(x=run.timing, y=run.prop, fill=run.timing)) +
+  geom_bar(stat="identity", position= "dodge") +
+  xlab("Run Timing Bin") +
+  ylab("Sample Passage Count (%)") +
+  facet_wrap(~year) +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle=90, hjust=1))
 
 
 
