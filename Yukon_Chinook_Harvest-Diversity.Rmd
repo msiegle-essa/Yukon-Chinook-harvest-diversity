@@ -45,7 +45,10 @@ library(gplots)
 
 
 ```{r Source input files}
-raw_GSI <- read.csv(text=GET("https://raw.githubusercontent.com/msiegle-essa/Yukon-Chinook-harvest-diversity/master/input%20files/input_bias_multinomial2.csv"))
+
+# don't need to link github url address...use local copy or relative path
+raw_GSI <- read.csv("input files/input_bias_multinomial2.csv")
+
 
 # input model for sampling bias correction
 model.2 <- readRDS("stock_year_sampbias.brm.fit.Feb212019")
