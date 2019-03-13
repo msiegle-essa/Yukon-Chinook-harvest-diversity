@@ -1,0 +1,806 @@
+---
+title: "Yukon Chinook Harvest/Diversity Tradeoffs"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+# Yukon Chinook Harvest/Diversity Trade-offs 
+AYK-SSI #1701
+
+## Project Memo: Fall 2018
+
+```{r Load libraries}
+library(tidyverse)
+library(httr)
+library(Rcurl)
+library(grDevices)
+library(plotrix)
+library(R2jags) 
+library(modeest) 
+library(gplots)
+```
+
+
+```{r Source input files}
+raw_GSI <- read.csv(text=GET("https://raw.githubusercontent.com/msiegle-essa/Yukon-Chinook-harvest-diversity/master/input%20files/input_bias_multinomial2.csv"))
+
+# input model for sampling bias correction
+model.2 <- readRDS("stock_year_sampbias.brm.fit.Feb212019")
+
+# brood table
+x <- getURL("https://raw.githubusercontent.com/msiegle-essa/Yukon-Chinook-harvest-diversity/master/input%20files/input_yukon_chin_bt_red.csv")
+brood_table <- read.csv(text = x)
+
+
+
+#read in border counts (fish wheel and sonar)
+y <- getURL("https://raw.githubusercontent.com/msiegle-essa/Yukon-Chinook-harvest-diversity/master/input%20files/input_bordercounts2.txt")
+border_counts <- read.delim(text = y)
+
+
+#read in Genetic Stock ID data from fish collected at border 
+# ("probability" is the probability individual fish originated from stock X)
+z <- getURL("https://raw.githubusercontent.com/msiegle-essa/Yukon-Chinook-harvest-diversity/master/input%20files/input_Yukon_GSI_82_05_longform2.csv")
+GSI <- read.csv(text = z)
+
+
+```
+
+
+```{r Modify input files for appropriate dataframe format}
+# raw_GSI: change year to factor 
+raw_GSI$yearF <- as.factor(raw_GSI$year)
+
+dwrite <- data.frame( yearF = rep(unique(raw_GSI$yearF),1),
+                      gear2 = rep("Test Fishery",30),
+                      samp_bias = rep(0,30))
+
+
+# produce CORRECTED sub-stock comps
+stock_comps <- cbind(dwrite, predict(model.2, newdata = dwrite,  probs= c(0.025,0.5, 0.975)))
+
+
+# put stock_comps data frame in long format
+stock_comps_long <- stock_comps %>%
+  gather(key = substock, value = proportion, "P(Y = 30)":"P(Y = 38)") %>%
+  mutate(substock = case_when(substock == "P(Y = 30)" ~ "Upper Lakes and Mainstem",
+                              substock == "P(Y = 31)" ~ "Teslin River",
+                              substock == "P(Y = 32)" ~ "Carmacks",
+                              substock == "P(Y = 33)" ~ "Middle Mainstem",
+                              substock == "P(Y = 34)" ~ "Pelly",
+                              substock == "P(Y = 35)" ~ "Stewart",
+                              substock == "P(Y = 36)" ~ "Lower Mainstem",
+                              substock == "P(Y = 38)" ~ "White-Donjek")) %>%
+  arrange(yearF)
+
+
+# modify border counts data frame
+# sum border counts by year
+View(border_counts %>%
+       na.omit() %>%
+       group_by(year) %>%
+       summarise(sum = sum(count)))
+
+# add column of counts per year to new dataframe bc2
+bc2 <- border_counts %>% 
+  mutate(sum = case_when(year == "1985" ~ 1321,
+                         year == "1986" ~ 1998,
+                         year == "1987" ~ 938,
+                         year == "1988" ~ 976,
+                         year == "1989" ~ 1065,
+                         year == "1990" ~ 1361,
+                         year == "1991" ~ 1726,
+                         year == "1992" ~ 1889,
+                         year == "1993" ~ 1241,
+                         year == "1994" ~ 1290,
+                         year == "1995" ~ 2215,
+                         year == "1996" ~ 1749,
+                         year == "1997" ~ 2221,
+                         year == "1998" ~ 1080,
+                         year == "1999" ~ 914,
+                         year == "2000" ~ 1494,
+                         year == "2001" ~ 3986,
+                         year == "2002" ~ 1065,
+                         year == "2003" ~ 1276,
+                         year == "2004" ~ 1361,
+                         year == "2005" ~ 81529,
+                         year == "2006" ~ 73691,
+                         year == "2007" ~ 41697,
+                         year == "2008" ~ 38097,
+                         year == "2009" ~ 69963,
+                         year == "2010" ~ 35074,
+                         year == "2011" ~ 51271,
+                         year == "2012" ~ 34747,
+                         year == "2013" ~ 30725,
+                         year == "2014" ~ 63462,
+                         year == "2015" ~ 84015,
+                         year == "2016" ~ 72329))
+
+# create proportion of total run count per julian day count
+bc2$prop <- NA
+bc2$prop <- bc2$count/bc2$sum
+
+
+
+# modify individual GSI assignment dataframe
+GSI.region <- subset(GSI, prob > 0.5)
+
+
+# create data frame of number of samples per day and year 
+GSI.counts <- plyr::ddply(GSI.region,c("year","julian_date"),function(x){
+  count <- dim(x)[1]
+  data.frame(count)
+})
+
+# add column of gsi counts per year to new dataframe: only keep samples with prob > 0.5
+gsi2 <- GSI.counts %>% 
+  dplyr::mutate(year_count = case_when(year == "1982" ~ 124,
+                                year == "1983" ~ 141,
+                                year == "1985" ~ 149,
+                                year == "1986" ~ 149,
+                                year == "1987" ~ 148,
+                                year == "1991" ~ 147,
+                                year == "1992" ~ 149,
+                                year == "1993" ~ 149,
+                                year == "1994" ~ 149,
+                                year == "1995" ~ 149,
+                                year == "1996" ~ 144,
+                                year == "1997" ~ 150,
+                                year == "1998" ~ 0,
+                                year == "1999" ~ 147,
+                                year == "2000" ~ 148,
+                                year == "2001" ~ 149,
+                                year == "2002" ~ 150,
+                                year == "2003" ~ 148,
+                                year == "2004" ~ 131,
+                                year == "2005" ~ 142,
+                                year == "2006" ~ 150,
+                                year == "2007" ~ 149,
+                                year == "2008" ~ 452,
+                                year == "2009" ~ 646,
+                                year == "2010" ~ 467,
+                                year == "2011" ~ 497,
+                                year == "2012" ~ 344,
+                                year == "2013" ~ 290,
+                                year == "2014" ~ 708,
+                                year == "2015" ~ 1026,
+                                year == "2016" ~ 728))
+
+# create proportion of total run count per julian day count
+gsi2$prop <- NA
+gsi2$prop <- gsi2$count/gsi2$year_count
+
+
+
+
+
+
+# infill missing years???? -----------------------------
+stock_comps %>%
+  rbind(c("1984","Infill", 0,
+          mean(c(stock_comps[2,4],stock_comps[3,4])),
+          mean(c(stock_comps[2,5],stock_comps[3,5])),
+          mean(c(stock_comps[2,6],stock_comps[3,6])),
+          mean(c(stock_comps[2,7],stock_comps[3,7])),
+          mean(c(stock_comps[2,8],stock_comps[3,8])),
+          mean(c(stock_comps[2,9],stock_comps[3,9])),
+          mean(c(stock_comps[2,10],stock_comps[3,10])),
+          mean(c(stock_comps[2,11],stock_comps[3,11]))))
+
+y1984 <- c("1984","Infill", 0,
+          mean(c(stock_comps[2,4],stock_comps[3,4])),
+          mean(c(stock_comps[2,5],stock_comps[3,5])),
+          mean(c(stock_comps[2,6],stock_comps[3,6])),
+          mean(c(stock_comps[2,7],stock_comps[3,7])),
+          mean(c(stock_comps[2,8],stock_comps[3,8])),
+          mean(c(stock_comps[2,9],stock_comps[3,9])),
+          mean(c(stock_comps[2,10],stock_comps[3,10])),
+          mean(c(stock_comps[2,11],stock_comps[3,11])))
+
+y1988 <- c("1988","Infill", 0,
+          mean(c(stock_comps[5,4],stock_comps[6,4])),
+          mean(c(stock_comps[5,5],stock_comps[6,5])),
+          mean(c(stock_comps[5,6],stock_comps[6,6])),
+          mean(c(stock_comps[5,7],stock_comps[6,7])),
+          mean(c(stock_comps[5,8],stock_comps[6,8])),
+          mean(c(stock_comps[5,9],stock_comps[6,9])),
+          mean(c(stock_comps[5,10],stock_comps[6,10])),
+          mean(c(stock_comps[5,11],stock_comps[6,11])))
+
+y1989 <- c("1989","Infill", 0,
+          mean(c(stock_comps[5,4],stock_comps[6,4])),
+          mean(c(stock_comps[5,5],stock_comps[6,5])),
+          mean(c(stock_comps[5,6],stock_comps[6,6])),
+          mean(c(stock_comps[5,7],stock_comps[6,7])),
+          mean(c(stock_comps[5,8],stock_comps[6,8])),
+          mean(c(stock_comps[5,9],stock_comps[6,9])),
+          mean(c(stock_comps[5,10],stock_comps[6,10])),
+          mean(c(stock_comps[5,11],stock_comps[6,11])))
+
+y1990 <- c("1990","Infill", 0,
+          mean(c(stock_comps[5,4],stock_comps[6,4])),
+          mean(c(stock_comps[5,5],stock_comps[6,5])),
+          mean(c(stock_comps[5,6],stock_comps[6,6])),
+          mean(c(stock_comps[5,7],stock_comps[6,7])),
+          mean(c(stock_comps[5,8],stock_comps[6,8])),
+          mean(c(stock_comps[5,9],stock_comps[6,9])),
+          mean(c(stock_comps[5,10],stock_comps[6,10])),
+          mean(c(stock_comps[5,11],stock_comps[6,11])))
+
+y1998 <- c("1990","Infill", 0,
+          mean(c(stock_comps[12,4],stock_comps[13,4])),
+          mean(c(stock_comps[12,5],stock_comps[13,5])),
+          mean(c(stock_comps[12,6],stock_comps[13,6])),
+          mean(c(stock_comps[12,7],stock_comps[13,7])),
+          mean(c(stock_comps[12,8],stock_comps[13,8])),
+          mean(c(stock_comps[12,9],stock_comps[13,9])),
+          mean(c(stock_comps[12,10],stock_comps[13,10])),
+          mean(c(stock_comps[12,11],stock_comps[13,11])))
+# -----------------------------
+
+
+
+# create substock region proportions using aggregate brood table
+reg_prop <- gather(brood_table, -year, -sample_size, -run, -spwn, -per_fem,
+                   -comm_har, -dom_har, -fsc_har, -rec_har, -yk_rv_har,
+                   -por_har, -total_har, -er, -age_4,-age_5, -age_6,
+                   -age_7, key = "region", value = "prop") %>%
+  arrange(year, region) %>%
+  mutate(run_stock = run*(prop/100),
+         spwn_stock = spwn*(prop/100),
+         tot_har_stock = total_har*(prop/100))
+
+
+# create data for  State Space models
+age_data <- reg_prop %>%
+  select(year, region, age_4, age_5, 
+         age_6, age_7) %>%
+  mutate(reg_code = case_when(region == "Yukon.Carmacks" ~ "1",
+                              region == "Yukon.Lower.Canadian" ~ "2",
+                              region == "Yukon.mainstem" ~ "3",
+                              region == "Yukon.Pelly" ~ "4",
+                              region == "Yukon.Stewart" ~ "5",
+                              region == "Yukon.Teslin" ~ "6",
+                              region == "Yukon.upper" ~ "7",
+                              region == "Yukon.White.Donjek" ~ "8")) %>%
+  mutate(gooddata = case_when(year == 1984 ~ 0,
+                              year == 1988 ~ 0,
+                              year == 1989 ~ 0,
+                              year == 1990 ~ 0,
+                              year == 1998 ~ 0,
+                              year == 2006 ~ 0,
+                              year == 2007 ~ 0,
+                              year < 1984 ~ 1,
+                              year >= 1985 & year <= 1987 ~ 1,
+                              year >= 1991 & year <= 1997 ~1,
+                              year >= 1999 & year <= 2005 ~1,
+                              year >= 2008 ~1))
+
+esc_data <- reg_prop %>%
+  select(year, region, spwn_stock) %>%
+  mutate(reg_code = case_when(region == "Yukon.Carmacks" ~ "1",
+                              region == "Yukon.Lower.Canadian" ~ "2",
+                              region == "Yukon.mainstem" ~ "3",
+                              region == "Yukon.Pelly" ~ "4",
+                              region == "Yukon.Stewart" ~ "5",
+                              region == "Yukon.Teslin" ~ "6",
+                              region == "Yukon.upper" ~ "7",
+                              region == "Yukon.White.Donjek" ~ "8")) %>%
+  mutate(truecount = case_when(year == 1984 ~ 0,
+                               year == 1988 ~ 0,
+                               year == 1989 ~ 0,
+                               year == 1990 ~ 0,
+                               year == 1998 ~ 0,
+                               year == 2006 ~ 0,
+                               year == 2007 ~ 0,
+                               year < 1984 ~ 1,
+                               year >= 1985 & year <= 1987 ~ 1,
+                               year >= 1991 & year <= 1997 ~1,
+                               year >= 1999 & year <= 2005 ~1,
+                               year >= 2008 ~1))
+
+harv_data <- reg_prop %>%
+  select(year, region, tot_har_stock) %>%
+  mutate(reg_code = case_when(region == "Yukon.Carmacks" ~ "1",
+                              region == "Yukon.Lower.Canadian" ~ "2",
+                              region == "Yukon.mainstem" ~ "3",
+                              region == "Yukon.Pelly" ~ "4",
+                              region == "Yukon.Stewart" ~ "5",
+                              region == "Yukon.Teslin" ~ "6",
+                              region == "Yukon.upper" ~ "7",
+                              region == "Yukon.White.Donjek" ~ "8")) %>%
+  mutate(truecount = case_when(year == 1984 ~ 0,
+                               year == 1988 ~ 0,
+                               year == 1989 ~ 0,
+                               year == 1990 ~ 0,
+                               year == 1998 ~ 0,
+                               year == 2006 ~ 0,
+                               year == 2007 ~ 0,
+                               year < 1984 ~ 1,
+                               year >= 1985 & year <= 1987 ~ 1,
+                               year >= 1991 & year <= 1997 ~1,
+                               year >= 1999 & year <= 2005 ~1,
+                               year >= 2008 ~1))
+
+
+# export exploitation rates for state space models
+er <- brood_table %>%
+  select(year, er)
+```
+
+
+
+
+
+This memo provides a brief summary of progress to date on Objectives 1-4 of the AYK-SSI grant “Yukon Chinook harvest-population diversity tradeoffs”. The overarching goal of the project is to describe CDN-origin Yukon Chinook population diversity, understand the extent to which this diversity leads to tradeoffs with harvest, and develop a simulation model that allows us to begin to explore how well alternative management procedures meet fishery and population diversity objectives.
+
+The specific objectives of the project are to: 
+1.	Extract genetic material from archived scale samples to determine sub-stock composition of CDN-origin Yukon Chinook returns from 1982 to present.
+2.	Use estimates of sub-stock composition (from Obj. 1) together with an existing CDN-Yukon River Basin wide run-reconstruction to reconstruct harvest, spawner abundance and age-composition at a sub-stock level.
+3.	Fit age-structured state-space stock-recruitment models to the sub-stock reconstructions (Obj. 2) to characterize Chinook population diversity within the CDN portion of the Yukon River Basin.  
+4.	Quantify equilibrium tradeoffs between harvest and conservation of population diversity across a range of mixed-stock harvest rates.
+5.	Develop closed loop simulations parameterized by the data from Obj. 3 to quantify the predicted fishery and population diversity consequences of a range of alternative management procedures that are comprised on Alaskan harvest rates, border passage goals and within-Canada harvest strategies. 
+
+**Objective 1**
+On average, 1300 Chinook scale samples have been collected annually from fish wheels (1982–2008) and gillnets (2005–present) at a range of locations on the Yukon River near the U.S. - Canada border (Figure 1). These samples have typically been taken over the duration of the annual upstream adult migration, with the number of samples taken each day roughly proportional to run size. Since 2006 tissue samples have also been collected for genetic stock ID by assigning each fish back to one of the eight major sub-stock groupings using microsatellite markers (between 293 and 1026 fish per year) (Beacham et al. 2006) (Figure 1). We extended this time series of sub-stock composition estimates by sub-sampling archived scale samples from 1982 to 2005 (between 124 and 134 fish per year; between 109 and 835 fish per year for 2006-2016; Figure 2).
+
+In most years, the scales we sub-sampled for genetic stock ID appear to be representative of the run (compare distribution of grey vs. red bars in Figure 2). However, there were clearly some years (e.g., 2001) where we are missing a substantial portion of the run.  When the new (1982-2005) and existing (2008-2016) estimates of sub-stock composition are combined they indicate that there are (no surprise) substantial differences among sub-stocks in their contribution to total returns in a given year (e.g., Teslin is largest contributor and the Upper mainstem is the smallest) and that there is considerable inter-annual variation within sub-stocks in their contributions to total returns (Figure 3). 
+
+
+```{r Figure 2: Run timing distriubtion with scale sampling distribution}
+# create sample size number dataframe for geom_text in plot
+dat_text <- data.frame(label = c("124", "141", "149","149", "148", "147",
+                                 "149", "149", "149","149", "144", "150", "147", "148",
+                                 "149", "150", "148","131", "142","150","149","452","646",
+                                 "467","497","344","290","708","1026","728"),
+                       year = c(1982,1983,1985,1986,1987,1991,
+                                1992,1993,1994,1995,1996,1997, 1999,2000,
+                                2001,2002,2003,2004,2005,2006, 2007,2008,2009,
+                                2010,2011,2012,2013,2014,2015,2016))
+
+# Run size distribution and GSI size and distribution, memo Fig 2
+n <- c(1982:1987,1991:1997,1999:2016)
+bc3 <- bc2 %>%
+  filter(year %in% n)
+
+gsi3 <- gsi2 %>%
+  filter(year %in% n)
+```
+
+```{r Plot Figure 2: border counts and gsi sample size}
+# plot figure border counts and gsi sample size ... MATT check data for missing 2010 and 2012 data
+ggplot(bc3, aes(x=julian, y = prop)) +
+  geom_bar(stat = "identity") +
+  geom_bar(data = gsi3 %>% filter(julian_date < 1000), aes(x=julian_date, y=prop), 
+           fill="red", alpha=0.5, stat = "identity") +
+  scale_x_continuous(limits=c(150,300), breaks = c(150,175,200,225,250,275,300)) +
+  xlab("Julian day") +
+  ylab("Run size and GSI sample size") +
+  facet_wrap(~year, scales = "free_y") +
+  theme_bw() +
+  theme(axis.text.x = element_text(size=9, angle = 45, hjust = 1)) +
+  theme(strip.text = element_text(size=10)) +
+  theme(axis.text.y = element_blank(),
+        axis.ticks.y = element_blank()) +
+  geom_text(data = dat_text, mapping = aes(x = -Inf, y = -Inf, label = label),
+            hjust = -0.3, vjust = -3, size=2.5)
+```
+Figure 2. **Run distribution and scale sampling distribution.** Daily estimates of Chinook entering the Yukon (light grey bars) and distribution of scales sampled from run to determine sub-stock ID. Overall, the scale sub-sampling has been generally representative of the observed run. However, there are a some clear mismatches between the observed run our scale sub-sampling (e.g., 2001 where the scales sub-sampled for GSI did not overlap with much of the run). The total number of scales analyzed each year to date is in the upper left corner of each panel. Note that scales were unavailable for 1988-1990, and 1998 and we do not currently have information on the distribution of the run in 1982 and 1983. We also do not have julian dates for the GSI samples in 2010 and 2012. Given the high sample size for those years, we assume the run was adequately represented. For reference in a non leap year July 19th is equivalent to Julian day 200. 
+
+
+
+
+
+
+```{r Figure 3: Sub-stock proportions over time ~facet_wrap(substock)}
+ggplot(stock_comps2, aes(x = yearF, y = proportion*100)) +  #%>% filter(region_num =="1")
+  geom_bar(stat = "identity", colour = "black", fill="light grey") +
+  #geom_errorbar(aes(ymin=lower, ymax=upper), width=.2) +
+  geom_vline(xintercept = 2008, lty = "dotted") +
+  #xlab("Year") +
+  ylab("Proportion of test fishery catch (%)") +
+  scale_x_discrete(name = "Year", breaks = c("1984","1988","1992","1996","2000","2004","2008","2012")) +
+  theme_bw() +
+  facet_wrap(~substock, ncol=3, scales = "free_y") +
+  theme(strip.text = element_text(size=10)) +
+  theme(axis.text.x = element_text(angle=90, hjust=1)) +
+  theme(axis.text = element_text(size=10)) +
+  theme(axis.title = element_text(size=10)) +
+  theme(legend.justification = "center")
+```
+Figure 3. **Sub-stock total ru proportions.** Proportion (+/- SD) of each sub-stock in the test fishery catch from 1982-2016. The dotted line at 2008 marks the transition from fish wheels to gillnets and sonar used to estimate abundance. The years 1984, 1989-1991, 1998, and 2006-2007 are currently missing data.
+
+
+The sub-stock composition estimates for small stocks are based on very small sample sizes (e.g., less than 5 fish in a given year for the Upper Lakes and Mainstem sub-stock!) and so should be interpreted with an abundance of caution. Additionally, it is currently unknown if samples collected by fish wheel are biased towards specific sub-stocks (e.g., due to bank orientation). In order to quantify this we are conducting molecular analyses on 7 more years of scale samples (2006-2013) that can be compared to stock-composition estimates derived from the gill-net test fishery that has been in operation (alongside the fish wheels) since 2006.
+
+**Objective 2**
+The Yukon River Panel Joint Technical Committee (JTC) uses multiple sources of information to reconstruct total returns of Chinook to the CDN portion of the Yukon along with harvest and age-composition (JTC 2017) (Figure 4). These sources of information include: (1) border passage estimates from radiotelemetry data (2002-2004) and mainstem sonar projects (2005-2007), (2) aerial spawner surveys from multiple systems as indices of relative abundance (1981-2001), (3) estimates of harvest in both US and CDN fisheries, and (4) age composition data from fish wheel and gillnet surveys near the US-Canada border as well as from US harvest. The resulting brood table forms the basis of the current data used to fit a basin wide stock-recruitment model (JTC 2017). 
+
+In order to develop first pass run reconstructions at the sub-stock level we simply applied the estimated sub-stock composition estimates from Objective 1 to the basin wide harvest and escapement estimates from the JTC. We infilled years with missing composition data by using the average sub-stock proportions from the two closest years with empirical estimates. For example, sub-stock proportions for 1984 were the average of the 1983 and 1985 sub-stock proportions. Our sub-stock reconstructions ignore uncertainty in the sub-stock contributions (due to both the precision of the GSI and small sample sizes), and assume that all sub-stocks experienced similar exploitation rates. A logical next step is to propagate these two sources of uncertainty in sub-stock contributions and work with current and former DFO staff in Whitehorse to develop a more nuanced understanding of historic sub-stock vulnerability to the fisheries that occurred in the Yukon Territory. 
+
+The resulting sub-stock run-reconstructions (not surprisingly) tended to mirror the patterns in the aggregate CDN-origin reconstruction (Figure 4) but are scaled to the size of the individual sub-stocks. The first half of the time series is characterized by high harvest rates, which have declined dramatically in recent years coincident with substantial increases in escapement for some sub-stocks (e.g., Teslin and Middle Mainstem) but not others (e.g., Lower Mainstem and White-Donjek) (Figure 5). 
+
+
+
+```{r Functions for state-space stock-recruitment models}
+# Posterior summary function
+post.summ = function(post.samp, var) {
+  post.samp = as.matrix(post.samp)
+  
+  # if parameter is indexed
+  if(substr(var, nchar(var), nchar(var)) == "[") {
+    post = post.samp[,substr(colnames(post.samp), 1, nchar(var)) == var]
+    summ = apply(post, 2, function(x) c(mean = mean(x), sd = sd(x), quantile(x, c(0.5, 0.025, 0.975))))
+    return(summ)
+  }
+  
+  # if parameter is not indexed
+  if(substr(var, nchar(var), nchar(var)) != "[") {
+    post = post.samp[,substr(colnames(post.samp), 1, nchar(var)) == var]
+    summ = c(mean = mean(post), sd = sd(post), quantile(post, c(0.5, 0.025, 0.975)))
+    return(summ)
+  }
+}
+```
+
+```{r Multi-stock simulation function}
+# ny <- the number of years
+# Ro <- the sub-stock recruiment at time zero
+# phi <- the expected correlation through time
+# mat <- stock-specific maturation schedules
+# alpha <- sub-stock productivity (not in log space)
+# beta <- sub-stock density depedence 
+# sigma.R <- recruitment variation
+# U <- finite annual exploitation rate
+# pm.yr <- year of simulation that pms start to be calculated over
+# Rec <- estimated recruitments from last years of empirical data 
+# Spw <- estimated spawers from last years of empirical data
+# lst.resid <- estimated recruitment deviation from last year of empirical data
+
+process = function(ny,Ro,phi,mat,U,alpha,beta,sigma.R,Rec,Spw,lst.resid){
+  ns = length(Ro) #number of sub-stocks
+  m.alpha <- alpha
+  m.beta <- beta
+  epi = rnorm(ny, sd= sigma.R)
+  
+  #Build time series of Spawners (S), abundance of returning spawners pre-harvest
+  # (N), and the component of the residual that is correlated throught time (v)
+  R = t(matrix(0,ns,ny))
+  S = R * (1-0)
+  v = R; v[,]=0
+  #R[1:7,]=t(replicate(7,Ro,simplify=T))*exp(epi[1:7,])
+  R[1:3,]=Rec
+  N = array(0,dim=c(ny,4,ns))
+  Ntot = R; Ntot[,]=0
+  H = Ntot; S = Ntot
+  S[4:7,] = Spw
+  predR = Ntot
+  
+  # populate first few years with realized states
+  R[4,] = exp(log(alpha[]*S[4,]*exp(-beta[]*S[4,])) + phi* lst.resid) * exp(epi[4])
+  v[4,] = log(R[4,])-log(alpha[]*S[4,]*exp(-beta[]*S[4,]))
+  
+  for(i in 5:7){
+    R[i,] = exp(log(alpha[]*S[i,]*exp(-beta[]*S[i,])) + phi* v[i-1,]) * exp(epi[i])
+    v[i,] = log(R[i,])-log(alpha[]*S[i,]*exp(-beta[]*S[i,]))		
+  }
+  
+  N[4:7,1,]=R[4:7-(3),] * mat[1]
+  N[5:7,2,]=R[5:7-(4),] * mat[2]
+  N[6:7,3,]=R[6:7-(5),] * mat[3]
+  N[7,4,]=R[7-(6),] * mat[4]
+  
+  # Loop through years of simulation	  
+  for(i in (7+1):ny){ 
+    N[i,1,1] = R[i-(4),1] * mat[1]
+    N[i,2,1] = R[i-(5),1] * mat[2]
+    N[i,3,1] = R[i-(6),1] * mat[3]
+    N[i,4,1] = R[i-(7),1] * mat[4]
+    
+    Ntot[i,1] = sum(N[i,,1])
+    
+    # apply harvest 
+    H[i,1] =  U*Ntot[i,1]
+    S_exp = Ntot[i,1]-H[i,1] ; S_exp[S_exp<0] = 0
+    S[i,1] = S_exp
+    
+    # predict recruitment
+    R[i,1] = alpha[]*S[i,1]*exp(-beta[]*S[i,1]+phi*v[i-1,1]+epi[i])
+    predR[i,] = alpha[]*S[i,1]*exp(-beta[]*S[i,1])
+    v[i,1] = log(R[i,1])-log(predR[i,1])
+    v[v[,1]=='NaN'] <- 0
+  }
+  
+  #Output
+  S[S[,]=='NaN'] <- 0
+  Ntot[Ntot[,]=='NaN'] <- 0
+  p_rg <-ifelse(median(S[(ny-10):ny,])>15000,1,0)
+  p_lrp <-ifelse(median(S[(ny-10):ny,])>4000,1,0)
+  
+  list(S=S[,],N=Ntot[,],survival=as.numeric(v),P=c(p_rg,p_lrp))
+}
+
+
+
+# Function to sample from posteriors for forward simulations
+process.iteration = function(samp) {
+  # 1.) extract names
+  nms = names(samp)
+  
+  # 2.) extract elements according to the names and put them into the appropriate data structure
+  
+  # parameters
+  alpha = unname(samp[substr(nms, 1, 5) == "alpha"])
+  beta = unname(samp[substr(nms, 1, 5) == "beta"])
+  last_resid = unname(samp[substr(nms, 1, 13) == "log.resid.40."])
+  phi = unname(samp["phi"])
+  sigma_R = unname(samp["sigma.R"])
+  mat.sch = c(as.numeric(samp["pi.1."]), as.numeric(samp["pi.2."]), as.numeric(samp["pi.3."]), as.numeric(samp["pi.4."]))
+  
+  # states
+  S = c(as.numeric(samp["S.40."]), as.numeric(samp["S.41."]), as.numeric(samp["S.42."]), as.numeric(samp["S.43."]))
+  R = c(as.numeric(samp["R.44."]), as.numeric(samp["R.45."]), as.numeric(samp["R.46."]))
+  
+  # 3.) create output list
+  output = list(
+    alpha = as.numeric(alpha),
+    beta = as.numeric(beta),
+    phi = as.numeric(phi),
+    last_resid = as.numeric(last_resid),
+    sigma_R = as.numeric(sigma_R),
+    mat.sch = mat.sch,
+    S = S,
+    R = R
+  )
+  
+  # 4.) return output
+  return(output)
+  
+}
+```
+
+
+```{r Bayes SR Model Fit}
+# Load data
+age <- age_data %>%
+  filter(year != "2017")
+esc <- esc_data %>%
+  filter(year != "2017")
+harv <- harv_data %>%
+  filter(year != "2017")
+```
+
+```{r Create CDN aggregate data frames}
+age.ag <- age %>%
+  distinct(year, age_4, age_5, age_6, age_7, gooddata) %>%
+  as.data.frame()
+
+esc.ag <- esc %>%
+  group_by(year) %>%
+  mutate(spawn = sum(spwn_stock)) %>%
+  ungroup() %>%
+  select(year, truecount, spawn) %>%
+  distinct(year, spawn, truecount) %>%
+  as.data.frame(esc.ag)
+
+harv.ag <- harv %>%
+  group_by(year) %>%
+  mutate(harvest = sum(tot_har_stock)) %>%
+  ungroup() %>%
+  select(year, truecount, harvest) %>%
+  distinct(year, harvest, truecount) %>%
+  as.data.frame(harv.ag)
+```
+
+```{r Create individual substock data frames for data: age, esc, harv}
+age.YC <- age %>%
+  filter(region == "Yukon.Carmacks")
+age.YlC <- age %>%
+  filter(region == "Yukon.Lower.Canadian")
+age.Ym <- age %>%
+  filter(region == "Yukon.mainstem")
+age.YP <- age %>%
+  filter(region == "Yukon.Pelly")
+age.YS <- age %>%
+  filter(region == "Yukon.Stewart")
+age.YT <- age %>%
+  filter(region == "Yukon.Teslin")
+age.Yu <- age %>%
+  filter(region == "Yukon.upper")
+age.YWD <- age %>%
+  filter(region == "Yukon.White.Donjek")
+
+esc.YC <- esc %>%
+  filter(region == "Yukon.Carmacks")
+esc.YlC <- esc %>%
+  filter(region == "Yukon.Lower.Canadian")
+esc.Ym <- esc %>%
+  filter(region == "Yukon.mainstem")
+esc.YP <- esc %>%
+  filter(region == "Yukon.Pelly")
+esc.YS <- esc %>%
+  filter(region == "Yukon.Stewart")
+esc.YT <- esc %>%
+  filter(region == "Yukon.Teslin")
+esc.Yu <- esc %>%
+  filter(region == "Yukon.upper")
+esc.YWD <- esc %>%
+  filter(region == "Yukon.White.Donjek")
+
+harv.YC <- harv %>%
+  filter(region == "Yukon.Carmacks")
+harv.YlC <- harv %>%
+  filter(region == "Yukon.Lower.Canadian")
+harv.Ym <- harv %>%
+  filter(region == "Yukon.mainstem")
+harv.YP <- harv %>%
+  filter(region == "Yukon.Pelly")
+harv.YS <- harv %>%
+  filter(region == "Yukon.Stewart")
+harv.YT <- harv %>%
+  filter(region == "Yukon.Teslin")
+harv.Yu <- harv %>%
+  filter(region == "Yukon.upper")
+harv.YWD <- harv %>%
+  filter(region == "Yukon.White.Donjek")
+```
+
+
+
+```{r Set beta prior for aggregate stock}
+SMAX.ag <- mean(esc.ag$spawn) # mean escapement over time series
+#SMAX <- 21300 # lake habitat (photosynthetic rate) based estimate of lake capacity
+
+
+# turn SMAX into beta prior
+bpmu.ag = 1/SMAX.ag
+
+# set CV on prior
+bptau.ag = 1/((3*(1/SMAX.ag))^2)
+```
+
+
+```{r Mean SMAX value by substock region}
+df_SMAX <- esc %>%
+  group_by(region) %>%
+  summarize(SMAX = mean(spwn_stock))
+
+# get individual SMAX values for each sub-stock, need to change substock accordingly
+SMAX.C <- as.numeric(df_SMAX[1,2])    # for YC
+SMAX.lC <- as.numeric(df_SMAX[2,2])    # for YlC
+SMAX.m <- as.numeric(df_SMAX[3,2])    # for Ym
+SMAX.P <- as.numeric(df_SMAX[4,2])    # for YP
+SMAX.S <- as.numeric(df_SMAX[5,2])    # for YS
+SMAX.T <- as.numeric(df_SMAX[6,2])    # for YT
+SMAX.u <- as.numeric(df_SMAX[7,2])    # for Yu
+SMAX.WD <- as.numeric(df_SMAX[8,2])    # for YWD
+
+# turn SMAX into beta prior
+bpmu.C = 1/SMAX.C
+bpmu.lC = 1/SMAX.lC
+bpmu.m = 1/SMAX.m
+bpmu.P = 1/SMAX.P
+bpmu.S = 1/SMAX.S
+bpmu.T = 1/SMAX.T
+bpmu.u = 1/SMAX.u
+bpmu.WD = 1/SMAX.WD
+
+
+# set CV on prior, , need to keep track of substock accordingly
+bptau.C = 1/((3*(1/SMAX.C))^2)
+bptau.lC = 1/((3*(1/SMAX.lC))^2)
+bptau.m = 1/((3*(1/SMAX.m))^2)
+bptau.P = 1/((3*(1/SMAX.P))^2)
+bptau.S = 1/((3*(1/SMAX.S))^2)
+bptau.T = 1/((3*(1/SMAX.T))^2)
+bptau.u = 1/((3*(1/SMAX.u))^2)
+bptau.WD = 1/((3*(1/SMAX.WD))^2)
+```
+
+
+
+
+
+
+```{r Figure 4:}
+
+
+
+
+
+
+
+```
+Figure 4. Time-series of aggregate Canadian spawner abundance, estimated harvest and corresponding harvest rate.
+
+
+
+
+
+```{r Figure 5:}
+
+
+```
+Figure 5. Time-series of spawner abundance and total harvest abundance by sub-stock. Years with missing composition data (1984, 1988-1990, 1998, 2006-2007) were ‘infilled’ (i.e., the sub-stock proportions were estimated by taking the average of the values from the two closest years of data.
+
+
+
+
+
+
+```{r Figure 6:}
+
+
+```
+
+
+
+
+**Objective 3**
+To characterize Chinook population diversity within the CDN portion of the Yukon River we fit individual age-structured state-space stock-recruitment models to all available for each sub-stock (i.e., time series of estimated catch, spawner abundance and age composition). As a starting point we made the simplifying assumption that all sub-stock experienced the same exploitation rates over the time series, and that this exploitation rate was equal to that estimated for the stock-aggregate as a whole (JTC 2017). Similarly, we assumed that age composition was the same across sub-stocks and equal to that estimated for the stock-aggregate as a whole. We used the spawner abundance and harvest estimates reconstructed by sub-stock in Objective 2. We fit these data in a Bayesian estimation framework using an approach that closely follows that of Fleischman et al. (2013) and which allowed for temporal variability in productivity and age-at-maturity. A more complete description of the model and our approach to fitting it is provided in Appendix A.
+
+Some of the CDN-Yukon Chinook sub-stocks were estimated to be very productive (perhaps suspiciously so?), and there was considerable variability among sub-stocks in both productivity and carrying capacity (Figure 7). However, these estimates and the overall shape of the stock recruitment relationships are highly uncertain (Figure 8). It is possible the small sample sizes used to estimate the contributions of small sub-stocks (e.g., Middle Mainstem), particularly during the early portion of the time series when exploitation rates were very high, may result in biased high estimates of recruitment and productivity. This suggests that it might be worthwhile trying to increase the number of scale samples we use for genetic stock ID during the early portion of the time series. 
+
+We found evidence for strong serial correlation in survival (average ϕ = 0.71), and non-stationary productivity (Figure 7B). In addition there was considerable variation among sub-stocks in productivity over time (Figure 6a): sub-stocks in the lower portion of the CDN basin tended to exhibit a period of elevated productivity in the 1980s and early 1990s followed by depressed productivity in the early 2000s (Lower Mainstem, Stewart, Pelly, White-Donjek) while those in the upper portion of the basin (Middle Mainstem, Carmacks, Upper Lakes and Teslin) tended to not exhibit depressed productivity in the early 2000s and have shown signs of above average productivity in recent years. 
+The range of sub-stock productivities we estimated correspond to harvest rates predicted to maximize long-tern yield (i.e., UMSY) that range from ~55% to 80% (Figure 8).    
+
+
+```{r Figure 7:}
+
+
+```
+
+
+
+```{r Figure 8:}
+
+
+```
+
+
+
+
+**Objective 4**
+We used the posterior estimates of productivity and carrying capacity to quantify the predicted equilibrium tradeoffs between aggregate harvest and conservation of population diversity across a range of mixed-stock harvest rates (e.g., Walters et al. 2008). The resulting picture illustrates that the relatively high harvest rates that can be sustained by the most productive sub-stocks come at the cost of increased risk to less productive ones (Figure 9). Overall yield from the system is predicted to be maximized at a harvest rate of ~ 60%, but this comes at the cost of overharvesting ~ 40% of the sub-stocks (i.e., harvest rate is > UMSY for a given sub-stock) and putting a small number of the sub-stocks at risk of extirpation). Furthermore, there is clear asymmetry in these tradeoffs where relatively small (8%) reductions in predicted yield (e.g., from 60K to 55K) correspond to relatively large (50%) reductions in biological risk (e.g., from ~40% to 20% overfished). The large uncertainty in our estimates of productivity and carrying capacity result in large uncertainty in these predicted tradeoffs.   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
