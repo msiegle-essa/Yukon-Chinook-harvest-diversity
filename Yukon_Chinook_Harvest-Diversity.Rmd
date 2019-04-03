@@ -3,39 +3,13 @@ title: "Yukon Chinook Harvest/Diversity Tradeoffs"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
-
 # Yukon Chinook Harvest/Diversity Trade-offs 
-AYK-SSI #1701
+##AYK-SSI #1701
 
 ## Project Memo: Fall 2018
 
-```{r Load libraries}
+```{r Load libraries, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
-library(httr)
-library(Rcurl)
 library(grDevices)
 library(plotrix)
 library(R2jags) 
@@ -44,36 +18,14 @@ library(gplots)
 ```
 
 
-```{r Source input files}
+```{r Source input data and create stock composition dataframe, cache=TRUE, message=FALSE, echo=FALSE, warning=FALSE}
 
-# don't need to link github url address...use local copy or relative path
+# stock compositions from multinomial bias correction model
 raw_GSI <- read.csv("input files/input_bias_multinomial2.csv")
 
-
 # input model for sampling bias correction
-model.2 <- readRDS("stock_year_sampbias.brm.fit.Feb212019")
+model.2 <- readRDS("input files/stock_year_sampbias.brm.fit.Feb212019")
 
-# brood table
-x <- getURL("https://raw.githubusercontent.com/msiegle-essa/Yukon-Chinook-harvest-diversity/master/input%20files/input_yukon_chin_bt_red.csv")
-brood_table <- read.csv(text = x)
-
-
-
-#read in border counts (fish wheel and sonar)
-y <- getURL("https://raw.githubusercontent.com/msiegle-essa/Yukon-Chinook-harvest-diversity/master/input%20files/input_bordercounts2.txt")
-border_counts <- read.delim(text = y)
-
-
-#read in Genetic Stock ID data from fish collected at border 
-# ("probability" is the probability individual fish originated from stock X)
-z <- getURL("https://raw.githubusercontent.com/msiegle-essa/Yukon-Chinook-harvest-diversity/master/input%20files/input_Yukon_GSI_82_05_longform2.csv")
-GSI <- read.csv(text = z)
-
-
-```
-
-
-```{r Modify input files for appropriate dataframe format}
 # raw_GSI: change year to factor 
 raw_GSI$yearF <- as.factor(raw_GSI$year)
 
@@ -81,31 +33,155 @@ dwrite <- data.frame( yearF = rep(unique(raw_GSI$yearF),1),
                       gear2 = rep("Test Fishery",30),
                       samp_bias = rep(0,30))
 
-
 # produce CORRECTED sub-stock comps
-stock_comps <- cbind(dwrite, predict(model.2, newdata = dwrite,  probs= c(0.025,0.5, 0.975)))
+stock_comps <- cbind(dwrite, predict(model.2, newdata = dwrite,  probs= c(0.025,0.5, 0.975))) %>%
+  rename("Upper Lakes and Mainstem" = "P(Y = 30)") %>%
+  rename("Teslin River" = "P(Y = 31)") %>%
+  rename("Carmacks" = "P(Y = 32)") %>%
+  rename("Middle Mainstem" = "P(Y = 33)") %>%
+  rename("Pelly" = "P(Y = 34)") %>%
+  rename("Stewart" = "P(Y = 35)") %>%
+  rename("Lower Mainstem" = "P(Y = 36)") %>%
+  rename("White-Donjek" = "P(Y = 38)")
 
 
-# put stock_comps data frame in long format
-stock_comps_long <- stock_comps %>%
-  gather(key = substock, value = proportion, "P(Y = 30)":"P(Y = 38)") %>%
-  mutate(substock = case_when(substock == "P(Y = 30)" ~ "Upper Lakes and Mainstem",
-                              substock == "P(Y = 31)" ~ "Teslin River",
-                              substock == "P(Y = 32)" ~ "Carmacks",
-                              substock == "P(Y = 33)" ~ "Middle Mainstem",
-                              substock == "P(Y = 34)" ~ "Pelly",
-                              substock == "P(Y = 35)" ~ "Stewart",
-                              substock == "P(Y = 36)" ~ "Lower Mainstem",
-                              substock == "P(Y = 38)" ~ "White-Donjek")) %>%
+# create in-filled stock comps for years missing data
+# create each individual 'infilled' year data
+y1984 <- c(1984,"Infill", 0,
+          mean(c(stock_comps[2,4],stock_comps[3,4])),
+          mean(c(stock_comps[2,5],stock_comps[3,5])),
+          mean(c(stock_comps[2,6],stock_comps[3,6])),
+          mean(c(stock_comps[2,7],stock_comps[3,7])),
+          mean(c(stock_comps[2,8],stock_comps[3,8])),
+          mean(c(stock_comps[2,9],stock_comps[3,9])),
+          mean(c(stock_comps[2,10],stock_comps[3,10])),
+          mean(c(stock_comps[2,11],stock_comps[3,11])))
+
+y1988 <- c(1988,"Infill", 0,
+          mean(c(stock_comps[5,4],stock_comps[6,4])),
+          mean(c(stock_comps[5,5],stock_comps[6,5])),
+          mean(c(stock_comps[5,6],stock_comps[6,6])),
+          mean(c(stock_comps[5,7],stock_comps[6,7])),
+          mean(c(stock_comps[5,8],stock_comps[6,8])),
+          mean(c(stock_comps[5,9],stock_comps[6,9])),
+          mean(c(stock_comps[5,10],stock_comps[6,10])),
+          mean(c(stock_comps[5,11],stock_comps[6,11])))
+
+y1989 <- c(1989,"Infill", 0,
+          mean(c(stock_comps[5,4],stock_comps[6,4])),
+          mean(c(stock_comps[5,5],stock_comps[6,5])),
+          mean(c(stock_comps[5,6],stock_comps[6,6])),
+          mean(c(stock_comps[5,7],stock_comps[6,7])),
+          mean(c(stock_comps[5,8],stock_comps[6,8])),
+          mean(c(stock_comps[5,9],stock_comps[6,9])),
+          mean(c(stock_comps[5,10],stock_comps[6,10])),
+          mean(c(stock_comps[5,11],stock_comps[6,11])))
+
+y1990 <- c(1990,"Infill", 0,
+          mean(c(stock_comps[5,4],stock_comps[6,4])),
+          mean(c(stock_comps[5,5],stock_comps[6,5])),
+          mean(c(stock_comps[5,6],stock_comps[6,6])),
+          mean(c(stock_comps[5,7],stock_comps[6,7])),
+          mean(c(stock_comps[5,8],stock_comps[6,8])),
+          mean(c(stock_comps[5,9],stock_comps[6,9])),
+          mean(c(stock_comps[5,10],stock_comps[6,10])),
+          mean(c(stock_comps[5,11],stock_comps[6,11])))
+
+y1998 <- c(1998,"Infill", 0,
+          mean(c(stock_comps[12,4],stock_comps[13,4])),
+          mean(c(stock_comps[12,5],stock_comps[13,5])),
+          mean(c(stock_comps[12,6],stock_comps[13,6])),
+          mean(c(stock_comps[12,7],stock_comps[13,7])),
+          mean(c(stock_comps[12,8],stock_comps[13,8])),
+          mean(c(stock_comps[12,9],stock_comps[13,9])),
+          mean(c(stock_comps[12,10],stock_comps[13,10])),
+          mean(c(stock_comps[12,11],stock_comps[13,11])))
+
+# merge indivdiual infill years into single data_frame
+infill <- as.data.frame(rbind(y1984, y1988, y1989, y1990, y1998)) %>%
+  rename(yearF = V1) %>%
+  rename(gear2 = V2) %>%
+  rename(samp_bias = V3) %>%
+  rename("Upper Lakes and Mainstem" = V4) %>%
+  rename("Teslin River" = V5) %>%
+  rename("Carmacks" = V6) %>%
+  rename("Middle Mainstem" = V7) %>% 
+  rename("Pelly" = V8) %>%
+  rename("Stewart" = V9) %>%
+  rename("Lower Mainstem" = V10) %>%
+  rename("White-Donjek" = V11)
+
+row.names(infill) <- NULL
+infill$samp_bias <- as.numeric(levels(infill$samp_bias))[infill$samp_bias]
+
+infill$`Upper Lakes and Mainstem` <- as.numeric(levels(infill$`Upper Lakes and Mainstem`))[infill$`Upper Lakes and Mainstem`]
+infill$`Teslin River` <- as.numeric(levels(infill$`Teslin River`))[infill$`Teslin River`]
+infill$Carmacks <- as.numeric(levels(infill$Carmacks))[infill$Carmacks]
+infill$`Middle Mainstem` <- as.numeric(levels(infill$`Middle Mainstem`))[infill$`Middle Mainstem`]
+infill$Pelly <- as.numeric(levels(infill$Pelly))[infill$Pelly]
+infill$Stewart <- as.numeric(levels(infill$Stewart))[infill$Stewart]
+infill$`Lower Mainstem` <- as.numeric(levels(infill$`Lower Mainstem`))[infill$`Lower Mainstem`]
+infill$`White-Donjek` <- as.numeric(levels(infill$`White-Donjek`))[infill$`White-Donjek`]
+
+# join infill and stock_comps dataframes for full dataframe of stock compositions for all years
+SC <- full_join(infill, stock_comps) %>%
   arrange(yearF)
 
 
+# put SC data frame in long format
+SC_long <- SC %>%
+  gather(key = substock, value = proportion, 4:11) %>%
+  arrange(yearF)
+
+
+```
+
+
+```{r Source input data and create brood table dataframe, cache=TRUE, message=FALSE, echo=FALSE}
+# Run Reconstruction brood table
+RR <- read.delim("input files/RR_postsamp.txt")
+
+# create brood table from RR input file, using median value from bayesian posterior distribution for each parameter
+SPWN <- apply(RR[,244:277], 2, median)
+ESC <- apply(RR[,37:70], 2, median)
+AGE <- as.data.frame(apply(RR[,580:727], 2, median)) %>%
+  mutate(yearF = as.factor(rep(c(1982:2018),c(4)))) %>%
+  mutate(age_class = as.factor(rep(c(1,2,3,4),c(37,37,37,37)))) %>%
+  rename(prob = "apply(RR[, 580:727], 2, median)") %>%
+  filter(yearF != "2016") %>%
+  filter(yearF != "2017") %>%
+  filter(yearF != "2018") %>%
+  spread(key = age_class, value = prob) %>%
+  rename(age_4 = "1") %>%
+  rename(age_5 = "2") %>%
+  rename(age_6 = "3") %>%
+  rename(age_7 = "4")
+
+qq <- as.data.frame(cbind(SPWN, ESC)) %>%
+  mutate(HARV = ESC - SPWN) %>%
+  mutate(yearF = as.factor(c(1982:2015)))
+
+qqq <- full_join(qq, AGE) %>%
+  select(yearF, SPWN, ESC, HARV, age_4, age_5, age_6, age_7)
+
+# full brood table including SPWN, ESC, AGE and all substock compositions
+BROOD <- full_join(qqq, SC)
+
+```
+
+
+
+```{r Source input data and create border counts, cache=FALSE, message=FALSE, echo=FALSE}
+# read in border counts (fish wheel and sonar)
+border_counts <- read.delim("input files/input_bordercounts2.txt")
+
 # modify border counts data frame
+
 # sum border counts by year
-View(border_counts %>%
-       na.omit() %>%
-       group_by(year) %>%
-       summarise(sum = sum(count)))
+# View(border_counts %>%
+#       na.omit() %>%
+#       group_by(year) %>%
+#       summarise(sum = sum(count)))
 
 # add column of counts per year to new dataframe bc2
 bc2 <- border_counts %>% 
@@ -145,12 +221,15 @@ bc2 <- border_counts %>%
 # create proportion of total run count per julian day count
 bc2$prop <- NA
 bc2$prop <- bc2$count/bc2$sum
+```
 
-
+```{r source input data and create individual GSI dataframe, cache=TRUE, message=FALSE, echo=FALSE}
+#read in Genetic Stock ID data from fish collected at border 
+# ("probability" is the probability individual fish originated from stock X)
+GSI <- read.csv("input files/input_Yukon_GSI_82_05_longform2.csv")
 
 # modify individual GSI assignment dataframe
 GSI.region <- subset(GSI, prob > 0.5)
-
 
 # create data frame of number of samples per day and year 
 GSI.counts <- plyr::ddply(GSI.region,c("year","julian_date"),function(x){
@@ -196,166 +275,95 @@ gsi2 <- GSI.counts %>%
 gsi2$prop <- NA
 gsi2$prop <- gsi2$count/gsi2$year_count
 
-
-
-
-
-
-# infill missing years???? -----------------------------
-stock_comps %>%
-  rbind(c("1984","Infill", 0,
-          mean(c(stock_comps[2,4],stock_comps[3,4])),
-          mean(c(stock_comps[2,5],stock_comps[3,5])),
-          mean(c(stock_comps[2,6],stock_comps[3,6])),
-          mean(c(stock_comps[2,7],stock_comps[3,7])),
-          mean(c(stock_comps[2,8],stock_comps[3,8])),
-          mean(c(stock_comps[2,9],stock_comps[3,9])),
-          mean(c(stock_comps[2,10],stock_comps[3,10])),
-          mean(c(stock_comps[2,11],stock_comps[3,11]))))
-
-y1984 <- c("1984","Infill", 0,
-          mean(c(stock_comps[2,4],stock_comps[3,4])),
-          mean(c(stock_comps[2,5],stock_comps[3,5])),
-          mean(c(stock_comps[2,6],stock_comps[3,6])),
-          mean(c(stock_comps[2,7],stock_comps[3,7])),
-          mean(c(stock_comps[2,8],stock_comps[3,8])),
-          mean(c(stock_comps[2,9],stock_comps[3,9])),
-          mean(c(stock_comps[2,10],stock_comps[3,10])),
-          mean(c(stock_comps[2,11],stock_comps[3,11])))
-
-y1988 <- c("1988","Infill", 0,
-          mean(c(stock_comps[5,4],stock_comps[6,4])),
-          mean(c(stock_comps[5,5],stock_comps[6,5])),
-          mean(c(stock_comps[5,6],stock_comps[6,6])),
-          mean(c(stock_comps[5,7],stock_comps[6,7])),
-          mean(c(stock_comps[5,8],stock_comps[6,8])),
-          mean(c(stock_comps[5,9],stock_comps[6,9])),
-          mean(c(stock_comps[5,10],stock_comps[6,10])),
-          mean(c(stock_comps[5,11],stock_comps[6,11])))
-
-y1989 <- c("1989","Infill", 0,
-          mean(c(stock_comps[5,4],stock_comps[6,4])),
-          mean(c(stock_comps[5,5],stock_comps[6,5])),
-          mean(c(stock_comps[5,6],stock_comps[6,6])),
-          mean(c(stock_comps[5,7],stock_comps[6,7])),
-          mean(c(stock_comps[5,8],stock_comps[6,8])),
-          mean(c(stock_comps[5,9],stock_comps[6,9])),
-          mean(c(stock_comps[5,10],stock_comps[6,10])),
-          mean(c(stock_comps[5,11],stock_comps[6,11])))
-
-y1990 <- c("1990","Infill", 0,
-          mean(c(stock_comps[5,4],stock_comps[6,4])),
-          mean(c(stock_comps[5,5],stock_comps[6,5])),
-          mean(c(stock_comps[5,6],stock_comps[6,6])),
-          mean(c(stock_comps[5,7],stock_comps[6,7])),
-          mean(c(stock_comps[5,8],stock_comps[6,8])),
-          mean(c(stock_comps[5,9],stock_comps[6,9])),
-          mean(c(stock_comps[5,10],stock_comps[6,10])),
-          mean(c(stock_comps[5,11],stock_comps[6,11])))
-
-y1998 <- c("1990","Infill", 0,
-          mean(c(stock_comps[12,4],stock_comps[13,4])),
-          mean(c(stock_comps[12,5],stock_comps[13,5])),
-          mean(c(stock_comps[12,6],stock_comps[13,6])),
-          mean(c(stock_comps[12,7],stock_comps[13,7])),
-          mean(c(stock_comps[12,8],stock_comps[13,8])),
-          mean(c(stock_comps[12,9],stock_comps[13,9])),
-          mean(c(stock_comps[12,10],stock_comps[13,10])),
-          mean(c(stock_comps[12,11],stock_comps[13,11])))
-# -----------------------------
-
-
-
-# create substock region proportions using aggregate brood table
-reg_prop <- gather(brood_table, -year, -sample_size, -run, -spwn, -per_fem,
-                   -comm_har, -dom_har, -fsc_har, -rec_har, -yk_rv_har,
-                   -por_har, -total_har, -er, -age_4,-age_5, -age_6,
-                   -age_7, key = "region", value = "prop") %>%
-  arrange(year, region) %>%
-  mutate(run_stock = run*(prop/100),
-         spwn_stock = spwn*(prop/100),
-         tot_har_stock = total_har*(prop/100))
-
-
-# create data for  State Space models
-age_data <- reg_prop %>%
-  select(year, region, age_4, age_5, 
-         age_6, age_7) %>%
-  mutate(reg_code = case_when(region == "Yukon.Carmacks" ~ "1",
-                              region == "Yukon.Lower.Canadian" ~ "2",
-                              region == "Yukon.mainstem" ~ "3",
-                              region == "Yukon.Pelly" ~ "4",
-                              region == "Yukon.Stewart" ~ "5",
-                              region == "Yukon.Teslin" ~ "6",
-                              region == "Yukon.upper" ~ "7",
-                              region == "Yukon.White.Donjek" ~ "8")) %>%
-  mutate(gooddata = case_when(year == 1984 ~ 0,
-                              year == 1988 ~ 0,
-                              year == 1989 ~ 0,
-                              year == 1990 ~ 0,
-                              year == 1998 ~ 0,
-                              year == 2006 ~ 0,
-                              year == 2007 ~ 0,
-                              year < 1984 ~ 1,
-                              year >= 1985 & year <= 1987 ~ 1,
-                              year >= 1991 & year <= 1997 ~1,
-                              year >= 1999 & year <= 2005 ~1,
-                              year >= 2008 ~1))
-
-esc_data <- reg_prop %>%
-  select(year, region, spwn_stock) %>%
-  mutate(reg_code = case_when(region == "Yukon.Carmacks" ~ "1",
-                              region == "Yukon.Lower.Canadian" ~ "2",
-                              region == "Yukon.mainstem" ~ "3",
-                              region == "Yukon.Pelly" ~ "4",
-                              region == "Yukon.Stewart" ~ "5",
-                              region == "Yukon.Teslin" ~ "6",
-                              region == "Yukon.upper" ~ "7",
-                              region == "Yukon.White.Donjek" ~ "8")) %>%
-  mutate(truecount = case_when(year == 1984 ~ 0,
-                               year == 1988 ~ 0,
-                               year == 1989 ~ 0,
-                               year == 1990 ~ 0,
-                               year == 1998 ~ 0,
-                               year == 2006 ~ 0,
-                               year == 2007 ~ 0,
-                               year < 1984 ~ 1,
-                               year >= 1985 & year <= 1987 ~ 1,
-                               year >= 1991 & year <= 1997 ~1,
-                               year >= 1999 & year <= 2005 ~1,
-                               year >= 2008 ~1))
-
-harv_data <- reg_prop %>%
-  select(year, region, tot_har_stock) %>%
-  mutate(reg_code = case_when(region == "Yukon.Carmacks" ~ "1",
-                              region == "Yukon.Lower.Canadian" ~ "2",
-                              region == "Yukon.mainstem" ~ "3",
-                              region == "Yukon.Pelly" ~ "4",
-                              region == "Yukon.Stewart" ~ "5",
-                              region == "Yukon.Teslin" ~ "6",
-                              region == "Yukon.upper" ~ "7",
-                              region == "Yukon.White.Donjek" ~ "8")) %>%
-  mutate(truecount = case_when(year == 1984 ~ 0,
-                               year == 1988 ~ 0,
-                               year == 1989 ~ 0,
-                               year == 1990 ~ 0,
-                               year == 1998 ~ 0,
-                               year == 2006 ~ 0,
-                               year == 2007 ~ 0,
-                               year < 1984 ~ 1,
-                               year >= 1985 & year <= 1987 ~ 1,
-                               year >= 1991 & year <= 1997 ~1,
-                               year >= 1999 & year <= 2005 ~1,
-                               year >= 2008 ~1))
-
-
-# export exploitation rates for state space models
-er <- brood_table %>%
-  select(year, er)
 ```
 
 
+```{r create dataframes for State Space models, cache=TRUE, echo=FALSE}
 
+# escapement data
+esc_data <- BROOD %>%
+  select(yearF, ESC, 11:18) %>%
+  gather(key = region, value = proportion, 3:10) %>%
+  mutate(esc_stock = ESC*proportion) %>%
+  mutate(reg_code = case_when(region == "Carmacks" ~ "1",
+                              region == "Lower Mainstem" ~ "2",
+                              region == "Middle Mainstem" ~ "3",
+                              region == "Pelly" ~ "4",
+                              region == "Stewart" ~ "5",
+                              region == "Teslin River" ~ "6",
+                              region == "Upper Lakes and Mainstem" ~ "7",
+                              region == "White-Donjek" ~ "8")) %>%
+  mutate(truecount = case_when(yearF == 1984 ~ 0,
+                              yearF == 1988 ~ 0,
+                              yearF == 1989 ~ 0,
+                              yearF == 1990 ~ 0,
+                              yearF == 1998 ~ 0,
+                              yearF < 1984 ~ 1,
+                              yearF >= 1985 & yearF <= 1987 ~ 1,
+                              yearF >= 1991 & yearF <= 1997 ~1,
+                              yearF >= 1999 & yearF <= 2005 ~1,
+                              yearF >= 2006 ~1)) %>%
+  select(yearF, region, esc_stock, reg_code, truecount)
+
+# harvest data
+harv_data <- BROOD %>%
+  select(yearF, HARV, 11:18) %>%
+  gather(key = region, value = proportion, 3:10) %>%
+  mutate(harv_stock = HARV*proportion) %>%
+  mutate(reg_code = case_when(region == "Carmacks" ~ "1",
+                              region == "Lower Mainstem" ~ "2",
+                              region == "Middle Mainstem" ~ "3",
+                              region == "Pelly" ~ "4",
+                              region == "Stewart" ~ "5",
+                              region == "Teslin River" ~ "6",
+                              region == "Upper Lakes and Mainstem" ~ "7",
+                              region == "White-Donjek" ~ "8")) %>%
+  mutate(truecount = case_when(yearF == 1984 ~ 0,
+                              yearF == 1988 ~ 0,
+                              yearF == 1989 ~ 0,
+                              yearF == 1990 ~ 0,
+                              yearF == 1998 ~ 0,
+                              yearF < 1984 ~ 1,
+                              yearF >= 1985 & yearF <= 1987 ~ 1,
+                              yearF >= 1991 & yearF <= 1997 ~1,
+                              yearF >= 1999 & yearF <= 2005 ~1,
+                              yearF >= 2006 ~1)) %>%
+  select(yearF, region, harv_stock, reg_code, truecount)
+
+# age data
+age_data <- BROOD %>%
+  select(yearF, age_4, age_5, age_6, age_7, 11:18) %>%
+  gather(key = region, value = proportion, 6:13) %>%
+  mutate(reg_code = case_when(region == "Carmacks" ~ "1",
+                              region == "Lower Mainstem" ~ "2",
+                              region == "Middle Mainstem" ~ "3",
+                              region == "Pelly" ~ "4",
+                              region == "Stewart" ~ "5",
+                              region == "Teslin River" ~ "6",
+                              region == "Upper Lakes and Mainstem" ~ "7",
+                              region == "White-Donjek" ~ "8")) %>%
+  mutate(gooddata = case_when(yearF == 1984 ~ 0,
+                              yearF == 1988 ~ 0,
+                              yearF == 1989 ~ 0,
+                              yearF == 1990 ~ 0,
+                              yearF == 1998 ~ 0,
+                              yearF < 1984 ~ 1,
+                              yearF >= 1985 & yearF <= 1987 ~ 1,
+                              yearF >= 1991 & yearF <= 1997 ~1,
+                              yearF >= 1999 & yearF <= 2005 ~1,
+                              yearF >= 2006 ~1)) %>%
+  select(yearF, region, age_4, age_5, age_6, age_7, reg_code, gooddata)
+
+
+
+
+# obtain aggrgate exploitation rates for state space models
+exploitation_rate <- read.csv("input files/input_yukon_chin_bt_red.csv")
+
+er <- exploitation_rate %>%
+  select(year, er)
+
+```
 
 
 This memo provides a brief summary of progress to date on Objectives 1-4 of the AYK-SSI grant “Yukon Chinook harvest-population diversity tradeoffs”. The overarching goal of the project is to describe CDN-origin Yukon Chinook population diversity, understand the extent to which this diversity leads to tradeoffs with harvest, and develop a simulation model that allows us to begin to explore how well alternative management procedures meet fishery and population diversity objectives.
@@ -373,7 +381,7 @@ On average, 1300 Chinook scale samples have been collected annually from fish wh
 In most years, the scales we sub-sampled for genetic stock ID appear to be representative of the run (compare distribution of grey vs. red bars in Figure 2). However, there were clearly some years (e.g., 2001) where we are missing a substantial portion of the run.  When the new (1982-2005) and existing (2008-2016) estimates of sub-stock composition are combined they indicate that there are (no surprise) substantial differences among sub-stocks in their contribution to total returns in a given year (e.g., Teslin is largest contributor and the Upper mainstem is the smallest) and that there is considerable inter-annual variation within sub-stocks in their contributions to total returns (Figure 3). 
 
 
-```{r Figure 2: Run timing distriubtion with scale sampling distribution}
+```{r Run timing distriubtion with scale sampling distribution for Figure 2, echo=FALSE}
 # create sample size number dataframe for geom_text in plot
 dat_text <- data.frame(label = c("124", "141", "149","149", "148", "147",
                                  "149", "149", "149","149", "144", "150", "147", "148",
@@ -393,8 +401,9 @@ gsi3 <- gsi2 %>%
   filter(year %in% n)
 ```
 
-```{r Plot Figure 2: border counts and gsi sample size}
-# plot figure border counts and gsi sample size ... MATT check data for missing 2010 and 2012 data
+```{r Plot Figure 2: border counts and gsi sample size, echo=FALSE, warning=FALSE, fig.align='center', fig.dim=c(5,5), fig.caption="Figure 2. **Run distribution and scale sampling distribution.** Daily estimates of Chinook entering the Yukon (light grey bars) and distribution of scales sampled from run to determine sub-stock ID. Overall, the scale sub-sampling has been generally representative of the observed run. However, there are a some clear mismatches between the observed run our scale sub-sampling (e.g., 2001 where the scales sub-sampled for GSI did not overlap with much of the run). The total number of scales analyzed each year to date is in the upper left corner of each panel. Note that scales were unavailable for 1988-1990, and 1998 and we do not currently have information on the distribution of the run in 1982 and 1983. We also do not have julian dates for the GSI samples in 2010 and 2012. Given the high sample size for those years, we assume the run was adequately represented. For reference in a non leap year July 19th is equivalent to Julian day 200."}
+
+# plot figure border counts and gsi sample size 
 ggplot(bc3, aes(x=julian, y = prop)) +
   geom_bar(stat = "identity") +
   geom_bar(data = gsi3 %>% filter(julian_date < 1000), aes(x=julian_date, y=prop), 
@@ -411,21 +420,17 @@ ggplot(bc3, aes(x=julian, y = prop)) +
   geom_text(data = dat_text, mapping = aes(x = -Inf, y = -Inf, label = label),
             hjust = -0.3, vjust = -3, size=2.5)
 ```
-Figure 2. **Run distribution and scale sampling distribution.** Daily estimates of Chinook entering the Yukon (light grey bars) and distribution of scales sampled from run to determine sub-stock ID. Overall, the scale sub-sampling has been generally representative of the observed run. However, there are a some clear mismatches between the observed run our scale sub-sampling (e.g., 2001 where the scales sub-sampled for GSI did not overlap with much of the run). The total number of scales analyzed each year to date is in the upper left corner of each panel. Note that scales were unavailable for 1988-1990, and 1998 and we do not currently have information on the distribution of the run in 1982 and 1983. We also do not have julian dates for the GSI samples in 2010 and 2012. Given the high sample size for those years, we assume the run was adequately represented. For reference in a non leap year July 19th is equivalent to Julian day 200. 
 
 
+```{r Figure 3: Sub-stock proportions over time ~facet_wrap(substock), echo=FALSE, fig.align='center', fig.dim=c(5,5), fig.caption="Figure 3. **Sub-stock total ru proportions.** Proportion (+/- SD) of each sub-stock in the test fishery catch from 1982-2016. The dotted line at 2008 marks the transition from fish wheels to gillnets and sonar used to estimate abundance. The years 1984, 1989-1991, 1998, and 2006-2007 are currently missing data."} 
 
-
-
-
-```{r Figure 3: Sub-stock proportions over time ~facet_wrap(substock)}
-ggplot(stock_comps2, aes(x = yearF, y = proportion*100)) +  #%>% filter(region_num =="1")
+ggplot(SC_long, aes(x = yearF, y = proportion*100)) + 
   geom_bar(stat = "identity", colour = "black", fill="light grey") +
   #geom_errorbar(aes(ymin=lower, ymax=upper), width=.2) +
   geom_vline(xintercept = 2008, lty = "dotted") +
-  #xlab("Year") +
+  xlab("Year") +
   ylab("Proportion of test fishery catch (%)") +
-  scale_x_discrete(name = "Year", breaks = c("1984","1988","1992","1996","2000","2004","2008","2012")) +
+  scale_x_discrete(breaks = c("1984","1988","1992","1996","2000","2004","2008","2012")) +
   theme_bw() +
   facet_wrap(~substock, ncol=3, scales = "free_y") +
   theme(strip.text = element_text(size=10)) +
@@ -434,7 +439,7 @@ ggplot(stock_comps2, aes(x = yearF, y = proportion*100)) +  #%>% filter(region_n
   theme(axis.title = element_text(size=10)) +
   theme(legend.justification = "center")
 ```
-Figure 3. **Sub-stock total ru proportions.** Proportion (+/- SD) of each sub-stock in the test fishery catch from 1982-2016. The dotted line at 2008 marks the transition from fish wheels to gillnets and sonar used to estimate abundance. The years 1984, 1989-1991, 1998, and 2006-2007 are currently missing data.
+
 
 
 The sub-stock composition estimates for small stocks are based on very small sample sizes (e.g., less than 5 fish in a given year for the Upper Lakes and Mainstem sub-stock!) and so should be interpreted with an abundance of caution. Additionally, it is currently unknown if samples collected by fish wheel are biased towards specific sub-stocks (e.g., due to bank orientation). In order to quantify this we are conducting molecular analyses on 7 more years of scale samples (2006-2013) that can be compared to stock-composition estimates derived from the gill-net test fishery that has been in operation (alongside the fish wheels) since 2006.
@@ -448,7 +453,7 @@ The resulting sub-stock run-reconstructions (not surprisingly) tended to mirror 
 
 
 
-```{r Functions for state-space stock-recruitment models}
+```{r Functions for state-space stock-recruitment models, cache=TRUE, echo=FALSE}
 # Posterior summary function
 post.summ = function(post.samp, var) {
   post.samp = as.matrix(post.samp)
@@ -469,7 +474,7 @@ post.summ = function(post.samp, var) {
 }
 ```
 
-```{r Multi-stock simulation function}
+```{r Multi-stock simulation function, cache=TRUE, echo=FALSE}
 # ny <- the number of years
 # Ro <- the sub-stock recruiment at time zero
 # phi <- the expected correlation through time
@@ -586,142 +591,949 @@ process.iteration = function(samp) {
 ```
 
 
-```{r Bayes SR Model Fit}
-# Load data
-age <- age_data %>%
-  filter(year != "2017")
-esc <- esc_data %>%
-  filter(year != "2017")
-harv <- harv_data %>%
-  filter(year != "2017")
+```{r Bayes model, echo=FALSE}
+modelFilename = "dep_mod.txt"
+cat("
+    model {
+    # priors for SR portion
+    lnalpha ~ dunif(0, 3) 
+    #beta ~ dunif(0,10)
+    beta ~ dnorm(bpmu,bptau)
+    beta.prior ~ dnorm(bpmu,bptau) #for plotting and checking
+    tau.R ~ dgamma(0.01,0.01)  # white noise process error      
+    phi ~ dunif(-0.99, 0.99)   # autocorrelation coefficient                                              
+    log.resid.0 ~ dnorm(0, tau.red)  # starting residual for AR1 process
+    
+    # Ricker SR with AR1 process on log recruitment residuals for years with brood year spawners
+    for (y in (A+a.min):nRyrs) {
+    log.R[y] ~ dnorm(log.R.mean.2[y], tau.R)  # true state R is lognormally distributed around the prediction given by SR with AR1
+    R[y] <- exp(log.R[y])
+    log.R.mean.1[y] <- lnalpha + log(S[y-a.max]) - beta * S[y-a.max]
+    log.resid.a[y] <- log.R[y] - log.R.mean.1[y]
+    }             
+    
+    log.R.mean.2[A+a.min] <- log.R.mean.1[A+a.min] + phi * log.resid.0
+    
+    for (y in (A+a.min+1):nRyrs) {
+    log.R.mean.2[y] <- log.R.mean.1[y] + phi * log.resid.a[y-1]
+    }
+    
+    #derived quantities
+    tau.red <- tau.R * (1 - phi * phi)
+    sigma.red <- 1 / sqrt(tau.red)
+    sigma.R <- 1 / sqrt(tau.R)
+    alpha <- exp(lnalpha)
+    log.resid <- log.resid.a[(A+a.min):nRyrs]
+    
+    # First `a.max` years of recruits, for which there is no spawner link
+    mean.log.R0 ~ dnorm(0, 1E-4) 
+    mean.R0 <- exp(mean.log.R0)
+    tau.R0 ~ dgamma(0.1,0.1)
+    sigma.R0 <- 1/sqrt(tau.R0)
+    for (y in 1:a.max) {
+    log.R[y] ~ dnorm(mean.log.R0, tau.R0)   
+    R[y] <- exp(log.R[y])
+    }
+    
+    # biological reference points: derived quantities
+    lnalpha.c <- lnalpha + (sigma.R * sigma.R)/2/(1-phi * phi)
+    S.max <- 1/beta
+    S.eq <- lnalpha.c * S.max
+    S.msy <- S.eq * (0.5 - 0.07 * lnalpha.c)
+    U.msy <- lnalpha.c * (0.5 - 0.07 * lnalpha.c)
+    
+    # Maturity schedule: here we use a common maturation schedule to draw the brood year specific schedules;
+    prob[1] ~ dbeta(1,1)
+    prob[2] ~ dbeta(1,1)
+    prob[3] ~ dbeta(1,1)
+    pi[1]<- prob[1]
+    pi[2] <- prob[2] * (1 - pi[1])
+    pi[3] <- prob[3] * (1 - pi[1] - pi[2])
+    pi[4] <- 1 - pi[1] - pi[2] - pi[3]
+    
+    D.scale ~ dunif(.045,1)
+    D.sum <- 1 / (D.scale * D.scale)
+    for (a in 1:A) {
+    gamma[a] <- D.sum * pi[a]
+    for (y in 1:(Y+A-1)) {                                                    
+    g[y,a] ~ dgamma(gamma[a],1.0)
+    p[y,a] <- g[y,a]/sum(g[y,])
+    }
+    }
+    
+    # Calculate the numbers at age matrix as brood year recruits at age*proportion that matured that year
+    for (t in 1:Y) {
+    for(a in 1:A){
+    N.ta[t,a] <- R[t+A-a] * p[t+A-a,a]
+    }
+    }
+    
+    ## OBSERVATION SUBMODEL ##
+    # multinomial scale sampling
+    for (t in 1:Y) {
+    for (a in 1:A) {
+    q[t,a] <- N.ta[t,a]/N[t]
+    }
+    x[t,1:A] ~ dmulti(q[t,1:A], n[t])
+    }
+    
+    for (t in 1:Y) {
+    # get observation tau's from assumed CV's
+    log.sigma.C[t] <- sqrt(log((C.cv[t]^2) + 1))
+    log.tau.C[t] <- 1/log.sigma.C[t]^2
+    log.sigma.S[t] <- sqrt(log((S.cv[t]^2) + 1))
+    log.tau.S[t] <- 1/log.sigma.S[t]^2
+    
+    # catch model
+    U[t] ~ dunif(0.01, 0.99)
+    N[t] <- sum(N.ta[t,1:A])
+    S[t] <- N[t] * (1 - U[t])
+    
+    C[t] <- N[t] * U[t]
+    log.C[t] <- log(C[t])
+    C.obs[t] ~ dlnorm(log.C[t], log.tau.C[t])
+    
+    # escapement model
+    log.S[t] <- log(S[t])
+    S.obs[t] ~ dlnorm(log.S[t], log.tau.S[t])
+    }
+    
+    }
+    
+    ", fill=TRUE, file=modelFilename)
+
+#file.show(modelFilename)
 ```
 
-```{r Create CDN aggregate data frames}
+
+
+```{r Load data for Bayes stock recruit model, echo=FALSE}
+# Load data
+age <- age_data %>%
+  filter(yearF < 2016) %>%
+  rename(year = yearF) %>%
+  rename(truecount = gooddata)
+
+esc <- esc_data %>%
+  filter(yearF < 2016) %>%
+  rename(year = yearF)
+
+harv <- harv_data %>%
+  filter(yearF < 2016) %>%
+  rename(year = yearF)
+```
+
+
+```{r Aggregate Data and model run, echo=FALSE}
+# Create Aggregate data frames for data: age, esc, harv
+# create input variables for Bayesian model run
+
 age.ag <- age %>%
-  distinct(year, age_4, age_5, age_6, age_7, gooddata) %>%
+  distinct(year, age_4, age_5, age_6, age_7, truecount) %>%
+  mutate(region = "aggregate") %>%
+  mutate(reg_code = "0") %>%
+  dplyr::select(year, region, age_4, age_5, age_6, age_7, reg_code, truecount) %>%
   as.data.frame()
 
 esc.ag <- esc %>%
   group_by(year) %>%
-  mutate(spawn = sum(spwn_stock)) %>%
+  mutate(spawn = sum(esc_stock)/1000) %>%
   ungroup() %>%
-  select(year, truecount, spawn) %>%
-  distinct(year, spawn, truecount) %>%
+  mutate(region = "aggregate") %>%
+  mutate(reg_code = "0") %>%
+  dplyr::select(year, region, reg_code, truecount, spawn) %>%
+  distinct(year, region, spawn, reg_code,truecount) %>%
   as.data.frame(esc.ag)
 
 harv.ag <- harv %>%
   group_by(year) %>%
-  mutate(harvest = sum(tot_har_stock)) %>%
+  mutate(harvest = sum(harv_stock)/1000) %>%
   ungroup() %>%
-  select(year, truecount, harvest) %>%
-  distinct(year, harvest, truecount) %>%
+  mutate(region = "aggregate") %>%
+  mutate(reg_code = "0") %>%
+  dplyr::select(year, region, reg_code, truecount, harvest) %>%
+  distinct(year, region, harvest, reg_code, truecount) %>%
   as.data.frame(harv.ag)
+
+# mean escapement over time series
+SMAX <- mean(esc.ag$spawn) 
+
+# turn SMAX into beta prior
+bpmu = 1/SMAX
+
+# set CV on prior
+bptau = 1/((3*(1/SMAX))^2)
+
+Y = nrow(age.ag)          # number of calendar years observed
+a.min = 4                 # minimum age class in data set
+a.max = 7                 # maximum age class in data set
+A = a.max - a.min + 1     # number of age classes
+nRyrs = Y + A - 1         # number of recruitment years (see model code for details)
+years = age.ag[,"year"]
+
+# escapement: assume a 30% observation CV if directly observed, 50% otherwise
+S.cv = ifelse(esc.ag[,4] == 1, 0.3, 0.5)
+S.obs = esc.ag[,5]
+
+# harvest: assume a 15% observation CV if directly observed, 30% otherwise
+C.cv = ifelse(harv.ag[,4] == 1, 0.15, 0.30)
+C.obs = harv.ag[,5]
+
+# age composition: assume a ESS of 100 if directly observed, 25 otherwise
+ESS = ifelse(age.ag$truecount == 1, 100, 25) 
+X <- age.ag %>%
+  select(3:6)
+X <- as.matrix(X)
+X = t(apply(X, 1, function(x) x/sum(x)))
+X = round(apply(X, 2, function(x) x * ESS))
+colnames(X) = NULL
+n = rowSums(X)        # n is slightly different than ESS because of rounding errors
+x=X
+
+# r Jags inputs for Aggregate group
+jags.data = list('Y','a.min','a.max','A','nRyrs','S.cv','S.obs','C.cv','C.obs',
+                 'x','n','bpmu','bptau')
+
+jags.parms = c("R", "N", "S", "U", "alpha", "beta", "lnalpha", "phi", "C", "log.resid",
+               "log.resid.0","sigma.R", "lnalpha.c", "mean.log.R0", "pi", "q", 
+               "mean.R0", "sigma.R0","S.msy", "S.max", "S.eq", "U.msy", "gamma", 
+               "D.sum", "p","log.S","beta.prior")
 ```
 
-```{r Create individual substock data frames for data: age, esc, harv}
+```{r Fit Model for Aggregate group, echo=FALSE, results="hide"}
+ptm = proc.time()
+
+jagsfit.ag <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=15,
+                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=6)
+
+endtime = proc.time()-ptm
+endtime[3]/60
+```
+
+```{r Aggregate posterior editing, echo=FALSE}
+post.ag = as.mcmc(jagsfit.ag)
+mypost.ag = as.matrix(post.ag, chain=F)
+
+mypost.ag$region <- rep(c("aggregate"),(100002))
+```
+
+
+
+```{r Carmacks data and model run, echo=FALSE}
+# Create Carmacks data frames for data: age, esc, harv
+# create input variables for Bayesian model run
+
 age.YC <- age %>%
-  filter(region == "Yukon.Carmacks")
-age.YlC <- age %>%
-  filter(region == "Yukon.Lower.Canadian")
-age.Ym <- age %>%
-  filter(region == "Yukon.mainstem")
-age.YP <- age %>%
-  filter(region == "Yukon.Pelly")
-age.YS <- age %>%
-  filter(region == "Yukon.Stewart")
-age.YT <- age %>%
-  filter(region == "Yukon.Teslin")
-age.Yu <- age %>%
-  filter(region == "Yukon.upper")
-age.YWD <- age %>%
-  filter(region == "Yukon.White.Donjek")
-
+  filter(region == "Carmacks")
 esc.YC <- esc %>%
-  filter(region == "Yukon.Carmacks")
-esc.YlC <- esc %>%
-  filter(region == "Yukon.Lower.Canadian")
-esc.Ym <- esc %>%
-  filter(region == "Yukon.mainstem")
-esc.YP <- esc %>%
-  filter(region == "Yukon.Pelly")
-esc.YS <- esc %>%
-  filter(region == "Yukon.Stewart")
-esc.YT <- esc %>%
-  filter(region == "Yukon.Teslin")
-esc.Yu <- esc %>%
-  filter(region == "Yukon.upper")
-esc.YWD <- esc %>%
-  filter(region == "Yukon.White.Donjek")
-
+  filter(region == "Carmacks") %>%
+  mutate(spawn = esc_stock/1000)
 harv.YC <- harv %>%
-  filter(region == "Yukon.Carmacks")
-harv.YlC <- harv %>%
-  filter(region == "Yukon.Lower.Canadian")
-harv.Ym <- harv %>%
-  filter(region == "Yukon.mainstem")
-harv.YP <- harv %>%
-  filter(region == "Yukon.Pelly")
-harv.YS <- harv %>%
-  filter(region == "Yukon.Stewart")
-harv.YT <- harv %>%
-  filter(region == "Yukon.Teslin")
-harv.Yu <- harv %>%
-  filter(region == "Yukon.upper")
-harv.YWD <- harv %>%
-  filter(region == "Yukon.White.Donjek")
+  filter(region == "Carmacks") %>%
+  mutate(harvest = harv_stock/1000)
+
+
+# mean escapement over time series
+SMAX <- mean(esc.YC$spawn) 
+
+# turn SMAX into beta prior
+bpmu = 1/SMAX
+
+# set CV on prior
+bptau = 1/((3*(1/SMAX))^2)
+
+
+Y = nrow(age.YC)          # number of calendar years observed
+a.min = 4                 # minimum age class in data set
+a.max = 7                 # maximum age class in data set
+A = a.max - a.min + 1     # number of age classes
+nRyrs = Y + A - 1         # number of recruitment years (see model code for details)
+years = age.YC[,"year"]
+
+# escapement: assume a 30% observation CV if directly observed, 50% otherwise
+S.cv = ifelse(esc.YC[,5] == 1, 0.3, 0.5)
+S.obs = esc.YC[,6]
+
+# harvest: assume a 15% observation CV if directly observed, 30% otherwise
+C.cv = ifelse(harv.YC[,5] == 1, 0.15, 0.30)
+C.obs = harv.YC[,6]
+
+# age composition: assume a ESS of 100 if directly observed, 25 otherwise
+ESS = ifelse(age.YC$truecount == 1, 100, 25) 
+X <- age.YC %>%
+  select(3:6)
+X <- as.matrix(X)
+X = t(apply(X, 1, function(x) x/sum(x)))
+X = round(apply(X, 2, function(x) x * ESS))
+colnames(X) = NULL
+n = rowSums(X)        # n is slightly different than ESS because of rounding errors
+x=X
+
+
+
+# r Jags inputs for Carmacks group
+jags.data = list('Y','a.min','a.max','A','nRyrs','S.cv','S.obs','C.cv','C.obs',
+                 'x','n','bpmu','bptau')
+
+jags.parms = c("R", "N", "S", "U", "alpha", "beta", "lnalpha", "phi", "C", "log.resid",
+               "log.resid.0","sigma.R", "lnalpha.c", "mean.log.R0", "pi", "q", 
+               "mean.R0", "sigma.R0","S.msy", "S.max", "S.eq", "U.msy", "gamma", 
+               "D.sum", "p","log.S","beta.prior")
 ```
+
+
+```{r Fit Model for Carmacks group, echo=FALSE, results="hide"}
+ptm = proc.time()
+
+jagsfit.YC <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=15,
+                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=6)
+
+endtime = proc.time()-ptm
+endtime[3]/60
+```
+
+
+```{r Carmacks posterior editing}
+post.YC = as.mcmc(jagsfit.YC)
+mypost.YC = as.matrix(post.YC, chain=F)
+
+mypost.YC$region <- rep(c("aggregate"),(100002))
+```
+
+
+```{r Lower Mainstem data and model run, echo=FALSE}
+# Create lower mainstem data frames for data: age, esc, harv
+# create input variables for Bayesian model run
+
+age.YlC <- age %>%
+  filter(region == "Lower Mainstem")
+esc.YlC <- esc %>%
+  filter(region == "Lower Mainstem") %>%
+  mutate(spawn = esc_stock/1000)
+harv.YlC <- harv %>%
+  filter(region == "Lower Mainstem") %>%
+  mutate(harvest = harv_stock/1000)
+
+# mean escapement over time series
+SMAX <- mean(esc.YlC$spawn) 
+
+# turn SMAX into beta prior
+bpmu = 1/SMAX
+
+# set CV on prior
+bptau = 1/((3*(1/SMAX))^2)
+
+Y = nrow(age.YlC)         # number of calendar years observed
+a.min = 4                 # minimum age class in data set
+a.max = 7                 # maximum age class in data set
+A = a.max - a.min + 1     # number of age classes
+nRyrs = Y + A - 1         # number of recruitment years (see model code for details)
+years = age.YlC[,"year"]
+
+# escapement: assume a 30% observation CV if directly observed, 50% otherwise
+S.cv = ifelse(esc.YlC[,5] == 1, 0.3, 0.5)
+S.obs = esc.YlC[,6]
+
+# harvest: assume a 15% observation CV if directly observed, 30% otherwise
+C.cv = ifelse(harv.YlC[,5] == 1, 0.15, 0.30)
+C.obs = harv.YlC[,6]
+
+# age composition: assume a ESS of 100 if directly observed, 25 otherwise
+ESS = ifelse(age.YlC$truecount == 1, 100, 25) 
+X <- age.YlC %>%
+  select(3:6)
+X <- as.matrix(X)
+X = t(apply(X, 1, function(x) x/sum(x)))
+X = round(apply(X, 2, function(x) x * ESS))
+colnames(X) = NULL
+n = rowSums(X)        # n is slightly different than ESS because of rounding errors
+x=X
+
+# r Jags inputs for Lower Mainstem group
+jags.data = list('Y','a.min','a.max','A','nRyrs','S.cv','S.obs','C.cv','C.obs',
+                 'x','n','bpmu','bptau')
+
+jags.parms = c("R", "N", "S", "U", "alpha", "beta", "lnalpha", "phi", "C", "log.resid",
+               "log.resid.0","sigma.R", "lnalpha.c", "mean.log.R0", "pi", "q", 
+               "mean.R0", "sigma.R0","S.msy", "S.max", "S.eq", "U.msy", "gamma", 
+               "D.sum", "p","log.S","beta.prior")
+```
+
+
+```{r Fit Model for Lower Mainstem group, echo=FALSE}
+ptm = proc.time()
+
+jagsfit.YlC <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=15,
+                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=6)
+
+endtime = proc.time()-ptm
+endtime[3]/60
+```
+
+
+```{r Middle Mainstem data and model run, echo=FALSE}
+# Create Middle mainstem data frames for data: age, esc, harv
+# create input variables for Bayesian model run
+
+age.Ym <- age %>%
+  filter(region == "Middle Mainstem")
+esc.Ym <- esc %>%
+  filter(region == "Middle Mainstem") %>%
+  mutate(spawn = esc_stock/1000)
+harv.Ym <- harv %>%
+  filter(region == "Middle Mainstem") %>%
+  mutate(harvest = harv_stock/1000)
+
+
+# mean escapement over time series
+SMAX <- mean(esc.Ym$spawn) 
+
+# turn SMAX into beta prior
+bpmu = 1/SMAX
+
+# set CV on prior
+bptau = 1/((3*(1/SMAX))^2)
+
+Y = nrow(age.Ym)         # number of calendar years observed
+a.min = 4                 # minimum age class in data set
+a.max = 7                 # maximum age class in data set
+A = a.max - a.min + 1     # number of age classes
+nRyrs = Y + A - 1         # number of recruitment years (see model code for details)
+years = age.Ym[,"year"]
+
+# escapement: assume a 30% observation CV if directly observed, 50% otherwise
+S.cv = ifelse(esc.Ym[,5] == 1, 0.3, 0.5)
+S.obs = esc.Ym[,6]
+
+# harvest: assume a 15% observation CV if directly observed, 30% otherwise
+C.cv = ifelse(harv.Ym[,5] == 1, 0.15, 0.30)
+C.obs = harv.Ym[,6]
+
+# age composition: assume a ESS of 100 if directly observed, 25 otherwise
+ESS = ifelse(age.Ym$truecount == 1, 100, 25) 
+X <- age.Ym %>%
+  select(3:6)
+X <- as.matrix(X)
+X = t(apply(X, 1, function(x) x/sum(x)))
+X = round(apply(X, 2, function(x) x * ESS))
+colnames(X) = NULL
+n = rowSums(X)        # n is slightly different than ESS because of rounding errors
+x=X
+
+# r Jags inputs for Middle Mainstem group
+jags.data = list('Y','a.min','a.max','A','nRyrs','S.cv','S.obs','C.cv','C.obs',
+                 'x','n','bpmu','bptau')
+
+jags.parms = c("R", "N", "S", "U", "alpha", "beta", "lnalpha", "phi", "C", "log.resid",
+               "log.resid.0","sigma.R", "lnalpha.c", "mean.log.R0", "pi", "q", 
+               "mean.R0", "sigma.R0","S.msy", "S.max", "S.eq", "U.msy", "gamma", 
+               "D.sum", "p","log.S","beta.prior")
+```
+
+```{r Fit Model for Middle Mainstem group, echo=FALSE}
+ptm = proc.time()
+
+jagsfit.Ym <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=15,
+                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=6)
+
+endtime = proc.time()-ptm
+endtime[3]/60
+```
+
+
+```{r Pelly data and model run, echo=FALSE}
+# Create Pelly data frames for data: age, esc, harv
+# create input variables for Bayesian model run
+
+age.YP <- age %>%
+  filter(region == "Pelly")
+esc.YP <- esc %>%
+  filter(region == "Pelly") %>%
+  mutate(spawn = esc_stock/1000)
+harv.YP <- harv %>%
+  filter(region == "Pelly") %>%
+  mutate(harvest = harv_stock/1000)
+
+# mean escapement over time series
+SMAX <- mean(esc.YP$spawn) 
+
+# turn SMAX into beta prior
+bpmu = 1/SMAX
+
+# set CV on prior
+bptau = 1/((3*(1/SMAX))^2)
+
+Y = nrow(age.YP)          # number of calendar years observed
+a.min = 4                 # minimum age class in data set
+a.max = 7                 # maximum age class in data set
+A = a.max - a.min + 1     # number of age classes
+nRyrs = Y + A - 1         # number of recruitment years (see model code for details)
+years = age.YP[,"year"]
+
+# escapement: assume a 30% observation CV if directly observed, 50% otherwise
+S.cv = ifelse(esc.YP[,5] == 1, 0.3, 0.5)
+S.obs = esc.YP[,6]
+
+# harvest: assume a 15% observation CV if directly observed, 30% otherwise
+C.cv = ifelse(harv.YP[,5] == 1, 0.15, 0.30)
+C.obs = harv.YP[,6]
+
+# age composition: assume a ESS of 100 if directly observed, 25 otherwise
+ESS = ifelse(age.YP$truecount == 1, 100, 25) 
+X <- age.YP %>%
+  select(3:6)
+X <- as.matrix(X)
+X = t(apply(X, 1, function(x) x/sum(x)))
+X = round(apply(X, 2, function(x) x * ESS))
+colnames(X) = NULL
+n = rowSums(X)        # n is slightly different than ESS because of rounding errors
+x=X
+
+# r Jags inputs for Pelly group
+jags.data = list('Y','a.min','a.max','A','nRyrs','S.cv','S.obs','C.cv','C.obs',
+                 'x','n','bpmu','bptau')
+
+jags.parms = c("R", "N", "S", "U", "alpha", "beta", "lnalpha", "phi", "C", "log.resid",
+               "log.resid.0","sigma.R", "lnalpha.c", "mean.log.R0", "pi", "q", 
+               "mean.R0", "sigma.R0","S.msy", "S.max", "S.eq", "U.msy", "gamma", 
+               "D.sum", "p","log.S","beta.prior")
+```
+
+
+```{r Fit Model for Pelly group, echo=FALSE}
+ptm = proc.time()
+
+jagsfit.YP <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=15,
+                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=6)
+
+endtime = proc.time()-ptm
+endtime[3]/60
+```
+
+
+```{r Stewart data and model run, echo=FALSE}
+# Create Stewart data frames for data: age, esc, harv
+# create input variables for Bayesian model run
+
+age.YS <- age %>%
+  filter(region == "Stewart")
+esc.YS <- esc %>%
+  filter(region == "Stewart") %>%
+  mutate(spawn = esc_stock/1000)
+harv.YS <- harv %>%
+  filter(region == "Stewart") %>%
+  mutate(harvest = harv_stock/1000)
+
+# mean escapement over time series
+SMAX <- mean(esc.YS$spawn) 
+
+# turn SMAX into beta prior
+bpmu = 1/SMAX
+
+# set CV on prior
+bptau = 1/((3*(1/SMAX))^2)
+
+Y = nrow(age.YS)          # number of calendar years observed
+a.min = 4                 # minimum age class in data set
+a.max = 7                 # maximum age class in data set
+A = a.max - a.min + 1     # number of age classes
+nRyrs = Y + A - 1         # number of recruitment years (see model code for details)
+years = age.YS[,"year"]
+
+# escapement: assume a 30% observation CV if directly observed, 50% otherwise
+S.cv = ifelse(esc.YS[,5] == 1, 0.3, 0.5)
+S.obs = esc.YS[,6]
+
+# harvest: assume a 15% observation CV if directly observed, 30% otherwise
+C.cv = ifelse(harv.YS[,5] == 1, 0.15, 0.30)
+C.obs = harv.YS[,6]
+
+# age composition: assume a ESS of 100 if directly observed, 25 otherwise
+ESS = ifelse(age.YS$truecount == 1, 100, 25) 
+X <- age.YS %>%
+  select(3:6)
+X <- as.matrix(X)
+X = t(apply(X, 1, function(x) x/sum(x)))
+X = round(apply(X, 2, function(x) x * ESS))
+colnames(X) = NULL
+n = rowSums(X)        # n is slightly different than ESS because of rounding errors
+x=X
+
+# r Jags inputs for Stewart group
+jags.data = list('Y','a.min','a.max','A','nRyrs','S.cv','S.obs','C.cv','C.obs',
+                 'x','n','bpmu','bptau')
+
+jags.parms = c("R", "N", "S", "U", "alpha", "beta", "lnalpha", "phi", "C", "log.resid",
+               "log.resid.0","sigma.R", "lnalpha.c", "mean.log.R0", "pi", "q", 
+               "mean.R0", "sigma.R0","S.msy", "S.max", "S.eq", "U.msy", "gamma", 
+               "D.sum", "p","log.S","beta.prior")
+```
+
+
+```{r Fit Model for Stewart group, echo=FALSE}
+ptm = proc.time()
+
+jagsfit.YS <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=15,
+                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=6)
+
+endtime = proc.time()-ptm
+endtime[3]/60
+```
+
+
+```{r Teslin data and model run, echo=FALSE}
+# Create Teslin data frames for data: age, esc, harv
+# create input variables for Bayesian model run
+
+age.YT <- age %>%
+  filter(region == "Teslin")
+esc.YT <- esc %>%
+  filter(region == "Teslin") %>%
+  mutate(spawn = esc_stock/1000)
+harv.YT <- harv %>%
+  filter(region == "Teslin") %>%
+  mutate(harvest = harv_stock/1000)
+
+# mean escapement over time series
+SMAX <- mean(esc.YT$spawn) 
+
+# turn SMAX into beta prior
+bpmu = 1/SMAX
+
+# set CV on prior
+bptau = 1/((3*(1/SMAX))^2)
+
+Y = nrow(age.YT)          # number of calendar years observed
+a.min = 4                 # minimum age class in data set
+a.max = 7                 # maximum age class in data set
+A = a.max - a.min + 1     # number of age classes
+nRyrs = Y + A - 1         # number of recruitment years (see model code for details)
+years = age.YT[,"year"]
+
+# escapement: assume a 30% observation CV if directly observed, 50% otherwise
+S.cv = ifelse(esc.YT[,5] == 1, 0.3, 0.5)
+S.obs = esc.YT[,6]
+
+# harvest: assume a 15% observation CV if directly observed, 30% otherwise
+C.cv = ifelse(harv.YT[,5] == 1, 0.15, 0.30)
+C.obs = harv.YT[,6]
+
+# age composition: assume a ESS of 100 if directly observed, 25 otherwise
+ESS = ifelse(age.YT$truecount == 1, 100, 25) 
+X <- age.YT %>%
+  select(3:6)
+X <- as.matrix(X)
+X = t(apply(X, 1, function(x) x/sum(x)))
+X = round(apply(X, 2, function(x) x * ESS))
+colnames(X) = NULL
+n = rowSums(X)        # n is slightly different than ESS because of rounding errors
+x=X
+
+# r Jags inputs for Teslin group
+jags.data = list('Y','a.min','a.max','A','nRyrs','S.cv','S.obs','C.cv','C.obs',
+                 'x','n','bpmu','bptau')
+
+jags.parms = c("R", "N", "S", "U", "alpha", "beta", "lnalpha", "phi", "C", "log.resid",
+               "log.resid.0","sigma.R", "lnalpha.c", "mean.log.R0", "pi", "q", 
+               "mean.R0", "sigma.R0","S.msy", "S.max", "S.eq", "U.msy", "gamma", 
+               "D.sum", "p","log.S","beta.prior")
+```
+
+```{r Fit Model for Teslin group, echo=FALSE}
+ptm = proc.time()
+
+jagsfit.YT <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=15,
+                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=6)
+
+endtime = proc.time()-ptm
+endtime[3]/60
+```
+
+
+```{r Upper Lakes and Mainstem data and model run, echo=FALSE}
+# Create Upper Lakes and Mainstem data frames for data: age, esc, harv
+# create input variables for Bayesian model run
+
+age.Yu <- age %>%
+  filter(region == "Upper Lakes and Mainstem")
+esc.Yu <- esc %>%
+  filter(region == "Upper Lakes and Mainstem") %>%
+  mutate(spawn = esc_stock/1000)
+harv.Yu <- harv %>%
+  filter(region == "Upper Lakes and Mainstem") %>%
+  mutate(harvest = harv_stock/1000)
+
+# mean escapement over time series
+SMAX <- mean(esc.Yu$spawn) 
+
+# turn SMAX into beta prior
+bpmu = 1/SMAX
+
+# set CV on prior
+bptau = 1/((3*(1/SMAX))^2)
+
+Y = nrow(age.Yu)          # number of calendar years observed
+a.min = 4                 # minimum age class in data set
+a.max = 7                 # maximum age class in data set
+A = a.max - a.min + 1     # number of age classes
+nRyrs = Y + A - 1         # number of recruitment years (see model code for details)
+years = age.Yu[,"year"]
+
+# escapement: assume a 30% observation CV if directly observed, 50% otherwise
+S.cv = ifelse(esc.Yu[,5] == 1, 0.3, 0.5)
+S.obs = esc.Yu[,6]
+
+# harvest: assume a 15% observation CV if directly observed, 30% otherwise
+C.cv = ifelse(harv.Yu[,5] == 1, 0.15, 0.30)
+C.obs = harv.Yu[,6]
+
+# age composition: assume a ESS of 100 if directly observed, 25 otherwise
+ESS = ifelse(age.Yu$truecount == 1, 100, 25) 
+X <- age.Yu %>%
+  select(3:6)
+X <- as.matrix(X)
+X = t(apply(X, 1, function(x) x/sum(x)))
+X = round(apply(X, 2, function(x) x * ESS))
+colnames(X) = NULL
+n = rowSums(X)        # n is slightly different than ESS because of rounding errors
+x=X
+
+# r Jags inputs for Upper Lakes and Mainstem group
+jags.data = list('Y','a.min','a.max','A','nRyrs','S.cv','S.obs','C.cv','C.obs',
+                 'x','n','bpmu','bptau')
+
+jags.parms = c("R", "N", "S", "U", "alpha", "beta", "lnalpha", "phi", "C", "log.resid",
+               "log.resid.0","sigma.R", "lnalpha.c", "mean.log.R0", "pi", "q", 
+               "mean.R0", "sigma.R0","S.msy", "S.max", "S.eq", "U.msy", "gamma", 
+               "D.sum", "p","log.S","beta.prior")
+```
+
+```{r Fit Model for Upper Lakes and Mainstem group, echo=FALSE}
+ptm = proc.time()
+
+jagsfit.Yu <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=15,
+                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=6)
+
+endtime = proc.time()-ptm
+endtime[3]/60
+```
+
+
+```{r White-Donjek data and model run, echo=FALSE}
+# Create White-Donjek data frames for data: age, esc, harv
+# create input variables for Bayesian model run
+
+age.YWD <- age %>%
+  filter(region == "White-Donjek")
+esc.YWD <- esc %>%
+  filter(region == "White-Donjek") %>%
+  mutate(spawn = esc_stock/1000)
+harv.YWD <- harv %>%
+  filter(region == "White-Donjek") %>%
+  mutate(harvest = harv_stock/1000)
+
+# mean escapement over time series
+SMAX <- mean(esc.YWD$spawn) 
+
+# turn SMAX into beta prior
+bpmu = 1/SMAX
+
+# set CV on prior
+bptau = 1/((3*(1/SMAX))^2)
+
+Y = nrow(age.YWD)          # number of calendar years observed
+a.min = 4                 # minimum age class in data set
+a.max = 7                 # maximum age class in data set
+A = a.max - a.min + 1     # number of age classes
+nRyrs = Y + A - 1         # number of recruitment years (see model code for details)
+years = age.YWD[,"year"]
+
+# escapement: assume a 30% observation CV if directly observed, 50% otherwise
+S.cv = ifelse(esc.YWD[,5] == 1, 0.3, 0.5)
+S.obs = esc.YWD[,6]
+
+# harvest: assume a 15% observation CV if directly observed, 30% otherwise
+C.cv = ifelse(harv.YWD[,5] == 1, 0.15, 0.30)
+C.obs = harv.YWD[,6]
+
+# age composition: assume a ESS of 100 if directly observed, 25 otherwise
+ESS = ifelse(age.YWD$truecount == 1, 100, 25) 
+X <- age.YWD %>%
+  select(3:6)
+X <- as.matrix(X)
+X = t(apply(X, 1, function(x) x/sum(x)))
+X = round(apply(X, 2, function(x) x * ESS))
+colnames(X) = NULL
+n = rowSums(X)        # n is slightly different than ESS because of rounding errors
+x=X
+
+# r Jags inputs for White-Donjek group
+jags.data = list('Y','a.min','a.max','A','nRyrs','S.cv','S.obs','C.cv','C.obs',
+                 'x','n','bpmu','bptau')
+
+jags.parms = c("R", "N", "S", "U", "alpha", "beta", "lnalpha", "phi", "C", "log.resid",
+               "log.resid.0","sigma.R", "lnalpha.c", "mean.log.R0", "pi", "q", 
+               "mean.R0", "sigma.R0","S.msy", "S.max", "S.eq", "U.msy", "gamma", 
+               "D.sum", "p","log.S","beta.prior")
+```
+
+```{r Fit Model for White-Donjek group, echo=FALSE}
+ptm = proc.time()
+
+jagsfit.YWD <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=15,
+                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=6)
+
+endtime = proc.time()-ptm
+endtime[3]/60
+```
+
+
+
+
+
+
+```{r create dataframe of combined substock posteriors}
+
+
+combined_posts <- do.call("rbind", list(post.ag, post.YC, post.YlC, post.Ym, post.YP, post.YS, post.YT, post.Yu, post.YWD))
+
+
+# Model diagnostics and parameter summary ####
+
+# potential scale reduction factor
+#need to change dataframe for each substock
+gelman.diag(post.ag, multivariate = F)
+
+
+SUMMARY <- combined_posts %>%
+  group_by(region) %>%
+  do(R = post.summ(.,"R[")) %>%
+  do(S = post.summ(., "S[")) %>%
+  do(N = post.summ(., "N[")) %>%
+  do(U = post.summ(., "U[")) %>%  
+  do(resid = post.summ(., "log.resid[")) %>%
+  do(PP = post.summ(., "pi[")) %>% 
+  do(alpha = post.summ(., "alpha")) %>%
+  do(beta = post.summ(., "beta")) %>%
+  do(phi = post.summ(., "phi")) %>%
+  do(sigma = post.summ(., "sigma.R")) %>%
+  do(S.msy = post.summ(., "S.msy")) %>%
+  do(S.eq = post.summ(., "S.eq")) %>%
+  do(S.max = post.summ(., "S.max")) %>%
+  do(U.msy = post.summ(., "U.msy"))
+
+
+
+round(rbind(alpha, beta, sigma, phi, S.msy, S.eq, S.max, U.msy, one_over_beta), 2)
+
+mean(mypost[,'beta'])
+
+
+
+
+
+
+
+
+combined_posteriors <- do.call("rbind", list(mypost.ag, mypost.YC, mypost.YlC, mypost.Ym, mypost.YP, mypost.YS, mypost.YT, mypost.Yu, mypost.YWD))
+
+
+
+
+
+sys_time <- format(Sys.time(),"%Y-%m-%d")
+write.csv(mypost.ag, 'posterior outputs/paste("aggregate_posteriors_",sys_time,".csv", sep="")')
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 ```{r Set beta prior for aggregate stock}
-SMAX.ag <- mean(esc.ag$spawn) # mean escapement over time series
-#SMAX <- 21300 # lake habitat (photosynthetic rate) based estimate of lake capacity
+# MATT:  need to double check with BC regarding new SMAX and CV prior formulas
 
 
-# turn SMAX into beta prior
-bpmu.ag = 1/SMAX.ag
-
-# set CV on prior
-bptau.ag = 1/((3*(1/SMAX.ag))^2)
-```
 
 
-```{r Mean SMAX value by substock region}
-df_SMAX <- esc %>%
+### old code
+
+# names(esc.full)
+# names(harv.full)
+# names(age.full)
+
+
+PRIORS <- esc.full %>%
   group_by(region) %>%
-  summarize(SMAX = mean(spwn_stock))
+  summarise(SMAX = mean(esc_stock)) %>%
+  mutate(bpmu = 1/SMAX) %>%
+  mutate(bptau = (1/((3*(1/SMAX))^2))) %>%
+  select(SMAX, bpmu, bptau) %>%
+  as.data.frame()
 
-# get individual SMAX values for each sub-stock, need to change substock accordingly
-SMAX.C <- as.numeric(df_SMAX[1,2])    # for YC
-SMAX.lC <- as.numeric(df_SMAX[2,2])    # for YlC
-SMAX.m <- as.numeric(df_SMAX[3,2])    # for Ym
-SMAX.P <- as.numeric(df_SMAX[4,2])    # for YP
-SMAX.S <- as.numeric(df_SMAX[5,2])    # for YS
-SMAX.T <- as.numeric(df_SMAX[6,2])    # for YT
-SMAX.u <- as.numeric(df_SMAX[7,2])    # for Yu
-SMAX.WD <- as.numeric(df_SMAX[8,2])    # for YWD
-
-# turn SMAX into beta prior
-bpmu.C = 1/SMAX.C
-bpmu.lC = 1/SMAX.lC
-bpmu.m = 1/SMAX.m
-bpmu.P = 1/SMAX.P
-bpmu.S = 1/SMAX.S
-bpmu.T = 1/SMAX.T
-bpmu.u = 1/SMAX.u
-bpmu.WD = 1/SMAX.WD
-
-
-# set CV on prior, , need to keep track of substock accordingly
-bptau.C = 1/((3*(1/SMAX.C))^2)
-bptau.lC = 1/((3*(1/SMAX.lC))^2)
-bptau.m = 1/((3*(1/SMAX.m))^2)
-bptau.P = 1/((3*(1/SMAX.P))^2)
-bptau.S = 1/((3*(1/SMAX.S))^2)
-bptau.T = 1/((3*(1/SMAX.T))^2)
-bptau.u = 1/((3*(1/SMAX.u))^2)
-bptau.WD = 1/((3*(1/SMAX.WD))^2)
+SMAX <- PRIORS[,1]
+bpmu <- PRIORS[,2]
+bptau <- PRIORS[,3]
 ```
+
+
+```{r Format data for Bayes Model: CDN aggregate stock }
+### old code
+# head(data.full)
+
+DATA <- data.full %>%
+  mutate(Y = nrow(age.full)/9) %>%
+  mutate(a.min = 4) %>%
+  mutate(a.max = 7) %>%
+  mutate(A = a.max - a.min + 1) %>%
+  mutate(nRyrs = (Y + A - 1)) %>%
+  mutate(years = age.full[,"year"]) %>%
+  group_by(region) %>%
+  mutate(S.cv = ifelse(truecount == 1, 0.3, 0.5)) %>%
+  mutate(S.obs = esc_stock) %>%
+  mutate(C.cv = ifelse(truecount == 1, 0.15, 0.30)) %>%
+  mutate(C.obs = harv_stock) %>%
+  mutate(ESS = ifelse(truecount == 1, 100, 25)) %>%
+  as.data.frame()
+  
+
+DATA_REGION <- split(DATA, DATA$region) 
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
