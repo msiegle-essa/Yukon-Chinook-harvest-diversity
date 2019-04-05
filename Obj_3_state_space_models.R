@@ -255,7 +255,6 @@ harv.YWD <- harv %>%
 # Set beta prior for stock ####
 # for CDN aggregate
 SMAX <- mean(esc.ag$spawn) # mean escapement over time series
-#SMAX <- 21300 # lake habitat (photosynthetic rate) based estimate of lake capacity
 
 # get mean SMAX value by substock region
 df_SMAX <- esc %>%
@@ -275,8 +274,8 @@ SMAX <- as.numeric(df_SMAX[8,2])    # for YWD
 # turn SMAX into beta prior, need to keep track of substock accordingly
 bpmu = 1/SMAX
 
-# set CV on prior, , need to keep track of substock accordingly
-bptau = 1/((3*(1/SMAX))^2)
+# set CV on prior, need to keep track of substock accordingly (currently set at a 90% CV)
+bptau = 1/(0.9^2)
 
 
 # Format data for Bayes Model ####
