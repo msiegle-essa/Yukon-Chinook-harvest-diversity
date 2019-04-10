@@ -15,6 +15,7 @@ library(plotrix)
 library(R2jags) 
 library(modeest) 
 library(gplots)
+# library(rdrop2)
 ```
 
 
@@ -724,6 +725,30 @@ harv <- harv_data %>%
 ```
 
 
+```{r import posterior files, so don't have to re-run each SR model, echo=FALSE}
+require(tidyverse)
+
+post.ag <- read_csv(("EN2438_Rmark_posteriors/aggregate_posteriors_2019-04-08.csv"))
+
+post.YC <- read_csv(("EN2438_Rmark_posteriors/carmacks_posteriors_2019-04-08.csv"))
+
+post.YlC <- read_csv(("EN2438_Rmark_posteriors/lower.mainstem_posteriors_2019-04-08.csv"))
+
+post.Ym <- read_csv(("EN2438_Rmark_posteriors/midmainstem_posteriors_2019-04-08.csv"))
+
+post.YP <- read_csv(("EN2438_Rmark_posteriors/pelly_posteriors_2019-04-08.csv"))
+
+post.YS <- read_csv(("EN2438_Rmark_posteriors/stewart_posteriors_2019-04-08.csv"))
+
+post.YT <- read_csv(("EN2438_Rmark_posteriors/teslin_posteriors_2019-04-08.csv"))
+
+post.Yu <- read_csv(("EN2438_Rmark_posteriors/upper_posteriors_2019-04-08.csv"))
+
+post.YWD <- read_csv(("EN2438_Rmark_posteriors/whitedonjek_posteriors_2019-04-08.csv"))
+```
+
+
+
 ```{r Aggregate Data and model run, echo=FALSE}
 # Create Aggregate data frames for data: age, esc, harv
 # create input variables for Bayesian model run
@@ -762,7 +787,7 @@ SMAX <- mean(esc.ag$spawn)
 bpmu = 1/SMAX
 
 # set CV on prior
-bptau = 1/((3*(1/SMAX))^2)
+bptau = 1/((1)^2)
 
 Y = nrow(age.ag)          # number of calendar years observed
 a.min = 4                 # minimum age class in data set
@@ -800,21 +825,85 @@ jags.parms = c("R", "N", "S", "U", "alpha", "beta", "lnalpha", "phi", "C", "log.
                "D.sum", "p","log.S","beta.prior")
 ```
 
-```{r Fit Model for Aggregate group, echo=FALSE, results="hide"}
+
+```{r Fit Model for Aggregate group, echo=FALSE, results="hide", eval=FALSE}
 ptm = proc.time()
 
-jagsfit.ag <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=15,
-                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=6)
+jagsfit.ag <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=5,
+                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=3)
 
 endtime = proc.time()-ptm
-endtime[3]/60
+# endtime[3]/60
 ```
 
-```{r Aggregate posterior editing, echo=FALSE}
-post.ag = as.mcmc(jagsfit.ag)
-mypost.ag = as.matrix(post.ag, chain=F)
 
-mypost.ag$region <- rep(c("aggregate"),(100002))
+```{r Aggregate posterior editing, echo=FALSE}
+# post.ag = as.mcmc(jagsfit.ag)
+# rm(jagsfit.ag)
+
+mypost.ag = as.matrix(post.ag, chain=F)
+rm(post.ag)
+
+
+# export posterior file
+# sys_time <- format(Sys.time(),"%Y-%m-%d")
+
+# paste("aggregate_posteriors_",sys_time,".csv")
+
+# write.csv(mypost.ag, paste("aggregate_posteriors_",sys_time,".csv", sep=""), row.names = FALSE)
+
+# drop_upload( , path = , mode = "add", mute = FALSE)
+
+
+
+R = post.summ(mypost.ag,"R[")
+S = post.summ(mypost.ag, "S[")
+N = post.summ(mypost.ag, "N[")
+U = post.summ(mypost.ag, "U[")
+resid = post.summ(mypost.ag, "log.resid[")
+PP = post.summ(mypost.ag, "pi[")
+alpha = post.summ(mypost.ag, "alpha")
+beta = post.summ(mypost.ag, "beta")
+phi = post.summ(mypost.ag, "phi")
+sigma = post.summ(mypost.ag, "sigma.R")
+S.msy = post.summ(mypost.ag, "S.msy")
+S.eq = post.summ(mypost.ag, "S.eq")
+S.max = post.summ(mypost.ag, "S.max")
+U.msy = post.summ(mypost.ag, "U.msy")
+
+
+output_summary_ag <- cbind(R, S, N, U, resid, PP, alpha, beta, phi, sigma, S.msy, S.max, U.msy) %>%
+  as.data.frame()
+output_summary_ag$region <- rep(c("aggregate"), (5))
+
+
+
+# subsample alpha and beta
+alphabeta_ag <- mypost.ag %>%
+  as.data.frame() %>%
+  select(alpha, beta) %>%
+  sample_n(100, replace=TRUE) %>%
+  mutate(region = "aggregate")
+
+# keep U.msy vector
+U.msy.ag <- mypost.ag[,512] %>%
+  as.data.frame() %>%
+  sample_n(1000, replace=TRUE) %>%
+  mutate(region = "aggregate") %>%
+  as.data.frame()
+
+# keep alpha vector
+alpha.ag <- mypost.ag[,1] %>%
+  as.data.frame() %>%
+  sample_n(1000, replace=TRUE) %>%
+  mutate(region = "aggregate") %>%
+  as.data.frame()
+
+
+
+rm(mypost.ag)
+
+# gelman.diag(post.ag, multivariate = F)
 ```
 
 
@@ -840,7 +929,7 @@ SMAX <- mean(esc.YC$spawn)
 bpmu = 1/SMAX
 
 # set CV on prior
-bptau = 1/((3*(1/SMAX))^2)
+bptau = 1/((1)^2)
 
 
 Y = nrow(age.YC)          # number of calendar years observed
@@ -882,11 +971,11 @@ jags.parms = c("R", "N", "S", "U", "alpha", "beta", "lnalpha", "phi", "C", "log.
 ```
 
 
-```{r Fit Model for Carmacks group, echo=FALSE, results="hide"}
+```{r Fit Model for Carmacks group, echo=FALSE, results="hide", eval=FALSE}
 ptm = proc.time()
 
-jagsfit.YC <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=15,
-                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=6)
+jagsfit.YC <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=5,
+                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=3)
 
 endtime = proc.time()-ptm
 endtime[3]/60
@@ -894,10 +983,61 @@ endtime[3]/60
 
 
 ```{r Carmacks posterior editing}
-post.YC = as.mcmc(jagsfit.YC)
-mypost.YC = as.matrix(post.YC, chain=F)
+# post.YC = as.mcmc(jagsfit.YC)
+# rm(jagsfit.YC)
 
-mypost.YC$region <- rep(c("aggregate"),(100002))
+mypost.YC = as.matrix(post.YC, chain=F)
+rm(post.YC)
+
+
+# write.csv(mypost.YC, paste("carmacks_posteriors_",sys_time,".csv", sep=""), row.names = FALSE)
+
+
+
+R = post.summ(mypost.YC,"R[")
+S = post.summ(mypost.YC, "S[")
+N = post.summ(mypost.YC, "N[")
+U = post.summ(mypost.YC, "U[")
+resid = post.summ(mypost.YC, "log.resid[")
+PP = post.summ(mypost.YC, "pi[")
+alpha = post.summ(mypost.YC, "alpha")
+beta = post.summ(mypost.YC, "beta")
+phi = post.summ(mypost.YC, "phi")
+sigma = post.summ(mypost.YC, "sigma.R")
+S.msy = post.summ(mypost.YC, "S.msy")
+S.eq = post.summ(mypost.YC, "S.eq")
+S.max = post.summ(mypost.YC, "S.max")
+U.msy = post.summ(mypost.YC, "U.msy")
+
+
+output_summary_YC <- cbind(R, S, N, U, resid, PP, alpha, beta, phi, sigma, S.msy, S.max, U.msy) %>%
+  as.data.frame()
+output_summary_YC$region <- rep(c("Carmacks"), (5))
+
+# subsample alpha and beta
+alphabeta_YC <- mypost.YC %>%
+  as.data.frame() %>%
+  select(alpha, beta) %>%
+  sample_n(100, replace=TRUE) %>%
+  mutate(region = "Carmacks")
+
+
+# keep U.msy vector
+U.msy.YC <- mypost.YC[,512] %>%
+  as.data.frame() %>%
+  sample_n(1000, replace=TRUE) %>%
+  mutate(region = "Carmacks") %>%
+  as.data.frame()
+
+# keep alpha vector
+alpha.YC <- mypost.YC[,1] %>%
+  as.data.frame() %>%
+  sample_n(1000, replace=TRUE) %>%
+  mutate(region = "Carmacks") %>%
+  as.data.frame()
+
+rm(mypost.YC)
+
 ```
 
 
@@ -921,7 +1061,7 @@ SMAX <- mean(esc.YlC$spawn)
 bpmu = 1/SMAX
 
 # set CV on prior
-bptau = 1/((3*(1/SMAX))^2)
+bptau = 1/((1)^2)
 
 Y = nrow(age.YlC)         # number of calendar years observed
 a.min = 4                 # minimum age class in data set
@@ -960,15 +1100,76 @@ jags.parms = c("R", "N", "S", "U", "alpha", "beta", "lnalpha", "phi", "C", "log.
 ```
 
 
-```{r Fit Model for Lower Mainstem group, echo=FALSE}
+```{r Fit Model for Lower Mainstem group, echo=FALSE, eval=FALSE}
 ptm = proc.time()
 
-jagsfit.YlC <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=15,
-                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=6)
+jagsfit.YlC <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=5,
+                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=3)
 
 endtime = proc.time()-ptm
-endtime[3]/60
+#endtime[3]/60
 ```
+
+
+
+```{r lower mainstem posterior editing, echo=FALSE}
+
+# post.YlC = as.mcmc(jagsfit.YlC)
+# rm(jagsfit.YlC)
+
+mypost.YlC = as.matrix(post.YlC, chain=F)
+rm(post.YlC)
+
+
+# write.csv(mypost.YlC, paste("lower.mainstem_posteriors_",sys_time,".csv", sep=""), row.names = FALSE)
+
+
+R = post.summ(mypost.YlC,"R[")
+S = post.summ(mypost.YlC, "S[")
+N = post.summ(mypost.YlC, "N[")
+U = post.summ(mypost.YlC, "U[")
+resid = post.summ(mypost.YlC, "log.resid[")
+PP = post.summ(mypost.YlC, "pi[")
+alpha = post.summ(mypost.YlC, "alpha")
+beta = post.summ(mypost.YlC, "beta")
+phi = post.summ(mypost.YlC, "phi")
+sigma = post.summ(mypost.YlC, "sigma.R")
+S.msy = post.summ(mypost.YlC, "S.msy")
+S.eq = post.summ(mypost.YlC, "S.eq")
+S.max = post.summ(mypost.YlC, "S.max")
+U.msy = post.summ(mypost.YlC, "U.msy")
+
+
+output_summary_YlC <- cbind(R, S, N, U, resid, PP, alpha, beta, phi, sigma, S.msy, S.max, U.msy) %>%
+  as.data.frame()
+output_summary_YlC$region <- rep(c("Lower Mainstem"), (5))
+
+# subsample alpha and beta
+alphabeta_YlC <- mypost.YlC %>%
+  as.data.frame() %>%
+  select(alpha, beta) %>%
+  sample_n(100, replace=TRUE) %>%
+  mutate(region = "Lower Mainstem")
+
+# keep U.msy vector
+U.msy.YlC <- mypost.YlC[,512] %>%
+  as.data.frame() %>%
+  sample_n(1000, replace=TRUE) %>%
+  mutate(region = "Lower Mainstem") %>%
+  as.data.frame()
+
+# keep alpha vector
+alpha.YlC <- mypost.YlC[,1] %>%
+  as.data.frame() %>%
+  sample_n(1000, replace=TRUE) %>%
+  mutate(region = "Lower Mainstem") %>%
+  as.data.frame()
+
+rm(mypost.YlC)
+
+```
+
+
 
 
 ```{r Middle Mainstem data and model run, echo=FALSE}
@@ -992,7 +1193,7 @@ SMAX <- mean(esc.Ym$spawn)
 bpmu = 1/SMAX
 
 # set CV on prior
-bptau = 1/((3*(1/SMAX))^2)
+bptau = 1/((1)^2)
 
 Y = nrow(age.Ym)         # number of calendar years observed
 a.min = 4                 # minimum age class in data set
@@ -1030,15 +1231,74 @@ jags.parms = c("R", "N", "S", "U", "alpha", "beta", "lnalpha", "phi", "C", "log.
                "D.sum", "p","log.S","beta.prior")
 ```
 
-```{r Fit Model for Middle Mainstem group, echo=FALSE}
+```{r Fit Model for Middle Mainstem group, echo=FALSE, eval=FALSE}
 ptm = proc.time()
 
-jagsfit.Ym <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=15,
-                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=6)
+jagsfit.Ym <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=5,
+                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=3)
 
 endtime = proc.time()-ptm
-endtime[3]/60
+#endtime[3]/60
 ```
+
+
+```{r middle mainstem posterior editing, echo=FALSE}
+
+# post.Ym = as.mcmc(jagsfit.Ym)
+# rm(jagsfit.Ym)
+
+mypost.Ym = as.matrix(post.Ym, chain=F)
+rm(post.Ym)
+
+# write.csv(mypost.Ym, paste("midmainstem_posteriors_",sys_time,".csv", sep=""), row.names = FALSE)
+
+
+
+R = post.summ(mypost.Ym,"R[")
+S = post.summ(mypost.Ym, "S[")
+N = post.summ(mypost.Ym, "N[")
+U = post.summ(mypost.Ym, "U[")
+resid = post.summ(mypost.Ym, "log.resid[")
+PP = post.summ(mypost.Ym, "pi[")
+alpha = post.summ(mypost.Ym, "alpha")
+beta = post.summ(mypost.Ym, "beta")
+phi = post.summ(mypost.Ym, "phi")
+sigma = post.summ(mypost.Ym, "sigma.R")
+S.msy = post.summ(mypost.Ym, "S.msy")
+S.eq = post.summ(mypost.Ym, "S.eq")
+S.max = post.summ(mypost.Ym, "S.max")
+U.msy = post.summ(mypost.Ym, "U.msy")
+
+
+output_summary_Ym <- cbind(R, S, N, U, resid, PP, alpha, beta, phi, sigma, S.msy, S.max, U.msy) %>%
+  as.data.frame()
+output_summary_Ym$region <- rep(c("Middle Mainstem"), (5))
+
+# subsample alpha and beta
+alphabeta_Ym <- mypost.Ym %>%
+  as.data.frame() %>%
+  select(alpha, beta) %>%
+  sample_n(100, replace=TRUE) %>%
+  mutate(region = "Middle Mainstem")
+
+# keep U.msy vector
+U.msy.Ym <- mypost.Ym[,512] %>%
+  as.data.frame() %>%
+  sample_n(1000, replace=TRUE) %>%
+  mutate(region = "Middle Mainstem") %>%
+  as.data.frame()
+
+# keep alpha vector
+alpha.Ym <- mypost.Ym[,1] %>%
+  as.data.frame() %>%
+  sample_n(1000, replace=TRUE) %>%
+  mutate(region = "Middle Mainstem") %>%
+  as.data.frame()
+
+rm(mypost.Ym)
+```
+
+
 
 
 ```{r Pelly data and model run, echo=FALSE}
@@ -1061,7 +1321,7 @@ SMAX <- mean(esc.YP$spawn)
 bpmu = 1/SMAX
 
 # set CV on prior
-bptau = 1/((3*(1/SMAX))^2)
+bptau = 1/((1)^2)
 
 Y = nrow(age.YP)          # number of calendar years observed
 a.min = 4                 # minimum age class in data set
@@ -1100,15 +1360,76 @@ jags.parms = c("R", "N", "S", "U", "alpha", "beta", "lnalpha", "phi", "C", "log.
 ```
 
 
-```{r Fit Model for Pelly group, echo=FALSE}
+```{r Fit Model for Pelly group, echo=FALSE, eval=FALSE}
 ptm = proc.time()
 
-jagsfit.YP <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=15,
-                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=6)
+jagsfit.YP <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=5,
+                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=3)
 
 endtime = proc.time()-ptm
-endtime[3]/60
+#endtime[3]/60
 ```
+
+
+```{r Pelly posterior editing, echo=FALSE}
+
+# post.YP = as.mcmc(jagsfit.YP)
+# rm(jagsfit.YP)
+
+mypost.YP = as.matrix(post.YP, chain=F)
+rm(post.YP)
+
+
+# write.csv(mypost.YP, paste("pelly_posteriors_",sys_time,".csv", sep=""), row.names = FALSE)
+
+
+
+R = post.summ(mypost.YP,"R[")
+S = post.summ(mypost.YP, "S[")
+N = post.summ(mypost.YP, "N[")
+U = post.summ(mypost.YP, "U[")
+resid = post.summ(mypost.YP, "log.resid[")
+PP = post.summ(mypost.YP, "pi[")
+alpha = post.summ(mypost.YP, "alpha")
+beta = post.summ(mypost.YP, "beta")
+phi = post.summ(mypost.YP, "phi")
+sigma = post.summ(mypost.YP, "sigma.R")
+S.msy = post.summ(mypost.YP, "S.msy")
+S.eq = post.summ(mypost.YP, "S.eq")
+S.max = post.summ(mypost.YP, "S.max")
+U.msy = post.summ(mypost.YP, "U.msy")
+
+
+output_summary_YP <- cbind(R, S, N, U, resid, PP, alpha, beta, phi, sigma, S.msy, S.max, U.msy) %>%
+  as.data.frame()
+output_summary_YP$region <- rep(c("Pelly"), (5))
+
+# subsample alpha and beta
+alphabeta_YP <- mypost.YP %>%
+  as.data.frame() %>%
+  select(alpha, beta) %>%
+  sample_n(100, replace=TRUE) %>%
+  mutate(region = "Pelly")
+
+# keep U.msy vector
+U.msy.YP <- mypost.YP[,512] %>%
+  as.data.frame() %>%
+  sample_n(1000, replace=TRUE) %>%
+  mutate(region = "Pelly") %>%
+  as.data.frame()
+
+# keep alpha vector
+alpha.YP <- mypost.YP[,1] %>%
+  as.data.frame() %>%
+  sample_n(1000, replace=TRUE) %>%
+  mutate(region = "Pelly") %>%
+  as.data.frame()
+
+rm(mypost.YP)
+```
+
+
+
 
 
 ```{r Stewart data and model run, echo=FALSE}
@@ -1131,7 +1452,7 @@ SMAX <- mean(esc.YS$spawn)
 bpmu = 1/SMAX
 
 # set CV on prior
-bptau = 1/((3*(1/SMAX))^2)
+bptau = 1/((1)^2)
 
 Y = nrow(age.YS)          # number of calendar years observed
 a.min = 4                 # minimum age class in data set
@@ -1170,15 +1491,76 @@ jags.parms = c("R", "N", "S", "U", "alpha", "beta", "lnalpha", "phi", "C", "log.
 ```
 
 
-```{r Fit Model for Stewart group, echo=FALSE}
+```{r Fit Model for Stewart group, echo=FALSE, eval=FALSE}
 ptm = proc.time()
 
-jagsfit.YS <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=15,
-                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=6)
+jagsfit.YS <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=5,
+                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=3)
 
 endtime = proc.time()-ptm
-endtime[3]/60
+#endtime[3]/60
 ```
+
+
+
+```{r Stewart posterior editing, echo=FALSE}
+
+# post.YS = as.mcmc(jagsfit.YS)
+# rm(jagsfit.YS)
+
+mypost.YS = as.matrix(post.YS, chain=F)
+rm(post.YS)
+
+
+# write.csv(mypost.YS, paste("stewart_posteriors_",sys_time,".csv", sep=""), row.names = FALSE)
+
+
+R = post.summ(mypost.YS,"R[")
+S = post.summ(mypost.YS, "S[")
+N = post.summ(mypost.YS, "N[")
+U = post.summ(mypost.YS, "U[")
+resid = post.summ(mypost.YS, "log.resid[")
+PP = post.summ(mypost.YS, "pi[")
+alpha = post.summ(mypost.YS, "alpha")
+beta = post.summ(mypost.YS, "beta")
+phi = post.summ(mypost.YS, "phi")
+sigma = post.summ(mypost.YS, "sigma.R")
+S.msy = post.summ(mypost.YS, "S.msy")
+S.eq = post.summ(mypost.YS, "S.eq")
+S.max = post.summ(mypost.YS, "S.max")
+U.msy = post.summ(mypost.YS, "U.msy")
+
+
+output_summary_YS <- cbind(R, S, N, U, resid, PP, alpha, beta, phi, sigma, S.msy, S.max, U.msy) %>%
+  as.data.frame()
+output_summary_YS$region <- rep(c("Stewart"), (5))
+
+# subsample alpha and beta
+alphabeta_YS <- mypost.YS %>%
+  as.data.frame() %>%
+  select(alpha, beta) %>%
+  sample_n(100, replace=TRUE) %>%
+  mutate(region = "Stewart")
+
+# keep U.msy vector
+U.msy.YS <- mypost.YS[,512] %>%
+  as.data.frame() %>%
+  sample_n(1000, replace=TRUE) %>%
+  mutate(region = "Stewart") %>%
+  as.data.frame()
+
+# keep alpha vector
+alpha.YS <- mypost.YS[,1] %>%
+  as.data.frame() %>%
+  sample_n(1000, replace=TRUE) %>%
+  mutate(region = "Stewart") %>%
+  as.data.frame()
+
+rm(mypost.YS)
+```
+
+
+
 
 
 ```{r Teslin data and model run, echo=FALSE}
@@ -1186,12 +1568,14 @@ endtime[3]/60
 # create input variables for Bayesian model run
 
 age.YT <- age %>%
-  filter(region == "Teslin")
+  filter(region == "Teslin River")
+
 esc.YT <- esc %>%
-  filter(region == "Teslin") %>%
+  filter(region == "Teslin River") %>%
   mutate(spawn = esc_stock/1000)
+
 harv.YT <- harv %>%
-  filter(region == "Teslin") %>%
+  filter(region == "Teslin River") %>%
   mutate(harvest = harv_stock/1000)
 
 # mean escapement over time series
@@ -1200,8 +1584,9 @@ SMAX <- mean(esc.YT$spawn)
 # turn SMAX into beta prior
 bpmu = 1/SMAX
 
+
 # set CV on prior
-bptau = 1/((3*(1/SMAX))^2)
+bptau = 1/((1)^2)
 
 Y = nrow(age.YT)          # number of calendar years observed
 a.min = 4                 # minimum age class in data set
@@ -1239,15 +1624,73 @@ jags.parms = c("R", "N", "S", "U", "alpha", "beta", "lnalpha", "phi", "C", "log.
                "D.sum", "p","log.S","beta.prior")
 ```
 
-```{r Fit Model for Teslin group, echo=FALSE}
+```{r Fit Model for Teslin group, echo=FALSE, eval=FALSE}
 ptm = proc.time()
 
-jagsfit.YT <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=15,
-                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=6)
+jagsfit.YT <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=5,
+                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=3)
 
 endtime = proc.time()-ptm
 endtime[3]/60
 ```
+
+
+```{r Teslin River posterior editing, echo=FALSE}
+
+# post.YT = as.mcmc(jagsfit.YT)
+# rm(jagsfit.YT)
+
+mypost.YT = as.matrix(post.YT, chain=F)
+rm(post.YT)
+
+
+# write.csv(mypost.YT, paste("teslin_posteriors_",sys_time,".csv", sep=""), row.names = FALSE)
+
+
+R = post.summ(mypost.YT,"R[")
+S = post.summ(mypost.YT, "S[")
+N = post.summ(mypost.YT, "N[")
+U = post.summ(mypost.YT, "U[")
+resid = post.summ(mypost.YT, "log.resid[")
+PP = post.summ(mypost.YT, "pi[")
+alpha = post.summ(mypost.YT, "alpha")
+beta = post.summ(mypost.YT, "beta")
+phi = post.summ(mypost.YT, "phi")
+sigma = post.summ(mypost.YT, "sigma.R")
+S.msy = post.summ(mypost.YT, "S.msy")
+S.eq = post.summ(mypost.YT, "S.eq")
+S.max = post.summ(mypost.YT, "S.max")
+U.msy = post.summ(mypost.YT, "U.msy")
+
+
+output_summary_YT <- cbind(R, S, N, U, resid, PP, alpha, beta, phi, sigma, S.msy, S.max, U.msy) %>%
+  as.data.frame()
+output_summary_YT$region <- rep(c("Teslin River"), (5))
+
+# subsample alpha and beta
+alphabeta_YT <- mypost.YT %>%
+  as.data.frame() %>%
+  select(alpha, beta) %>%
+  sample_n(100, replace=TRUE) %>%
+  mutate(region = "Teslin River")
+
+# keep U.msy vector
+U.msy.YT <- mypost.YT[,512] %>%
+  as.data.frame() %>%
+  sample_n(1000, replace=TRUE) %>%
+  mutate(region = "Teslin River") %>%
+  as.data.frame()
+
+# keep alpha vector
+alpha.YT <- mypost.YT[,1] %>%
+  as.data.frame() %>%
+  sample_n(1000, replace=TRUE) %>%
+  mutate(region = "Teslin River") %>%
+  as.data.frame()
+
+rm(mypost.YT)
+```
+
 
 
 ```{r Upper Lakes and Mainstem data and model run, echo=FALSE}
@@ -1270,7 +1713,7 @@ SMAX <- mean(esc.Yu$spawn)
 bpmu = 1/SMAX
 
 # set CV on prior
-bptau = 1/((3*(1/SMAX))^2)
+bptau = 1/((1)^2)
 
 Y = nrow(age.Yu)          # number of calendar years observed
 a.min = 4                 # minimum age class in data set
@@ -1308,15 +1751,73 @@ jags.parms = c("R", "N", "S", "U", "alpha", "beta", "lnalpha", "phi", "C", "log.
                "D.sum", "p","log.S","beta.prior")
 ```
 
-```{r Fit Model for Upper Lakes and Mainstem group, echo=FALSE}
+```{r Fit Model for Upper Lakes and Mainstem group, echo=FALSE, cache=TRUE, eval=FALSE}
 ptm = proc.time()
 
-jagsfit.Yu <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=15,
-                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=6)
+jagsfit.Yu <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=5,
+                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=3)
 
 endtime = proc.time()-ptm
-endtime[3]/60
+#endtime[3]/60
 ```
+
+
+```{r upper lakes and mainstem posterior editing, echo=FALSE, cache=TRUE}
+
+# post.Yu = as.mcmc(jagsfit.Yu)
+# rm(jagsfit.Yu)
+
+mypost.Yu = as.matrix(post.Yu, chain=F)
+rm(post.Yu)
+
+# write.csv(mypost.Yu, paste("upper_posteriors_",sys_time,".csv", sep=""), row.names = FALSE)
+
+
+
+R = post.summ(mypost.Yu,"R[")
+S = post.summ(mypost.Yu, "S[")
+N = post.summ(mypost.Yu, "N[")
+U = post.summ(mypost.Yu, "U[")
+resid = post.summ(mypost.Yu, "log.resid[")
+PP = post.summ(mypost.Yu, "pi[")
+alpha = post.summ(mypost.Yu, "alpha")
+beta = post.summ(mypost.Yu, "beta")
+phi = post.summ(mypost.Yu, "phi")
+sigma = post.summ(mypost.Yu, "sigma.R")
+S.msy = post.summ(mypost.Yu, "S.msy")
+S.eq = post.summ(mypost.Yu, "S.eq")
+S.max = post.summ(mypost.Yu, "S.max")
+U.msy = post.summ(mypost.Yu, "U.msy")
+
+
+output_summary_Yu <- cbind(R, S, N, U, resid, PP, alpha, beta, phi, sigma, S.msy, S.max, U.msy) %>%
+  as.data.frame()
+output_summary_Yu$region <- rep(c("Upper Lakes and Mainstem"), (5))
+
+# subsample alpha and beta
+alphabeta_Yu <- mypost.Yu %>%
+  as.data.frame() %>%
+  select(alpha, beta) %>%
+  sample_n(100, replace=TRUE) %>%
+  mutate(region = "Upper Lakes and Mainstem")
+
+# keep U.msy vector
+U.msy.Yu <- mypost.Yu[,512] %>%
+  as.data.frame() %>%
+  sample_n(1000, replace=TRUE) %>%
+  mutate(region = "Upper Lakes and Mainstem") %>%
+  as.data.frame()
+
+# keep alpha vector
+alpha.Yu <- mypost.Yu[,1] %>%
+  as.data.frame() %>%
+  sample_n(1000, replace=TRUE) %>%
+  mutate(region = "Upper Lakes and Mainstem") %>%
+  as.data.frame()
+
+rm(mypost.Yu)
+```
+
 
 
 ```{r White-Donjek data and model run, echo=FALSE}
@@ -1327,10 +1828,13 @@ age.YWD <- age %>%
   filter(region == "White-Donjek")
 esc.YWD <- esc %>%
   filter(region == "White-Donjek") %>%
-  mutate(spawn = esc_stock/1000)
+  mutate(spawn = case_when(esc_stock > 0 ~ esc_stock/1000,
+                           esc_stock == 0 ~ 0.00001)) # change 0 value to 0.0001 so model will run
+  
 harv.YWD <- harv %>%
   filter(region == "White-Donjek") %>%
-  mutate(harvest = harv_stock/1000)
+  mutate(harvest = case_when(harv_stock > 0 ~ harv_stock/1000,
+                           harv_stock == 0 ~ 0.00001)) # change 0 value to 0.0001 so model will run
 
 # mean escapement over time series
 SMAX <- mean(esc.YWD$spawn) 
@@ -1339,7 +1843,7 @@ SMAX <- mean(esc.YWD$spawn)
 bpmu = 1/SMAX
 
 # set CV on prior
-bptau = 1/((3*(1/SMAX))^2)
+bptau = 1/((1)^2)
 
 Y = nrow(age.YWD)          # number of calendar years observed
 a.min = 4                 # minimum age class in data set
@@ -1377,200 +1881,292 @@ jags.parms = c("R", "N", "S", "U", "alpha", "beta", "lnalpha", "phi", "C", "log.
                "D.sum", "p","log.S","beta.prior")
 ```
 
-```{r Fit Model for White-Donjek group, echo=FALSE}
+```{r Fit Model for White-Donjek group, echo=FALSE, cache=TRUE, eval=FALSE}
 ptm = proc.time()
 
-jagsfit.YWD <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=15,
-                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=6)
+jagsfit.YWD <- jags.parallel(data=jags.data,  parameters.to.save=jags.parms,n.thin=5,
+                            n.iter=300000, model.file=modelFilename,n.burnin = 50000,n.chains=3)
 
 endtime = proc.time()-ptm
 endtime[3]/60
 ```
 
+```{r white-donjek posterior editing, echo=FALSE, cache=TRUE}
+
+# post.YWD = as.mcmc(jagsfit.YWD)
+# rm(jagsfit.YWD)
+
+mypost.YWD = as.matrix(post.YWD, chain=F)
+rm(post.YWD)
+
+
+# write.csv(mypost.YWD, paste("whitedonjek_posteriors_",sys_time,".csv", sep=""), row.names = FALSE)
 
 
 
+R = post.summ(mypost.YWD,"R[")
+S = post.summ(mypost.YWD, "S[")
+N = post.summ(mypost.YWD, "N[")
+U = post.summ(mypost.YWD, "U[")
+resid = post.summ(mypost.YWD, "log.resid[")
+PP = post.summ(mypost.YWD, "pi[")
+alpha = post.summ(mypost.YWD, "alpha")
+beta = post.summ(mypost.YWD, "beta")
+phi = post.summ(mypost.YWD, "phi")
+sigma = post.summ(mypost.YWD, "sigma.R")
+S.msy = post.summ(mypost.YWD, "S.msy")
+S.eq = post.summ(mypost.YWD, "S.eq")
+S.max = post.summ(mypost.YWD, "S.max")
+U.msy = post.summ(mypost.YWD, "U.msy")
 
 
-```{r create dataframe of combined substock posteriors}
+output_summary_YWD <- cbind(R, S, N, U, resid, PP, alpha, beta, phi, sigma, S.msy, S.max, U.msy) %>%
+  as.data.frame()
+output_summary_YWD$region <- rep(c("White-Donjek"), (5))
 
+# subsample alpha and beta
+alphabeta_YWD <- mypost.YWD %>%
+  as.data.frame() %>%
+  select(alpha, beta) %>%
+  sample_n(100, replace=TRUE) %>%
+  mutate(region = "White-Donjek")
 
-combined_posts <- do.call("rbind", list(post.ag, post.YC, post.YlC, post.Ym, post.YP, post.YS, post.YT, post.Yu, post.YWD))
+# keep U.msy vector
+U.msy.YWD <- mypost.YWD[,512] %>%
+  as.data.frame() %>%
+  sample_n(1000, replace=TRUE) %>%
+  mutate(region = "White-Donjek") %>%
+  as.data.frame()
 
+# keep alpha vector
+alpha.YWD <- mypost.YWD[,1] %>%
+  as.data.frame() %>%
+  sample_n(1000, replace=TRUE) %>%
+  mutate(region = "White-Donjek") %>%
+  as.data.frame()
 
-# Model diagnostics and parameter summary ####
-
-# potential scale reduction factor
-#need to change dataframe for each substock
-gelman.diag(post.ag, multivariate = F)
-
-
-SUMMARY <- combined_posts %>%
-  group_by(region) %>%
-  do(R = post.summ(.,"R[")) %>%
-  do(S = post.summ(., "S[")) %>%
-  do(N = post.summ(., "N[")) %>%
-  do(U = post.summ(., "U[")) %>%  
-  do(resid = post.summ(., "log.resid[")) %>%
-  do(PP = post.summ(., "pi[")) %>% 
-  do(alpha = post.summ(., "alpha")) %>%
-  do(beta = post.summ(., "beta")) %>%
-  do(phi = post.summ(., "phi")) %>%
-  do(sigma = post.summ(., "sigma.R")) %>%
-  do(S.msy = post.summ(., "S.msy")) %>%
-  do(S.eq = post.summ(., "S.eq")) %>%
-  do(S.max = post.summ(., "S.max")) %>%
-  do(U.msy = post.summ(., "U.msy"))
-
-
-
-round(rbind(alpha, beta, sigma, phi, S.msy, S.eq, S.max, U.msy, one_over_beta), 2)
-
-mean(mypost[,'beta'])
-
-
-
-
-
-
-
-
-combined_posteriors <- do.call("rbind", list(mypost.ag, mypost.YC, mypost.YlC, mypost.Ym, mypost.YP, mypost.YS, mypost.YT, mypost.Yu, mypost.YWD))
+rm(mypost.YWD)
+```
 
 
 
+```{r create dataframe of combined substock posterior values, echo=FALSE, cache=TRUE}
+
+# merge alpha/beta subsample dataframes
+
+alpha_beta <- do.call("rbind", list(alphabeta_ag,alphabeta_YC,alphabeta_YlC,alphabeta_Ym,alphabeta_YP,
+                                    alphabeta_YS,alphabeta_YT,alphabeta_Yu,alphabeta_YWD))
 
 
-sys_time <- format(Sys.time(),"%Y-%m-%d")
-write.csv(mypost.ag, 'posterior outputs/paste("aggregate_posteriors_",sys_time,".csv", sep="")')
+combined_summary <- do.call("rbind", list(output_summary_ag, output_summary_YC, output_summary_YlC, output_summary_YP, 
+                                        output_summary_YS, output_summary_YT, output_summary_Ym, output_summary_Yu, output_summary_YWD))
+
+
+PARAMS_OUTPUT <- combined_summary %>%
+  dplyr::select(181,                                           # region
+                1,12,23,32:37,2:11,13:22,24:31,                # R
+                38,49,60,66:71,39:48,50:59,61:65,              # S
+                72,83,94,100:105,73:82,84:93,95:99,            # N 
+                106,117,128,134:139,107:116,118:127,129:133,   # U
+                140,151,162,164:169,141:150,152:161,163,       # log.resid
+                170:179)                                       # other params
+
+log_resid <- combined_summary %>%
+  dplyr::select(181,140,151,162,164:169,141:150,152:161,163)
+
+alpha_df <- do.call("rbind", list(alpha.ag, alpha.YC, alpha.YlC, alpha.Ym, alpha.YP,
+                                  alpha.YS, alpha.YT, alpha.Yu, alpha.YWD)) %>%
+  rename(alpha = ".")
+
+
+U.msy_df <- do.call("rbind", list(U.msy.ag, U.msy.YC, U.msy.YlC, U.msy.Ym, U.msy.YP, U.msy.YS, U.msy.YT, U.msy.Yu, U.msy.YWD)) %>%
+  rename(Umsy = ".") 
+
+#sys_time <- format(Sys.time(),"%Y-%m-%d")
+#write.csv(mypost.ag, 'posterior outputs/paste("aggregate_posteriors_",sys_time,".csv", sep="")')
+```
+
+
+
+```{r Figure 4 aggregate time series stock, echo=FALSE, warning=FALSE, fig.align='center', fig.dim=c(5,5), fig.cap="*Figure 4*. Time-series of aggregate Canadian spawner abundance, estimated harvest and corresponding harvest rate."}
+
+# merge spawners and harvest data frame
+w <- merge(esc.ag, harv.ag) %>%
+  select(year, spawn, harvest) %>%
+  gather(Stock, value, spawn:harvest) %>%
+  as.data.frame()
+
+er <- er %>% filter(year <= 2015) %>% as.data.frame()
+
+ggplot(w,aes(x=as.factor(year),y=value, fill = Stock)) +
+  geom_bar(stat = "identity", width=0.6, position = position_stack(reverse = FALSE)) +
+  geom_line(data=er, mapping = aes(x=as.factor(year), y=er*300), color="red",stat="identity",inherit.aes = FALSE, group=1) +
+  xlab("Year") +
+  ylab("Count (000s)") +
+  scale_fill_manual(values = c("grey76", "grey28")) +
+  scale_y_continuous(limits=c(0,300), breaks=c(0,50,100,150,200, 250, 300),
+                     sec.axis = sec_axis(~ . /3 , name = "Aggregate harvest rate (%)", 
+                                         breaks = seq(0,100,20), labels=seq(0,100,20))) +
+  scale_x_discrete(breaks = c(1982,1984,1986,1988,1990,1992,1994,1996,1998,2000,2002,2004,2006,2008,2010,2012,2014)) +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle=45,hjust=1, size=10)) +
+  theme(axis.text.y = element_text(size=10)) +
+  theme(legend.justification = "center") +
+  theme(axis.title.y.right = element_text(color="red"))
 ```
 
 
 
 
 
+```{r Figure 5 substock time series stock, echo=FALSE, warning=FALSE, fig.align='center', fig.dim=c(5,5), fig.cap= "*Figure 5*. Time-series of spawner abundance and total harvest abundance by sub-stock. Years with missing composition data (1984, 1988-1990, 1998, 2006-2007) were ‘infilled’ (i.e., the sub-stock proportions were estimated by taking the average of the values from the two closest years of data."}
 
 
-
-
-
-
-
-
-
-
-
-
-```{r Set beta prior for aggregate stock}
-# MATT:  need to double check with BC regarding new SMAX and CV prior formulas
-
-
-
-
-### old code
-
-# names(esc.full)
-# names(harv.full)
-# names(age.full)
-
-
-PRIORS <- esc.full %>%
-  group_by(region) %>%
-  summarise(SMAX = mean(esc_stock)) %>%
-  mutate(bpmu = 1/SMAX) %>%
-  mutate(bptau = (1/((3*(1/SMAX))^2))) %>%
-  select(SMAX, bpmu, bptau) %>%
+fig5_data <- merge(esc,harv) %>%
+  rename(harvest = harv_stock) %>%
+  rename(spawn = esc_stock) %>%
+  select(year, region, harvest, spawn) %>%
+  gather(Stock, value, spawn:harvest) %>%
   as.data.frame()
 
-SMAX <- PRIORS[,1]
-bpmu <- PRIORS[,2]
-bptau <- PRIORS[,3]
+ggplot(fig5_data,aes(x=as.factor(year),y=value/1000, fill = Stock)) +
+  geom_bar(stat = "identity", width=0.6, position = position_stack(reverse = FALSE)) +
+  xlab("Year") +
+  ylab("Count (000s)") +
+  scale_fill_manual(values = c("grey76", "grey28")) +
+  scale_x_discrete(breaks = c(1982,1986,1990,1994,1998,2002,2006,2010,2014)) +
+  facet_wrap(~region, nrow= 3, scales = "free_y") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle=45,hjust=1, size=10)) +
+  theme(axis.text.y = element_text(size=10)) +
+  theme(legend.justification = "center")
 ```
 
 
-```{r Format data for Bayes Model: CDN aggregate stock }
-### old code
-# head(data.full)
 
-DATA <- data.full %>%
-  mutate(Y = nrow(age.full)/9) %>%
-  mutate(a.min = 4) %>%
-  mutate(a.max = 7) %>%
-  mutate(A = a.max - a.min + 1) %>%
-  mutate(nRyrs = (Y + A - 1)) %>%
-  mutate(years = age.full[,"year"]) %>%
+
+```{r get data ready for Figure 6}
+
+# head(alpha_beta)
+
+# get range of abundances for stock; values are recorded in sp_ag vector below
+# don't need to re-run
+esc.range.sub <- esc %>%
   group_by(region) %>%
-  mutate(S.cv = ifelse(truecount == 1, 0.3, 0.5)) %>%
-  mutate(S.obs = esc_stock) %>%
-  mutate(C.cv = ifelse(truecount == 1, 0.15, 0.30)) %>%
-  mutate(C.obs = harv_stock) %>%
-  mutate(ESS = ifelse(truecount == 1, 100, 25)) %>%
-  as.data.frame()
+  mutate(min = min(esc_stock)/1000) %>%
+  mutate(max = max(esc_stock)/1000) %>%
+  distinct(region, min, max)
+
+
+esc.range.ag <- esc.ag %>%
+  mutate(min = min(spawn)) %>%
+  mutate(max = max(spawn)) %>%
+  mutate(region = "aggregate") %>%
+  distinct(region, min, max)
   
+esc.range <- full_join(esc.range.sub, esc.range.ag)
 
-DATA_REGION <- split(DATA, DATA$region) 
+#  alpha and beta
+alpha_beta2 <- alpha_beta[rep(seq_len(nrow(alpha_beta)),each=100),]
+
+# create vector of abundances for each dataframe
+sp_ag <- as.vector(seq(0,300,length.out=100))
+sp_YC <- as.vector(seq(0,25,length.out=100))
+sp_YlC <- as.vector(seq(0,7.5,length.out=100))
+sp_Ym <- as.vector(seq(0,25,length.out=100))
+sp_YP <- as.vector(seq(0,20,length.out=100))
+sp_YS <- as.vector(seq(0,90,length.out=100))
+sp_YT <- as.vector(seq(0,100,length.out=100))
+sp_Yu <- as.vector(seq(0,15,length.out=100))
+sp_YWD <- as.vector(seq(0,11,length.out=100))
+
+# repeat substock abundance vector 100 times for each value of alpha and beta
+spw_ag <- rep(c(sp_ag),(100))
+spw_YC <- rep(c(sp_YC),(100))
+spw_YlC <- rep(c(sp_YlC),(100))
+spw_Ym <- rep(c(sp_Ym),(100))
+spw_YP <- rep(c(sp_YP),(100))
+spw_YS <- rep(c(sp_YS),(100))
+spw_YT <- rep(c(sp_YT),(100)) 
+spw_Yu <- rep(c(sp_Yu),(100))
+spw_YWD <- rep(c(sp_YWD),(100))
+
+# combine abundances into single vector
+spw_df <- c(spw_ag,spw_YC,spw_YlC,spw_Ym,spw_YP,spw_YS,spw_YT,spw_Yu,spw_YWD)
+
+# add column of abundances to alphabeta_df2 dataframe
+alpha_beta2$abund <- NA
+alpha_beta2$abund <- spw_df
+
+
+# add on 'y' value that has the predicted ricker estimates per abundance value
+alpha_beta2$y <- NA
+alpha_beta2$y <- alpha_beta2$alpha*alpha_beta2$abund*exp(-alpha_beta2$beta*alpha_beta2$abund)
+
+# add scenario simulation number
+scen <- rep(1:100, each = 100)
+alpha_beta2$scenario <- NA
+alpha_beta2$scenario <- rep(c(scen),c(1))
+
+
+med_lwr_upp_PARAMS <- PARAMS_OUTPUT[c(3:5,8:10,13:15,18:20,23:25,28:30,33:35,38:40,43:45),]
+
+reg_vec <- rep(c("aggregate", "Carmacks", "Lower Mainstem", "Middle Mainstem", "Pelly", "Stewart", "Teslin River",
+                 "Upper Lakes and Mainstem", "White-Donjek"), each = 3)
+
+thresh_vec <- rep(c("median", "lower", "upper"), times = 9)
+
+R_df <- med_lwr_upp_PARAMS[1:38] %>%
+  mutate(region = reg_vec) %>%
+  mutate(threshold = thresh_vec) %>%
+  dplyr::select(1,39,2:38)
+
+S_df <- med_lwr_upp_PARAMS[,c(1,39:72)] %>%
+  mutate(region = reg_vec) %>%
+  mutate(threshold = thresh_vec) %>%
+  dplyr::select(1,36,2:35)
+
+
+# merge R and S substock dataframes
+R_S_df <- cbind(R_df, S_df)
+
+year_vec1 <- rep(c(1:37),each=27)
+year_vec2 <- rep(c(1:34), each=27)
+year_vec <- c(year_vec1, year_vec2)
+
+parameterR <- rep(c("R"), times=999)
+parameterS <- rep(c("S"), times=918)
+param_vec <- c(parameterR, parameterS)
+
+
+R_S_df2 <- R_S_df[,c(1:39,42:75)] %>%
+  gather(key = param, value = value, "R[1]":"S[34]") %>%
+  mutate(year = year_vec) %>%
+  mutate(parameter = param_vec) %>%
+  dplyr::select(region, year, threshold, parameter, value) %>%
+  spread(key=parameter, value=value)
+  
+R_S_df3 <- R_S_df2 %>%
+  nest(R,S, .key = 'value_col') %>%
+  spread(key=threshold, value = value_col) %>%
+  unnest(lower, median, upper, .sep = '_') %>%
+  as.data.frame()
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-```{r Figure 4:}
-
-
-
-
-
-
-
+```{r plot figure, fig.dim=c(5,5), fig.align='center', warning=FALSE, echo=FALSE}
+ggplot(data=R_S_df3, aes(x = median_S, y = median_R, group=region)) +
+  geom_line(data=alpha_beta2, aes(x = abund, y = y, group=scenario), colour="gray63") +
+  geom_point(size=1) +
+  geom_pointrange(aes(ymin = lower_R, ymax = upper_R)) +
+  geom_errorbarh(aes(xmin = lower_S, xmax = upper_S)) +
+  xlab("Spawners (000s)") +
+  ylab("Recruits (000s)") +
+  facet_wrap(~region, ncol=3, scales = "free") + #
+  theme_bw() +
+  theme(axis.title = element_text(size=12)) +
+  theme(axis.text = element_text(size=10))
+  
 ```
-Figure 4. Time-series of aggregate Canadian spawner abundance, estimated harvest and corresponding harvest rate.
-
-
-
-
-
-```{r Figure 5:}
-
-
-```
-Figure 5. Time-series of spawner abundance and total harvest abundance by sub-stock. Years with missing composition data (1984, 1988-1990, 1998, 2006-2007) were ‘infilled’ (i.e., the sub-stock proportions were estimated by taking the average of the values from the two closest years of data.
-
-
-
-
-
-
-```{r Figure 6:}
-
-
-```
-
 
 
 
@@ -1583,14 +2179,118 @@ We found evidence for strong serial correlation in survival (average ϕ = 0.71),
 The range of sub-stock productivities we estimated correspond to harvest rates predicted to maximize long-tern yield (i.e., UMSY) that range from ~55% to 80% (Figure 8).    
 
 
-```{r Figure 7:}
+```{r Figure 7: alpha posteriors, fig.dim=c(5,5), fig.align='center'}
 
+# list of colors that matches map colors
+# "#ffc431", orange, lower mainstem
+# "#ffc7ae", pink, pelly
+# "#a9fee0", aquamarine, stewart
+# "#dd8071", red, carmacks
+# "#f2dc3b", yellow, middle mainstem
+# "#cadeae", moss green, upper lakes
+# "#288baf", dark blue, white-donjek
+# "#d2adea", purple, teslin
+
+
+# plot productivity residuals
+# create color scheme
+MyColour <- c("gray63","#ffc431", "#a9fee0", "#ffc7ae", "#288baf", "#f2dc3b", "#dd8071", "#cadeae", "#d2adea")
+
+# order substock factors
+alpha_df$reg2 <- factor(alpha_df$region, levels = c("aggregate","Lower Mainstem","Stewart","Pelly","White-Donjek","Middle Mainstem",
+                                               "Carmacks", "Upper Lakes and Mainstem","Teslin River"))
+
+ggplot(alpha_df, aes(x=reg2, y=alpha, fill=reg2)) +
+  geom_boxplot(outlier.shape = NA, size=1.25) +
+  #coord_flip() +
+  xlab("Substock") +
+  ylab("Alpha posteriors") +
+  geom_vline(xintercept = 1.5, lty="dotted") +
+  #scale_y_continuous(limits=c(0,1)) +
+  scale_fill_manual(values = MyColour) +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle=45, hjust=1, size=10))+
+  theme(axis.text.y = element_text(size=10)) +
+  theme(axis.title = element_text(size=12)) +
+  theme(legend.position="none")
 
 ```
 
 
+```{r Figure 8: productivity index log residuals, fig.align='center', fig.dim=c(5,5), warning=FALSE}
 
-```{r Figure 8:}
+# head(log_resid)
+year_vec <- rep(c(1982:2011), each=45)
+stat_vec <- rep(c("mean","sd","median","lower","upper"), times=9)
+
+df <- log_resid %>%
+  mutate(stat=stat_vec) %>%
+  gather(key = resid, value = value, "log.resid[1]":"log.resid[30]") %>%
+  mutate(year = year_vec) %>%
+  spread(key = stat, value = value) %>%
+  arrange(region, year)
+
+# create color scheme
+MyColour <- c("gray63","#ffc431", "#a9fee0", "#ffc7ae", "#288baf", "#f2dc3b", "#dd8071", "#cadeae", "#d2adea")
+
+# order substock factors
+df$reg2 <- factor(df$region, levels = c("aggregate","Lower Mainstem","Stewart","Pelly","White-Donjek","Middle Mainstem",
+                                               "Carmacks", "Upper Lakes and Mainstem","Teslin River"))
+
+ggplot(df, aes(x=year, y = median, colour = reg2), show.legend = F) +
+  geom_point(size=1,show.legend = F) +
+  scale_color_manual(values = MyColour) +
+  geom_line(show.legend = F) +
+  geom_ribbon(aes(ymin=lower, ymax=upper,fill=reg2), show.legend = F, alpha=0.2) +
+  scale_fill_manual(values = MyColour) +
+  geom_hline(yintercept = 0, lty = "dotted") +     #geom_hline(data=df_full,aes(yintercept = alpha_adj), lty="dotted") +
+  xlab("Brood year") +
+  ylab("Productivity index") +
+  scale_x_continuous(breaks=c(1982, 1986, 1990, 1994, 1998, 2002, 2006, 2010)) +
+  scale_y_continuous(limits=c(-5,5), breaks=c(-5,-3,-1,1,3,5)) +
+  facet_wrap(~reg2,nrow=4) +  # ,scales = "free_y"
+  theme(legend.position = "none") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle=45, hjust = 1, size=10))
+```
+
+```{r Figure 9: Umsy posteriors, echo=FALSE, fig.align='center', fig.dim=c(5,5), warning=FALSE}
+
+
+# list of colors that matches map colors
+# "#ffc431", orange, lower mainstem
+# "#ffc7ae", pink, pelly
+# "#a9fee0", aquamarine, stewart
+# "#dd8071", red, carmacks
+# "#f2dc3b", yellow, middle mainstem
+# "#cadeae", moss green, upper lakes
+# "#288baf", dark blue, white-donjek
+# "#d2adea", purple, teslin
+
+
+# plot productivity residuals
+# create color scheme
+MyColour <- c("gray63","#ffc431", "#a9fee0", "#ffc7ae", "#288baf", "#f2dc3b", "#dd8071", "#cadeae", "#d2adea")
+
+# order substock factors
+U.msy_df$reg2 <- factor(U.msy_df$region, levels = c("aggregate","Lower Mainstem","Stewart","Pelly","White-Donjek","Middle Mainstem",
+                                               "Carmacks", "Upper Lakes and Mainstem","Teslin River"))
+
+
+
+ggplot(U.msy_df, aes(x=reg2, y=Umsy, fill=reg2)) +
+  geom_boxplot(outlier.shape = NA, size=1.25) +
+  #coord_flip() +
+  xlab("Substock") +
+  ylab("U.msy posteriors") +
+  geom_vline(xintercept = 1.5, lty="dotted") +
+  scale_y_continuous(limits=c(0,1)) +
+  scale_fill_manual(values = MyColour) +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle=45, hjust=1, size=10))+
+  theme(axis.text.y = element_text(size=10)) +
+  theme(axis.title = element_text(size=12)) +
+  theme(legend.position="none")
 
 
 ```
