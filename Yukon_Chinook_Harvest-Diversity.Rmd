@@ -1778,7 +1778,6 @@ endtime[3]/60
 
 ```{r white-donjek posterior editing, echo=FALSE, cache=TRUE}
 
-<<<<<<< HEAD
 # post.YWD = as.mcmc(jagsfit.YWD)
 # rm(jagsfit.YWD)
 
@@ -1787,48 +1786,6 @@ rm(post.YWD)
 
 
 # write.csv(mypost.YWD, paste("whitedonjek_posteriors_",sys_time,".csv", sep=""), row.names = FALSE)
-=======
-```{r create dataframe of combined substock posteriors}
-
-
-combined_posts <- do.call("rbind", list(post.ag, post.YC, post.YlC, post.Ym, post.YP, post.YS, post.YT, post.Yu, post.YWD))
-
-
-# Model diagnostics and parameter summary ####
-
-# potential scale reduction factor
-#need to change dataframe for each substock
-gelman.diag(post.ag, multivariate = F)
-
-
-SUMMARY <- combined_posts %>%
-  group_by(region) %>%
-  do(R = post.summ(.,"R[")) %>%
-  do(S = post.summ(., "S[")) %>%
-  do(N = post.summ(., "N[")) %>%
-  do(U = post.summ(., "U[")) %>%  
-  do(resid = post.summ(., "log.resid[")) %>%
-  do(PP = post.summ(., "pi[")) %>% 
-  do(alpha = post.summ(., "alpha")) %>%
-  do(beta = post.summ(., "beta")) %>%
-  do(phi = post.summ(., "phi")) %>%
-  do(sigma = post.summ(., "sigma.R")) %>%
-  do(S.msy = post.summ(., "S.msy")) %>%
-  do(S.eq = post.summ(., "S.eq")) %>%
-  do(S.max = post.summ(., "S.max")) %>%
-  do(U.msy = post.summ(., "U.msy"))
-
-
-
-round(rbind(alpha, beta, sigma, phi, S.msy, S.eq, S.max, U.msy, one_over_beta), 2)
-
-mean(mypost[,'beta'])
-
-
-
-
-
->>>>>>> master
 
 
 
